@@ -10,6 +10,8 @@ Ce projet est un assistant virtuel intelligent créé en Python, avec une interf
 - **Propose des suggestions contextuelles** basées sur vos questions
 - **Détecte les intentions** dans vos messages (météo, heure, aide, etc.)
 - **S'améliore avec le temps** grâce au module d'apprentissage
+- **Comprend les questions même avec des fautes** d'orthographe ou de grammaire
+- **Gère les ambiguïtés** comme la confusion entre heure et météo
 
 ## Les fichiers principaux
 
@@ -18,6 +20,7 @@ Ce projet est un assistant virtuel intelligent créé en Python, avec une interf
    - Gère les pages web et les requêtes HTTP
    - Connecte l'interface utilisateur au moteur NLP
    - Intègre les services externes comme la météo
+   - Gestion robuste des questions d'identité
 
 2. **nlp_engine.py** : Moteur de traitement du langage naturel
 
@@ -25,6 +28,7 @@ Ce projet est un assistant virtuel intelligent créé en Python, avec une interf
    - Détecte les intentions et le contexte
    - Extrait les entités importantes (villes, dates, etc.)
    - Génère des réponses adaptées
+   - Gestion intelligente des priorités (ex: météo vs date)
 
 3. **apprentissage.py** : Système d'apprentissage continu
 
@@ -36,15 +40,17 @@ Ce projet est un assistant virtuel intelligent créé en Python, avec une interf
 4. **external_services.py** : Services externes
    - Récupère la météo depuis l'API Open Meteo
    - Gère la géolocalisation des villes
+   - Détection améliorée des noms de ville
    - Interprète les codes météo
 
-## Nouveautés et améliorations
+## Dernières améliorations
 
-- **Système d'analyse d'intentions** : détection précise de ce que veut l'utilisateur
-- **Extraction d'entités** : reconnaissance des villes, dates et autres éléments importants
-- **Suggestions dynamiques** : propositions de questions pertinentes selon le contexte
-- **Apprentissage continu** : amélioration des performances avec chaque conversation
-- **Interface réactive** : expérience utilisateur fluide et moderne
+- **Détection robuste des questions d'identité** : reconnaissance améliorée des variantes de "Qui es-tu?"
+- **Priorité intelligente entre météo et date** : correction de la confusion avec "aujourd'hui" dans les questions météo
+- **Suggestions enrichies** : toutes les suggestions de météo incluent désormais une ville spécifique
+- **Détection améliorée des villes** : reconnaissance des noms de ville même sans majuscule
+- **Gestion plus souple des apostrophes et tirets** : tolérance aux variations typographiques
+- **Logging détaillé** : meilleure traçabilité des erreurs pour faciliter le debugging
 
 ## Comment faire fonctionner ce projet
 
@@ -79,8 +85,10 @@ Puis ouvrez votre navigateur à l'adresse : http://127.0.0.1:5000
 1. **Questions météo** : "Quel temps fait-il à Paris ?" ou "Météo à Tokyo"
 2. **Questions temporelles** : "Quelle heure est-il ?" ou "Quel jour sommes-nous ?"
 3. **Salutations** : "Bonjour Cindy" ou "Comment vas-tu ?"
-4. **Demandes d'aide** : "Que peux-tu faire ?" ou "Aide-moi"
-5. **Suggestions** : Cliquez sur les suggestions qui apparaissent après chaque réponse
+4. **Questions d'identité** : "Qui es-tu ?" ou "Comment t'appelles-tu ?"
+5. **Blagues** : "Raconte-moi une blague" ou "Connais-tu une histoire drôle ?"
+6. **Demandes d'aide** : "Que peux-tu faire ?" ou "Aide-moi"
+7. **Suggestions** : Cliquez sur les suggestions qui apparaissent après chaque réponse
 
 ## Personnalisation
 
@@ -89,6 +97,7 @@ Vous pouvez facilement améliorer l'agent en :
 1. **Ajoutant des intentions** dans le fichier `nlp_engine.py`
 2. **Modifiant l'apparence** dans les fichiers CSS du dossier `static/css`
 3. **Ajoutant des services externes** dans le fichier `external_services.py`
+4. **Enrichissant la base de blagues** dans la fonction `generer_reponse_simple` du fichier `nlp_engine.py`
 
 ## Guide de présentation pour votre projet
 
@@ -105,6 +114,7 @@ Vous pouvez facilement améliorer l'agent en :
 - **Erreur de module** : Vérifiez que vous avez bien installé les dépendances
 - **API météo non fonctionnelle** : Vérifiez votre connexion internet
 - **Problème d'affichage** : Essayez de vider le cache de votre navigateur
+- **Confusion dans les intentions** : Si l'agent confond météo et date, vérifiez la formulation de votre question
 
 ---
 
