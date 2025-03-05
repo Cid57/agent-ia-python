@@ -305,3 +305,78 @@
 2025-03-05 14:06:37,462 - agent - INFO - Démarrage de l'application Agent Personnel
 2025-03-05 14:06:37,474 - werkzeug - WARNING -  * Debugger is active!
 2025-03-05 14:06:37,480 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:08:30,203 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:08:30,205 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:08:30,233 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:08:30,234 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:08:30,240 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:08:30,959 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:08:30,961 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:08:30,977 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:08:30,985 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:08:33,069 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:08:33] "GET / HTTP/1.1" 200 -
+2025-03-05 14:08:33,172 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:08:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:08:33,174 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:08:33] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:08:33,182 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:08:33] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:08:35,333 - agent - INFO - Question reçue: Qui es-tu?
+2025-03-05 14:08:35,357 - agent - INFO - Intention détectée: inconnu avec score 0
+2025-03-05 14:08:35,357 - agent - INFO - Entités extraites: {'ville': 'Qui'}
+2025-03-05 14:08:35,358 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:08:35] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:08:37,559 - agent - INFO - Question reçue: Raconte-moi une blague
+2025-03-05 14:08:37,604 - agent - INFO - Intention détectée: blague avec score 8
+2025-03-05 14:08:37,605 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-05 14:08:37,606 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-05 14:08:37,607 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:08:37] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:08:50,176 - agent - INFO - Question reçue: quel temps fait il a Tokyo?
+2025-03-05 14:08:50,221 - agent - INFO - Intention détectée: meteo avec score 4
+2025-03-05 14:08:50,222 - agent - INFO - Entités extraites: {'ville': 'Tokyo'}
+2025-03-05 14:08:50,223 - agent - INFO - Demande météo pour la question: quel temps fait il a Tokyo?
+2025-03-05 14:08:50,224 - assistant_ia.external_services - INFO - Requête météo reçue: 'quel temps fait il a Tokyo?'
+2025-03-05 14:08:50,360 - assistant_ia.external_services - INFO - Ville trouvée pour la météo: Quel
+2025-03-05 14:08:50,480 - assistant_ia.external_services - ERROR - Erreur lors de l'obtention de la météo: 'str' object cannot be interpreted as an integer
+2025-03-05 14:08:50,482 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:08:50] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:09:02,767 - agent - INFO - Question reçue: quelle temps fait il a parius
+2025-03-05 14:09:02,816 - agent - INFO - Intention détectée: meteo avec score 4
+2025-03-05 14:09:02,818 - agent - INFO - Entités extraites: {}
+2025-03-05 14:09:02,819 - agent - INFO - Demande météo pour la question: quelle temps fait il a parius
+2025-03-05 14:09:02,820 - assistant_ia.external_services - INFO - Requête météo reçue: 'quelle temps fait il a parius'
+2025-03-05 14:09:02,957 - assistant_ia.external_services - INFO - Ville trouvée pour la météo: Quelle
+2025-03-05 14:09:03,058 - assistant_ia.external_services - ERROR - Erreur lors de l'obtention de la météo: 'str' object cannot be interpreted as an integer
+2025-03-05 14:09:03,061 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:09:03] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:09:07,056 - agent - INFO - Question reçue: Quelle est la météo à Lyon ?
+2025-03-05 14:09:07,074 - agent - INFO - Intention détectée: meteo avec score 5
+2025-03-05 14:09:07,076 - agent - INFO - Entités extraites: {'ville': 'Lyon'}
+2025-03-05 14:09:07,077 - agent - INFO - Demande météo pour la question: Quelle est la météo à Lyon ?
+2025-03-05 14:09:07,077 - assistant_ia.external_services - INFO - Requête météo reçue: 'Quelle est la météo à Lyon ?'
+2025-03-05 14:09:07,176 - assistant_ia.external_services - INFO - Ville trouvée pour la météo: Lyon
+2025-03-05 14:09:07,288 - assistant_ia.external_services - ERROR - Erreur lors de l'obtention de la météo: 'str' object cannot be interpreted as an integer
+2025-03-05 14:09:07,290 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:09:07] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:09:14,460 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:09:14,535 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:09:15,245 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:09:15,248 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:09:15,262 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:09:15,267 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:09:57,621 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 14:09:57,712 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:09:58,439 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:09:58,441 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:09:58,457 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:09:58,464 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:10:00,902 - agent - INFO - Question reçue: quel temps fait il a Tokyo?
+2025-03-05 14:10:00,960 - agent - INFO - Intention détectée: meteo avec score 4
+2025-03-05 14:10:00,961 - agent - INFO - Entités extraites: {'ville': 'Tokyo'}
+2025-03-05 14:10:00,962 - agent - INFO - Demande météo pour la question: quel temps fait il a Tokyo?
+2025-03-05 14:10:00,963 - assistant_ia.external_services - INFO - Requête météo reçue: 'quel temps fait il a Tokyo?'
+2025-03-05 14:10:01,056 - assistant_ia.external_services - INFO - Ville trouvée pour la météo: Quel
+2025-03-05 14:10:01,603 - assistant_ia.external_services - ERROR - Erreur lors de l'obtention de la météo: 'str' object cannot be interpreted as an integer
+2025-03-05 14:10:01,605 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:10:01] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:10:29,770 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:10:29,845 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:10:30,606 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:10:30,608 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:10:30,623 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:10:30,628 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:11:42,280 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\apprentissage.py', reloading
+2025-03-05 14:11:42,341 - werkzeug - INFO -  * Restarting with stat

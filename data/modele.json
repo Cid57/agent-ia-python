@@ -1,0 +1,148 @@
+{
+    "salutation": {
+        "mots_cles": {
+            "hello": 0,
+            "coucou": 0
+        },
+        "expressions": {}
+    },
+    "meteo": {
+        "mots_cles": {
+            "quelle": 5,
+            "météo": 5,
+            "fait": 5,
+            "est": 5,
+            "temps": 5,
+            "lyon": 5,
+            "aujourd": 5,
+            "hui": 5,
+            "quel": 5,
+            "paris": 5,
+            "pour": 5,
+            "chaud": 5,
+            "metz": 5,
+            "aura": 5,
+            "pluie": 5,
+            "demain": 5,
+            "donne": 5,
+            "moi": 5,
+            "meteo": 5,
+            "tokyo": 5,
+            "new": 0,
+            "york": 0,
+            "nancy": 0,
+            "marseille": 5,
+            "bordeaux": 3,
+            "parius": 0,
+            "strasbourg": 0,
+            "nice": 1,
+            "bali": 0,
+            "heure": 3,
+            "pleut": 1
+        },
+        "expressions": {
+            "quelle est": 8,
+            "temps fait": 8,
+            "aujourd hui": 8,
+            "quel temps": 8,
+            "quel temps fait": 8,
+            "pluie demain": 8,
+            "paris aujourd": 8,
+            "paris aujourd hui": 8,
+            "donne moi": 8,
+            "météo pour": 8,
+            "quelle temps": 8,
+            "quelle temps fait": 8,
+            "météo aujourd": 8,
+            "météo aujourd hui": 8,
+            "quelle heure": 6
+        }
+    },
+    "heure": {
+        "mots_cles": {
+            "quelle": 3,
+            "heure": 5,
+            "est": 3,
+            "demandez": 0,
+            "moi": 0
+        },
+        "expressions": {
+            "quelle heure": 8,
+            "quelle heure est": 8,
+            "heure est": 8
+        }
+    },
+    "date": {
+        "mots_cles": {
+            "quel": 5,
+            "jour": 5,
+            "sommes": 5,
+            "nous": 5,
+            "aujourd": 5,
+            "hui": 5,
+            "quelle": 2,
+            "est": 2,
+            "date": 2,
+            "temps": 2,
+            "fait": 2,
+            "météo": 0,
+            "paris": 0
+        },
+        "expressions": {
+            "quel jour": 8,
+            "quel jour sommes": 8,
+            "jour sommes": 8,
+            "jour sommes nous": 8,
+            "sommes nous": 8,
+            "aujourd hui": 8,
+            "quelle est": 6,
+            "date aujourd": 4,
+            "date aujourd hui": 4,
+            "quel temps": 4,
+            "quel temps fait": 4,
+            "temps fait": 4
+        }
+    },
+    "capacites": {
+        "mots_cles": {
+            "quelles": 0,
+            "sont": 0,
+            "tes": 0,
+            "fonctionnalités": 0
+        },
+        "expressions": {}
+    },
+    "aide": {
+        "mots_cles": {
+            "comment": 0,
+            "peux": 0,
+            "aider": 0
+        },
+        "expressions": {}
+    },
+    "blague": {
+        "mots_cles": {
+            "raconte": 5,
+            "moi": 5,
+            "une": 5,
+            "blague": 5,
+            "essayez": 0,
+            "poser": 0,
+            "question": 0,
+            "simple": 0
+        },
+        "expressions": {
+            "raconte moi": 8,
+            "raconte moi une": 8,
+            "moi une": 8,
+            "moi une blague": 8,
+            "une blague": 8
+        }
+    },
+    "identite": {
+        "mots_cles": {
+            "qui": 0
+        },
+        "expressions": {}
+    }
+}

@@ -10,7 +10,7 @@ import logging
 from datetime import datetime
 
 # Importer notre nouveau module d'apprentissage
-from apprentissage import sauvegarder_interaction, charger_modele_ameliore
+from apprentissage import sauvegarder_interaction, charger_modele_ameliore, predire_intention
 
 # Configuration du logger
 logging.basicConfig(
@@ -28,7 +28,9 @@ INTENTIONS = {
     "salutation": {
         "mots_cles": {
             "bonjour": 3, "salut": 3, "hello": 3, "coucou": 3, "hey": 2,
-            "bonsoir": 3, "jour": 1, "soir": 1
+            "bonsoir": 3, "jour": 1, "soir": 1, "yo": 2, "hi": 2,
+            "bon matin": 3, "buenos dias": 2, "hola": 2, "good morning": 2,
+            "bjr": 3, "bsr": 3, "re": 2
         }
     },
     "meteo": {
@@ -37,7 +39,11 @@ INTENTIONS = {
             "froid": 2, "pluie": 3, "soleil": 3, "nuage": 2, "météo": 5,
             "neige": 3, "ensoleillé": 3, "pluvieux": 3, "degrés": 3, "météorologique": 4,
             "pleuvoir": 5, "pleut": 5, "pleuvra": 5, "va-t-il pleuvoir": 6, "va t il pleuvoir": 6,
-            "va-t-il": 2, "va t il": 2, "fera-t-il": 2, "fera t il": 2
+            "va-t-il": 2, "va t il": 2, "fera-t-il": 2, "fera t il": 2, "prévoir": 3,
+            "prévisions": 4, "nuageux": 3, "orageux": 3, "humidité": 3, "venteux": 3,
+            "chaleur": 3, "gelée": 3, "degrés celsius": 4, "celsius": 3, "tempête": 4,
+            "averse": 4, "beau temps": 4, "mauvais temps": 4, "ciel": 2, "éclair": 3,
+            "tonnerre": 3, "brouillard": 3
         }
     },
     "heure": {
@@ -77,6 +83,17 @@ INTENTIONS = {
             "faire": 3, "capable": 4, "capacités": 5, "fonctionnalités": 4, "options": 3,
             "possibilités": 4, "quoi faire": 4, "que sais-tu": 5, "que peux-tu": 5,
             "commandes": 3, "fonctions": 3, "services": 2
+        }
+    },
+    "identite": {
+        "mots_cles": {
+            "qui es-tu": 6, "qui es tu": 6, "t'appelles": 5, "t'appelle": 5, "appelles-tu": 5,
+            "ton nom": 5, "ton prénom": 5, "es-tu qui": 4, "es tu qui": 4, "es-tu": 4, "es tu": 4,
+            "identité": 4, "présente-toi": 5, "présente toi": 5, "tu es qui": 6, "toi": 2,
+            "prénom": 3, "nom": 3, "connaitre": 1, "connaître": 1, "à propos de toi": 4,
+            "tu t'appelles": 5, "tu t appelles": 5, "c'est quoi ton nom": 5, "c est quoi ton nom": 5,
+            "qui tu es": 6, "ton identité": 5, "parle-moi de toi": 5, "parle moi de toi": 5,
+            "dis-moi qui tu es": 6, "dis moi qui tu es": 6, "cindy": 3
         }
     },
     "blague": {
@@ -207,35 +224,121 @@ def calculer_score_intention(question, mots_cles):
     Calcule un score pour une intention en fonction des mots-clés présents.
     """
     question = question.lower()
+    # Normaliser la question pour gérer les variations d'apostrophes
+    question_normalisee = question.replace("'", " ").replace("-", " ")
     score = 0
     
     for mot, poids in mots_cles.items():
-        # Vérifie si le mot-clé est présent dans la question
+        # Vérifier si le mot-clé exact est présent dans la question originale
         if re.search(r'\b' + re.escape(mot) + r'\b', question):
             score += poids
+        # Vérifier également dans la version normalisée pour les mots avec apostrophes
+        elif '-' in mot or "'" in mot:
+            mot_normalise = mot.replace("'", " ").replace("-", " ")
+            if re.search(r'\b' + re.escape(mot_normalise) + r'\b', question_normalisee):
+                score += poids
     
     return score
 
 def determiner_intention(question):
     """
-    Détermine l'intention de l'utilisateur en fonction de sa question.
-    Retourne un tuple (intention, score, entites).
+    Détermine l'intention principale de la question.
+    Utilise à la fois notre système de mots-clés et notre modèle amélioré.
+    
+    Args:
+        question (str): La question posée par l'utilisateur
+        
+    Returns:
+        tuple: (intention, score, entites)
     """
-    scores = {}
-    for intention, data in INTENTIONS.items():
-        scores[intention] = calculer_score_intention(question, data["mots_cles"])
-    
-    # Trouver l'intention avec le score le plus élevé
-    intention_max = max(scores.items(), key=lambda x: x[1])
-    
-    # Extraire des entités potentielles
+    # Extraire les entités (ville, nombre, etc.)
     entites = extraire_entites(question)
     
-    # Si le score maximum est trop faible, l'intention est inconnue
-    if intention_max[1] < 2:
-        return ("inconnu", 0, entites)
+    # Convertir la question en minuscules pour les comparaisons
+    question_lower = question.lower()
     
-    return (intention_max[0], intention_max[1], entites)
+    # Vérifier si la question contient des mots-clés liés à la météo
+    mots_meteo = ["météo", "meteo", "temps", "température", "temperature", "climat", "pleuvoir", "pluie", "neige", "soleil"]
+    est_meteo = any(mot in question_lower for mot in mots_meteo)
+    
+    # Vérifier d'abord si la question contient explicitement des mots-clés pour l'heure
+    mots_heure = ["heure", "quelle heure", "horloge", "quelle heure est-il", "il est quelle heure"]
+    est_heure = any(mot in question_lower for mot in mots_heure)
+    
+    # Vérifier si la question contient des mots-clés pour la date
+    mots_date = ["date", "jour", "aujourd'hui", "quel jour", "quelle date"]
+    est_date = any(mot in question_lower for mot in mots_date)
+    
+    # Priorité à la météo si les deux sont présents
+    if est_meteo and est_date:
+        # Si la météo et la date sont mentionnées ensemble, on privilégie la météo
+        logger.info(f"Question contient à la fois des mots de météo et de date, priorité à la météo")
+        return "meteo", 1.0, entites
+    
+    # Si c'est une demande d'heure explicite
+    if est_heure:
+        return "heure", 1.0, entites
+        
+    # Si c'est une demande de date explicite (et pas de météo)
+    if est_date:
+        return "date", 1.0, entites
+
+    # Si ce n'est pas l'heure ou la date, continuer avec l'analyse normale
+    # Utiliser notre modèle amélioré pour prédire l'intention
+    modele_ameliore = charger_modele_ameliore()
+    
+    # Obtenir la prédiction du modèle
+    intention_predite, score_predit = predire_intention(question, modele_ameliore)
+    
+    # Si le score est assez élevé, utiliser la prédiction du modèle
+    if score_predit >= 0.7:
+        logger.info(f"Intention prédite par le modèle amélioré: {intention_predite} avec score {score_predit}")
+        return intention_predite, score_predit, entites
+    
+    # Sinon, utiliser notre système de score basé sur les mots-clés
+    # Dictionnaire des catégories avec leurs mots-clés
+    mots_cles = {
+        "salutation": ["bonjour", "salut", "hello", "coucou", "hey", "bjr", "bonsoir"],
+        "meteo": ["météo", "meteo", "température", "temperature", "climat", "pleuvoir", "neige", "soleil", "pluie"],
+        "heure": ["heure", "horloge", "montre", "minute", "seconde", "quelle heure"],
+        "date": ["date", "jour", "mois", "année", "quel jour", "calendrier"],
+        "remerciement": ["merci", "remercie", "remercier", "thanks", "thx", "grateful"],
+        "bien_etre": ["comment vas", "comment ça va", "ça va", "ca va", "bien", "santé", "humeur"],
+        "aide": ["aide", "aider", "help", "assister", "assistance", "secourir", "secours"],
+        "capacites": ["peux-tu", "es-tu capable", "capacité", "compétence", "fonctionnalité", "fonction"],
+        "blague": ["blague", "histoire drôle", "faire rire", "raconter une blague", "connais-tu une blague"],
+        "identite": ["qui es-tu", "qui es tu", "qui tu es", "comment t'appelles-tu", "comment t appelles tu", "ton nom", "tu es qui", "tu t'appelles comment", "tu t appelles comment", "prénom", "présente-toi", "présente toi", "identité"]
+    }
+    
+    # Calculer le score pour chaque intention
+    scores = {}
+    for categorie, keywords in mots_cles.items():
+        score = calculer_score_intention(question, keywords)
+        scores[categorie] = score
+        
+    # Vérification explicite pour l'intention identité
+    if "qui es-tu" in question_lower or "qui es tu" in question_lower or "qui es tu?" in question_lower or "qui es-tu?" in question_lower:
+        scores["identite"] = max(scores.get("identite", 0) + 1.0, 1.0)
+        
+    # Traitement spécial pour le mot "temps" qui peut être ambigu
+    if "temps" in question.lower():
+        # Vérifier si c'est probablement une question sur l'heure
+        if any(mot in question.lower() for mot in ["quel temps", "combien de temps"]):
+            scores["heure"] += 0.5
+        # Sinon, c'est probablement une question sur la météo
+        else:
+            scores["meteo"] += 0.5
+            
+    # Trouver l'intention avec le score le plus élevé
+    intention_max = max(scores, key=scores.get)
+    score_max = scores[intention_max]
+    
+    # Si le score est trop faible, considérer comme intention inconnue
+    if score_max < 0.2:
+        intention_max = "inconnu"
+        score_max = 0
+        
+    return intention_max, score_max, entites
 
 def generer_reponse_simple(intention, entites=None):
     """
@@ -257,7 +360,7 @@ def generer_reponse_simple(intention, entites=None):
         "heure": [
             f"Il est actuellement {datetime.now().strftime('%H:%M')}.",
             f"L'heure actuelle est {datetime.now().strftime('%H:%M')}.",
-            f"Il est {datetime.now().strftime('%H:%M')} à ma montre."
+            f"Il est {datetime.now().strftime('%H:%M')}."
         ],
         "date": [
             f"Nous sommes le {datetime.now().strftime('%d/%m/%Y')}.",
@@ -283,6 +386,11 @@ def generer_reponse_simple(intention, entites=None):
             "Je peux vous donner la météo, l'heure, la date, et répondre à vos questions générales.",
             "Mes capacités incluent : informations météo, heure et date, assistance générale et conversation simple.",
             "Je suis capable de vous informer sur la météo, vous donner l'heure et la date, et répondre à diverses questions."
+        ],
+        "identite": [
+            "Je suis Cindy, votre assistant IA personnel. Je suis là pour vous aider avec diverses questions et tâches.",
+            "Je m'appelle Cindy, une intelligence artificielle conçue pour répondre à vos questions et vous assister au quotidien.",
+            "Je suis Cindy, un assistant virtuel développé pour vous aider. Je peux répondre à vos questions sur la météo, l'heure et bien plus encore."
         ],
         "blague": [
             "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !",
@@ -326,22 +434,30 @@ def analyser_et_repondre(question, contexte=None):
             "intention": "erreur",
             "score": 0,
             "entites": {},
-            "suggestions": ["Essayez de me poser une question sur la météo", "Demandez-moi l'heure", "Demandez-moi comment je vais"]
+            "suggestions": ["Essayez de me poser une question sur la météo à Paris", "Demandez-moi l'heure", "Demandez-moi comment je vais"]
         }
     
     try:
+        logger.info(f"Début d'analyse de la question: '{question}'")
+        
         # Déterminer l'intention de la question
         intention, score, entites = determiner_intention(question)
         logger.info(f"Question: '{question}' → Intention: {intention} (score: {score}), Entités: {entites}")
         
         # Générer une réponse simple en fonction de l'intention
+        logger.info(f"Génération de réponse pour l'intention: {intention}")
         reponse = generer_reponse_simple(intention, entites)
+        logger.info(f"Réponse générée: {reponse}")
         
         # Générer des suggestions basées sur l'intention
+        logger.info(f"Génération de suggestions pour l'intention: {intention}")
         suggestions = generer_suggestions(intention)
         
         # Enregistrer l'interaction pour l'apprentissage
-        sauvegarder_interaction(question, reponse, intention, score, entites)
+        try:
+            sauvegarder_interaction(question, reponse, intention, score, entites)
+        except Exception as e_save:
+            logger.error(f"Erreur lors de l'enregistrement de l'interaction: {str(e_save)}")
         
         # Retourner le résultat
         return {
@@ -352,13 +468,16 @@ def analyser_et_repondre(question, contexte=None):
             "suggestions": suggestions
         }
     except Exception as e:
+        import traceback
+        error_trace = traceback.format_exc()
         logger.error(f"Erreur lors de l'analyse de la question: {str(e)}")
+        logger.error(f"Détail de l'erreur: {error_trace}")
         return {
             "reponse": "Désolée, une erreur s'est produite lors du traitement de votre question.",
             "intention": "erreur",
             "score": 0,
             "entites": {},
-            "suggestions": ["Essayez de poser une question simple", "Demandez-moi la météo", "Demandez-moi l'heure"]
+            "suggestions": ["Essayez de poser une question simple", "Demandez-moi la météo à Paris", "Demandez-moi l'heure"]
         }
 
 def generer_suggestions(intention):
@@ -367,57 +486,76 @@ def generer_suggestions(intention):
     """
     suggestions = {
         "salutation": [
-            "Quelle est la météo aujourd'hui ?",
+            "Quelle est la météo à Paris aujourd'hui ?",
             "Quelle heure est-il ?",
-            "Raconte-moi une blague"
+            "Qui es-tu ?",
+            "Raconte-moi une blague",
+            "Comment vas-tu ?"
         ],
         "meteo": [
             "Quel temps fait-il à Paris ?",
-            "Quelle est la météo à Lyon ?",  # Formulation différente
-            "Donne-moi la météo pour Marseille",  # Autre formulation
-            "Va-t-il pleuvoir à Bordeaux demain ?",  # Question sur la pluie
-            "Fait-il chaud à Nice ?",  # Question sur la température
-            "Météo à Strasbourg"  # Format court
+            "Quelle est la météo à Lyon ?",
+            "Va-t-il pleuvoir à Bordeaux demain ?",
+            "Fait-il chaud à Nice ?",
+            "Quel temps fait-il à Marseille ?",
+            "Météo à Strasbourg aujourd'hui",
+            "Quelle est la température à Toulouse ?"
         ],
         "heure": [
             "Quelle est la date aujourd'hui ?",
             "Quel jour sommes-nous ?",
+            "Qui es-tu ?",
             "Raconte-moi une blague"
         ],
         "date": [
             "Quelle heure est-il ?",
-            "Quel temps fait-il aujourd'hui ?",
-            "Raconte-moi une blague"
+            "Quel temps fait-il à Paris aujourd'hui ?",
+            "Raconte-moi une blague",
+            "Qui es-tu ?"
         ],
         "remerciement": [
-            "Quelle est la météo aujourd'hui ?",
+            "Quelle est la météo à Paris aujourd'hui ?",
             "Raconte-moi une blague",
+            "Qui es-tu ?",
             "Quelles sont tes capacités ?"
         ],
         "bien_etre": [
-            "Quelle est la météo aujourd'hui ?",
+            "Quelle est la météo à Lyon aujourd'hui ?",
             "Raconte-moi une blague",
-            "Que peux-tu faire ?"
+            "Qui es-tu ?",
+            "Quelles sont tes capacités ?"
         ],
         "aide": [
             "Quelle est la météo à Paris ?",
             "Quelle heure est-il ?",
+            "Qui es-tu ?",
+            "Quelles sont tes capacités ?",
             "Raconte-moi une blague"
         ],
         "capacites": [
             "Donne-moi la météo pour Paris",
             "Quelle heure est-il ?",
-            "Raconte-moi une blague"
+            "Raconte-moi une blague",
+            "Qui es-tu ?"
+        ],
+        "identite": [
+            "Quelles sont tes capacités ?",
+            "Raconte-moi une blague",
+            "Quelle est la météo à Paris aujourd'hui ?",
+            "Comment vas-tu ?"
         ],
         "blague": [
             "Raconte-moi une autre blague",
-            "Quelle est la météo aujourd'hui ?",
-            "Comment vas-tu ?"
+            "Quelle est la météo à Marseille aujourd'hui ?",
+            "Comment vas-tu ?",
+            "Qui es-tu ?"
         ],
         "inconnu": [
-            "Quelle est la météo aujourd'hui ?",
+            "Quelle est la météo à Paris aujourd'hui ?",
+            "Qui es-tu ?",
+            "Raconte-moi une blague",
             "Quelle heure est-il ?",
-            "Raconte-moi une blague"
+            "Comment vas-tu ?"
         ]
     }
     
@@ -427,9 +565,13 @@ def generer_suggestions(intention):
         if intention == "meteo":
             import random
             return random.sample(suggestions[intention], 3)
-        return suggestions[intention]
+        # Pour les autres intentions, sélectionner 3 ou 4 suggestions aléatoires
+        else:
+            import random
+            max_suggestions = min(4, len(suggestions[intention]))
+            return random.sample(suggestions[intention], max_suggestions)
     else:
-        return suggestions["inconnu"]
+        return random.sample(suggestions["inconnu"], 3)
 
 # Tests unitaires simples si le script est exécuté directement
 if __name__ == "__main__":

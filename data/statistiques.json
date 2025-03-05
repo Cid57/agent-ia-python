@@ -1,0 +1,114 @@
+{
+    "nombre_interactions": 80,
+    "distribution_intentions": {
+        "salutation": 2,
+        "meteo": 47,
+        "inconnu": 7,
+        "heure": 4,
+        "date": 10,
+        "capacites": 1,
+        "aide": 1,
+        "blague": 7,
+        "identite": 1
+    },
+    "entites_frequentes": {
+        "meteo": {
+            "Paris": 9,
+            "Marseille": 7,
+            "Fait": 5,
+            "Quelle": 4,
+            "Lyon": 3
+        },
+        "inconnu": {
+            "Qui": 2,
+            "Est": 1,
+            "Raconte": 1,
+            "Va": 1
+        },
+        "heure": {
+            "Quelle": 3,
+            "Demandez": 1
+        },
+        "date": {
+            "Quel": 6,
+            "Quelle": 2,
+            "Paris": 1
+        },
+        "capacites": {
+            "Quelles": 1
+        },
+        "aide": {
+            "Comment": 1
+        },
+        "blague": {
+            "Raconte": 5,
+            "Essayez": 1
+        },
+        "identite": {
+            "Qui": 1
+        }
+    },
+    "scores_moyens": {
+        "salutation": 3.0,
+        "meteo": 9.063829787234043,
+        "inconnu": 0.0,
+        "heure": 2.0,
+        "date": 1.4,
+        "capacites": 4.0,
+        "aide": 7.0,
+        "blague": 30.571428571428573,
+        "identite": 10.0
+    },
+    "questions_frequentes": [
+        [
+            "raconte-moi une blague",
+            6
+        ],
+        [
+            "quel jour sommes-nous ?",
+            4
+        ],
+        [
+            "quelle est la météo à paris aujourd'hui?",
+            4
+        ],
+        [
+            "quelle heure est-il?",
+            4
+        ],
+        [
+            "fait-il chaud à lyon ?",
+            3
+        ],
+        [
+            "quel temps fait-il à paris ?",
+            3
+        ],
+        [
+            "quelle est la météo à lyon ?",
+            3
+        ],
+        [
+            "quelle est la météo aujourd'hui ?",
+            2
+        ],
+        [
+            "y aura-t-il de la pluie demain ?",
+            2
+        ],
+        [
+            "va-t-il pleuvoir à bordeaux demain ?",
+            2
+        ]
+    ],
+    "intentions_par_jour": {
+        "2025-03-05": {
+            "meteo": 27,
+            "identite": 1,
+            "blague": 5,
+            "heure": 3,
+            "date": 8
+        }
+    },
+    "derniere_mise_a_jour": "2025-03-05 15:00:47"
+}

@@ -52,6 +52,34 @@ def poser_question(question):
                 "suggestions": SUGGESTIONS_DEFAUT
             }
         
+        # Nettoyer la question (supprimer les espaces en trop)
+        question = question.strip()
+        
+        # Traitement spécial pour la question "Qui es-tu?"
+        question_lower = question.lower().replace('?', '').replace('-', ' ').replace("'", ' ').strip()
+        identity_patterns = ["qui es tu", "qui estu", "tu es qui", "t es qui", "es tu qui", "qui tu es", 
+                            "c est qui tu", "c qui tu es", "qui est tu", "qui est toi"]
+        
+        is_identity_question = False
+        for pattern in identity_patterns:
+            if pattern in question_lower:
+                is_identity_question = True
+                break
+                
+        if is_identity_question:
+            logger.info("Question spéciale d'identité détectée: " + question)
+            reponse = "Je suis Cindy, votre assistant IA personnel. Je suis là pour vous aider avec diverses questions et tâches comme la météo, l'heure, des blagues et bien plus encore."
+            suggestions = [
+                "Quelles sont tes capacités ?",
+                "Raconte-moi une blague",
+                "Quelle est la météo à Paris aujourd'hui ?",
+                "Comment vas-tu ?"
+            ]
+            return {
+                "reponse": reponse,
+                "suggestions": suggestions
+            }
+        
         # Utiliser notre moteur NLP pour analyser la question
         logger.info(f"Question reçue: {question}")
         resultat = analyser_et_repondre(question)

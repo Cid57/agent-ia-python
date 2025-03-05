@@ -1,0 +1,861 @@
+2025-03-05 14:11:43,050 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:11:43,051 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:11:43,053 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:11:43,069 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:11:43,075 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:13:26,648 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:13:26,665 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:13:26,669 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:13:26,705 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:13:26,706 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:13:26,712 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:13:27,445 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:13:27,446 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:13:27,448 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:13:27,462 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:13:27,468 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:13:30,956 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:13:30] "GET / HTTP/1.1" 200 -
+2025-03-05 14:13:31,055 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:13:31] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:13:31,056 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:13:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:13:31,090 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:13:31] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:13:38,444 - agent - INFO - Question reçue: Quelle est la météo à Paris aujourd'hui?
+2025-03-05 14:13:38,445 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:13:38,451 - nlp_engine - INFO - Utilisation de l'intention statique: meteo (score: 5)
+2025-03-05 14:13:38,492 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:13:38,492 - agent - INFO - Intention détectée: meteo avec score 5
+2025-03-05 14:13:38,493 - agent - INFO - Entités extraites: {'ville': 'Paris'}
+2025-03-05 14:13:38,493 - agent - INFO - Demande météo pour la question: Quelle est la météo à Paris aujourd'hui?
+2025-03-05 14:13:38,493 - assistant_ia.external_services - INFO - Requête météo reçue: 'Quelle est la météo à Paris aujourd'hui?'
+2025-03-05 14:13:38,602 - assistant_ia.external_services - INFO - Ville trouvée pour la météo: Paris
+2025-03-05 14:13:38,735 - assistant_ia.external_services - ERROR - Erreur lors de l'obtention de la météo: 'str' object cannot be interpreted as an integer
+2025-03-05 14:13:38,737 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:13:38] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:15:10,346 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 14:15:10,404 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:15:11,141 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:15:11,142 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:15:11,146 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:15:11,160 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:15:11,168 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:15:48,476 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 14:15:48,538 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:15:49,218 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:15:49,218 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:15:49,221 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:15:49,235 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:15:49,240 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:16:07,396 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 14:16:07,452 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:16:08,225 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:16:08,226 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:16:08,228 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:16:08,245 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:16:08,251 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:16:56,835 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:16:56,836 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:16:56,839 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:16:56,860 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:16:56,861 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:16:56,867 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:16:57,594 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:16:57,596 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:16:57,600 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:16:57,617 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:16:57,623 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:17:00,914 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:17:00] "GET / HTTP/1.1" 200 -
+2025-03-05 14:17:01,004 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:17:01] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:17:01,006 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:17:01] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:17:01,016 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:17:01] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:17:04,128 - agent - INFO - Question reçue: Quelle est la météo à Paris aujourd'hui?
+2025-03-05 14:17:04,130 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:17:04,133 - nlp_engine - INFO - Utilisation de l'intention statique: meteo (score: 5)
+2025-03-05 14:17:04,163 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:17:04,164 - agent - INFO - Intention détectée: meteo avec score 5
+2025-03-05 14:17:04,164 - agent - INFO - Entités extraites: {'ville': 'Paris'}
+2025-03-05 14:17:04,165 - agent - INFO - Demande météo pour la question: Quelle est la météo à Paris aujourd'hui?
+2025-03-05 14:17:04,165 - assistant_ia.external_services - INFO - Requête météo reçue: 'Quelle est la météo à Paris aujourd'hui?'
+2025-03-05 14:17:04,166 - assistant_ia.external_services - INFO - Nom de ville extrait de 'Quelle est la météo à Paris aujourd'hui?': Paris
+2025-03-05 14:17:04,277 - assistant_ia.external_services - INFO - Ville trouvée dans l'API: Paris (48.85341, 2.3488)
+2025-03-05 14:17:04,277 - assistant_ia.external_services - INFO - Ville trouvée pour la météo: Paris
+2025-03-05 14:17:04,278 - assistant_ia.external_services - INFO - URL de l'API météo: https://api.open-meteo.com/v1/forecast?latitude=48.85341&longitude=2.3488&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,weather_code,cloud_cover,wind_speed_10m,wind_direction_10m&timezone=auto&forecast_days=1
+2025-03-05 14:17:04,385 - assistant_ia.external_services - ERROR - Erreur lors de l'obtention de la météo: 'str' object cannot be interpreted as an integer
+Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\external_services.py", line 279, in obtenir_meteo
+    "timestamp": datetime.fromtimestamp(current.get("time", 0)).strftime("%d %B %Y, %H:%M"),
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+2025-03-05 14:17:04,391 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:17:04] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:17:08,365 - agent - INFO - Question reçue: Quelle est la météo à Lyon ?
+2025-03-05 14:17:08,367 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:17:08,369 - nlp_engine - INFO - Utilisation de l'intention statique: meteo (score: 5)
+2025-03-05 14:17:08,416 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:17:08,418 - agent - INFO - Intention détectée: meteo avec score 5
+2025-03-05 14:17:08,419 - agent - INFO - Entités extraites: {'ville': 'Lyon'}
+2025-03-05 14:17:08,420 - agent - INFO - Demande météo pour la question: Quelle est la météo à Lyon ?
+2025-03-05 14:17:08,421 - assistant_ia.external_services - INFO - Requête météo reçue: 'Quelle est la météo à Lyon ?'
+2025-03-05 14:17:08,422 - assistant_ia.external_services - INFO - Nom de ville extrait de 'Quelle est la météo à Lyon ?': Lyon
+2025-03-05 14:17:08,530 - assistant_ia.external_services - INFO - Ville trouvée dans l'API: Lyon (45.74846, 4.84671)
+2025-03-05 14:17:08,532 - assistant_ia.external_services - INFO - Ville trouvée pour la météo: Lyon
+2025-03-05 14:17:08,533 - assistant_ia.external_services - INFO - URL de l'API météo: https://api.open-meteo.com/v1/forecast?latitude=45.74846&longitude=4.84671&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,weather_code,cloud_cover,wind_speed_10m,wind_direction_10m&timezone=auto&forecast_days=1
+2025-03-05 14:17:08,630 - assistant_ia.external_services - ERROR - Erreur lors de l'obtention de la météo: 'str' object cannot be interpreted as an integer
+Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\external_services.py", line 279, in obtenir_meteo
+    "timestamp": datetime.fromtimestamp(current.get("time", 0)).strftime("%d %B %Y, %H:%M"),
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+2025-03-05 14:17:08,634 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:17:08] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:18:23,066 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:18:23] "GET /aide HTTP/1.1" 200 -
+2025-03-05 14:18:23,130 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:18:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:18:23,191 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:18:23] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:18:38,520 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 14:18:38,627 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:18:39,436 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:18:39,437 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:18:39,440 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:18:39,457 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:18:39,464 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:18:40,548 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:18:40] "GET / HTTP/1.1" 200 -
+2025-03-05 14:18:40,682 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:18:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:18:40,684 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:18:40] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:18:43,997 - agent - INFO - Question reçue: Qui es-tu?
+2025-03-05 14:18:44,000 - apprentissage - INFO - Aucun modèle amélioré trouvé
+2025-03-05 14:18:44,005 - nlp_engine - INFO - Utilisation de l'intention statique: identite (score: 10)
+2025-03-05 14:18:44,048 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:18:44,050 - apprentissage - INFO - Statistiques mises à jour: 40 interactions analysées
+2025-03-05 14:18:44,054 - apprentissage - INFO - Modèle amélioré pour 8 intentions
+2025-03-05 14:18:44,054 - agent - INFO - Intention détectée: identite avec score 10
+2025-03-05 14:18:44,055 - agent - INFO - Entités extraites: {'ville': 'Qui'}
+2025-03-05 14:18:44,056 - agent - INFO - Intention identité détectée, réponse sur qui est Cindy
+2025-03-05 14:18:44,056 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:18:44] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:19:19,251 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:19:19] "GET / HTTP/1.1" 200 -
+2025-03-05 14:19:19,277 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:19:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:19:19,291 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:19:19] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:19:26,866 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 14:19:26,932 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:19:27,744 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:19:27,745 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:19:27,749 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:19:27,764 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:19:27,771 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:19:48,100 - agent - INFO - Question reçue: Quelle est la météo à Paris aujourd'hui?
+2025-03-05 14:19:48,103 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:19:48,109 - nlp_engine - INFO - Intention prédite par apprentissage: meteo (score: 38)
+2025-03-05 14:19:48,109 - nlp_engine - INFO - Utilisation de l'intention apprise: meteo
+2025-03-05 14:19:48,149 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:19:48,151 - agent - INFO - Intention détectée: meteo avec score 38
+2025-03-05 14:19:48,152 - agent - INFO - Entités extraites: {'ville': 'Paris'}
+2025-03-05 14:19:48,152 - agent - INFO - Demande météo pour la question: Quelle est la météo à Paris aujourd'hui?
+2025-03-05 14:19:48,276 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:19:48] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:19:51,864 - agent - INFO - Question reçue: Quel temps à Marseille ?
+2025-03-05 14:19:51,869 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:19:51,871 - nlp_engine - INFO - Intention prédite par apprentissage: meteo (score: 9)
+2025-03-05 14:19:51,872 - nlp_engine - INFO - Utilisation de l'intention apprise: meteo
+2025-03-05 14:19:51,916 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:19:51,918 - agent - INFO - Intention détectée: meteo avec score 9
+2025-03-05 14:19:51,919 - agent - INFO - Entités extraites: {'ville': 'Marseille'}
+2025-03-05 14:19:51,920 - agent - INFO - Demande météo pour la question: Quel temps à Marseille ?
+2025-03-05 14:19:52,217 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:19:52] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:19:59,855 - agent - INFO - Question reçue: Météo à Strasbourg
+2025-03-05 14:19:59,858 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:19:59,860 - nlp_engine - INFO - Intention prédite par apprentissage: meteo (score: 4)
+2025-03-05 14:19:59,861 - nlp_engine - INFO - Utilisation de l'intention statique: meteo (score: 4)
+2025-03-05 14:19:59,909 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:19:59,911 - agent - INFO - Intention détectée: meteo avec score 4
+2025-03-05 14:19:59,912 - agent - INFO - Entités extraites: {'ville': 'Strasbourg'}
+2025-03-05 14:19:59,913 - agent - INFO - Demande météo pour la question: Météo à Strasbourg
+2025-03-05 14:20:00,016 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:20:00] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:20:07,030 - agent - INFO - Question reçue: Fait-il chaud à Nice ?
+2025-03-05 14:20:07,034 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:20:07,036 - nlp_engine - INFO - Intention prédite par apprentissage: meteo (score: 5)
+2025-03-05 14:20:07,037 - nlp_engine - INFO - Utilisation de l'intention statique: meteo (score: 5)
+2025-03-05 14:20:07,090 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:20:07,092 - agent - INFO - Intention détectée: meteo avec score 5
+2025-03-05 14:20:07,093 - agent - INFO - Entités extraites: {'ville': 'Fait'}
+2025-03-05 14:20:07,094 - agent - INFO - Demande météo pour la question: Fait-il chaud à Nice ?
+2025-03-05 14:20:07,201 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:20:07] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:20:18,911 - agent - INFO - Question reçue: quelle temps a Marseille?
+2025-03-05 14:20:18,913 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:20:18,916 - nlp_engine - INFO - Intention prédite par apprentissage: meteo (score: 10)
+2025-03-05 14:20:18,917 - nlp_engine - INFO - Utilisation de l'intention apprise: meteo
+2025-03-05 14:20:18,955 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:20:18,956 - agent - INFO - Intention détectée: meteo avec score 10
+2025-03-05 14:20:18,957 - agent - INFO - Entités extraites: {'ville': 'Marseille'}
+2025-03-05 14:20:18,958 - agent - INFO - Demande météo pour la question: quelle temps a Marseille?
+2025-03-05 14:20:19,994 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:20:19] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:20:53,574 - agent - INFO - Question reçue: quelle temps a Bali
+2025-03-05 14:20:53,577 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:20:53,580 - nlp_engine - INFO - Intention prédite par apprentissage: meteo (score: 10)
+2025-03-05 14:20:53,581 - nlp_engine - INFO - Utilisation de l'intention apprise: meteo
+2025-03-05 14:20:53,634 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:20:53,636 - agent - INFO - Intention détectée: meteo avec score 10
+2025-03-05 14:20:53,637 - agent - INFO - Entités extraites: {'ville': 'Bali'}
+2025-03-05 14:20:53,638 - agent - INFO - Demande météo pour la question: quelle temps a Bali
+2025-03-05 14:20:53,848 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:20:53] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:22:44,549 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 14:22:44,656 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:22:45,570 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:22:45,571 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:22:45,574 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:22:45,590 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:22:45,596 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:23:15,965 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 14:23:16,072 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:23:16,873 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:23:16,874 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:23:16,878 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:23:16,892 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:23:16,899 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:24:33,696 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 14:24:33,767 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:24:34,496 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:24:34,497 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:24:34,500 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:24:34,521 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:24:34,529 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:24:57,357 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:24:57,358 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:24:57,360 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:24:57,384 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:24:57,385 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:24:57,389 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:24:58,064 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:24:58,065 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:24:58,067 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:24:58,080 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:24:58,087 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:25:00,558 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:25:00] "GET / HTTP/1.1" 200 -
+2025-03-05 14:25:00,645 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:25:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:25:00,650 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:25:00] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:25:00,654 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:25:00] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:25:03,305 - agent - INFO - Question reçue: Quelle heure est-il?
+2025-03-05 14:25:03,309 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:25:03,319 - nlp_engine - INFO - Intention prédite par apprentissage: meteo (score: 9)
+2025-03-05 14:25:03,320 - nlp_engine - INFO - Utilisation de l'intention apprise: meteo
+2025-03-05 14:25:03,361 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:25:03,361 - agent - INFO - Intention détectée: meteo avec score 9
+2025-03-05 14:25:03,362 - agent - INFO - Entités extraites: {'ville': 'Quelle'}
+2025-03-05 14:25:03,362 - agent - INFO - Demande météo pour la question: Quelle heure est-il?
+2025-03-05 14:25:03,579 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:25:03] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:25:47,152 - agent - INFO - Question reçue: Quel temps fait-il à Paris ?
+2025-03-05 14:25:47,155 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:25:47,157 - nlp_engine - INFO - Intention prédite par apprentissage: meteo (score: 23)
+2025-03-05 14:25:47,157 - nlp_engine - INFO - Utilisation de l'intention apprise: meteo
+2025-03-05 14:25:47,194 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:25:47,195 - agent - INFO - Intention détectée: meteo avec score 23
+2025-03-05 14:25:47,196 - agent - INFO - Entités extraites: {'ville': 'Paris'}
+2025-03-05 14:25:47,197 - agent - INFO - Demande météo pour la question: Quel temps fait-il à Paris ?
+2025-03-05 14:25:47,299 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:25:47] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:25:53,999 - agent - INFO - Question reçue: quelle temps a Marseille
+2025-03-05 14:25:54,003 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:25:54,006 - nlp_engine - INFO - Intention prédite par apprentissage: meteo (score: 10)
+2025-03-05 14:25:54,007 - nlp_engine - INFO - Utilisation de l'intention apprise: meteo
+2025-03-05 14:25:54,054 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:25:54,055 - agent - INFO - Intention détectée: meteo avec score 10
+2025-03-05 14:25:54,056 - agent - INFO - Entités extraites: {'ville': 'Marseille'}
+2025-03-05 14:25:54,057 - agent - INFO - Demande météo pour la question: quelle temps a Marseille
+2025-03-05 14:25:54,178 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:25:54] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:27:03,128 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:27:03,181 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:27:03,990 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:27:03,990 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:27:03,994 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:27:04,011 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:27:04,017 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:27:04,530 - agent - INFO - Question reçue: Pleut-il à Lille actuellement ?
+2025-03-05 14:27:04,534 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:27:04,542 - nlp_engine - INFO - Utilisation de l'intention statique: meteo (score: 5)
+2025-03-05 14:27:04,599 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:27:04,603 - apprentissage - INFO - Statistiques mises à jour: 50 interactions analysées
+2025-03-05 14:27:04,607 - apprentissage - INFO - Modèle amélioré pour 8 intentions
+2025-03-05 14:27:04,608 - agent - INFO - Intention détectée: meteo avec score 5
+2025-03-05 14:27:04,609 - agent - INFO - Entités extraites: {'ville': 'Lille'}
+2025-03-05 14:27:04,610 - agent - INFO - Demande météo pour la question: Pleut-il à Lille actuellement ?
+2025-03-05 14:27:04,720 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:27:04] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:27:24,206 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 14:27:24,250 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:27:24,974 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:27:24,975 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:27:24,981 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:27:25,002 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:27:25,013 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:28:20,443 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 14:28:20,491 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:28:21,099 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:28:21,100 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:28:21,102 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:28:21,116 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:28:21,122 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:28:33,236 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 14:28:33,293 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:31:05,515 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:31:05,516 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:31:05,519 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:31:05,553 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:31:05,553 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:31:05,559 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:31:06,369 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:31:06,370 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:31:06,374 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:31:06,395 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:31:06,406 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:31:08,348 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:31:08] "GET / HTTP/1.1" 200 -
+2025-03-05 14:31:08,433 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:31:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:31:08,435 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:31:08] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:31:08,459 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:31:08] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:31:22,596 - agent - INFO - Question reçue: Quelle heure est-il?
+2025-03-05 14:31:22,602 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:31:22,612 - nlp_engine - INFO - Intention prédite par apprentissage: meteo (score: 10)
+2025-03-05 14:31:22,612 - nlp_engine - INFO - Utilisation de l'intention apprise: meteo
+2025-03-05 14:31:22,676 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:31:22,677 - agent - INFO - Intention détectée: meteo avec score 10
+2025-03-05 14:31:22,678 - agent - INFO - Entités extraites: {'ville': 'Quelle'}
+2025-03-05 14:31:22,679 - agent - INFO - Demande météo pour la question: Quelle heure est-il?
+2025-03-05 14:31:22,917 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:31:22] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:32:31,176 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 14:32:31,251 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:32:32,063 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:32:32,064 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:32:32,069 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:32:32,088 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:32:32,094 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:32:51,148 - agent - INFO - Question reçue: Va-t-il pleuvoir à Bordeaux demain ?
+2025-03-05 14:32:51,152 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:32:51,165 - nlp_engine - INFO - Intention prédite par apprentissage: meteo (score: 2)
+2025-03-05 14:32:51,166 - nlp_engine - INFO - Utilisation de l'intention statique: meteo (score: 15)
+2025-03-05 14:32:51,255 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:32:51,262 - agent - INFO - Intention détectée: meteo avec score 15
+2025-03-05 14:32:51,263 - agent - INFO - Entités extraites: {'ville': 'Bordeaux'}
+2025-03-05 14:32:51,268 - agent - INFO - Demande météo pour la question: Va-t-il pleuvoir à Bordeaux demain ?
+2025-03-05 14:32:51,405 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:32:51] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:32:57,930 - agent - INFO - Question reçue: Quelle est la température à Toulouse ?
+2025-03-05 14:32:57,933 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:32:57,935 - nlp_engine - INFO - Intention prédite par apprentissage: meteo (score: 18)
+2025-03-05 14:32:57,937 - nlp_engine - INFO - Utilisation de l'intention apprise: meteo
+2025-03-05 14:32:57,985 - apprentissage - INFO - Motifs de questions extraits pour 2 intentions
+2025-03-05 14:32:57,986 - agent - INFO - Intention détectée: meteo avec score 18
+2025-03-05 14:32:57,987 - agent - INFO - Entités extraites: {'ville': 'Toulouse'}
+2025-03-05 14:32:57,988 - agent - INFO - Demande météo pour la question: Quelle est la température à Toulouse ?
+2025-03-05 14:32:58,086 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:32:58] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:33:06,544 - agent - INFO - Question reçue: raconte moi une blague
+2025-03-05 14:33:06,572 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:33:06,582 - nlp_engine - INFO - Intention prédite par apprentissage: blague (score: 28)
+2025-03-05 14:33:06,589 - nlp_engine - INFO - Utilisation de l'intention apprise: blague
+2025-03-05 14:33:06,745 - apprentissage - INFO - Motifs de questions extraits pour 3 intentions
+2025-03-05 14:33:06,746 - agent - INFO - Intention détectée: blague avec score 28
+2025-03-05 14:33:06,747 - agent - INFO - Entités extraites: {}
+2025-03-05 14:33:06,749 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-05 14:33:06,751 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:33:06] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:33:07,501 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:33:07,600 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:33:08,417 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:33:08,419 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:33:08,424 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:33:08,442 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:33:08,450 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:33:51,944 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:33:51,993 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:33:52,686 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:33:52,687 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:33:52,689 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:33:52,701 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:33:52,705 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:34:17,792 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:34:17,793 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:34:17,796 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:34:17,819 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:34:17,820 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:34:17,828 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:34:18,538 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:34:18,539 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:34:18,544 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:34:18,564 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:34:18,571 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:34:20,592 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:34:20] "GET / HTTP/1.1" 200 -
+2025-03-05 14:34:20,686 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:34:20] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:34:20,687 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:34:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:34:20,699 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:34:20] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:34:27,075 - agent - INFO - Question reçue: Quelle heure est-il?
+2025-03-05 14:34:27,140 - apprentissage - INFO - Motifs de questions extraits pour 3 intentions
+2025-03-05 14:34:27,141 - agent - INFO - Intention détectée: heure avec score 1.0
+2025-03-05 14:34:27,142 - agent - INFO - Entités extraites: {'ville': 'Quelle'}
+2025-03-05 14:34:27,144 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:34:27] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:34:32,741 - agent - INFO - Question reçue: Qui es-tu ?
+2025-03-05 14:34:32,743 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:34:32,744 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-05 14:34:32,745 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-05 14:34:32,746 - agent - INFO - Entités extraites: {}
+2025-03-05 14:34:32,746 - agent - INFO - Intention non spécifiquement traitée: erreur
+2025-03-05 14:34:32,748 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:34:32] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:34:44,118 - agent - INFO - Question reçue: Quelle est la date aujourd'hui ?
+2025-03-05 14:34:44,171 - apprentissage - INFO - Motifs de questions extraits pour 4 intentions
+2025-03-05 14:34:44,173 - agent - INFO - Intention détectée: date avec score 1.0
+2025-03-05 14:34:44,174 - agent - INFO - Entités extraites: {'ville': 'Quelle'}
+2025-03-05 14:34:44,175 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:34:44] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:35:06,712 - agent - INFO - Question reçue: Quel jour sommes-nous ?
+2025-03-05 14:35:06,752 - apprentissage - INFO - Motifs de questions extraits pour 4 intentions
+2025-03-05 14:35:06,753 - agent - INFO - Intention détectée: date avec score 1.0
+2025-03-05 14:35:06,753 - agent - INFO - Entités extraites: {'ville': 'Quel'}
+2025-03-05 14:35:06,754 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:35:06] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:35:35,887 - agent - INFO - Question reçue: Quel temps fait-il aujourd'hui ?
+2025-03-05 14:35:35,952 - apprentissage - INFO - Motifs de questions extraits pour 4 intentions
+2025-03-05 14:35:35,953 - agent - INFO - Intention détectée: date avec score 1.0
+2025-03-05 14:35:35,954 - agent - INFO - Entités extraites: {'ville': 'Quel'}
+2025-03-05 14:35:35,955 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:35:35] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:36:00,102 - agent - INFO - Question reçue: quelle temps a Marseille?
+2025-03-05 14:36:00,105 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:36:00,107 - nlp_engine - INFO - Intention prédite par le modèle amélioré: meteo avec score 19
+2025-03-05 14:36:00,159 - apprentissage - INFO - Motifs de questions extraits pour 4 intentions
+2025-03-05 14:36:00,161 - agent - INFO - Intention détectée: meteo avec score 19
+2025-03-05 14:36:00,163 - agent - INFO - Entités extraites: {'ville': 'Marseille'}
+2025-03-05 14:36:00,164 - agent - INFO - Demande météo pour la question: quelle temps a Marseille?
+2025-03-05 14:36:00,300 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:36:00] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:36:49,090 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:36:49,150 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:36:49,845 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:36:49,846 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:36:49,850 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:36:49,866 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:36:49,871 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:37:12,122 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:37:12,232 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:37:13,004 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:37:13,006 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:37:13,009 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:37:13,020 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:37:13,027 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:37:25,116 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:37:25,176 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:37:25,974 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:37:25,974 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:37:25,977 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:37:25,989 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:37:25,996 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:37:40,151 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:37:40,152 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:37:40,157 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:37:40,200 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:37:40,201 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:37:40,210 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:37:40,934 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:37:40,935 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:37:40,940 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:37:40,957 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:37:40,965 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:37:42,932 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:37:42] "GET / HTTP/1.1" 200 -
+2025-03-05 14:37:43,034 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:37:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:37:43,036 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:37:43] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:37:43,046 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:37:43] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:37:45,668 - agent - INFO - Question reçue: Quelle heure est-il?
+2025-03-05 14:37:45,735 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:37:45,738 - apprentissage - INFO - Statistiques mises à jour: 60 interactions analysées
+2025-03-05 14:37:45,741 - apprentissage - INFO - Modèle amélioré pour 8 intentions
+2025-03-05 14:37:45,742 - agent - INFO - Intention détectée: heure avec score 1.0
+2025-03-05 14:37:45,742 - agent - INFO - Entités extraites: {'ville': 'Quelle'}
+2025-03-05 14:37:45,743 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:37:45] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:37:48,819 - agent - INFO - Question reçue: Quel jour sommes-nous ?
+2025-03-05 14:37:48,855 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:37:48,856 - agent - INFO - Intention détectée: date avec score 1.0
+2025-03-05 14:37:48,856 - agent - INFO - Entités extraites: {'ville': 'Quel'}
+2025-03-05 14:37:48,857 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:37:48] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:37:57,042 - agent - INFO - Question reçue: Quelle est la date aujourd'hui ?
+2025-03-05 14:37:57,093 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:37:57,095 - agent - INFO - Intention détectée: date avec score 1.0
+2025-03-05 14:37:57,097 - agent - INFO - Entités extraites: {'ville': 'Quelle'}
+2025-03-05 14:37:57,098 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:37:57] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:38:00,194 - agent - INFO - Question reçue: Quel temps fait-il aujourd'hui ?
+2025-03-05 14:38:00,240 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:38:00,241 - agent - INFO - Intention détectée: date avec score 1.0
+2025-03-05 14:38:00,241 - agent - INFO - Entités extraites: {'ville': 'Quel'}
+2025-03-05 14:38:00,243 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:38:00] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:38:22,124 - agent - INFO - Question reçue: qui es tu?
+2025-03-05 14:38:22,128 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:38:22,130 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-05 14:38:22,131 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-05 14:38:22,132 - agent - INFO - Entités extraites: {}
+2025-03-05 14:38:22,133 - agent - INFO - Intention non spécifiquement traitée: erreur
+2025-03-05 14:38:22,136 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:38:22] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:41:38,288 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:41:38,350 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:41:39,041 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:41:39,042 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:41:39,044 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:41:39,057 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:41:39,062 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:42:05,807 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:42:05,808 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:42:05,812 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:42:05,839 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:42:05,840 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:42:05,847 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:42:06,523 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:42:06,524 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:42:06,527 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:42:06,540 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:42:06,548 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:42:09,410 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:42:09] "GET / HTTP/1.1" 200 -
+2025-03-05 14:42:09,505 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:42:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:42:09,513 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:42:09] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:42:09,519 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:42:09] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:42:12,315 - agent - INFO - Question reçue: Qui es-tu?
+2025-03-05 14:42:12,316 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:42:12,317 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-05 14:42:12,318 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-05 14:42:12,319 - agent - INFO - Entités extraites: {}
+2025-03-05 14:42:12,320 - agent - INFO - Intention non spécifiquement traitée: erreur
+2025-03-05 14:42:12,320 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:42:12] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:42:16,468 - agent - INFO - Question reçue: Essayez de poser une question simple
+2025-03-05 14:42:16,471 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:42:16,473 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 3
+2025-03-05 14:42:16,537 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:42:16,539 - agent - INFO - Intention détectée: blague avec score 3
+2025-03-05 14:42:16,540 - agent - INFO - Entités extraites: {'ville': 'Essayez'}
+2025-03-05 14:42:16,540 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-05 14:42:16,542 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:42:16] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:42:20,863 - agent - INFO - Question reçue: Qui es-tu ?
+2025-03-05 14:42:20,865 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:42:20,866 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-05 14:42:20,867 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-05 14:42:20,867 - agent - INFO - Entités extraites: {}
+2025-03-05 14:42:20,868 - agent - INFO - Intention non spécifiquement traitée: erreur
+2025-03-05 14:42:20,868 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:42:20] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:42:56,305 - agent - INFO - Question reçue: Demandez-moi la météo
+2025-03-05 14:42:56,306 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:42:56,307 - nlp_engine - INFO - Intention prédite par le modèle amélioré: meteo avec score 8
+2025-03-05 14:42:56,328 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:42:56,329 - agent - INFO - Intention détectée: meteo avec score 8
+2025-03-05 14:42:56,330 - agent - INFO - Entités extraites: {'ville': 'Demandez'}
+2025-03-05 14:42:56,330 - agent - INFO - Demande météo pour la question: Demandez-moi la météo
+2025-03-05 14:42:56,559 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:42:56] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:43:07,002 - agent - INFO - Question reçue: Demandez-moi l'heure
+2025-03-05 14:43:07,052 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:43:07,053 - agent - INFO - Intention détectée: heure avec score 1.0
+2025-03-05 14:43:07,054 - agent - INFO - Entités extraites: {'ville': 'Demandez'}
+2025-03-05 14:43:07,055 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:43:07] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:43:34,371 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:43:34,425 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:43:35,206 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:43:35,207 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:43:35,209 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:43:35,233 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:43:35,245 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:43:57,721 - agent - INFO - Question reçue: Quelle est la météo à Lyon ?
+2025-03-05 14:43:57,722 - nlp_engine - INFO - Début d'analyse de la question: 'Quelle est la météo à Lyon ?'
+2025-03-05 14:43:57,724 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:43:57,724 - nlp_engine - INFO - Intention prédite par le modèle amélioré: meteo avec score 28
+2025-03-05 14:43:57,737 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-05 14:43:57,738 - nlp_engine - INFO - Réponse générée: Je vais consulter la météo pour vous à Lyon.
+2025-03-05 14:43:57,739 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-05 14:43:57,766 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:43:57,767 - agent - INFO - Intention détectée: meteo avec score 28
+2025-03-05 14:43:57,768 - agent - INFO - Entités extraites: {'ville': 'Lyon'}
+2025-03-05 14:43:57,768 - agent - INFO - Demande météo pour la question: Quelle est la météo à Lyon ?
+2025-03-05 14:43:57,876 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:43:57] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:44:18,650 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:44:18,651 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:44:18,654 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:44:18,681 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:44:18,683 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:44:18,688 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:44:19,339 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:44:19,342 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:44:19,344 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:44:19,357 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:44:19,362 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:44:25,765 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:44:25] "GET / HTTP/1.1" 200 -
+2025-03-05 14:44:25,882 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:44:25] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:44:25,882 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:44:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:44:25,926 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:44:25] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:44:29,480 - agent - INFO - Question reçue: Qui es-tu?
+2025-03-05 14:44:29,481 - nlp_engine - INFO - Début d'analyse de la question: 'Qui es-tu?'
+2025-03-05 14:44:29,483 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:44:29,489 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-05 14:44:29,490 - nlp_engine - ERROR - Détail de l'erreur: Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 428, in analyser_et_repondre
+    intention, score, entites = determiner_intention(question)
+                                ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 299, in determiner_intention
+    score = calculer_score_intention(question, keywords)
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 231, in calculer_score_intention
+    for mot, poids in mots_cles.items():
+                      ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+
+2025-03-05 14:44:29,491 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-05 14:44:29,492 - agent - INFO - Entités extraites: {}
+2025-03-05 14:44:29,493 - agent - INFO - Intention non spécifiquement traitée: erreur
+2025-03-05 14:44:29,494 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:44:29] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:44:31,134 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:44:31] "GET / HTTP/1.1" 200 -
+2025-03-05 14:44:31,159 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:44:31] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-05 14:44:31,160 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:44:31] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-05 14:44:31,189 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:44:31] "GET /static/images/screenshot.jpg HTTP/1.1" 200 -
+2025-03-05 14:44:31,431 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:44:31] "[33mGET /static/images/favicon.ico HTTP/1.1[0m" 404 -
+2025-03-05 14:44:33,446 - agent - INFO - Question reçue: Qui es-tu?
+2025-03-05 14:44:33,447 - nlp_engine - INFO - Début d'analyse de la question: 'Qui es-tu?'
+2025-03-05 14:44:33,450 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:44:33,454 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-05 14:44:33,455 - nlp_engine - ERROR - Détail de l'erreur: Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 428, in analyser_et_repondre
+    intention, score, entites = determiner_intention(question)
+                                ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 299, in determiner_intention
+    score = calculer_score_intention(question, keywords)
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 231, in calculer_score_intention
+    for mot, poids in mots_cles.items():
+                      ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+
+2025-03-05 14:44:33,456 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-05 14:44:33,457 - agent - INFO - Entités extraites: {}
+2025-03-05 14:44:33,457 - agent - INFO - Intention non spécifiquement traitée: erreur
+2025-03-05 14:44:33,458 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:44:33] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:45:32,003 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:45:32,058 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:45:32,783 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:45:32,783 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:45:32,786 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:45:32,801 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:45:32,807 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:46:14,171 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:46:14,252 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:46:14,998 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:46:14,999 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:46:15,001 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:46:15,019 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:46:15,025 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:47:10,482 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 14:47:10,549 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:47:11,353 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:47:11,354 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:47:11,357 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:47:11,380 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:47:11,386 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:55:07,061 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 14:55:07,136 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:55:07,870 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:55:07,872 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:55:07,875 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:55:07,891 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:55:07,898 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:55:28,068 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 14:55:28,120 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:55:28,876 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:55:28,876 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:55:28,879 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:55:28,894 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:55:28,900 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:55:30,934 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 14:55:31,016 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:55:31,818 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:55:31,819 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:55:31,822 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:55:31,843 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:55:31,850 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:55:46,362 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:55:46,363 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:55:46,366 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:55:46,390 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:55:46,390 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:55:46,395 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:55:47,121 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:55:47,122 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:55:47,126 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:55:47,141 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:55:47,149 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:55:50,005 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:55:50] "GET / HTTP/1.1" 200 -
+2025-03-05 14:55:50,121 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:55:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:55:50,131 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:55:50] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:55:50,140 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:55:50] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:55:52,346 - agent - INFO - Question spéciale d'identité détectée: Qui es-tu?
+2025-03-05 14:55:52,348 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:55:52] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:55:56,031 - agent - INFO - Question reçue: Raconte-moi une blague
+2025-03-05 14:55:56,032 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une blague'
+2025-03-05 14:55:56,036 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:55:56,038 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 47
+2025-03-05 14:55:56,063 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-05 14:55:56,064 - nlp_engine - INFO - Réponse générée: Que fait une fraise sur un cheval ? Elle galope !
+2025-03-05 14:55:56,065 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-05 14:55:56,096 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:55:56,097 - agent - INFO - Intention détectée: blague avec score 47
+2025-03-05 14:55:56,098 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-05 14:55:56,099 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-05 14:55:56,101 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:55:56] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:55:58,551 - agent - INFO - Question reçue: Quelle est la météo à Paris aujourd'hui ?
+2025-03-05 14:55:58,553 - nlp_engine - INFO - Début d'analyse de la question: 'Quelle est la météo à Paris aujourd'hui ?'
+2025-03-05 14:55:58,572 - nlp_engine - INFO - Génération de réponse pour l'intention: date
+2025-03-05 14:55:58,574 - nlp_engine - INFO - Réponse générée: Nous sommes le 05/03/2025.
+2025-03-05 14:55:58,575 - nlp_engine - INFO - Génération de suggestions pour l'intention: date
+2025-03-05 14:55:58,612 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:55:58,613 - agent - INFO - Intention détectée: date avec score 1.0
+2025-03-05 14:55:58,614 - agent - INFO - Entités extraites: {'ville': 'Paris'}
+2025-03-05 14:55:58,615 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:55:58] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:56:08,017 - agent - INFO - Question reçue: quelle temps a Marseille
+2025-03-05 14:56:08,019 - nlp_engine - INFO - Début d'analyse de la question: 'quelle temps a Marseille'
+2025-03-05 14:56:08,021 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:56:08,022 - nlp_engine - INFO - Intention prédite par le modèle amélioré: meteo avec score 22
+2025-03-05 14:56:08,041 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-05 14:56:08,042 - nlp_engine - INFO - Réponse générée: Je recherche les informations météo pour Marseille.
+2025-03-05 14:56:08,042 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-05 14:56:08,077 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:56:08,081 - apprentissage - INFO - Statistiques mises à jour: 70 interactions analysées
+2025-03-05 14:56:08,089 - apprentissage - INFO - Modèle amélioré pour 8 intentions
+2025-03-05 14:56:08,090 - agent - INFO - Intention détectée: meteo avec score 22
+2025-03-05 14:56:08,091 - agent - INFO - Entités extraites: {'ville': 'Marseille'}
+2025-03-05 14:56:08,092 - agent - INFO - Demande météo pour la question: quelle temps a Marseille
+2025-03-05 14:56:08,235 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:56:08] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:56:18,415 - agent - INFO - Question reçue: quelle temps a Paris
+2025-03-05 14:56:18,416 - nlp_engine - INFO - Début d'analyse de la question: 'quelle temps a Paris'
+2025-03-05 14:56:18,440 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:56:18,441 - nlp_engine - INFO - Intention prédite par le modèle amélioré: meteo avec score 23
+2025-03-05 14:56:18,456 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-05 14:56:18,457 - nlp_engine - INFO - Réponse générée: Je vais consulter la météo pour vous à Paris.
+2025-03-05 14:56:18,458 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-05 14:56:18,485 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:56:18,487 - agent - INFO - Intention détectée: meteo avec score 23
+2025-03-05 14:56:18,487 - agent - INFO - Entités extraites: {'ville': 'Paris'}
+2025-03-05 14:56:18,488 - agent - INFO - Demande météo pour la question: quelle temps a Paris
+2025-03-05 14:56:18,591 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:56:18] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:58:01,405 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:58:01,490 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:58:02,350 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:58:02,351 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:58:02,354 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:58:02,369 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:58:02,377 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:58:14,977 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:58:14,978 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:58:14,982 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:58:15,019 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:58:15,020 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:58:15,029 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:58:15,844 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:58:15,845 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:58:15,847 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:58:15,864 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:58:15,870 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:58:19,342 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:58:19] "GET / HTTP/1.1" 200 -
+2025-03-05 14:58:19,441 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:58:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:58:19,447 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:58:19] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:58:19,477 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:58:19] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:58:27,225 - agent - INFO - Question spéciale d'identité détectée: Qui es-tu?
+2025-03-05 14:58:27,227 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:58:27] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:58:29,449 - agent - INFO - Question reçue: Quelle est la météo à Paris aujourd'hui ?
+2025-03-05 14:58:29,451 - nlp_engine - INFO - Début d'analyse de la question: 'Quelle est la météo à Paris aujourd'hui ?'
+2025-03-05 14:58:29,453 - nlp_engine - INFO - Question contient à la fois des mots de météo et de date, priorité à la météo
+2025-03-05 14:58:29,482 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-05 14:58:29,486 - nlp_engine - INFO - Réponse générée: Je recherche les informations météo pour Paris.
+2025-03-05 14:58:29,487 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-05 14:58:29,522 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:58:29,523 - agent - INFO - Intention détectée: meteo avec score 1.0
+2025-03-05 14:58:29,525 - agent - INFO - Entités extraites: {'ville': 'Paris'}
+2025-03-05 14:58:29,526 - agent - INFO - Demande météo pour la question: Quelle est la météo à Paris aujourd'hui ?
+2025-03-05 14:58:29,670 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:58:29] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:58:51,893 - agent - INFO - Question reçue: quel date sommes nous aujourd'hui?
+2025-03-05 14:58:51,894 - nlp_engine - INFO - Début d'analyse de la question: 'quel date sommes nous aujourd'hui?'
+2025-03-05 14:58:51,913 - nlp_engine - INFO - Génération de réponse pour l'intention: date
+2025-03-05 14:58:51,914 - nlp_engine - INFO - Réponse générée: Nous sommes le 05/03/2025.
+2025-03-05 14:58:51,916 - nlp_engine - INFO - Génération de suggestions pour l'intention: date
+2025-03-05 14:58:51,950 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:58:51,951 - agent - INFO - Intention détectée: date avec score 1.0
+2025-03-05 14:58:51,953 - agent - INFO - Entités extraites: {}
+2025-03-05 14:58:51,954 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:58:51] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:58:55,364 - agent - INFO - Question reçue: Raconte-moi une blague
+2025-03-05 14:58:55,365 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une blague'
+2025-03-05 14:58:55,367 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:58:55,368 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 60
+2025-03-05 14:58:55,381 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-05 14:58:55,381 - nlp_engine - INFO - Réponse générée: Pourquoi les canards sont-ils toujours à l'heure ? Parce qu'ils sont dans l'étang !
+2025-03-05 14:58:55,382 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-05 14:58:55,413 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:58:55,413 - agent - INFO - Intention détectée: blague avec score 60
+2025-03-05 14:58:55,414 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-05 14:58:55,414 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-05 14:58:55,415 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:58:55] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:58:59,953 - agent - INFO - Question reçue: Quelle est la météo à Marseille aujourd'hui ?
+2025-03-05 14:58:59,954 - nlp_engine - INFO - Début d'analyse de la question: 'Quelle est la météo à Marseille aujourd'hui ?'
+2025-03-05 14:58:59,955 - nlp_engine - INFO - Question contient à la fois des mots de météo et de date, priorité à la météo
+2025-03-05 14:58:59,971 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-05 14:58:59,971 - nlp_engine - INFO - Réponse générée: Je recherche les informations météo pour Marseille.
+2025-03-05 14:58:59,972 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-05 14:59:00,005 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:59:00,006 - agent - INFO - Intention détectée: meteo avec score 1.0
+2025-03-05 14:59:00,007 - agent - INFO - Entités extraites: {'ville': 'Marseille'}
+2025-03-05 14:59:00,008 - agent - INFO - Demande météo pour la question: Quelle est la météo à Marseille aujourd'hui ?
+2025-03-05 14:59:00,115 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:59:00] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:59:04,211 - agent - INFO - Question reçue: Pleut-il à Lille actuellement ?
+2025-03-05 14:59:04,213 - nlp_engine - INFO - Début d'analyse de la question: 'Pleut-il à Lille actuellement ?'
+2025-03-05 14:59:04,215 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:59:04,220 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-05 14:59:04,220 - nlp_engine - ERROR - Détail de l'erreur: Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 444, in analyser_et_repondre
+    intention, score, entites = determiner_intention(question)
+                                ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 316, in determiner_intention
+    score = calculer_score_intention(question, keywords)
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 231, in calculer_score_intention
+    for mot, poids in mots_cles.items():
+                      ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+
+2025-03-05 14:59:04,221 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-05 14:59:04,222 - agent - INFO - Entités extraites: {}
+2025-03-05 14:59:04,223 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:59:04] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:59:16,755 - agent - INFO - Question reçue: est qu'il pleut a Metz?
+2025-03-05 14:59:16,757 - nlp_engine - INFO - Début d'analyse de la question: 'est qu'il pleut a Metz?'
+2025-03-05 14:59:16,760 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:59:16,761 - nlp_engine - INFO - Intention prédite par le modèle amélioré: meteo avec score 9
+2025-03-05 14:59:16,777 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-05 14:59:16,778 - nlp_engine - INFO - Réponse générée: Laissez-moi vérifier la météo à Metz.
+2025-03-05 14:59:16,779 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-05 14:59:16,810 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 14:59:16,811 - agent - INFO - Intention détectée: meteo avec score 9
+2025-03-05 14:59:16,812 - agent - INFO - Entités extraites: {'ville': 'Metz'}
+2025-03-05 14:59:16,813 - agent - INFO - Demande météo pour la question: est qu'il pleut a Metz?
+2025-03-05 14:59:16,924 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:59:16] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:59:30,720 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 14:59:30,841 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:59:31,675 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 14:59:31,676 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 14:59:31,678 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:59:31,693 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:59:31,699 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 15:00:08,974 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 15:00:09,044 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 15:00:09,806 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 15:00:09,807 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 15:00:09,810 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 15:00:09,827 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 15:00:09,833 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 15:00:20,931 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 15:00:20,985 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 15:00:21,736 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 15:00:21,736 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-05 15:00:21,739 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 15:00:21,756 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 15:00:21,761 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 15:00:27,728 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 15:00:27] "GET / HTTP/1.1" 200 -
+2025-03-05 15:00:27,828 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 15:00:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 15:00:27,828 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 15:00:27] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 15:00:27,851 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 15:00:27] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 15:00:36,527 - agent - INFO - Question reçue: Raconte-moi une blague
+2025-03-05 15:00:36,529 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une blague'
+2025-03-05 15:00:36,534 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 15:00:36,536 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 60
+2025-03-05 15:00:36,564 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-05 15:00:36,567 - nlp_engine - INFO - Réponse générée: Que fait une fraise sur un cheval ? Elle galope !
+2025-03-05 15:00:36,568 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-05 15:00:36,605 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 15:00:36,606 - agent - INFO - Intention détectée: blague avec score 60
+2025-03-05 15:00:36,608 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-05 15:00:36,609 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-05 15:00:36,611 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 15:00:36] "POST /question HTTP/1.1" 200 -
+2025-03-05 15:00:39,295 - agent - INFO - Question reçue: Quelle est la météo à Marseille aujourd'hui ?
+2025-03-05 15:00:39,297 - nlp_engine - INFO - Début d'analyse de la question: 'Quelle est la météo à Marseille aujourd'hui ?'

@@ -1,0 +1,45 @@
+{
+    "meteo": [
+        "la météo",
+        "quelle est",
+        "quelle est la",
+        "est la",
+        "fait il",
+        "est la météo",
+        "météo à",
+        "la météo à",
+        "aujourd hui",
+        "à paris"
+    ],
+    "inconnu": [
+        "qui es",
+        "qui es tu",
+        "es tu"
+    ],
+    "heure": [
+        "quelle heure",
+        "quelle heure est",
+        "heure est",
+        "heure est il",
+        "est il"
+    ],
+    "date": [
+        "aujourd hui",
+        "sommes nous",
+        "quel jour",
+        "quel jour sommes",
+        "jour sommes",
+        "jour sommes nous",
+        "quelle est",
+        "quelle est la",
+        "est la",
+        "est la date"
+    ],
+    "blague": [
+        "raconte moi",
+        "raconte moi une",
+        "moi une",
+        "moi une blague",
+        "une blague"
+    ]
+}

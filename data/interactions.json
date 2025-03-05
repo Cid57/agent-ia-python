@@ -256,5 +256,503 @@
         "entites": {
             "ville": "Qui"
         }
+    },
+    {
+        "question": "Qui es-tu?",
+        "reponse": "Je ne suis pas sûre de comprendre votre demande. Pouvez-vous reformuler ?",
+        "intention": "inconnu",
+        "score": 0,
+        "entites": {
+            "ville": "Qui"
+        }
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Que fait une fraise sur un cheval ? Elle galope !",
+        "intention": "blague",
+        "score": 8,
+        "entites": {
+            "ville": "Raconte"
+        }
+    },
+    {
+        "question": "quel temps fait il a Tokyo?",
+        "reponse": "Je vais consulter la météo pour vous à Tokyo.",
+        "intention": "meteo",
+        "score": 4,
+        "entites": {
+            "ville": "Tokyo"
+        }
+    },
+    {
+        "question": "quelle temps fait il a parius",
+        "reponse": "Je vais consulter la météo pour vous.",
+        "intention": "meteo",
+        "score": 4,
+        "entites": {}
+    },
+    {
+        "question": "Quelle est la météo à Lyon ?",
+        "reponse": "Je vais consulter la météo pour vous à Lyon.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {
+            "ville": "Lyon"
+        }
+    },
+    {
+        "question": "quel temps fait il a Tokyo?",
+        "reponse": "Je vais consulter la météo pour vous à Tokyo.",
+        "intention": "meteo",
+        "score": 4,
+        "entites": {
+            "ville": "Tokyo"
+        }
+    },
+    {
+        "question": "Quelle est la météo à Paris aujourd'hui?",
+        "reponse": "Laissez-moi vérifier la météo à Paris.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-05 14:13:38"
+    },
+    {
+        "question": "Quelle est la météo à Paris aujourd'hui?",
+        "reponse": "Je recherche les informations météo pour Paris.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-05 14:17:04"
+    },
+    {
+        "question": "Quelle est la météo à Lyon ?",
+        "reponse": "Je vais consulter la météo pour vous à Lyon.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {
+            "ville": "Lyon"
+        },
+        "timestamp": "2025-03-05 14:17:08"
+    },
+    {
+        "question": "Qui es-tu?",
+        "reponse": "Je m'appelle Cindy, une intelligence artificielle conçue pour répondre à vos questions et vous assister au quotidien.",
+        "intention": "identite",
+        "score": 10,
+        "entites": {
+            "ville": "Qui"
+        },
+        "timestamp": "2025-03-05 14:18:44"
+    },
+    {
+        "question": "Quelle est la météo à Paris aujourd'hui?",
+        "reponse": "Laissez-moi vérifier la météo à Paris.",
+        "intention": "meteo",
+        "score": 38,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-05 14:19:48"
+    },
+    {
+        "question": "Quel temps à Marseille ?",
+        "reponse": "Je recherche les informations météo pour Marseille.",
+        "intention": "meteo",
+        "score": 9,
+        "entites": {
+            "ville": "Marseille"
+        },
+        "timestamp": "2025-03-05 14:19:51"
+    },
+    {
+        "question": "Météo à Strasbourg",
+        "reponse": "Je vais consulter la météo pour vous à Strasbourg.",
+        "intention": "meteo",
+        "score": 4,
+        "entites": {
+            "ville": "Strasbourg"
+        },
+        "timestamp": "2025-03-05 14:19:59"
+    },
+    {
+        "question": "Fait-il chaud à Nice ?",
+        "reponse": "Laissez-moi vérifier la météo à Fait.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {
+            "ville": "Fait"
+        },
+        "timestamp": "2025-03-05 14:20:07"
+    },
+    {
+        "question": "quelle temps a Marseille?",
+        "reponse": "Je vais consulter la météo pour vous à Marseille.",
+        "intention": "meteo",
+        "score": 10,
+        "entites": {
+            "ville": "Marseille"
+        },
+        "timestamp": "2025-03-05 14:20:18"
+    },
+    {
+        "question": "quelle temps a Bali",
+        "reponse": "Je recherche les informations météo pour Bali.",
+        "intention": "meteo",
+        "score": 10,
+        "entites": {
+            "ville": "Bali"
+        },
+        "timestamp": "2025-03-05 14:20:53"
+    },
+    {
+        "question": "Quelle heure est-il?",
+        "reponse": "Je vais consulter la météo pour vous à Quelle.",
+        "intention": "meteo",
+        "score": 9,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-05 14:25:03"
+    },
+    {
+        "question": "Quel temps fait-il à Paris ?",
+        "reponse": "Je vais consulter la météo pour vous à Paris.",
+        "intention": "meteo",
+        "score": 23,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-05 14:25:47"
+    },
+    {
+        "question": "quelle temps a Marseille",
+        "reponse": "Laissez-moi vérifier la météo à Marseille.",
+        "intention": "meteo",
+        "score": 10,
+        "entites": {
+            "ville": "Marseille"
+        },
+        "timestamp": "2025-03-05 14:25:54"
+    },
+    {
+        "question": "Pleut-il à Lille actuellement ?",
+        "reponse": "Je recherche les informations météo pour Lille.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {
+            "ville": "Lille"
+        },
+        "timestamp": "2025-03-05 14:27:04"
+    },
+    {
+        "question": "Quelle heure est-il?",
+        "reponse": "Laissez-moi vérifier la météo à Quelle.",
+        "intention": "meteo",
+        "score": 10,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-05 14:31:22"
+    },
+    {
+        "question": "Va-t-il pleuvoir à Bordeaux demain ?",
+        "reponse": "Je recherche les informations météo pour Bordeaux.",
+        "intention": "meteo",
+        "score": 15,
+        "entites": {
+            "ville": "Bordeaux"
+        },
+        "timestamp": "2025-03-05 14:32:51"
+    },
+    {
+        "question": "Quelle est la température à Toulouse ?",
+        "reponse": "Laissez-moi vérifier la météo à Toulouse.",
+        "intention": "meteo",
+        "score": 18,
+        "entites": {
+            "ville": "Toulouse"
+        },
+        "timestamp": "2025-03-05 14:32:57"
+    },
+    {
+        "question": "raconte moi une blague",
+        "reponse": "Pourquoi les abeilles ont-elles du miel ? Parce qu'elles se sucrent les doigts.",
+        "intention": "blague",
+        "score": 28,
+        "entites": {},
+        "timestamp": "2025-03-05 14:33:06"
+    },
+    {
+        "question": "Quelle heure est-il?",
+        "reponse": "Il est 14:34.",
+        "intention": "heure",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-05 14:34:27"
+    },
+    {
+        "question": "Quelle est la date aujourd'hui ?",
+        "reponse": "Aujourd'hui, nous sommes le Wednesday 05 March 2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-05 14:34:44"
+    },
+    {
+        "question": "Quel jour sommes-nous ?",
+        "reponse": "La date d'aujourd'hui est le 05 March 2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quel"
+        },
+        "timestamp": "2025-03-05 14:35:06"
+    },
+    {
+        "question": "Quel temps fait-il aujourd'hui ?",
+        "reponse": "Aujourd'hui, nous sommes le Wednesday 05 March 2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quel"
+        },
+        "timestamp": "2025-03-05 14:35:35"
+    },
+    {
+        "question": "quelle temps a Marseille?",
+        "reponse": "Laissez-moi vérifier la météo à Marseille.",
+        "intention": "meteo",
+        "score": 19,
+        "entites": {
+            "ville": "Marseille"
+        },
+        "timestamp": "2025-03-05 14:36:00"
+    },
+    {
+        "question": "Quelle heure est-il?",
+        "reponse": "L'heure actuelle est 14:37.",
+        "intention": "heure",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-05 14:37:45"
+    },
+    {
+        "question": "Quel jour sommes-nous ?",
+        "reponse": "Aujourd'hui, nous sommes le Wednesday 05 March 2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quel"
+        },
+        "timestamp": "2025-03-05 14:37:48"
+    },
+    {
+        "question": "Quelle est la date aujourd'hui ?",
+        "reponse": "Nous sommes le 05/03/2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-05 14:37:57"
+    },
+    {
+        "question": "Quel temps fait-il aujourd'hui ?",
+        "reponse": "Nous sommes le 05/03/2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quel"
+        },
+        "timestamp": "2025-03-05 14:38:00"
+    },
+    {
+        "question": "Essayez de poser une question simple",
+        "reponse": "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !",
+        "intention": "blague",
+        "score": 3,
+        "entites": {
+            "ville": "Essayez"
+        },
+        "timestamp": "2025-03-05 14:42:16"
+    },
+    {
+        "question": "Demandez-moi la météo",
+        "reponse": "Je vais consulter la météo pour vous à Demandez.",
+        "intention": "meteo",
+        "score": 8,
+        "entites": {
+            "ville": "Demandez"
+        },
+        "timestamp": "2025-03-05 14:42:56"
+    },
+    {
+        "question": "Demandez-moi l'heure",
+        "reponse": "Il est actuellement 14:43.",
+        "intention": "heure",
+        "score": 1.0,
+        "entites": {
+            "ville": "Demandez"
+        },
+        "timestamp": "2025-03-05 14:43:07"
+    },
+    {
+        "question": "Quelle est la météo à Lyon ?",
+        "reponse": "Je vais consulter la météo pour vous à Lyon.",
+        "intention": "meteo",
+        "score": 28,
+        "entites": {
+            "ville": "Lyon"
+        },
+        "timestamp": "2025-03-05 14:43:57"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Que fait une fraise sur un cheval ? Elle galope !",
+        "intention": "blague",
+        "score": 47,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-05 14:55:56"
+    },
+    {
+        "question": "Quelle est la météo à Paris aujourd'hui ?",
+        "reponse": "Nous sommes le 05/03/2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-05 14:55:58"
+    },
+    {
+        "question": "quelle temps a Marseille",
+        "reponse": "Je recherche les informations météo pour Marseille.",
+        "intention": "meteo",
+        "score": 22,
+        "entites": {
+            "ville": "Marseille"
+        },
+        "timestamp": "2025-03-05 14:56:08"
+    },
+    {
+        "question": "quelle temps a Paris",
+        "reponse": "Je vais consulter la météo pour vous à Paris.",
+        "intention": "meteo",
+        "score": 23,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-05 14:56:18"
+    },
+    {
+        "question": "Quelle est la météo à Paris aujourd'hui ?",
+        "reponse": "Je recherche les informations météo pour Paris.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-05 14:58:29"
+    },
+    {
+        "question": "quel date sommes nous aujourd'hui?",
+        "reponse": "Nous sommes le 05/03/2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {},
+        "timestamp": "2025-03-05 14:58:51"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Pourquoi les canards sont-ils toujours à l'heure ? Parce qu'ils sont dans l'étang !",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-05 14:58:55"
+    },
+    {
+        "question": "Quelle est la météo à Marseille aujourd'hui ?",
+        "reponse": "Je recherche les informations météo pour Marseille.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Marseille"
+        },
+        "timestamp": "2025-03-05 14:58:59"
+    },
+    {
+        "question": "est qu'il pleut a Metz?",
+        "reponse": "Laissez-moi vérifier la météo à Metz.",
+        "intention": "meteo",
+        "score": 9,
+        "entites": {
+            "ville": "Metz"
+        },
+        "timestamp": "2025-03-05 14:59:16"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Que fait une fraise sur un cheval ? Elle galope !",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-05 15:00:36"
+    },
+    {
+        "question": "Quelle est la météo à Marseille aujourd'hui ?",
+        "reponse": "Je vais consulter la météo pour vous à Marseille.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Marseille"
+        },
+        "timestamp": "2025-03-05 15:00:39"
+    },
+    {
+        "question": "Quel temps fait-il à Paris ?",
+        "reponse": "Je recherche les informations météo pour Paris.",
+        "intention": "meteo",
+        "score": 44,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-05 15:00:42"
+    },
+    {
+        "question": "Fait-il chaud à Nice ?",
+        "reponse": "Je recherche les informations météo pour Fait.",
+        "intention": "meteo",
+        "score": 10,
+        "entites": {
+            "ville": "Fait"
+        },
+        "timestamp": "2025-03-05 15:00:47"
+    },
+    {
+        "question": "Va-t-il pleuvoir à Bordeaux demain ?",
+        "reponse": "Je vais consulter la météo pour vous à Bordeaux.",
+        "intention": "meteo",
+        "score": 8,
+        "entites": {
+            "ville": "Bordeaux"
+        },
+        "timestamp": "2025-03-05 15:00:51"
     }
 ]
