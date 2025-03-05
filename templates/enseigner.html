@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enseigner - Assistant IA</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <style>
+      .teaching-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1em;
+      }
+
+      .form-control.textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .btn-submit {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s;
+      }
+
+      .btn-submit:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .message {
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+      }
+
+      .message.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .message.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+
+      .categories-list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      .category-tag {
+        background-color: #f1f1f1;
+        color: #333;
+        padding: 5px 10px;
+        margin: 5px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .category-tag:hover {
+        background-color: #e0e0e0;
+      }
+
+      .category-tag.selected {
+        background-color: var(--primary-color);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Enseigner à l'Assistant IA</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Accueil</a>
+        <a href="{{ url_for('historique') }}">Historique</a>
+        <a href="{{ url_for('statistiques') }}">Statistiques</a>
+        <a href="{{ url_for('enseigner') }}" class="active">Enseigner</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="teaching-container">
+        <h2>Apprendre de nouvelles connaissances</h2>
+        <p>
+          Aidez l'assistant IA à s'améliorer en lui enseignant de nouvelles
+          connaissances.
+        </p>
+
+        {% if message %}
+        <div class="message {% if succes %}success{% else %}error{% endif %}">
+          {{ message }}
+        </div>
+        {% endif %}
+
+        <form action="{{ url_for('enseigner') }}" method="post">
+          <div class="form-group">
+            <label for="categorie">Catégorie</label>
+            <select
+              id="categorie"
+              name="categorie"
+              class="form-control"
+              required
+            >
+              <option value="" disabled selected>
+                Choisissez une catégorie
+              </option>
+              {% for categorie in categories %}
+              <option value="{{ categorie }}">{{ categorie }}</option>
+              {% endfor %}
+              <option value="nouvelle">Nouvelle catégorie...</option>
+            </select>
+          </div>
+
+          <div
+            class="form-group"
+            id="nouvelle-categorie-group"
+            style="display: none"
+          >
+            <label for="nouvelle-categorie">Nom de la nouvelle catégorie</label>
+            <input
+              type="text"
+              id="nouvelle-categorie"
+              name="nouvelle-categorie"
+              class="form-control"
+              placeholder="Ex: animaux, pays, sports..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="contenu">Contenu à apprendre</label>
+            <textarea
+              id="contenu"
+              name="contenu"
+              class="form-control textarea"
+              placeholder="Entrez le contenu que l'agent doit apprendre..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Enseigner</button>
+        </form>
+
+        <div style="margin-top: 30px">
+          <h3>Catégories existantes</h3>
+          <div class="categories-list">
+            {% for categorie in categories %}
+            <div class="category-tag">{{ categorie }}</div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Assistant IA - Tous droits réservés</p>
+    </footer>
+
+    <script>
+      // Gestion de l'affichage du champ pour la nouvelle catégorie
+      document
+        .getElementById("categorie")
+        .addEventListener("change", function () {
+          const nouvelleCategorie = document.getElementById(
+            "nouvelle-categorie-group"
+          );
+          if (this.value === "nouvelle") {
+            nouvelleCategorie.style.display = "block";
+            document
+              .getElementById("nouvelle-categorie")
+              .setAttribute("required", "required");
+          } else {
+            nouvelleCategorie.style.display = "none";
+            document
+              .getElementById("nouvelle-categorie")
+              .removeAttribute("required");
+          }
+        });
+
+      // Sélection rapide d'une catégorie en cliquant sur un tag
+      document.querySelectorAll(".category-tag").forEach((tag) => {
+        tag.addEventListener("click", function () {
+          const categorie = this.textContent;
+          const select = document.getElementById("categorie");
+
+          // Trouver l'option correspondante
+          for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].text === categorie) {
+              select.selectedIndex = i;
+              break;
+            }
+          }
+
+          // Déclencher l'événement change pour mettre à jour l'interface
+          const event = new Event("change");
+          select.dispatchEvent(event);
+        });
+      });
+    </script>
+  </body>
+</html>

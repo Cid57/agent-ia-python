@@ -5,10 +5,11 @@ Ce module contient des fonctions pour analyser et comprendre le texte en langage
 
 import re
 import string
+import random
 
 class AnalyseurTexte:
     """
-    Classe pour l'analyse de texte simple.
+    Classe pour l'analyse de texte avancée.
     Cette classe fournit des méthodes pour traiter et analyser du texte en français.
     """
     
@@ -21,6 +22,60 @@ class AnalyseurTexte:
             "notre", "nos", "votre", "vos", "leur", "leurs", "et", "ou", "mais", "donc",
             "car", "pour", "par", "en", "dans", "sur", "sous", "avec", "sans"
         ]
+        
+        # Dictionnaire pour l'analyse de sentiments
+        self.mots_positifs = [
+            "bien", "super", "excellent", "fantastique", "génial", "extraordinaire", 
+            "magnifique", "merveilleux", "parfait", "formidable", "agréable", "heureux", 
+            "content", "satisfait", "positif", "optimiste", "joyeux", "ravi", "enchanté",
+            "aimer", "adorer", "plaire", "apprécier", "plaisir", "joie", "bonheur"
+        ]
+        
+        self.mots_negatifs = [
+            "mal", "mauvais", "terrible", "horrible", "affreux", "catastrophique", 
+            "détestable", "pénible", "difficile", "triste", "malheureux", "insatisfait", 
+            "négatif", "pessimiste", "déçu", "contrarié", "déplaire", "détester", "haïr",
+            "souffrir", "douleur", "chagrin", "malaise", "malheur", "peine", "problème"
+        ]
+        
+        # Types de questions pour une meilleure compréhension
+        self.types_questions = {
+            "information": [
+                r"qu['\s]est-ce que", r"qu['\s]est-ce qu['\s]", r"c['\s]est quoi", 
+                r"défini[rs]", r"signifi[er]", r"expliqu[er]", r"décri[rs]"
+            ],
+            "localisation": [
+                r"où", r"à quel endroit", r"dans quel lieu", r"quel pays", r"quelle ville"
+            ],
+            "temporel": [
+                r"quand", r"à quelle heure", r"quel jour", r"quelle date", r"depuis quand", 
+                r"jusqu'à quand", r"combien de temps"
+            ],
+            "quantité": [
+                r"combien", r"quelle quantité", r"quel nombre", r"quelle somme"
+            ],
+            "processus": [
+                r"comment", r"de quelle manière", r"par quel moyen", r"quelle méthode"
+            ],
+            "causal": [
+                r"pourquoi", r"pour quelle raison", r"à cause de quoi", r"qu['\s]est-ce qui a causé"
+            ],
+            "hypothétique": [
+                r"si", r"que se passerait-il", r"qu['\s]arriverait-il", r"dans le cas où"
+            ],
+            "comparaison": [
+                r"quelle différence", r"qu['\s]est-ce qui distingue", r"en quoi diffère", 
+                r"la différence entre", r"comparer", r"similarité"
+            ],
+            "opinion": [
+                r"que penses-tu", r"quel est ton avis", r"crois-tu que", r"penses-tu que",
+                r"es-tu d['\s]accord", r"ton opinion"
+            ],
+            "conseil": [
+                r"conseille-moi", r"devrais-je", r"faut-il", r"recommandes-tu", 
+                r"suggères-tu", r"que dois-je faire"
+            ]
+        }
     
     def nettoyer_texte(self, texte):
         """
@@ -68,6 +123,72 @@ class AnalyseurTexte:
         
         return mots_cles
     
+    def analyser_sentiment(self, texte):
+        """
+        Analyse le sentiment exprimé dans un texte.
+        
+        Args:
+            texte (str): Le texte à analyser
+            
+        Returns:
+            dict: Dictionnaire contenant le sentiment et son score
+        """
+        # Nettoyer le texte et extraire les mots
+        texte_nettoye = self.nettoyer_texte(texte)
+        mots = texte_nettoye.split()
+        
+        # Compter les mots positifs et négatifs
+        nb_mots_positifs = sum(1 for mot in mots if mot in self.mots_positifs)
+        nb_mots_negatifs = sum(1 for mot in mots if mot in self.mots_negatifs)
+        
+        # Calculer le score de sentiment (-1 à 1)
+        nb_total = max(1, nb_mots_positifs + nb_mots_negatifs)  # Éviter division par zéro
+        score = (nb_mots_positifs - nb_mots_negatifs) / nb_total
+        
+        # Déterminer le sentiment
+        if score > 0.2:
+            sentiment = "positif"
+        elif score < -0.2:
+            sentiment = "négatif"
+        else:
+            sentiment = "neutre"
+        
+        return {
+            "sentiment": sentiment,
+            "score": score,
+            "details": {
+                "mots_positifs": nb_mots_positifs,
+                "mots_negatifs": nb_mots_negatifs
+            }
+        }
+    
+    def identifier_type_question(self, texte):
+        """
+        Identifie le type de question posée.
+        
+        Args:
+            texte (str): La question à analyser
+            
+        Returns:
+            str: Le type de question
+        """
+        texte_lower = texte.lower()
+        
+        # Vérifier chaque type de question
+        for type_q, patterns in self.types_questions.items():
+            for pattern in patterns:
+                try:
+                    if re.search(pattern, texte_lower):
+                        return type_q
+                except Exception as e:
+                    # Capturer et afficher l'erreur pour le débogage
+                    print(f"Erreur d'expression régulière avec le pattern '{pattern}': {e}")
+                    # Continuer avec le pattern suivant
+                    continue
+        
+        # Si aucun type spécifique n'est identifié
+        return "général"
+    
     def calculer_similarite(self, texte1, texte2):
         """
         Calcule une similarité simple entre deux textes.
@@ -79,55 +200,55 @@ class AnalyseurTexte:
         Returns:
             float: Score de similarité entre 0 et 1
         """
-        # Si l'un des textes est vide, retourner 0
-        if not texte1 or not texte2:
+        # Extraire les mots-clés des deux textes
+        mots_cles1 = set(self.extraire_mots_cles(texte1))
+        mots_cles2 = set(self.extraire_mots_cles(texte2))
+        
+        # Si l'un des ensembles est vide, retourner 0
+        if not mots_cles1 or not mots_cles2:
             return 0.0
         
-        # Nettoyer les textes
-        texte1_nettoye = self.nettoyer_texte(texte1)
-        texte2_nettoye = self.nettoyer_texte(texte2)
+        # Calculer l'intersection et l'union des deux ensembles
+        intersection = mots_cles1.intersection(mots_cles2)
+        union = mots_cles1.union(mots_cles2)
         
-        # Vérifier les textes après nettoyage
-        if not texte1_nettoye or not texte2_nettoye:
-            return 0.0
+        # Calculer le coefficient de Jaccard
+        similarite = len(intersection) / len(union)
         
-        # Méthode 1: Vérifier si texte1 est contenu dans texte2
-        if texte1_nettoye in texte2_nettoye:
-            return 1.0
+        return similarite
+    
+    def extraire_entites(self, texte):
+        """
+        Extrait les entités nommées potentielles d'un texte.
+        Version simplifiée sans utiliser de bibliothèque NLP avancée.
         
-        # Méthode 2: Calculer le ratio de mots partagés
-        mots1 = set(texte1_nettoye.split())
-        mots2 = set(texte2_nettoye.split())
+        Args:
+            texte (str): Le texte à analyser
+            
+        Returns:
+            dict: Dictionnaire des entités identifiées
+        """
+        entites = {
+            "dates": [],
+            "lieux": [],
+            "noms": []
+        }
         
-        # Vérifier si texte1 est un seul mot qu'on peut trouver partiellement dans texte2
-        if len(mots1) == 1 and len(texte1_nettoye) > 3:
-            mot = texte1_nettoye
-            for mot2 in mots2:
-                # Si le mot est une sous-chaîne d'un mot dans texte2
-                if mot in mot2 or mot2 in mot:
-                    return 0.8
+        # Recherche simple de dates (format JJ/MM/AAAA ou variations)
+        dates = re.findall(r'\b\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?\b', texte)
+        entites["dates"].extend(dates)
         
-        # Nombre de mots en commun
-        intersection = mots1.intersection(mots2)
+        # Recherche de mots commençant par une majuscule (potentiellement des noms propres)
+        # mais pas en début de phrase
+        noms_propres = re.findall(r'(?<=[.!?]\s+|\s+)[A-Z][a-zàáâäãåçèéêëìíîïñòóôöõøùúûüÿ]+', texte)
+        entites["noms"].extend(noms_propres)
         
-        # Si aucun mot en commun, vérifier les mots partiels
-        if not intersection and len(mots1) > 0 and len(mots2) > 0:
-            for mot1 in mots1:
-                for mot2 in mots2:
-                    # Si les mots ont au moins 3 caractères et partagent au moins 70% de leurs lettres
-                    if len(mot1) >= 3 and len(mot2) >= 3:
-                        if mot1[:3] == mot2[:3]:  # Même préfixe
-                            return 0.5
-                        # Distance de Levenshtein simplifiée
-                        if len(set(mot1).intersection(set(mot2))) / max(len(mot1), len(mot2)) > 0.7:
-                            return 0.5
+        # Pour les lieux, on pourrait avoir une liste prédéfinie, mais ici on simplifie
+        # On cherche les mots après "à", "en", "au", "aux" qui commencent par une majuscule
+        lieux = re.findall(r'(?:à|en|au|aux|pour|vers|dans)\s+([A-Z][a-zàáâäãåçèéêëìíîïñòóôöõøùúûüÿ]+)', texte)
+        entites["lieux"].extend(lieux)
         
-        # Calculer la similarité comme le ratio de Jaccard
-        union = mots1.union(mots2)
-        if not union:
-            return 0.0
-        
-        return len(intersection) / len(union)
+        return entites
 
 
 # Test simple si le fichier est exécuté directement

@@ -53,18 +53,22 @@ class MeteoService:
         # "météo à [VILLE]", "temps à [VILLE]", "[VILLE] météo", etc.
         patterns = [
             r"(?:météo|meteo|temps|température|temperature|climat)\s+(?:à|a|au|en|de)\s+([a-zÀ-ÿ\s-]+)",
-            r"(?:à|a|au|en|de)\s+([a-zÀ-ÿ\s-]+)(?:\s+(?:météo|meteo|temps|température|temperature|climat))",
-            r"([a-zÀ-ÿ\s-]+)(?:\s+(?:météo|meteo|temps|température|temperature|climat))"
+            r"(?:à|a|au|en|de)\s+([a-zÀ-ÿ\s-]+)\s+(?:météo|meteo|temps|température|temperature|climat)",
+            r"([a-zÀ-ÿ\s-]+)\s+(?:météo|meteo|temps|température|temperature|climat)"
         ]
         
         import re
         for pattern in patterns:
-            matches = re.findall(pattern, texte)
-            for match in matches:
-                # Nettoyer le nom potentiel de ville
-                ville = match.strip()
-                if ville and len(ville) > 2 and ville not in ["le", "la", "les", "des", "et", "ou"]:
-                    villes_potentielles.append(ville)
+            try:
+                matches = re.findall(pattern, texte)
+                for match in matches:
+                    # Nettoyer le nom potentiel de ville
+                    ville = match.strip()
+                    if ville and len(ville) > 2 and ville not in ["le", "la", "les", "des", "et", "ou"]:
+                        villes_potentielles.append(ville)
+            except Exception as e:
+                print(f"Erreur d'expression régulière avec le pattern '{pattern}': {e}")
+                continue
         
         # Si aucun pattern n'a fonctionné, extraire les mots individuels qui pourraient être des villes
         if not villes_potentielles:

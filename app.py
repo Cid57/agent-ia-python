@@ -12,6 +12,7 @@ import time
 import secrets
 import logging
 import sys
+import json
 
 # Configuration du logging
 logging.basicConfig(
@@ -72,7 +73,7 @@ def index():
 
 @app.route('/poser_question', methods=['POST'])
 def poser_question():
-    """Endpoint pour poser une question à l'agent."""
+    """Endpoint pour poser une question à l'agent - Version avec API météo optimisée."""
     try:
         # Récupérer les données de la requête
         donnees = request.get_json()
@@ -86,39 +87,166 @@ def poser_question():
             })
         
         # Ajouter un petit délai pour simuler un temps de traitement
-        # et donner une impression plus naturelle
-        time.sleep(0.5)
+        time.sleep(0.3)
         
-        # Analyser la question avec notre module NLP
-        mots_cles = analyseur.extraire_mots_cles(question)
+        # On garde une structure simple mais on utilise l'API météo
+        question_lower = question.lower()
         
-        # Ajouter la question à la mémoire
-        memoire.ajouter_souvenir("question", question)
+        # Répondre directement aux questions les plus simples
+        if "heure" in question_lower:
+            from datetime import datetime
+            maintenant = datetime.now()
+            reponse = f"Il est actuellement {maintenant.strftime('%H:%M')}."
         
-        # Générer une réponse avec notre agent
-        reponse = agent.generer_reponse(question)
+        elif any(mot in question_lower for mot in ["météo", "meteo", "temps"]):
+            try:
+                import requests
+                from datetime import datetime
+                
+                # Extraire le nom de la ville de la question
+                ville = None
+                
+                # Rechercher la ville dans la question après certains mots-clés
+                mots_declencheurs = ["à", "a", "de", "pour", "sur", "dans"]
+                for mot in mots_declencheurs:
+                    if f" {mot} " in question_lower + " ":
+                        parties = question_lower.split(f" {mot} ")
+                        if len(parties) > 1:
+                            # Prendre le premier mot après le déclencheur
+                            ville_candidate = parties[1].split()[0].strip("?!.,;:")
+                            # Si le mot candidat est plus long que 2 caractères, c'est probablement une ville
+                            if len(ville_candidate) > 2:
+                                ville = ville_candidate
+                                break
+                
+                # Si aucune ville n'est trouvée, utiliser Paris comme défaut
+                if not ville:
+                    ville = "Paris"
+                
+                # ÉTAPE 1: Obtenir les coordonnées géographiques via l'API de géocodage
+                geocoding_url = f"https://geocoding-api.open-meteo.com/v1/search?name={ville}&count=5&language=fr"
+                geo_response = requests.get(geocoding_url)
+                geo_data = geo_response.json()
+                
+                if "results" not in geo_data or not geo_data["results"]:
+                    reponse = f"Je n'arrive pas à trouver les coordonnées de {ville.capitalize()}. Veuillez essayer une autre ville."
+                else:
+                    # Prendre le premier résultat comme le plus pertinent
+                    selected_city = geo_data["results"][0]
+                    
+                    # Récupérer les coordonnées géographiques
+                    latitude = selected_city["latitude"]
+                    longitude = selected_city["longitude"]
+                    city_name = selected_city["name"]
+                    country_name = selected_city["country"]
+                    
+                    # ÉTAPE 2: Obtenir les données météo avec les coordonnées précises
+                    weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto"
+                    weather_response = requests.get(weather_url)
+                    weather_data = weather_response.json()
+                    
+                    if "current" in weather_data:
+                        current = weather_data["current"]
+                        
+                        # Extraire les données météo
+                        temp = round(current.get("temperature_2m", 0))
+                        apparent_temp = round(current.get("apparent_temperature", temp))
+                        humidity = current.get("relative_humidity_2m", 0)
+                        wind_speed = round(current.get("wind_speed_10m", 0) * 3.6)  # Convertir en km/h
+                        weather_code = current.get("weather_code", 0)
+                        
+                        # Obtenir la description et l'icône en fonction du code météo
+                        descriptions = {
+                            0: "Ciel dégagé", 1: "Principalement dégagé", 2: "Partiellement nuageux", 3: "Nuageux",
+                            45: "Brouillard", 48: "Brouillard givrant", 51: "Bruine légère", 53: "Bruine modérée",
+                            55: "Bruine dense", 56: "Bruine verglaçante légère", 57: "Bruine verglaçante dense",
+                            61: "Pluie légère", 63: "Pluie modérée", 65: "Pluie forte", 66: "Pluie verglaçante légère",
+                            67: "Pluie verglaçante dense", 71: "Neige légère", 73: "Neige modérée", 75: "Neige forte",
+                            77: "Grésil", 80: "Averses légères", 81: "Averses modérées", 82: "Averses violentes",
+                            85: "Neige faible", 86: "Neige forte", 95: "Orage", 96: "Orage avec grêle légère",
+                            99: "Orage avec grêle forte"
+                        }
+                        
+                        icons = {
+                            0: "☀️", 1: "🌤️", 2: "⛅", 3: "☁️", 45: "🌫️", 48: "🌫️❄️", 51: "🌦️", 53: "🌦️", 55: "🌦️",
+                            56: "🌧️❄️", 57: "🌧️❄️", 61: "🌧️", 63: "🌧️", 65: "🌧️", 66: "🌧️❄️", 67: "🌧️❄️",
+                            71: "❄️", 73: "❄️", 75: "❄️", 77: "🌨️", 80: "🌦️", 81: "🌦️", 82: "🌧️", 85: "🌨️",
+                            86: "🌨️❄️", 95: "⛈️", 96: "⛈️❄️", 99: "⛈️❄️"
+                        }
+                        
+                        description = descriptions.get(weather_code, "Conditions variables")
+                        icon = icons.get(weather_code, "🌍")
+                        
+                        # Obtenir la date en français
+                        today = datetime.now().strftime("%A %d %B %Y").capitalize()
+                        translations = {
+                            "Monday": "Lundi", "Tuesday": "Mardi", "Wednesday": "Mercredi", 
+                            "Thursday": "Jeudi", "Friday": "Vendredi", "Saturday": "Samedi", "Sunday": "Dimanche",
+                            "January": "janvier", "February": "février", "March": "mars", "April": "avril",
+                            "May": "mai", "June": "juin", "July": "juillet", "August": "août",
+                            "September": "septembre", "October": "octobre", "November": "novembre", "December": "décembre"
+                        }
+                        
+                        for en, fr in translations.items():
+                            today = today.replace(en, fr)
+                        
+                        # Formater la réponse météo avec un affichage similaire au script Wix
+                        reponse = f"📆 {today} 📍 {city_name}, {country_name} {icon} {temp}°C {description} 🌡️ Ressentie: {apparent_temp}°C 💦 Humidité: {humidity}% 💨 Vent: {wind_speed} km/h ⏳ Mise à jour: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+                    else:
+                        reponse = f"Je n'ai pas pu obtenir les données météo pour {city_name}. Le service météo semble indisponible."
+            except Exception as e:
+                print(f"Erreur avec le service météo: {e}")
+                reponse = f"Je n'ai pas pu obtenir les informations météo en raison d'une erreur technique: {str(e)}"
         
-        # Ajouter la réponse à la mémoire
-        memoire.ajouter_souvenir("reponse", reponse)
+        elif any(mot in question_lower for mot in ["bonjour", "salut", "hello", "coucou", "hey"]):
+            reponse = "Bonjour ! Comment puis-je vous aider aujourd'hui ?"
         
-        # Si la réponse semble être une information factuelle, la sauvegarder
-        if any(mot in question.lower() for mot in ["qu'est-ce", "définition", "explique", "comment"]):
-            # On sauvegarde seulement les réponses qui ne sont pas des réponses par défaut
-            if "Je ne comprends pas encore cette question" not in reponse:
-                memoire.sauvegarder_memoire_long_terme("connaissances", f"Question: {question} | Réponse: {reponse}")
+        elif any(mot in question_lower for mot in ["comment va", "ça va", "ca va", "comment tu vas", "comment vas tu", "comment tu va", "comment vas-tu", "vas bien", "tu vas bien", "comment allez vous", "comment allez-vous", "comment tu te sens"]):
+            reponse = "Je vais très bien, merci de demander ! Comment puis-je vous aider ?"
         
-        # Retourner la réponse au format JSON
+        elif any(mot in question_lower for mot in ["qui es-tu", "qui êtes-vous", "qui est-ce"]):
+            reponse = "Je suis Cindy, votre assistant IA personnel. Je peux vous aider avec des questions simples et vous donner la météo en temps réel."
+        
+        elif "date" in question_lower:
+            from datetime import datetime
+            maintenant = datetime.now()
+            reponse = f"Nous sommes le {maintenant.strftime('%d/%m/%Y')}."
+        
+        elif any(mot in question_lower for mot in ["merci", "thanks", "thx"]):
+            reponse = "Je vous en prie ! N'hésitez pas si vous avez d'autres questions."
+        
+        else:
+            reponse = f"Je comprends votre question : '{question}'. Je travaille en mode simplifié pour l'instant."
+        
+        # Essayer d'enregistrer dans la mémoire si possible
+        try:
+            memoire.ajouter_souvenir("question", question)
+            memoire.ajouter_souvenir("reponse", reponse)
+        except:
+            pass  # Ignorer les erreurs de mémoire
+        
+        # Suggestions de villes
+        suggestions = [
+            "Quelle heure est-il ?",
+            "Quel temps fait-il à Paris ?",
+            "Quel temps fait-il à Moscou ?"
+        ]
+        
+        # Retourner la réponse
         return jsonify({
             'reponse': reponse,
-            'mots_cles': mots_cles,
+            'suggestions': suggestions,
             'status': 'success'
         })
+        
     except Exception as e:
-        logger.error(f"Erreur lors du traitement de la question: {e}")
+        # En cas d'erreur, on log mais on ne fait rien de complexe
+        print(f"Erreur générale: {e}")
+        
+        # Réponse d'erreur ultra-simple
         return jsonify({
-            'reponse': 'Une erreur est survenue lors du traitement de votre question. Veuillez réessayer.',
-            'status': 'error',
-            'error': str(e)
+            'reponse': "Désolé, une erreur est survenue. Veuillez réessayer.",
+            'status': 'error'
         }), 500
 
 @app.route('/historique')
@@ -152,715 +280,138 @@ def historique():
                 })
                 i += 1
         
-        return render_template('historique.html', historique=historique_formate)
+        # Obtenir des statistiques pour l'affichage
+        stats = {}
+        if hasattr(agent, 'obtenir_statistiques'):
+            stats = agent.obtenir_statistiques()
+        
+        return render_template('historique.html', 
+                              historique=historique_formate,
+                              statistiques=stats)
     except Exception as e:
         logger.error(f"Erreur lors de l'affichage de l'historique: {e}")
         return render_template('error.html', 
                               error_message="Erreur d'accès à l'historique",
                               error_details="Impossible d'accéder à l'historique des conversations."), 500
 
-@app.route('/effacer_historique', methods=['POST'])
-def effacer_historique():
-    """Endpoint pour effacer l'historique des conversations."""
+@app.route('/statistiques')
+def statistiques():
+    # Obtenir les statistiques depuis l'agent
+    essai_stats = agent.obtenir_statistiques()
+    
+    # Si les statistiques ne sont pas disponibles, on utilise des statistiques simulées
+    if not essai_stats:
+        stats = {
+            "nb_interactions": 42,
+            "questions_frequentes": [
+                {"question": "Quelle est la météo ?", "occurrences": 15},
+                {"question": "Quelle heure est-il ?", "occurrences": 10},
+                {"question": "Comment vas-tu ?", "occurrences": 8}
+            ],
+            "sentiments": {"positif": 40, "neutre": 50, "negatif": 10},
+            "distribution_categories": {
+                "météo": 30,
+                "heure": 25,
+                "salutations": 20,
+                "autres": 25
+            }
+        }
+    else:
+        stats = essai_stats
+    
+    # Calculer des statistiques supplémentaires si possible
     try:
-        # Effacer complètement la mémoire à court terme
-        memoire.memoire_court_terme = []
-        logger.info("Historique effacé avec succès")
-        
-        return jsonify({
-            'status': 'success',
-            'message': 'Historique effacé avec succès.'
-        })
-    except Exception as e:
-        logger.error(f"Erreur lors de l'effacement de l'historique: {e}")
-        return jsonify({
-            'status': 'error',
-            'message': f'Erreur lors de l\'effacement de l\'historique: {str(e)}'
-        }), 500
+        historique = memoire.recuperer_souvenirs("question")
+        if historique:
+            # TODO: Calculs supplémentaires
+            pass
+    except:
+        pass
+    
+    return render_template('statistiques.html', stats=stats)
 
 @app.route('/aide')
 def aide():
-    """Page d'aide expliquant les fonctionnalités de l'agent."""
+    """Page d'aide expliquant comment utiliser l'assistant"""
     return render_template('aide.html')
 
-# Fonction pour créer les fichiers de template s'ils n'existent pas
-def creer_fichiers_template():
-    """Crée les fichiers de template et statiques si nécessaire."""
+@app.route('/enseigner', methods=['GET', 'POST'])
+def enseigner():
+    """Page permettant d'enseigner de nouvelles connaissances à l'agent."""
+    if request.method == 'POST':
+        try:
+            categorie = request.form.get('categorie', '')
+            contenu = request.form.get('contenu', '')
+            
+            if not categorie or not contenu:
+                return render_template('enseigner.html', 
+                                      message="Veuillez remplir tous les champs",
+                                      succes=False)
+            
+            # Utiliser la méthode d'apprentissage si elle existe
+            if hasattr(agent, 'apprendre_nouvelle_connaissance'):
+                succes = agent.apprendre_nouvelle_connaissance(categorie, contenu)
+                message = "Nouvelle connaissance ajoutée avec succès !" if succes else "Cette connaissance existe déjà ou n'a pas pu être ajoutée."
+            else:
+                # Fallback si la méthode n'existe pas
+                if categorie in agent.connaissances:
+                    agent.connaissances[categorie].append(contenu)
+                else:
+                    agent.connaissances[categorie] = [contenu]
+                message = "Nouvelle connaissance ajoutée avec succès !"
+                succes = True
+            
+            return render_template('enseigner.html', 
+                                  message=message,
+                                  succes=succes)
+        except Exception as e:
+            logger.error(f"Erreur lors de l'apprentissage: {e}")
+            return render_template('enseigner.html', 
+                                  message=f"Une erreur est survenue: {str(e)}",
+                                  succes=False)
+    else:
+        # Afficher le formulaire
+        categories = list(agent.connaissances.keys())
+        return render_template('enseigner.html', categories=categories)
+
+@app.route('/api/categories')
+def api_categories():
+    """API endpoint pour récupérer les catégories existantes."""
     try:
-        # Vérifier et créer les fichiers template
-        templates = {
-            'index.html': """<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agent IA - Assistant</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Mon Assistant IA</h1>
-            <p>Posez-moi vos questions, je suis là pour vous aider!</p>
-            <nav>
-                <a href="/historique">Historique</a> |
-                <a href="/aide">Aide</a>
-            </nav>
-        </header>
-        
-        <main>
-            <div class="chat-container">
-                <div id="chat-messages">
-                    {% if first_visit %}
-                    <div class="message bot">
-                        <div class="message-content">
-                            Bonjour! Je suis votre assistant IA. Comment puis-je vous aider aujourd'hui?
-                        </div>
-                    </div>
-                    {% endif %}
-                </div>
-                
-                <div class="chat-input">
-                    <input type="text" id="question-input" placeholder="Posez votre question ici...">
-                    <button id="send-button">Envoyer</button>
-                </div>
-            </div>
-            
-            <div class="actions">
-                <button id="clear-button" class="secondary-button">Effacer la conversation</button>
-            </div>
-        </main>
-        
-        <footer>
-            <p>Agent IA - Version 1.1 - Développé avec Python et Flask</p>
-        </footer>
-    </div>
-    
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-</body>
-</html>""",
-            'historique.html': """<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agent IA - Historique</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Historique des Conversations</h1>
-            <p><a href="/">Retour à l'accueil</a></p>
-        </header>
-        
-        <main>
-            <div class="historique-container">
-                {% if historique %}
-                    {% for item in historique %}
-                        <div class="historique-item {% if item.type == 'question' %}question{% else %}reponse{% endif %}">
-                            <div class="timestamp">{{ item.timestamp }}</div>
-                            <div class="content">
-                                <strong>{% if item.type == 'question' %}Question{% else %}Réponse{% endif %}:</strong> 
-                                {{ item.contenu }}
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <p>Aucun historique disponible pour le moment.</p>
-                {% endif %}
-            </div>
-        </main>
-        
-        <footer>
-            <p>Agent IA - Version 1.1 - Développé avec Python et Flask</p>
-        </footer>
-    </div>
-</body>
-</html>""",
-            'aide.html': """<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agent IA - Aide</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Aide - Comment utiliser l'Agent IA</h1>
-            <p><a href="/">Retour à l'accueil</a></p>
-        </header>
-        
-        <main>
-            <div class="aide-container">
-                <h2>Que peut faire cet agent IA ?</h2>
-                <p>Cet assistant IA est conçu pour répondre à vos questions et interagir avec vous de manière simple. Voici les différentes catégories de questions auxquelles il peut répondre :</p>
-                
-                {% for capacite in capacites %}
-                <div class="capacite-section">
-                    <h3>{{ capacite.categorie }}</h3>
-                    <div class="exemples">
-                        <p>Exemples :</p>
-                        <ul>
-                            {% for exemple in capacite.exemples %}
-                            <li>{{ exemple }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-                {% endfor %}
-                
-                <h2>Comment ça marche ?</h2>
-                <p>L'agent utilise des techniques simples de traitement du langage naturel pour comprendre vos questions et y répondre. Il identifie les mots-clés dans votre message et génère une réponse appropriée.</p>
-                
-                <h2>Confidentialité</h2>
-                <p>Vos conversations sont stockées temporairement dans la mémoire de l'application. Vous pouvez effacer l'historique à tout moment en cliquant sur le bouton "Effacer la conversation" sur la page d'accueil.</p>
-            </div>
-        </main>
-        
-        <footer>
-            <p>Agent IA - Version 1.1 - Développé avec Python et Flask</p>
-        </footer>
-    </div>
-</body>
-</html>"""
-        }
-        
-        # Créer les fichiers template s'ils n'existent pas
-        for filename, content in templates.items():
-            filepath = os.path.join('templates', filename)
-            if not os.path.exists(filepath):
-                with open(filepath, 'w', encoding='utf-8') as f:
-                    f.write(content)
-                logger.info(f"Fichier {filepath} créé")
-        
-        # Créer les fichiers CSS et JavaScript
-        css_file = os.path.join('static', 'css', 'style.css')
-        if not os.path.exists(css_file):
-            with open(css_file, 'w', encoding='utf-8') as f:
-                f.write("""/* Style général */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: #f5f7fa;
-    color: #333;
-    line-height: 1.6;
-}
-
-.container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* En-tête */
-header {
-    text-align: center;
-    margin-bottom: 30px;
-    padding: 20px 0;
-    border-bottom: 1px solid #e1e4e8;
-}
-
-header h1 {
-    color: #2c3e50;
-    margin-bottom: 10px;
-    font-size: 2.2rem;
-}
-
-header p {
-    color: #7f8c8d;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-header nav {
-    margin-top: 10px;
-}
-
-header nav a {
-    color: #3498db;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-header nav a:hover {
-    color: #2980b9;
-    text-decoration: underline;
-}
-
-/* Zone de chat */
-.chat-container {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #e1e8ed;
-}
-
-#chat-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px;
-    scroll-behavior: smooth;
-}
-
-.message {
-    margin-bottom: 15px;
-    display: flex;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.message.user {
-    justify-content: flex-end;
-}
-
-.message-content {
-    padding: 12px 16px;
-    border-radius: 18px;
-    max-width: 70%;
-    word-wrap: break-word;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.user .message-content {
-    background-color: #4c84ff;
-    color: white;
-    border-bottom-right-radius: 4px;
-}
-
-.bot .message-content {
-    background-color: #f1f1f1;
-    color: #333;
-    border-bottom-left-radius: 4px;
-}
-
-.chat-input {
-    display: flex;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-top: 1px solid #e1e4e8;
-}
-
-#question-input {
-    flex: 1;
-    padding: 12px 16px;
-    border: 1px solid #ddd;
-    border-radius: 24px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-#question-input:focus {
-    border-color: #4c84ff;
-    box-shadow: 0 0 0 2px rgba(76, 132, 255, 0.2);
-}
-
-#send-button {
-    margin-left: 10px;
-    padding: 0 20px;
-    background-color: #4c84ff;
-    color: white;
-    border: none;
-    border-radius: 24px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-    transition: background-color 0.3s, transform 0.1s;
-}
-
-#send-button:hover {
-    background-color: #3a6fdf;
-}
-
-#send-button:active {
-    transform: scale(0.98);
-}
-
-/* Actions */
-.actions {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.secondary-button {
-    background-color: #f1f1f1;
-    color: #555;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    padding: 8px 16px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.secondary-button:hover {
-    background-color: #e5e5e5;
-}
-
-/* Historique */
-.historique-container {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    padding: 20px;
-    margin-bottom: 30px;
-}
-
-.historique-item {
-    margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 8px;
-    transition: transform 0.2s;
-}
-
-.historique-item:hover {
-    transform: translateX(5px);
-}
-
-.historique-item.question {
-    background-color: #f1f8ff;
-    border-left: 4px solid #4c84ff;
-}
-
-.historique-item.reponse {
-    background-color: #f8f8f8;
-    border-left: 4px solid #34c759;
-    margin-left: 20px;
-}
-
-.timestamp {
-    color: #777;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-/* Page d'aide */
-.aide-container {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-}
-
-.aide-container h2 {
-    color: #2c3e50;
-    margin: 20px 0 10px 0;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 8px;
-}
-
-.aide-container h3 {
-    color: #3498db;
-    margin: 15px 0 10px 0;
-}
-
-.capacite-section {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
-.exemples {
-    margin-top: 10px;
-}
-
-.exemples ul {
-    margin-left: 20px;
-}
-
-.exemples li {
-    margin: 5px 0;
-}
-
-/* Animation de points de chargement */
-.typing {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-}
-
-.typing-dots {
-    display: flex;
-}
-
-.typing-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #aaa;
-    border-radius: 50%;
-    margin: 0 3px;
-    animation: typingAnimation 1.5s infinite ease-in-out;
-}
-
-.typing-dot:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.typing-dot:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-@keyframes typingAnimation {
-    0%, 60%, 100% { transform: translateY(0); }
-    30% { transform: translateY(-5px); }
-}
-
-/* Pied de page */
-footer {
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #e1e4e8;
-    color: #777;
-}
-
-footer a {
-    color: #4c84ff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .message-content {
-        max-width: 85%;
-    }
-    
-    header h1 {
-        font-size: 1.8rem;
-    }
-    
-    .chat-container {
-        height: 60vh;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        width: 95%;
-        padding: 10px;
-    }
-    
-    .message-content {
-        max-width: 90%;
-    }
-    
-    #send-button {
-        padding: 0 15px;
-    }
-}
-""")
-                logger.info("Fichier CSS créé")
-        
-        js_file = os.path.join('static', 'js', 'app.js')
-        if not os.path.exists(js_file):
-            with open(js_file, 'w', encoding='utf-8') as f:
-                f.write("""// Attendre que le DOM soit chargé
-document.addEventListener('DOMContentLoaded', function() {
-    // Éléments du DOM
-    const chatMessages = document.getElementById('chat-messages');
-    const questionInput = document.getElementById('question-input');
-    const sendButton = document.getElementById('send-button');
-    const clearButton = document.getElementById('clear-button');
-    
-    // Fonction pour ajouter un message au chat
-    function addMessage(content, isUser = false) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
-        
-        const messageContent = document.createElement('div');
-        messageContent.className = 'message-content';
-        messageContent.textContent = content;
-        
-        messageDiv.appendChild(messageContent);
-        chatMessages.appendChild(messageDiv);
-        
-        // Faire défiler vers le bas pour voir le dernier message
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-    
-    // Fonction pour afficher l'animation de chargement
-    function showTypingIndicator() {
-        const typingDiv = document.createElement('div');
-        typingDiv.className = 'message bot typing';
-        typingDiv.id = 'typing-indicator';
-        
-        const typingContent = document.createElement('div');
-        typingContent.className = 'message-content';
-        
-        const typingDots = document.createElement('div');
-        typingDots.className = 'typing-dots';
-        
-        // Créer les trois points d'animation
-        for (let i = 0; i < 3; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'typing-dot';
-            typingDots.appendChild(dot);
-        }
-        
-        typingContent.appendChild(typingDots);
-        typingDiv.appendChild(typingContent);
-        chatMessages.appendChild(typingDiv);
-        
-        // Faire défiler vers le bas
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-    
-    // Fonction pour supprimer l'animation de chargement
-    function removeTypingIndicator() {
-        const indicator = document.getElementById('typing-indicator');
-        if (indicator) {
-            indicator.remove();
-        }
-    }
-    
-    // Fonction pour envoyer une question à l'API
-    async function sendQuestion(question) {
-        try {
-            // Désactiver le bouton pendant l'envoi
-            sendButton.disabled = true;
-            questionInput.disabled = true;
-            
-            // Afficher l'indicateur de frappe
-            showTypingIndicator();
-            
-            // Envoyer la requête au serveur
-            const response = await fetch('/poser_question', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ question: question })
-            });
-            
-            // Vérifier si la requête a réussi
-            if (!response.ok) {
-                throw new Error('Erreur réseau');
-            }
-            
-            // Analyser la réponse JSON
-            const data = await response.json();
-            
-            // Supprimer l'indicateur de frappe
-            removeTypingIndicator();
-            
-            // Ajouter la réponse de l'agent au chat
-            addMessage(data.reponse);
-        } catch (error) {
-            console.error('Erreur:', error);
-            removeTypingIndicator();
-            addMessage('Désolé, une erreur est survenue lors du traitement de votre demande.');
-        } finally {
-            // Réactiver le bouton et l'input
-            sendButton.disabled = false;
-            questionInput.disabled = false;
-            questionInput.focus();
-        }
-    }
-    
-    // Gérer l'envoi de question lorsque le bouton est cliqué
-    sendButton.addEventListener('click', function() {
-        const question = questionInput.value.trim();
-        
-        if (question !== '') {
-            // Ajouter la question au chat
-            addMessage(question, true);
-            
-            // Envoyer la question à l'API
-            sendQuestion(question);
-            
-            // Effacer l'input
-            questionInput.value = '';
-        }
-    });
-    
-    // Gérer l'envoi de question lorsque la touche Entrée est pressée
-    questionInput.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            sendButton.click();
-        }
-    });
-    
-    // Gérer le clic sur le bouton d'effacement
-    if (clearButton) {
-        clearButton.addEventListener('click', async function() {
-            // Demander confirmation
-            if (confirm('Voulez-vous vraiment effacer toute la conversation ?')) {
-                try {
-                    // Envoyer la requête pour effacer l'historique
-                    const response = await fetch('/effacer_historique', {
-                        method: 'POST'
-                    });
-                    
-                    if (!response.ok) {
-                        throw new Error('Erreur lors de l\\'effacement de l\\'historique');
-                    }
-                    
-                    // Vider la zone de chat sauf le message de bienvenue
-                    chatMessages.innerHTML = '<div class="message bot"><div class="message-content">Conversation effacée. Comment puis-je vous aider maintenant ?</div></div>';
-                    
-                } catch (error) {
-                    console.error('Erreur:', error);
-                    alert('Erreur lors de l\\'effacement de l\\'historique');
-                }
-            }
-        });
-    }
-    
-    // Mettre le focus sur l'input au chargement
-    questionInput.focus();
-});
-""")
-                logger.info("Fichier JavaScript créé")
-        
-        logger.info("Tous les fichiers template et statiques ont été vérifiés et créés si nécessaire")
+        categories = list(agent.connaissances.keys())
+        return jsonify({
+            'categories': categories,
+            'status': 'success'
+        })
     except Exception as e:
-        logger.error(f"Erreur lors de la création des fichiers template: {e}")
+        logger.error(f"Erreur lors de la récupération des catégories: {e}")
+        return jsonify({
+            'status': 'error',
+            'error': str(e)
+        }), 500
 
-# Lancer l'application si ce fichier est exécuté directement
+@app.route('/api/statistiques')
+def api_statistiques():
+    """API endpoint pour récupérer les statistiques de l'agent."""
+    try:
+        if hasattr(agent, 'obtenir_statistiques'):
+            stats = agent.obtenir_statistiques()
+            return jsonify({
+                'statistiques': stats,
+                'status': 'success'
+            })
+        else:
+            return jsonify({
+                'status': 'error',
+                'error': 'Les statistiques ne sont pas disponibles dans cette version de l\'agent.'
+            }), 404
+    except Exception as e:
+        logger.error(f"Erreur lors de la récupération des statistiques: {e}")
+        return jsonify({
+            'status': 'error',
+            'error': str(e)
+        }), 500
+
+# Point d'entrée principal
 if __name__ == '__main__':
-    # Créer les fichiers de template s'ils n'existent pas
-    creer_fichiers_template()
-    
-    print("Agent AssistantIA initialisé et prêt à l'emploi!")
-    
-    try:
-        logger.info("Démarrage du serveur Assistant IA...")
-        # Lancer l'application Flask avec une configuration robuste
-        # threaded=True permet de gérer plusieurs requêtes simultanément
-        # use_reloader=True permet de recharger automatiquement l'application quand le code change
-        app.run(debug=True, host='0.0.0.0', port=5000, threaded=True, use_reloader=True)
-    except KeyboardInterrupt:
-        logger.info("Arrêt du serveur par l'utilisateur.")
-    except Exception as e:
-        logger.error(f"Erreur lors du démarrage du serveur: {e}")
-        print(f"Erreur: {e}")
-        print("Pour redémarrer le serveur, exécutez à nouveau la commande: python app.py") 
+    app.run(debug=True, host='0.0.0.0', port=5000) 

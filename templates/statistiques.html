@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistiques - Assistant IA</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <style>
+      .stats-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .stat-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .stat-title {
+        color: var(--primary-color);
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 5px;
+      }
+
+      .stat-value {
+        font-size: 2em;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        margin: 10px 0;
+      }
+
+      .stat-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .stat-list li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .stat-list li span.count {
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 20px;
+        padding: 2px 10px;
+        font-size: 0.9em;
+      }
+
+      .placeholder {
+        color: #999;
+        text-align: center;
+        font-style: italic;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Statistiques de l'Assistant IA</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Accueil</a>
+        <a href="{{ url_for('historique') }}">Historique</a>
+        <a href="{{ url_for('statistiques') }}" class="active">Statistiques</a>
+        <a href="{{ url_for('enseigner') }}">Enseigner</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="stats-container">
+        <h2>Analyse de l'utilisation</h2>
+
+        {% if stats %}
+        <div class="stat-card">
+          <div class="stat-title">Nombre total d'interactions</div>
+          <div class="stat-value">{{ stats.total_interactions }}</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-title">Questions les plus fréquentes</div>
+          {% if stats.questions_populaires %}
+          <ul class="stat-list">
+            {% for question, count in stats.questions_populaires %}
+            <li>
+              {{ question }}
+              <span class="count">{{ count }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <div class="placeholder">
+            Pas assez de données pour afficher les questions populaires
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-title">Dernier sentiment détecté</div>
+          <div class="stat-value">
+            {% if stats.dernier_sentiment == 'positif' %}
+            <span style="color: green">😊 Positif</span>
+            {% elif stats.dernier_sentiment == 'négatif' %}
+            <span style="color: red">😞 Négatif</span>
+            {% else %}
+            <span style="color: grey">😐 Neutre</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-title">Préférences utilisateur</div>
+          {% if stats.preferences and stats.preferences.villes_favorites %}
+          <div class="stat-subtitle">Villes favorites</div>
+          <ul class="stat-list">
+            {% for ville in stats.preferences.villes_favorites %}
+            <li>{{ ville }}</li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <div class="placeholder">Aucune préférence enregistrée</div>
+          {% endif %}
+        </div>
+        {% else %}
+        <div class="placeholder">
+          Aucune statistique disponible pour le moment
+        </div>
+        {% endif %}
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Assistant IA - Tous droits réservés</p>
+    </footer>
+  </body>
+</html>

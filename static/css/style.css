@@ -146,6 +146,7 @@ body.loaded {
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(5px);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  overflow-y: auto; /* Permettre le défilement vertical */
 }
 
 /* En-tête amélioré avec dégradé */
@@ -623,6 +624,10 @@ main {
   margin: 24px auto;
   max-width: 800px;
   width: 100%;
+  overflow-y: auto;
+  max-height: calc(
+    100vh - 150px
+  ); /* Hauteur maximale pour permettre le défilement */
 }
 
 .aide-container h2 {
