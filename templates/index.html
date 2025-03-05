@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cindy - Assistant IA</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Cindy</h1>
+        <nav>
+          <a href="/historique">Historique</a>
+          <a href="/aide">Aide</a>
+        </nav>
+      </header>
+
+      <main>
+        <div class="chat-container">
+          <div class="actions">
+            <button id="clear-button" class="secondary-button">Effacer</button>
+          </div>
+
+          <div id="chat-messages">
+            {% if first_visit or not chat_messages %}
+            <div class="message bot">
+              <div class="message-container">
+                <div class="message-content">
+                  <p>
+                    👋 Bonjour! Je suis Cindy, votre assistant IA personnelle.
+                  </p>
+                  <p>
+                    Je peux vous aider avec diverses questions. N'hésitez pas à
+                    me demander ce que vous voulez!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="welcome-guide">
+              <h2>Comment puis-je vous aider aujourd'hui?</h2>
+              <p>
+                Vous pouvez me poser des questions sur différents sujets. Voici
+                quelques suggestions :
+              </p>
+
+              <div class="suggestions">
+                <div
+                  class="suggestion-chip"
+                  data-question="Quelle est la météo à Paris aujourd'hui?"
+                >
+                  Météo à Paris
+                </div>
+                <div
+                  class="suggestion-chip"
+                  data-question="Quelle heure est-il?"
+                >
+                  Heure actuelle
+                </div>
+                <div class="suggestion-chip" data-question="Qui es-tu?">
+                  Qui es-tu?
+                </div>
+                <div
+                  class="suggestion-chip"
+                  data-question="Raconte-moi une blague"
+                >
+                  Une blague
+                </div>
+                <div
+                  class="suggestion-chip"
+                  data-question="Comment va-tu aujourd'hui?"
+                >
+                  Comment vas-tu?
+                </div>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+
+          <div class="chat-input">
+            <input
+              type="text"
+              id="question-input"
+              placeholder="Posez votre question ici..."
+            />
+            <button id="send-button">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>Agent IA - Version 1.2 - Développé avec Python et Flask</p>
+      </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aide - Cindy</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Aide</h1>
+        <nav>
+          <a href="/">Accueil</a>
+          <a href="/historique">Historique</a>
+        </nav>
+      </header>
+
+      <main>
+        <div class="aide-container">
+          <h2>Comment utiliser Cindy</h2>
+
+          <div class="capacite-section">
+            <h3>Capacités de l'assistant</h3>
+            <p>Cindy peut répondre à différents types de questions :</p>
+            <div class="exemples">
+              <ul>
+                <li>Questions générales et salutations</li>
+                <li>Informations sur le temps et la météo</li>
+                <li>Aide sur l'utilisation de l'application</li>
+                <li>Et bien plus encore...</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Exemples de questions</h3>
+          <div class="exemples">
+            <ul>
+              <li>"Bonjour, comment vas-tu aujourd'hui ?"</li>
+              <li>"Quelle est la météo à Paris ?"</li>
+              <li>"Raconte-moi une blague"</li>
+              <li>"Qui es-tu ?"</li>
+              <li>"Quelles sont tes capacités ?"</li>
+            </ul>
+          </div>
+
+          <h3>Astuces</h3>
+          <div class="exemples">
+            <ul>
+              <li>
+                Posez des questions claires et concises pour de meilleures
+                réponses
+              </li>
+              <li>
+                Vous pouvez consulter l'historique de vos conversations dans la
+                section "Historique"
+              </li>
+              <li>
+                Pour effacer la conversation, utilisez le bouton "Effacer la
+                conversation" en bas de l'écran
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>Agent IA - Version 1.2 - Développé avec Python et Flask</p>
+      </footer>
+    </div>
+  </body>
+</html>

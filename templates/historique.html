@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historique - Cindy</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Historique</h1>
+        <nav>
+          <a href="/">Accueil</a>
+          <a href="/aide">Aide</a>
+        </nav>
+      </header>
+
+      <main>
+        <div class="historique-container">
+          {% if historique %} {% for item in historique %}
+          <div class="historique-item question">
+            <div class="timestamp">{{ item.timestamp }}</div>
+            <div>{{ item.question }}</div>
+          </div>
+          <div class="historique-item reponse">
+            <div>{{ item.reponse }}</div>
+          </div>
+          {% endfor %} {% else %}
+          <p>Aucun historique disponible.</p>
+          {% endif %}
+        </div>
+
+        {% if historique %}
+        <div class="actions">
+          <form action="/effacer_historique" method="post">
+            <button type="submit" class="secondary-button">
+              Effacer l'historique
+            </button>
+          </form>
+        </div>
+        {% endif %}
+      </main>
+
+      <footer>
+        <p>Agent IA - Version 1.2 - Développé avec Python et Flask</p>
+      </footer>
+    </div>
+  </body>
+</html>
