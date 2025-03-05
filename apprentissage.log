@@ -859,3 +859,70 @@ AttributeError: 'list' object has no attribute 'items'
 2025-03-05 15:00:36,611 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 15:00:36] "POST /question HTTP/1.1" 200 -
 2025-03-05 15:00:39,295 - agent - INFO - Question reçue: Quelle est la météo à Marseille aujourd'hui ?
 2025-03-05 15:00:39,297 - nlp_engine - INFO - Début d'analyse de la question: 'Quelle est la météo à Marseille aujourd'hui ?'
+2025-03-05 15:00:39,299 - nlp_engine - INFO - Question contient à la fois des mots de météo et de date, priorité à la météo
+2025-03-05 15:00:39,317 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-05 15:00:39,318 - nlp_engine - INFO - Réponse générée: Je vais consulter la météo pour vous à Marseille.
+2025-03-05 15:00:39,319 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-05 15:00:39,356 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 15:00:39,357 - agent - INFO - Intention détectée: meteo avec score 1.0
+2025-03-05 15:00:39,358 - agent - INFO - Entités extraites: {'ville': 'Marseille'}
+2025-03-05 15:00:39,358 - agent - INFO - Demande météo pour la question: Quelle est la météo à Marseille aujourd'hui ?
+2025-03-05 15:00:39,513 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 15:00:39] "POST /question HTTP/1.1" 200 -
+2025-03-05 15:00:42,178 - agent - INFO - Question reçue: Quel temps fait-il à Paris ?
+2025-03-05 15:00:42,179 - nlp_engine - INFO - Début d'analyse de la question: 'Quel temps fait-il à Paris ?'
+2025-03-05 15:00:42,181 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 15:00:42,182 - nlp_engine - INFO - Intention prédite par le modèle amélioré: meteo avec score 44
+2025-03-05 15:00:42,199 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-05 15:00:42,200 - nlp_engine - INFO - Réponse générée: Je recherche les informations météo pour Paris.
+2025-03-05 15:00:42,201 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-05 15:00:42,229 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 15:00:42,230 - agent - INFO - Intention détectée: meteo avec score 44
+2025-03-05 15:00:42,231 - agent - INFO - Entités extraites: {'ville': 'Paris'}
+2025-03-05 15:00:42,232 - agent - INFO - Demande météo pour la question: Quel temps fait-il à Paris ?
+2025-03-05 15:00:42,336 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 15:00:42] "POST /question HTTP/1.1" 200 -
+2025-03-05 15:00:47,721 - agent - INFO - Question reçue: Fait-il chaud à Nice ?
+2025-03-05 15:00:47,722 - nlp_engine - INFO - Début d'analyse de la question: 'Fait-il chaud à Nice ?'
+2025-03-05 15:00:47,724 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 15:00:47,725 - nlp_engine - INFO - Intention prédite par le modèle amélioré: meteo avec score 10
+2025-03-05 15:00:47,739 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-05 15:00:47,740 - nlp_engine - INFO - Réponse générée: Je recherche les informations météo pour Fait.
+2025-03-05 15:00:47,741 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-05 15:00:47,771 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 15:00:47,775 - apprentissage - INFO - Statistiques mises à jour: 80 interactions analysées
+2025-03-05 15:00:47,783 - apprentissage - INFO - Modèle amélioré pour 8 intentions
+2025-03-05 15:00:47,784 - agent - INFO - Intention détectée: meteo avec score 10
+2025-03-05 15:00:47,784 - agent - INFO - Entités extraites: {'ville': 'Fait'}
+2025-03-05 15:00:47,785 - agent - INFO - Demande météo pour la question: Fait-il chaud à Nice ?
+2025-03-05 15:00:47,900 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 15:00:47] "POST /question HTTP/1.1" 200 -
+2025-03-05 15:00:51,305 - agent - INFO - Question reçue: Va-t-il pleuvoir à Bordeaux demain ?
+2025-03-05 15:00:51,307 - nlp_engine - INFO - Début d'analyse de la question: 'Va-t-il pleuvoir à Bordeaux demain ?'
+2025-03-05 15:00:51,329 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 15:00:51,331 - nlp_engine - INFO - Intention prédite par le modèle amélioré: meteo avec score 8
+2025-03-05 15:00:51,347 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-05 15:00:51,348 - nlp_engine - INFO - Réponse générée: Je vais consulter la météo pour vous à Bordeaux.
+2025-03-05 15:00:51,349 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-05 15:00:51,381 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-05 15:00:51,382 - agent - INFO - Intention détectée: meteo avec score 8
+2025-03-05 15:00:51,383 - agent - INFO - Entités extraites: {'ville': 'Bordeaux'}
+2025-03-05 15:00:51,383 - agent - INFO - Demande météo pour la question: Va-t-il pleuvoir à Bordeaux demain ?
+2025-03-05 15:00:51,483 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 15:00:51] "POST /question HTTP/1.1" 200 -
+2025-03-05 15:01:01,899 - agent - INFO - Question spéciale d'identité détectée: Qui es-tu ?
+2025-03-05 15:01:01,901 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 15:01:01] "POST /question HTTP/1.1" 200 -
+2025-03-05 15:01:09,134 - agent - INFO - Question reçue: Quelles sont tes capacités ?
+2025-03-05 15:01:09,135 - nlp_engine - INFO - Début d'analyse de la question: 'Quelles sont tes capacités ?'
+2025-03-05 15:01:09,137 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-05 15:01:09,141 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-05 15:01:09,142 - nlp_engine - ERROR - Détail de l'erreur: Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 444, in analyser_et_repondre
+    intention, score, entites = determiner_intention(question)
+                                ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 316, in determiner_intention
+    score = calculer_score_intention(question, keywords)
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 231, in calculer_score_intention
+    for mot, poids in mots_cles.items():
+                      ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+
+2025-03-05 15:01:09,143 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-05 15:01:09,144 - agent - INFO - Entités extraites: {}
+2025-03-05 15:01:09,145 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 15:01:09] "POST /question HTTP/1.1" 200 -
