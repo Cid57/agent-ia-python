@@ -1,46 +1,50 @@
-# Assistant IA en Python
+# Assistant IA Cindy en Python
 
-Ce projet est un assistant virtuel simple créé en Python, avec une interface web pour interagir facilement avec l'agent. Il est conçu de manière pédagogique pour les débutants en programmation.
+Ce projet est un assistant virtuel intelligent créé en Python, avec une interface web pour interagir facilement avec l'agent. Il combine des techniques de traitement du langage naturel (NLP) avec un système d'apprentissage évolutif.
 
 ## Ce que fait cet assistant
 
-- **Répond à des questions** en analysant vos messages
-- **Affiche la météo** de n'importe quelle ville
-- **Mémorise vos conversations** pour mieux vous comprendre
-- **Propose des suggestions** de questions à poser
-- **Apprend de nouvelles connaissances** que vous lui enseignez
-- **Affiche des statistiques** sur votre utilisation
+- **Comprend vos questions** grâce à un moteur NLP amélioré
+- **Affiche la météo en temps réel** via l'API Open Meteo
+- **Mémorise et apprend** de chaque conversation pour s'améliorer
+- **Propose des suggestions contextuelles** basées sur vos questions
+- **Détecte les intentions** dans vos messages (météo, heure, aide, etc.)
+- **S'améliore avec le temps** grâce au module d'apprentissage
 
 ## Les fichiers principaux
 
 1. **app.py** : Le cœur de l'application web (utilise Flask)
 
-   - Gère les pages web et les formulaires
-   - Traite les requêtes HTTP
-   - Connecte l'interface utilisateur à l'agent
+   - Gère les pages web et les requêtes HTTP
+   - Connecte l'interface utilisateur au moteur NLP
+   - Intègre les services externes comme la météo
 
-2. **agent.py** : L'intelligence de l'assistant
+2. **nlp_engine.py** : Moteur de traitement du langage naturel
 
-   - Comprend les questions
+   - Analyse les questions des utilisateurs
+   - Détecte les intentions et le contexte
+   - Extrait les entités importantes (villes, dates, etc.)
    - Génère des réponses adaptées
-   - Stocke des connaissances dans différentes catégories
 
-3. **nlp_utils.py** : Outils d'analyse de texte
+3. **apprentissage.py** : Système d'apprentissage continu
 
-   - Nettoie le texte (ponctuation, minuscules)
-   - Extrait les mots importants
-   - Analyse le sentiment (positif/négatif/neutre)
-   - Identifie le type de question
+   - Enregistre les interactions utilisateur
+   - Analyse les tendances et préférences
+   - Améliore le modèle de compréhension
+   - Génère des statistiques d'utilisation
 
-4. **memory.py** : Système de mémoire de l'agent
+4. **external_services.py** : Services externes
+   - Récupère la météo depuis l'API Open Meteo
+   - Gère la géolocalisation des villes
+   - Interprète les codes météo
 
-   - Stocke l'historique des conversations
-   - Sauvegarde les informations à long terme
-   - Permet de rechercher des informations passées
+## Nouveautés et améliorations
 
-5. **external_services.py** : Services externes
-   - Récupère la météo depuis une API
-   - Formate les informations météo
+- **Système d'analyse d'intentions** : détection précise de ce que veut l'utilisateur
+- **Extraction d'entités** : reconnaissance des villes, dates et autres éléments importants
+- **Suggestions dynamiques** : propositions de questions pertinentes selon le contexte
+- **Apprentissage continu** : amélioration des performances avec chaque conversation
+- **Interface réactive** : expérience utilisateur fluide et moderne
 
 ## Comment faire fonctionner ce projet
 
@@ -65,40 +69,43 @@ pip install -r requirements.txt
 Pour lancer l'assistant, exécutez la commande :
 
 ```bash
-py -3 app.py
+python app.py
 ```
 
 Puis ouvrez votre navigateur à l'adresse : http://127.0.0.1:5000
 
-## Les pages de l'application
+## Fonctionnalités à tester
 
-- **Page principale** : Pour discuter avec l'agent
-- **Historique** : Pour voir les conversations passées
-- **Statistiques** : Pour voir des données sur votre utilisation
-- **Enseigner** : Pour apprendre de nouvelles choses à l'agent
+1. **Questions météo** : "Quel temps fait-il à Paris ?" ou "Météo à Tokyo"
+2. **Questions temporelles** : "Quelle heure est-il ?" ou "Quel jour sommes-nous ?"
+3. **Salutations** : "Bonjour Cindy" ou "Comment vas-tu ?"
+4. **Demandes d'aide** : "Que peux-tu faire ?" ou "Aide-moi"
+5. **Suggestions** : Cliquez sur les suggestions qui apparaissent après chaque réponse
 
-## Personnalisation simple
+## Personnalisation
 
 Vous pouvez facilement améliorer l'agent en :
 
-1. **Ajoutant des connaissances** dans le fichier `agent.py`
+1. **Ajoutant des intentions** dans le fichier `nlp_engine.py`
 2. **Modifiant l'apparence** dans les fichiers CSS du dossier `static/css`
-3. **Ajoutant des fonctionnalités** dans le fichier `app.py`
+3. **Ajoutant des services externes** dans le fichier `external_services.py`
 
-## Guide pas à pas pour présenter ce projet
+## Guide de présentation pour votre projet
 
-1. **Introduction** : "Voici un assistant virtuel fait avec Python"
-2. **Démonstration** : Montrez l'interface et posez quelques questions
-3. **Météo** : Demandez la météo d'une ville pour montrer cette fonctionnalité
-4. **Structure** : Expliquez le rôle de chaque fichier principal
-5. **Conclusion** : Parlez des améliorations possibles
+1. **Introduction** : "Voici Cindy, un assistant IA avec apprentissage automatique"
+2. **Démonstration d'une conversation** : posez plusieurs types de questions
+3. **Météo avec reconnaissance de ville** : montrez la détection des villes
+4. **Fonctionnalité d'apprentissage** : expliquez comment l'agent s'améliore avec le temps
+5. **Structure technique** : présentez l'architecture du système
+6. **Conclusion** : discutez des améliorations futures et possibilités
 
 ## Aide en cas de problème
 
 - **L'application ne démarre pas** : Vérifiez que Python est bien installé
 - **Erreur de module** : Vérifiez que vous avez bien installé les dépendances
+- **API météo non fonctionnelle** : Vérifiez votre connexion internet
 - **Problème d'affichage** : Essayez de vider le cache de votre navigateur
 
 ---
 
-Projet créé pour apprendre les bases de la programmation Python et de l'intelligence artificielle conversationnelle.
+Projet créé pour explorer le traitement du langage naturel et l'apprentissage automatique en Python.

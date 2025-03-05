@@ -1,0 +1,260 @@
+[
+    {
+        "question": "hello",
+        "reponse": "Bonjour ! Que puis-je faire pour vous ?",
+        "intention": "salutation",
+        "score": 3,
+        "entites": {}
+    },
+    {
+        "question": "Donne-moi la météo pour New York",
+        "reponse": "Je recherche les informations météo pour Donne.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {
+            "ville": "Donne"
+        }
+    },
+    {
+        "question": "Est-ce qu'il pleut à Tokyo ?",
+        "reponse": "Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?",
+        "intention": "inconnu",
+        "score": 0,
+        "entites": {
+            "ville": "Est"
+        }
+    },
+    {
+        "question": "Fait-il chaud à Lyon ?",
+        "reponse": "Je vais consulter la météo pour vous à Fait.",
+        "intention": "meteo",
+        "score": 2,
+        "entites": {
+            "ville": "Fait"
+        }
+    },
+    {
+        "question": "Quel temps fait-il à Paris ?",
+        "reponse": "Laissez-moi vérifier la météo à Paris.",
+        "intention": "meteo",
+        "score": 4,
+        "entites": {
+            "ville": "Paris"
+        }
+    },
+    {
+        "question": "quelle temps fait il a Metz",
+        "reponse": "Je vais consulter la météo pour vous à Metz.",
+        "intention": "meteo",
+        "score": 4,
+        "entites": {
+            "ville": "Metz"
+        }
+    },
+    {
+        "question": "coucou",
+        "reponse": "Bonjour ! Comment puis-je vous aider aujourd'hui ?",
+        "intention": "salutation",
+        "score": 3,
+        "entites": {}
+    },
+    {
+        "question": "Quelle est la météo aujourd'hui ?",
+        "reponse": "Je recherche les informations météo pour Quelle.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {
+            "ville": "Quelle"
+        }
+    },
+    {
+        "question": "quelle est la meteo a metz",
+        "reponse": "Je vais consulter la météo pour vous.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {}
+    },
+    {
+        "question": "Y aura-t-il de la pluie demain ?",
+        "reponse": "Laissez-moi vérifier la météo à Y.",
+        "intention": "meteo",
+        "score": 3,
+        "entites": {
+            "ville": "Y"
+        }
+    },
+    {
+        "question": "Fait-il chaud à Lyon ?",
+        "reponse": "Je recherche les informations météo pour Fait.",
+        "intention": "meteo",
+        "score": 2,
+        "entites": {
+            "ville": "Fait"
+        }
+    },
+    {
+        "question": "Quelle heure est-il ?",
+        "reponse": "L'heure actuelle est 13:54.",
+        "intention": "heure",
+        "score": 5,
+        "entites": {
+            "ville": "Quelle"
+        }
+    },
+    {
+        "question": "Quel jour sommes-nous ?",
+        "reponse": "La date d'aujourd'hui est le 05 March 2025.",
+        "intention": "date",
+        "score": 3,
+        "entites": {
+            "ville": "Quel"
+        }
+    },
+    {
+        "question": "qui es tu?",
+        "reponse": "Je ne comprends pas complètement. Essayez de poser votre question différemment.",
+        "intention": "inconnu",
+        "score": 0,
+        "entites": {}
+    },
+    {
+        "question": "je voudrais savoir qui es tu?",
+        "reponse": "Je ne comprends pas complètement. Essayez de poser votre question différemment.",
+        "intention": "inconnu",
+        "score": 0,
+        "entites": {}
+    },
+    {
+        "question": "Quelle est la météo à Paris aujourd'hui?",
+        "reponse": "Laissez-moi vérifier la météo à Paris.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {
+            "ville": "Paris"
+        }
+    },
+    {
+        "question": "meteo a metz",
+        "reponse": "Laissez-moi vérifier la météo.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {}
+    },
+    {
+        "question": "Fait-il chaud à Lyon ?",
+        "reponse": "Laissez-moi vérifier la météo à Fait.",
+        "intention": "meteo",
+        "score": 2,
+        "entites": {
+            "ville": "Fait"
+        }
+    },
+    {
+        "question": "Y aura-t-il de la pluie demain ?",
+        "reponse": "Je vais consulter la météo pour vous à Y.",
+        "intention": "meteo",
+        "score": 3,
+        "entites": {
+            "ville": "Y"
+        }
+    },
+    {
+        "question": "Y aura-t-il de la pluie demain a Nancy?",
+        "reponse": "Je vais consulter la météo pour vous à Nancy.",
+        "intention": "meteo",
+        "score": 3,
+        "entites": {
+            "ville": "Nancy"
+        }
+    },
+    {
+        "question": "Quelles sont tes fonctionnalités ?",
+        "reponse": "Mes capacités incluent : informations météo, heure et date, assistance générale et conversation simple.",
+        "intention": "capacites",
+        "score": 4,
+        "entites": {
+            "ville": "Quelles"
+        }
+    },
+    {
+        "question": "Comment peux-tu m'aider ?",
+        "reponse": "Vous pouvez me demander la météo, l'heure, ou simplement discuter. Comment puis-je vous aider ?",
+        "intention": "aide",
+        "score": 7,
+        "entites": {
+            "ville": "Comment"
+        }
+    },
+    {
+        "question": "Quel jour sommes-nous ?",
+        "reponse": "Aujourd'hui, nous sommes le Wednesday 05 March 2025.",
+        "intention": "date",
+        "score": 3,
+        "entites": {
+            "ville": "Quel"
+        }
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Je ne suis pas sûre de comprendre votre demande. Pouvez-vous reformuler ?",
+        "intention": "inconnu",
+        "score": 0,
+        "entites": {
+            "ville": "Raconte"
+        }
+    },
+    {
+        "question": "Quelle est la météo aujourd'hui ?",
+        "reponse": "Laissez-moi vérifier la météo à Quelle.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {
+            "ville": "Quelle"
+        }
+    },
+    {
+        "question": "Donne-moi la météo pour Marseille",
+        "reponse": "Laissez-moi vérifier la météo à Donne.",
+        "intention": "meteo",
+        "score": 5,
+        "entites": {
+            "ville": "Donne"
+        }
+    },
+    {
+        "question": "Va-t-il pleuvoir à Bordeaux demain ?",
+        "reponse": "Je ne comprends pas complètement. Essayez de poser votre question différemment.",
+        "intention": "inconnu",
+        "score": 0,
+        "entites": {
+            "ville": "Va"
+        }
+    },
+    {
+        "question": "quel temps pour bordeaux",
+        "reponse": "Laissez-moi vérifier la météo à Bordeaux.",
+        "intention": "meteo",
+        "score": 4,
+        "entites": {
+            "ville": "Bordeaux"
+        }
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Que fait une fraise sur un cheval ? Elle galope !",
+        "intention": "blague",
+        "score": 8,
+        "entites": {
+            "ville": "Raconte"
+        }
+    },
+    {
+        "question": "Qui es-tu ?",
+        "reponse": "Je ne suis pas sûre de comprendre votre demande. Pouvez-vous reformuler ?",
+        "intention": "inconnu",
+        "score": 0,
+        "entites": {
+            "ville": "Qui"
+        }
+    }
+]

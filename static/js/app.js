@@ -97,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
     contentDiv.appendChild(dotsDiv);
     containerDiv.appendChild(contentDiv);
     typingDiv.appendChild(containerDiv);
-
     chatMessages.appendChild(typingDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
@@ -110,6 +109,50 @@ document.addEventListener("DOMContentLoaded", function () {
     if (typing) {
       typing.remove();
     }
+  }
+
+  // Fonction pour ajouter des suggestions de questions
+  function addSuggestions(suggestions) {
+    if (!suggestions || suggestions.length === 0) return;
+
+    // Créer le conteneur de suggestions
+    const suggestionsDiv = document.createElement("div");
+    suggestionsDiv.className = "suggestions-container";
+
+    // Titre des suggestions
+    const titleElement = document.createElement("p");
+    titleElement.className = "suggestion-title";
+    titleElement.textContent = "Suggestions:";
+    suggestionsDiv.appendChild(titleElement);
+
+    // Conteneur des puces de suggestions
+    const chipsContainer = document.createElement("div");
+    chipsContainer.className = "suggestions";
+
+    // Créer chaque puce de suggestion
+    suggestions.forEach((suggestion) => {
+      const chip = document.createElement("div");
+      chip.className = "suggestion-chip";
+      chip.textContent = suggestion;
+      chip.setAttribute("data-question", suggestion);
+
+      // Ajouter l'événement de clic
+      chip.addEventListener("click", function () {
+        questionInput.value = this.getAttribute("data-question");
+        this.classList.add("selected");
+        setTimeout(() => {
+          sendQuestion();
+        }, 300);
+      });
+
+      chipsContainer.appendChild(chip);
+    });
+
+    suggestionsDiv.appendChild(chipsContainer);
+    chatMessages.appendChild(suggestionsDiv);
+
+    // Faire défiler vers le bas
+    chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
   // Envoyer une question
@@ -134,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       // Envoyer au serveur
-      const response = await fetch("/poser_question", {
+      const response = await fetch("/question", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -155,6 +198,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Ajouter la réponse du bot
       addMessage(data.reponse);
+
+      // Ajouter les suggestions si disponibles
+      if (data.suggestions && data.suggestions.length > 0) {
+        addSuggestions(data.suggestions);
+      }
     } catch (error) {
       console.error("Erreur:", error);
       removeTypingIndicator();
@@ -191,7 +239,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (clearButton) {
     clearButton.addEventListener("click", function () {
       // Animation de suppression
-      const messages = document.querySelectorAll(".message");
+      const messages = document.querySelectorAll(
+        ".message, .suggestions-container"
+      );
       messages.forEach((message, index) => {
         setTimeout(() => {
           message.style.animation = "fadeOut 0.3s forwards";
@@ -200,45 +250,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Effacer après animation
       setTimeout(() => {
-        fetch("/effacer_historique", { method: "POST" })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.success) {
-              // Vider la zone de chat
-              chatMessages.innerHTML = "";
+        // Vider la zone de chat
+        chatMessages.innerHTML = "";
 
-              // Réafficher l'accueil
-              fetch("/")
-                .then((response) => response.text())
-                .then((html) => {
-                  const parser = new DOMParser();
-                  const doc = parser.parseFromString(html, "text/html");
-                  const welcomeElements =
-                    doc.querySelectorAll("#chat-messages > *");
+        // Ajouter un message de bienvenue
+        addMessage(
+          "👋 Bonjour! Je suis Cindy, votre assistant IA personnelle. Comment puis-je vous aider aujourd'hui?"
+        );
 
-                  welcomeElements.forEach((element) => {
-                    chatMessages.appendChild(element.cloneNode(true));
-                  });
-
-                  // Réactiver les suggestions
-                  document
-                    .querySelectorAll(".suggestion-chip")
-                    .forEach((chip) => {
-                      chip.addEventListener("click", function () {
-                        const question = this.getAttribute("data-question");
-                        questionInput.value = question;
-                        this.classList.add("selected");
-                        setTimeout(() => {
-                          sendQuestion();
-                        }, 300);
-                      });
-                    });
-
-                  // Animer les messages
-                  activateMessages();
-                });
-            }
-          });
+        // Ajouter des suggestions par défaut
+        addSuggestions([
+          "Quelle est la météo à Paris aujourd'hui?",
+          "Quelle heure est-il?",
+          "Comment vas-tu?",
+        ]);
       }, messages.length * 50 + 300);
     });
   }

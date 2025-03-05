@@ -1,0 +1,307 @@
+2025-03-05 13:40:29,916 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:40:29,919 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:40:29,934 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:40:29,940 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:44:21,839 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\apprentissage.py', reloading
+2025-03-05 13:44:22,630 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:44:22,634 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:44:22,653 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:44:22,658 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:45:05,024 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 13:45:05,830 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:45:05,833 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:45:05,850 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:45:05,855 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:47:33,416 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:47:33,420 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:47:33,456 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 13:47:33,457 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 13:47:33,464 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 13:47:34,167 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:47:34,170 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:47:34,187 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:47:34,192 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:47:39,108 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:47:39] "GET / HTTP/1.1" 200 -
+2025-03-05 13:47:39,208 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:47:39] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-05 13:47:39,211 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:47:39] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-05 13:47:39,221 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:47:39] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 13:48:13,476 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 13:48:13,537 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 13:48:14,301 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:48:14,303 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:48:14,319 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:48:14,324 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:48:35,816 - agent - INFO - Question reçue: hello
+2025-03-05 13:48:35,968 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:48:35] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:48:44,184 - agent - INFO - Question reçue: Donne-moi la météo pour New York
+2025-03-05 13:48:44,238 - agent - INFO - Demande météo pour: Donne
+2025-03-05 13:48:45,282 - assistant_ia.external_services - INFO - Ville trouvée via API: Donner, États Unis
+2025-03-05 13:48:45,404 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Donner, États Unis
+2025-03-05 13:48:45,405 - agent - ERROR - Erreur lors de la récupération de la météo: 'str' object has no attribute 'get'
+2025-03-05 13:48:45,407 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:48:45] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:49:23,285 - agent - INFO - Question reçue: Est-ce qu'il pleut à Tokyo ?
+2025-03-05 13:49:23,301 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:49:23] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:49:28,011 - agent - INFO - Question reçue: Fait-il chaud à Lyon ?
+2025-03-05 13:49:28,053 - agent - INFO - Demande météo pour: Fait
+2025-03-05 13:49:28,054 - assistant_ia.external_services - INFO - Aucune ville trouvée, utilisation de Paris par défaut
+2025-03-05 13:49:28,161 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Paris, France
+2025-03-05 13:49:28,163 - agent - ERROR - Erreur lors de la récupération de la météo: 'str' object has no attribute 'get'
+2025-03-05 13:49:28,165 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:49:28] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:49:31,900 - agent - INFO - Question reçue: Quel temps fait-il à Paris ?
+2025-03-05 13:49:31,938 - agent - INFO - Demande météo pour: Paris
+2025-03-05 13:49:32,043 - assistant_ia.external_services - INFO - Ville trouvée via API: Paris, France
+2025-03-05 13:49:32,153 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Paris, France
+2025-03-05 13:49:32,155 - agent - ERROR - Erreur lors de la récupération de la météo: 'str' object has no attribute 'get'
+2025-03-05 13:49:32,156 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:49:32] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:49:46,378 - agent - INFO - Question reçue: quelle temps fait il a Metz
+2025-03-05 13:49:46,445 - agent - INFO - Demande météo pour: Metz
+2025-03-05 13:49:46,551 - assistant_ia.external_services - INFO - Ville trouvée via API: Metz, France
+2025-03-05 13:49:46,651 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Metz, France
+2025-03-05 13:49:46,653 - agent - ERROR - Erreur lors de la récupération de la météo: 'str' object has no attribute 'get'
+2025-03-05 13:49:46,655 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:49:46] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:51:05,863 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 13:51:05,925 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 13:51:06,733 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:51:06,737 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:51:06,761 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:51:06,767 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:51:46,094 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 13:51:46,153 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 13:51:46,974 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:51:46,979 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:51:47,002 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:51:47,010 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:51:55,090 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 13:51:55,148 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 13:51:55,952 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:51:55,954 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:51:55,969 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:51:55,976 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:52:13,308 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:52:13,313 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:52:13,345 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 13:52:13,346 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 13:52:13,353 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 13:52:14,002 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:52:14,004 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:52:14,015 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:52:14,020 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:52:17,070 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:52:17] "GET / HTTP/1.1" 200 -
+2025-03-05 13:52:17,161 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:52:17] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-05 13:52:17,163 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:52:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 13:52:17,175 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:52:17] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 13:52:20,760 - agent - INFO - Question reçue: coucou
+2025-03-05 13:52:20,777 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:52:20] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:52:25,292 - agent - INFO - Question reçue: Quelle est la météo aujourd'hui ?
+2025-03-05 13:52:25,341 - agent - INFO - Demande météo pour: Quelle
+2025-03-05 13:52:25,464 - assistant_ia.external_services - INFO - Aucune ville trouvée, utilisation de Paris par défaut
+2025-03-05 13:52:25,575 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Paris, France
+2025-03-05 13:52:25,577 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:52:25] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:52:35,664 - agent - INFO - Question reçue: quelle est la meteo a metz
+2025-03-05 13:52:35,712 - agent - INFO - Demande météo pour: Paris
+2025-03-05 13:52:35,908 - assistant_ia.external_services - INFO - Ville trouvée dans le dictionnaire local: paris
+2025-03-05 13:52:36,009 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Paris
+2025-03-05 13:52:36,011 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:52:36] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:53:45,449 - agent - INFO - Question reçue: Y aura-t-il de la pluie demain ?
+2025-03-05 13:53:45,473 - agent - INFO - Demande météo pour: Y
+2025-03-05 13:53:45,693 - assistant_ia.external_services - INFO - Aucune ville trouvée, utilisation de Paris par défaut
+2025-03-05 13:53:45,810 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Paris, France
+2025-03-05 13:53:45,812 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:53:45] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:53:49,547 - agent - INFO - Question reçue: Fait-il chaud à Lyon ?
+2025-03-05 13:53:49,581 - agent - INFO - Demande météo pour: Fait
+2025-03-05 13:53:49,766 - assistant_ia.external_services - INFO - Ville trouvée via API: Chaud, France
+2025-03-05 13:53:49,870 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Chaud, France
+2025-03-05 13:53:49,873 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:53:49] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:53:49,962 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 13:53:50,062 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 13:53:50,809 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:53:50,812 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:53:50,824 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:53:50,830 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:54:01,567 - agent - INFO - Question reçue: Quelle heure est-il ?
+2025-03-05 13:54:01,636 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:54:01] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:54:05,331 - agent - INFO - Question reçue: Quel jour sommes-nous ?
+2025-03-05 13:54:05,376 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:54:05] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:54:16,371 - agent - INFO - Question reçue: qui es tu?
+2025-03-05 13:54:16,392 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:54:16] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:54:26,444 - agent - INFO - Question reçue: je voudrais savoir qui es tu?
+2025-03-05 13:54:26,485 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:54:26] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:54:44,102 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:54:44,107 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:54:44,140 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 13:54:44,141 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 13:54:44,147 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 13:54:44,868 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:54:44,871 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:54:44,889 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:54:44,895 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:54:48,378 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:54:48] "GET / HTTP/1.1" 200 -
+2025-03-05 13:54:48,484 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:54:48] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 13:54:48,484 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:54:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 13:54:48,498 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:54:48] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 13:54:53,176 - agent - INFO - Question reçue: Quelle est la météo à Paris aujourd'hui?
+2025-03-05 13:54:53,206 - agent - INFO - Demande météo pour la question: Quelle est la météo à Paris aujourd'hui?
+2025-03-05 13:54:53,404 - assistant_ia.external_services - INFO - Ville trouvée dans le dictionnaire local: paris
+2025-03-05 13:54:53,505 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Paris
+2025-03-05 13:54:53,508 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:54:53] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:55:02,048 - agent - INFO - Question reçue: meteo a metz
+2025-03-05 13:55:02,113 - agent - INFO - Demande météo pour la question: meteo a metz
+2025-03-05 13:55:02,215 - assistant_ia.external_services - INFO - Ville trouvée via API: Metz, France
+2025-03-05 13:55:02,315 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Metz, France
+2025-03-05 13:55:02,317 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:55:02] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:55:06,870 - agent - INFO - Question reçue: Fait-il chaud à Lyon ?
+2025-03-05 13:55:06,890 - agent - INFO - Demande météo pour la question: Fait-il chaud à Lyon ?
+2025-03-05 13:55:07,090 - assistant_ia.external_services - INFO - Ville trouvée via API: Chaud, France
+2025-03-05 13:55:07,184 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Chaud, France
+2025-03-05 13:55:07,187 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:55:07] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:55:10,883 - agent - INFO - Question reçue: Y aura-t-il de la pluie demain ?
+2025-03-05 13:55:10,926 - agent - INFO - Demande météo pour la question: Y aura-t-il de la pluie demain ?
+2025-03-05 13:55:11,110 - assistant_ia.external_services - INFO - Aucune ville trouvée, utilisation de Paris par défaut
+2025-03-05 13:55:11,226 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Paris, France
+2025-03-05 13:55:11,228 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:55:11] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:55:24,106 - agent - INFO - Question reçue: Y aura-t-il de la pluie demain a Nancy?
+2025-03-05 13:55:24,126 - agent - INFO - Demande météo pour la question: Y aura-t-il de la pluie demain a Nancy?
+2025-03-05 13:55:24,402 - assistant_ia.external_services - INFO - Aucune ville trouvée, utilisation de Paris par défaut
+2025-03-05 13:55:24,502 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Paris, France
+2025-03-05 13:55:24,504 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:55:24] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:56:23,918 - agent - INFO - Question reçue: Quelles sont tes fonctionnalités ?
+2025-03-05 13:56:23,942 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:56:23] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:56:43,855 - agent - INFO - Question reçue: Comment peux-tu m'aider ?
+2025-03-05 13:56:43,907 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:56:43] "POST /question HTTP/1.1" 200 -
+2025-03-05 13:56:56,184 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 13:56:56,284 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 13:56:57,082 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:56:57,085 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:56:57,103 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:56:57,109 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:57:03,310 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:57:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 13:57:19,347 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 13:57:19,442 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 13:57:20,209 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:57:20,212 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:57:20,226 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:57:20,231 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:57:56,581 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 13:57:56,685 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 13:57:57,378 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 13:57:57,382 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 13:57:57,398 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 13:57:57,404 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 13:58:09,587 - agent - INFO - Question reçue: Quel jour sommes-nous ?
+2025-03-05 13:58:09,625 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 13:58:09] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:00:29,483 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:00:29,486 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:00:29,507 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:00:29,508 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:00:29,515 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:00:30,198 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:00:30,200 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:00:30,212 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:00:30,218 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:00:41,559 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:00:41,562 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:00:41,582 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:00:41,583 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:00:41,588 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:00:42,316 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:00:42,319 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:00:42,336 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:00:42,342 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:00:46,306 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:00:46] "GET / HTTP/1.1" 200 -
+2025-03-05 14:00:46,414 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:00:46] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:00:46,414 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:00:46] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-05 14:00:46,434 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:00:46] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:00:50,148 - agent - INFO - Question reçue: Raconte-moi une blague
+2025-03-05 14:00:50,166 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:00:50] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:01:44,777 - agent - INFO - Question reçue: Quelle est la météo aujourd'hui ?
+2025-03-05 14:01:44,794 - agent - INFO - Demande météo pour la question: Quelle est la météo aujourd'hui ?
+2025-03-05 14:01:45,006 - assistant_ia.external_services - INFO - Aucune ville trouvée, utilisation de Paris par défaut
+2025-03-05 14:01:45,115 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Paris, France
+2025-03-05 14:01:45,116 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:01:45] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:01:48,645 - agent - INFO - Question reçue: Donne-moi la météo pour Marseille
+2025-03-05 14:01:48,686 - agent - INFO - Demande météo pour la question: Donne-moi la météo pour Marseille
+2025-03-05 14:01:48,775 - assistant_ia.external_services - INFO - Ville trouvée via API: Marseille, France
+2025-03-05 14:01:48,881 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Marseille, France
+2025-03-05 14:01:48,883 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:01:48] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:01:54,605 - agent - INFO - Question reçue: Va-t-il pleuvoir à Bordeaux demain ?
+2025-03-05 14:01:54,648 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:01:54] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:02:08,228 - agent - INFO - Question reçue: quel temps pour bordeaux
+2025-03-05 14:02:08,251 - agent - INFO - Demande météo pour la question: quel temps pour bordeaux
+2025-03-05 14:02:08,472 - assistant_ia.external_services - INFO - Ville trouvée via API: Bordeaux, France
+2025-03-05 14:02:08,579 - assistant_ia.external_services - INFO - Données météo récupérées avec succès pour Bordeaux, France
+2025-03-05 14:02:08,581 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:02:08] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:02:58,519 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:02:58,589 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:02:59,455 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:02:59,458 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:02:59,478 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:02:59,486 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:03:46,959 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:03:46,963 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:03:46,991 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-05 14:03:46,992 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-05 14:03:46,999 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:03:47,668 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:03:47,671 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:03:47,685 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:03:47,691 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:03:50,568 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:03:50] "GET / HTTP/1.1" 200 -
+2025-03-05 14:03:50,658 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:03:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:03:50,663 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:03:50] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:03:50,665 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:03:50] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:03:53,620 - agent - INFO - Question reçue: Raconte-moi une blague
+2025-03-05 14:03:53,644 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:03:53] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:04:14,962 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:04:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:04:47,372 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-05 14:04:47,465 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:04:48,244 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:04:48,246 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:04:48,262 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:04:48,268 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:05:11,494 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 14:05:11,558 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:05:12,334 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:05:12,337 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:05:12,355 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:05:12,362 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:05:15,406 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-05 14:05:15,468 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:05:16,277 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:05:16,280 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:05:16,296 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:05:16,302 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:05:46,556 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 14:05:46,614 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:05:47,338 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:05:47,342 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:05:47,358 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:05:47,365 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:05:59,094 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:05:59] "GET /aide HTTP/1.1" 200 -
+2025-03-05 14:05:59,196 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:05:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:05:59,224 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:05:59] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:06:09,621 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:06:09] "GET / HTTP/1.1" 200 -
+2025-03-05 14:06:09,675 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:06:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-05 14:06:09,686 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:06:09] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-05 14:06:09,692 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:06:09] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-05 14:06:13,472 - agent - INFO - Question reçue: Qui es-tu ?
+2025-03-05 14:06:13,512 - agent - INFO - Intention détectée: inconnu avec score 0
+2025-03-05 14:06:13,513 - agent - INFO - Entités extraites: {'ville': 'Qui'}
+2025-03-05 14:06:13,514 - werkzeug - INFO - 127.0.0.1 - - [05/Mar/2025 14:06:13] "POST /question HTTP/1.1" 200 -
+2025-03-05 14:06:19,666 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 14:06:19,763 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:06:20,544 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:06:20,547 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:06:20,560 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:06:20,565 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-05 14:06:36,690 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-05 14:06:36,760 - werkzeug - INFO -  * Restarting with stat
+2025-03-05 14:06:37,460 - nlp_engine - INFO - Aucun modèle amélioré trouvé, utilisation du modèle de base
+2025-03-05 14:06:37,462 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-05 14:06:37,474 - werkzeug - WARNING -  * Debugger is active!
+2025-03-05 14:06:37,480 - werkzeug - INFO -  * Debugger PIN: 648-377-270

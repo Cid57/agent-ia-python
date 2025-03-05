@@ -6,6 +6,7 @@ Ce module permet d'accéder à des services externes comme la météo.
 import requests
 import logging
 from datetime import datetime
+import re
 
 # Configuration du logger
 logger = logging.getLogger('assistant_ia.external_services')
@@ -38,54 +39,76 @@ class MeteoService:
     
     def extraire_nom_ville(self, texte):
         """
-        Extrait les noms potentiels de villes d'une question en utilisant des heuristiques.
-        
-        Args:
-            texte (str): Le texte de la question
-            
-        Returns:
-            list: Liste des noms potentiels de villes
+        Extrait le nom de la ville à partir du texte de la question.
+        Si aucune ville n'est détectée, retourne None.
         """
-        texte = texte.lower()
-        villes_potentielles = []
+        if not texte:
+            return None
         
-        # Patterns courants pour l'extraction de villes
-        # "météo à [VILLE]", "temps à [VILLE]", "[VILLE] météo", etc.
-        patterns = [
-            r"(?:météo|meteo|temps|température|temperature|climat)\s+(?:à|a|au|en|de)\s+([a-zÀ-ÿ\s-]+)",
-            r"(?:à|a|au|en|de)\s+([a-zÀ-ÿ\s-]+)\s+(?:météo|meteo|temps|température|temperature|climat)",
-            r"([a-zÀ-ÿ\s-]+)\s+(?:météo|meteo|temps|température|temperature|climat)"
+        # Convertir le texte en minuscules pour faciliter la recherche
+        texte = texte.lower()
+        
+        # Liste de villes courantes en France pour détecter les mentions directes
+        villes_courantes = [
+            "paris", "marseille", "lyon", "toulouse", "nice", "nantes", 
+            "strasbourg", "montpellier", "bordeaux", "lille", "rennes", 
+            "reims", "toulon", "angers", "grenoble", "dijon", "nancy", "metz"
         ]
         
-        import re
-        for pattern in patterns:
-            try:
-                matches = re.findall(pattern, texte)
-                for match in matches:
-                    # Nettoyer le nom potentiel de ville
-                    ville = match.strip()
-                    if ville and len(ville) > 2 and ville not in ["le", "la", "les", "des", "et", "ou"]:
-                        villes_potentielles.append(ville)
-            except Exception as e:
-                print(f"Erreur d'expression régulière avec le pattern '{pattern}': {e}")
-                continue
-        
-        # Si aucun pattern n'a fonctionné, extraire les mots individuels qui pourraient être des villes
-        if not villes_potentielles:
-            # Exclure les mots communs qui ne sont pas des villes
-            mots_a_exclure = ["météo", "meteo", "temps", "température", "temperature", "climat", 
-                           "quel", "quelle", "comment", "est", "fait", "aujourd'hui", "demain",
-                           "ce", "cette", "le", "la", "les", "des", "et", "ou", "pour", "il", 
-                           "elle", "ils", "elles", "nous", "vous", "on", "je", "tu", "à", "a", 
-                           "au", "aux", "en", "dans", "sur", "sous", "avec", "sans", "par", "chez"]
+        # Patterns spécifiques pour les questions de météo
+        patterns = [
+            # Format: "météo à Paris"
+            r'(?:météo|meteo|temps|température|temperature|climat|pluie|pleuvoir|chaud|froid)\s+(?:à|a|au|en|de|pour|sur)\s+([a-zÀ-ÿ\s\-]+)(?:\s|$|\?|\.)',
             
-            mots = texte.split()
-            for mot in mots:
-                mot = mot.strip()
-                if mot and len(mot) > 3 and mot not in mots_a_exclure:
-                    villes_potentielles.append(mot)
+            # Format: "à Paris, la météo"
+            r'(?:à|a|au|en|de|pour|sur)\s+([a-zÀ-ÿ\s\-]+)(?:\s|$|\?|\.)(?:météo|meteo|temps|température|temperature|climat)',
+            
+            # Format: "Paris météo"
+            r'([a-zÀ-ÿ\s\-]+)(?:\s|$|\?|\.)(?:météo|meteo|temps|température|temperature|climat)',
+            
+            # Nouveau format: "pleut-il à Paris" ou "va-t-il pleuvoir à Paris"
+            r'(?:pleut-il|pleut t-il|pleut il|va-t-il pleuvoir|va t-il pleuvoir|va t il pleuvoir|va-t-il|va t il)\s+(?:à|a|au|en|de|sur)?\s+([a-zÀ-ÿ\s\-]+)(?:\s|$|\?|\.)',
+            
+            # Format court: "pluie paris"
+            r'(?:pluie|pleuvoir|neige)\s+(?:à|a|au|en|de)?\s+([a-zÀ-ÿ\s\-]+)(?:\s|$|\?|\.)'
+        ]
         
-        return villes_potentielles
+        # Tester tous les patterns
+        for pattern in patterns:
+            matches = re.findall(pattern, texte)
+            if matches:
+                for match in matches:
+                    ville_candidate = match.strip()
+                    # Ignorer les mots courants qui ne sont pas des villes
+                    mots_exclus = ["demain", "aujourd'hui", "ce soir", "ce matin", "temps", "pluie", "présent", "futur", "il"]
+                    if any(mot == ville_candidate for mot in mots_exclus):
+                        continue
+                    
+                    # Si la ville candidate est non vide et n'est pas dans les mots exclus
+                    if ville_candidate and not any(mot in ville_candidate for mot in mots_exclus):
+                        return ville_candidate.title()  # Première lettre de chaque mot en majuscule
+        
+        # Vérifier les mentions directes de villes courantes
+        for ville in villes_courantes:
+            if re.search(r'\b' + re.escape(ville) + r'\b', texte):
+                return ville.title()
+        
+        # Si aucun pattern n'a trouvé de ville, extraire des mots qui pourraient être des villes
+        mots = texte.split()
+        mots_exclus = ["météo", "meteo", "temps", "température", "temperature", "climat", 
+                      "à", "a", "au", "en", "de", "pour", "le", "la", "les", "et", "ou", 
+                      "un", "une", "des", "ce", "cette", "ces", "quel", "quelle", "est", 
+                      "il", "elle", "ils", "elles", "fait", "fait-il", "demain", "aujourd'hui", 
+                      "matin", "soir", "midi", "pluie", "pleut", "pleuvoir", "neige", "neiger"]
+        
+        for mot in mots:
+            if mot not in mots_exclus and len(mot) > 2:
+                # Vérifier si le mot ressemble à un nom propre (non filtré)
+                return mot.title()
+        
+        # Si aucune ville n'a été trouvée, retourner Paris par défaut
+        logger.info("Aucune ville détectée, utilisation de Paris par défaut")
+        return "Paris"
     
     def rechercher_ville_api(self, nom_ville):
         """
@@ -113,10 +136,8 @@ class MeteoService:
                 return {
                     "nom": ville["name"],
                     "pays": ville.get("country", ""),
-                    "coords": {
-                        "latitude": ville["latitude"],
-                        "longitude": ville["longitude"]
-                    }
+                    "latitude": ville["latitude"],
+                    "longitude": ville["longitude"]
                 }
             return None
             
@@ -126,111 +147,119 @@ class MeteoService:
             
     def trouver_ville(self, texte):
         """
-        Trouve une ville mentionnée dans le texte en utilisant l'API de géocodage.
-        
-        Args:
-            texte (str): Le texte mentionnant potentiellement une ville
-            
-        Returns:
-            dict: Coordonnées et nom de la ville ou emplacement par défaut
-        """
-        # Extraire les noms potentiels de villes
-        villes_potentielles = self.extraire_nom_ville(texte)
-        
-        # Rechercher chaque ville potentielle via l'API
-        for ville in villes_potentielles:
-            resultat = self.rechercher_ville_api(ville)
-            if resultat:
-                logger.info(f"Ville trouvée via API: {resultat['nom']}, {resultat['pays']}")
-                return {
-                    "nom": f"{resultat['nom']}, {resultat['pays']}",
-                    "coords": resultat["coords"]
-                }
-        
-        # Si l'API ne trouve pas de ville ou en cas d'erreur, vérifier dans le dictionnaire local
-        texte_lower = texte.lower()
-        for ville, coords in self.villes.items():
-            if ville in texte_lower:
-                logger.info(f"Ville trouvée dans le dictionnaire local: {ville}")
-                return {"nom": ville.capitalize(), "coords": coords}
-        
-        # Si aucune ville n'est trouvée, utiliser Paris par défaut
-        logger.info("Aucune ville trouvée, utilisation de Paris par défaut")
-        return {"nom": "Paris, France", "coords": self.default_location}
-    
-    def obtenir_meteo(self, texte):
-        """
-        Obtient les données météo complètes pour une ville mentionnée dans le texte.
+        Trouve une ville dans le texte et renvoie ses coordonnées.
         
         Args:
             texte (str): Le texte contenant potentiellement un nom de ville
             
         Returns:
-            dict ou str: Données météo formatées ou message d'erreur
+            dict: Informations sur la ville trouvée (nom, coordonnées, etc.)
         """
         try:
-            # Trouver la ville mentionnée dans le texte
-            ville_info = self.trouver_ville(texte)
-            ville = ville_info["nom"]
-            coords = ville_info["coords"]
+            # Extraire le nom de la ville du texte
+            nom_ville = self.extraire_nom_ville(texte)
             
-            # Paramètres de requête pour Open Meteo
-            params = {
-                "latitude": coords["latitude"],
-                "longitude": coords["longitude"],
-                "current": ["temperature_2m", "relative_humidity_2m", "weather_code", "wind_speed_10m", "apparent_temperature"],
-                "timezone": "auto",
-                "forecast_days": 1
-            }
+            # Si aucune ville n'est trouvée, utiliser Paris par défaut
+            if not nom_ville:
+                nom_ville = "Paris"
+                logger.warning(f"Aucune ville extraite de '{texte}', utilisation de Paris par défaut.")
             
-            # Faire la requête à l'API
-            response = requests.get(self.base_url, params=params)
-            response.raise_for_status()  # Vérifier si la requête a réussi
+            # Rechercher la ville dans l'API ou notre cache
+            ville_info = self.rechercher_ville_api(nom_ville)
             
-            data = response.json()
+            # Si la ville n'est pas trouvée, utiliser Paris par défaut
+            if not ville_info:
+                logger.warning(f"Ville '{nom_ville}' non trouvée dans l'API, utilisation de Paris par défaut.")
+                nom_ville = "Paris"
+                ville_info = self.rechercher_ville_api(nom_ville)
             
-            # Extraire les informations pertinentes
-            current = data.get("current", {})
+            return ville_info
             
-            if not current:
-                logger.error("Données météo non disponibles")
-                return {"status": "error", "message": "Données météo non disponibles"}
-            
-            # Interpréter le code météo
-            weather_code = current.get("weather_code", 0)
-            weather_description = self.interpreter_code_meteo(weather_code)
-            weather_icon = self.obtenir_icone_meteo(weather_code)
-            
-            # Formater les données météo
-            meteo_info = {
-                "status": "success",
-                "ville": ville,
-                "temperature": round(current.get("temperature_2m", 0)),
-                "temperature_ressentie": round(current.get("apparent_temperature", 0)),
-                "unite_temperature": data.get("current_units", {}).get("temperature_2m", "°C"),
-                "humidite": current.get("relative_humidity_2m", 0),
-                "unite_humidite": data.get("current_units", {}).get("relative_humidity_2m", "%"),
-                "vent": round(current.get("wind_speed_10m", 0)),
-                "unite_vent": data.get("current_units", {}).get("wind_speed_10m", "km/h"),
-                "description": weather_description,
-                "icone": weather_icon,
-                "code_meteo": weather_code,
-                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            }
-            
-            # Créer un message formaté en texte
-            meteo_message = self.formater_message_meteo(meteo_info)
-            
-            logger.info(f"Données météo récupérées avec succès pour {ville}")
-            return meteo_message
-            
-        except requests.exceptions.RequestException as e:
-            logger.error(f"Erreur lors de la requête météo: {e}")
-            return f"Désolé, je n'ai pas pu récupérer la météo en raison d'une erreur de connexion. Veuillez réessayer plus tard."
-        
         except Exception as e:
-            logger.error(f"Erreur inattendue lors de la récupération des données météo: {e}")
-            return f"Désolé, une erreur s'est produite lors de la récupération des données météo. Veuillez réessayer."
+            logger.error(f"Erreur lors de la recherche de ville dans '{texte}': {str(e)}")
+            # En cas d'erreur, utiliser Paris par défaut
+            return self.rechercher_ville_api("Paris")
+    
+    def obtenir_meteo(self, texte):
+        """
+        Obtient les informations météo pour une ville mentionnée dans le texte.
+        
+        Args:
+            texte (str): Texte contenant potentiellement un nom de ville
+            
+        Returns:
+            str: Message formaté contenant les informations météo
+        """
+        try:
+            # Journaliser la requête météo
+            logger.info(f"Requête météo reçue: '{texte}'")
+            
+            # Trouver la ville dans le texte
+            ville_info = self.trouver_ville(texte)
+            
+            if not ville_info:
+                logger.error("Aucune ville trouvée pour la requête météo")
+                return "Désolé, je n'ai pas pu identifier de ville valide dans votre question."
+            
+            # Journaliser la ville trouvée
+            logger.info(f"Ville trouvée pour la météo: {ville_info['nom']}")
+            
+            # Récupérer les coordonnées
+            lat = ville_info["latitude"]
+            lon = ville_info["longitude"]
+            
+            # Construire l'URL pour l'API Open-Meteo
+            url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,weather_code,wind_speed_10m&timezone=auto"
+            
+            # Faire la requête HTTP
+            response = requests.get(url)
+            
+            # Vérifier si la requête a réussi
+            if response.status_code == 200:
+                # Parser les données JSON
+                data = response.json()
+                
+                # Extraire les informations actuelles
+                current = data.get("current", {})
+                
+                # Vérifier si les données sont complètes
+                if not current or "temperature_2m" not in current:
+                    logger.error(f"Données météo incomplètes pour {ville_info['nom']}")
+                    return f"Désolé, les données météo pour {ville_info['nom']} sont temporairement indisponibles."
+                
+                # Créer un dictionnaire avec les informations formatées
+                meteo_info = {
+                    "status": "success",
+                    "ville": ville_info["nom"],
+                    "pays": ville_info.get("pays", ""),
+                    "temperature": round(current.get("temperature_2m", 0)),
+                    "temperature_ressentie": round(current.get("apparent_temperature", 0)),
+                    "humidite": current.get("relative_humidity_2m", 0),
+                    "unite_humidite": "%",
+                    "vent": round(current.get("wind_speed_10m", 0)),
+                    "unite_vent": "km/h",
+                    "code": current.get("weather_code", 0),
+                    "est_jour": current.get("is_day", 1),
+                    "timestamp": datetime.fromtimestamp(current.get("time", 0)).strftime("%d %B %Y, %H:%M"),
+                }
+                
+                # Interpréter le code météo
+                meteo_info["description"] = self.interpreter_code_meteo(meteo_info["code"])
+                
+                # Obtenir l'icône correspondante
+                meteo_info["icone"] = self.obtenir_icone_meteo(meteo_info["code"])
+                
+                # Formater le message
+                message = self.formater_message_meteo(meteo_info)
+                
+                return message
+            else:
+                logger.error(f"Erreur API météo: {response.status_code} - {response.text}")
+                return f"Désolé, je n'ai pas pu obtenir les informations météo pour {ville_info['nom']}. Le service météo est temporairement indisponible."
+                
+        except Exception as e:
+            logger.error(f"Erreur lors de l'obtention de la météo: {str(e)}")
+            return "Désolé, une erreur s'est produite lors de la récupération des informations météo. Veuillez réessayer plus tard."
     
     def interpreter_code_meteo(self, code):
         """
