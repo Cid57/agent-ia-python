@@ -300,7 +300,7 @@ main {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 160px);
-  min-height: 600px;
+  min-height: 550px;
   overflow: hidden;
   transition: box-shadow var(--transition-normal);
 }
@@ -339,6 +339,7 @@ main {
   opacity: 0;
   transform: translateY(10px);
   transition: all var(--transition-normal);
+  margin-bottom: var(--spacing-3);
 }
 
 .message.active {
@@ -527,8 +528,8 @@ main {
 
 /* Bienvenue et suggestions */
 .welcome-guide {
-  margin: var(--spacing-6) auto;
-  padding: var(--spacing-6);
+  margin: var(--spacing-4) auto;
+  padding: var(--spacing-4);
   background-color: white;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
@@ -539,13 +540,13 @@ main {
 
 .welcome-guide h2 {
   font-size: var(--font-size-xl);
-  margin-bottom: var(--spacing-4);
+  margin-bottom: var(--spacing-3);
   color: var(--primary-dark);
   font-weight: 600;
 }
 
 .welcome-guide p {
-  margin-bottom: var(--spacing-4);
+  margin-bottom: var(--spacing-3);
   color: var(--neutral-600);
 }
 
@@ -553,7 +554,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-2);
-  margin-top: var(--spacing-4);
+  margin-top: var(--spacing-3);
   justify-content: center;
 }
 

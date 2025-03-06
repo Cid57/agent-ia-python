@@ -942,5 +942,55 @@
             "ville": "Paris"
         },
         "timestamp": "2025-03-06 15:50:48"
+    },
+    {
+        "question": "Comment vas-tu aujourd'hui?",
+        "reponse": "Tout va bien de mon côté. Comment puis-je vous aider aujourd'hui ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-06 15:53:23"
+    },
+    {
+        "question": "Comment vas-tu aujourd'hui?",
+        "reponse": "Tout va bien de mon côté. Comment puis-je vous aider aujourd'hui ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-06 15:55:36"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 15:56:39"
+    },
+    {
+        "question": "Comment vas-tu aujourd'hui?",
+        "reponse": "Tout va bien de mon côté. Comment puis-je vous aider aujourd'hui ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-06 15:56:56"
+    },
+    {
+        "question": "Demandez-moi la météo à Paris",
+        "reponse": "Laissez-moi vérifier la météo à Paris.",
+        "intention": "meteo",
+        "score": 17,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-06 15:57:08"
     }
 ]

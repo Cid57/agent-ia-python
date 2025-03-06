@@ -1458,3 +1458,133 @@ AttributeError: 'list' object has no attribute 'items'
 2025-03-06 15:51:24,109 - agent - INFO - Intention détectée: erreur avec score 0
 2025-03-06 15:51:24,109 - agent - INFO - Entités extraites: {}
 2025-03-06 15:51:24,110 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:51:24] "POST /question HTTP/1.1" 200 -
+2025-03-06 15:52:53,355 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:52:53] "GET / HTTP/1.1" 200 -
+2025-03-06 15:52:53,379 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:52:53] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 15:52:53,380 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:52:53] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 15:52:53,381 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:52:53] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-06 15:52:56,480 - agent - INFO - Question reçue: coucou
+2025-03-06 15:52:56,481 - nlp_engine - INFO - Début d'analyse de la question: 'coucou'
+2025-03-06 15:52:56,482 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 15:52:56,484 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-06 15:52:56,484 - nlp_engine - ERROR - Détail de l'erreur: Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 453, in analyser_et_repondre
+    intention, score, entites = determiner_intention(question)
+                                ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 325, in determiner_intention
+    score = calculer_score_intention(question, keywords)
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 231, in calculer_score_intention
+    for mot, poids in mots_cles.items():
+                      ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+
+2025-03-06 15:52:56,484 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-06 15:52:56,485 - agent - INFO - Entités extraites: {}
+2025-03-06 15:52:56,485 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:52:56] "POST /question HTTP/1.1" 200 -
+2025-03-06 15:53:17,625 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:53:17] "GET / HTTP/1.1" 200 -
+2025-03-06 15:53:17,649 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:53:17] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 15:53:17,651 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:53:17] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 15:53:17,651 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:53:17] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 15:53:23,336 - agent - INFO - Question reçue: Comment vas-tu aujourd'hui?
+2025-03-06 15:53:23,337 - nlp_engine - INFO - Début d'analyse de la question: 'Comment vas-tu aujourd'hui?'
+2025-03-06 15:53:23,337 - nlp_engine - INFO - Question concernant le bien-être détectée
+2025-03-06 15:53:23,340 - nlp_engine - INFO - Génération de réponse pour l'intention: bien_etre
+2025-03-06 15:53:23,340 - nlp_engine - INFO - Réponse générée: Tout va bien de mon côté. Comment puis-je vous aider aujourd'hui ?
+2025-03-06 15:53:23,340 - nlp_engine - INFO - Génération de suggestions pour l'intention: bien_etre
+2025-03-06 15:53:23,358 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 15:53:23,359 - agent - INFO - Intention détectée: bien_etre avec score 1.0
+2025-03-06 15:53:23,359 - agent - INFO - Entités extraites: {'ville': 'Comment'}
+2025-03-06 15:53:23,360 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:53:23] "POST /question HTTP/1.1" 200 -
+2025-03-06 15:53:41,282 - agent - INFO - Question reçue: Quelles sont tes capacités ?
+2025-03-06 15:53:41,282 - nlp_engine - INFO - Début d'analyse de la question: 'Quelles sont tes capacités ?'
+2025-03-06 15:53:41,283 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 15:53:41,284 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-06 15:53:41,284 - nlp_engine - ERROR - Détail de l'erreur: Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 453, in analyser_et_repondre
+    intention, score, entites = determiner_intention(question)
+                                ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 325, in determiner_intention
+    score = calculer_score_intention(question, keywords)
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 231, in calculer_score_intention
+    for mot, poids in mots_cles.items():
+                      ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+
+2025-03-06 15:53:41,284 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-06 15:53:41,285 - agent - INFO - Entités extraites: {}
+2025-03-06 15:53:41,285 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:53:41] "POST /question HTTP/1.1" 200 -
+2025-03-06 15:55:21,305 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:55:21] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 15:55:21,305 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:55:21] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 15:55:29,857 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:55:29] "GET / HTTP/1.1" 200 -
+2025-03-06 15:55:29,877 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:55:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 15:55:29,878 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:55:29] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 15:55:29,879 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:55:29] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 15:55:36,459 - agent - INFO - Question reçue: Comment vas-tu aujourd'hui?
+2025-03-06 15:55:36,460 - nlp_engine - INFO - Début d'analyse de la question: 'Comment vas-tu aujourd'hui?'
+2025-03-06 15:55:36,461 - nlp_engine - INFO - Question concernant le bien-être détectée
+2025-03-06 15:55:36,465 - nlp_engine - INFO - Génération de réponse pour l'intention: bien_etre
+2025-03-06 15:55:36,465 - nlp_engine - INFO - Réponse générée: Tout va bien de mon côté. Comment puis-je vous aider aujourd'hui ?
+2025-03-06 15:55:36,466 - nlp_engine - INFO - Génération de suggestions pour l'intention: bien_etre
+2025-03-06 15:55:36,491 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 15:55:36,492 - agent - INFO - Intention détectée: bien_etre avec score 1.0
+2025-03-06 15:55:36,492 - agent - INFO - Entités extraites: {'ville': 'Comment'}
+2025-03-06 15:55:36,493 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:55:36] "POST /question HTTP/1.1" 200 -
+2025-03-06 15:56:32,046 - agent - INFO - Question spéciale d'identité détectée: Qui es-tu ?
+2025-03-06 15:56:32,048 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:56:32] "POST /question HTTP/1.1" 200 -
+2025-03-06 15:56:39,617 - agent - INFO - Question reçue: Raconte-moi une blague
+2025-03-06 15:56:39,618 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une blague'
+2025-03-06 15:56:39,619 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 15:56:39,619 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 60
+2025-03-06 15:56:39,622 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 15:56:39,622 - nlp_engine - INFO - Réponse générée: Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !
+2025-03-06 15:56:39,622 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 15:56:39,644 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 15:56:39,645 - agent - INFO - Intention détectée: blague avec score 60
+2025-03-06 15:56:39,645 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 15:56:39,645 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 15:56:39,646 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:56:39] "POST /question HTTP/1.1" 200 -
+2025-03-06 15:56:54,236 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:56:54] "GET / HTTP/1.1" 200 -
+2025-03-06 15:56:54,260 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:56:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 15:56:54,263 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:56:54] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-06 15:56:54,264 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:56:54] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 15:56:56,637 - agent - INFO - Question reçue: Comment vas-tu aujourd'hui?
+2025-03-06 15:56:56,638 - nlp_engine - INFO - Début d'analyse de la question: 'Comment vas-tu aujourd'hui?'
+2025-03-06 15:56:56,638 - nlp_engine - INFO - Question concernant le bien-être détectée
+2025-03-06 15:56:56,644 - nlp_engine - INFO - Génération de réponse pour l'intention: bien_etre
+2025-03-06 15:56:56,644 - nlp_engine - INFO - Réponse générée: Tout va bien de mon côté. Comment puis-je vous aider aujourd'hui ?
+2025-03-06 15:56:56,644 - nlp_engine - INFO - Génération de suggestions pour l'intention: bien_etre
+2025-03-06 15:56:56,656 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 15:56:56,657 - agent - INFO - Intention détectée: bien_etre avec score 1.0
+2025-03-06 15:56:56,657 - agent - INFO - Entités extraites: {'ville': 'Comment'}
+2025-03-06 15:56:56,658 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:56:56] "POST /question HTTP/1.1" 200 -
+2025-03-06 15:56:59,928 - agent - INFO - Question spéciale d'identité détectée: Qui es-tu ?
+2025-03-06 15:56:59,928 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:56:59] "POST /question HTTP/1.1" 200 -
+2025-03-06 15:57:02,302 - agent - INFO - Question reçue: Quelles sont tes capacités ?
+2025-03-06 15:57:02,303 - nlp_engine - INFO - Début d'analyse de la question: 'Quelles sont tes capacités ?'
+2025-03-06 15:57:02,304 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 15:57:02,306 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-06 15:57:02,306 - nlp_engine - ERROR - Détail de l'erreur: Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 453, in analyser_et_repondre
+    intention, score, entites = determiner_intention(question)
+                                ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 325, in determiner_intention
+    score = calculer_score_intention(question, keywords)
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 231, in calculer_score_intention
+    for mot, poids in mots_cles.items():
+                      ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+
+2025-03-06 15:57:02,306 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-06 15:57:02,307 - agent - INFO - Entités extraites: {}
+2025-03-06 15:57:02,307 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:57:02] "POST /question HTTP/1.1" 200 -
+2025-03-06 15:57:08,443 - agent - INFO - Question reçue: Demandez-moi la météo à Paris
+2025-03-06 15:57:08,444 - nlp_engine - INFO - Début d'analyse de la question: 'Demandez-moi la météo à Paris'
+2025-03-06 15:57:08,445 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 15:57:08,445 - nlp_engine - INFO - Intention prédite par le modèle amélioré: meteo avec score 17
+2025-03-06 15:57:08,449 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-06 15:57:08,449 - nlp_engine - INFO - Réponse générée: Laissez-moi vérifier la météo à Paris.
+2025-03-06 15:57:08,449 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-06 15:57:08,467 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 15:57:08,468 - agent - INFO - Intention détectée: meteo avec score 17
+2025-03-06 15:57:08,468 - agent - INFO - Entités extraites: {'ville': 'Paris'}
+2025-03-06 15:57:08,468 - agent - INFO - Demande météo pour la question: Demandez-moi la météo à Paris
+2025-03-06 15:57:08,566 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:57:08] "POST /question HTTP/1.1" 200 -

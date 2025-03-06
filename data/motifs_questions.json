@@ -4,11 +4,11 @@
         "quelle est",
         "quelle est la",
         "est la",
+        "météo à",
         "fait il",
         "est la météo",
-        "météo à",
-        "aujourd hui",
         "la météo à",
+        "aujourd hui",
         "à paris"
     ],
     "inconnu": [
@@ -48,6 +48,7 @@
         "aujourd hui",
         "comment vas",
         "comment vas tu",
-        "vas tu"
+        "vas tu",
+        "vas tu aujourd"
     ]
 }

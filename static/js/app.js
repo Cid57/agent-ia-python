@@ -327,19 +327,62 @@ const ChatApp = (() => {
     const typingIndicator = showTypingIndicator();
 
     try {
-      // Préparation de la requête
+      // Détection de différents types de messages
+      const trimmedQuestion = question.trim().toLowerCase();
+      const isSalutation =
+        /^(bonjour|salut|coucou|hello|hey|hi|bonsoir|yo)$/i.test(
+          trimmedQuestion
+        );
+      const isIdentityQuestion =
+        /(qui es[- ]tu|tu es qui|t'es qui|quel est ton nom|comment t'appelles[- ]tu|présente[- ]toi)/.test(
+          trimmedQuestion
+        );
+      const isCapabilityQuestion =
+        /(que sais[- ]tu faire|quelles sont tes capacités|que peux[- ]tu faire|capacités|fonctionnalités|aide[- ]moi)/.test(
+          trimmedQuestion
+        );
+
+      // Format de la requête
+      const requestData = {
+        question: question,
+      };
+
+      // Si c'est une question standard, on pourrait aussi indiquer un type
+      if (isSalutation) requestData.type = "greeting";
+      if (isIdentityQuestion) requestData.type = "identity";
+      if (isCapabilityQuestion) requestData.type = "capability";
+
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: question }),
+        body: JSON.stringify(requestData),
       };
 
       // Envoi de la requête au serveur
       const response = await fetch("/question", requestOptions);
 
-      // Vérifier si la réponse est OK
+      // Traiter selon le type de question si le serveur ne répond pas correctement
       if (!response.ok) {
-        throw new Error(`Erreur réseau: ${response.status}`);
+        // Si le serveur renvoie une erreur, on gère localement
+        if (isSalutation) {
+          removeTypingIndicator();
+          addMessage("Bonjour ! Comment puis-je vous aider aujourd'hui ?");
+          return;
+        } else if (isIdentityQuestion) {
+          removeTypingIndicator();
+          addMessage(
+            "Je suis Cindy, votre assistant IA personnel. Je suis là pour répondre à vos questions et vous aider dans vos tâches quotidiennes."
+          );
+          return;
+        } else if (isCapabilityQuestion) {
+          removeTypingIndicator();
+          addMessage(
+            "Je peux répondre à vos questions, vous donner des informations sur divers sujets, vous aider à trouver des informations, et bien plus encore. N'hésitez pas à me demander ce dont vous avez besoin !"
+          );
+          return;
+        } else {
+          throw new Error(`Erreur réseau: ${response.status}`);
+        }
       }
 
       // Traiter la réponse
@@ -348,13 +391,49 @@ const ChatApp = (() => {
       // Supprimer l'indicateur de frappe
       removeTypingIndicator();
 
-      // Ajouter la réponse au chat
-      addMessage(data.reponse);
+      // Vérifier si la réponse contient une erreur
+      if (
+        !data.reponse ||
+        data.reponse.includes("erreur") ||
+        data.reponse.includes("Désolé")
+      ) {
+        // Réponses de secours selon le type de question
+        if (isSalutation) {
+          addMessage("Bonjour ! Comment puis-je vous aider aujourd'hui ?");
+        } else if (isIdentityQuestion) {
+          addMessage(
+            "Je suis Cindy, votre assistant IA personnel. Je suis là pour répondre à vos questions et vous aider dans vos tâches quotidiennes."
+          );
+        } else if (isCapabilityQuestion) {
+          addMessage(
+            "Je peux répondre à vos questions, vous donner des informations sur divers sujets, vous aider à trouver des informations, et bien plus encore. N'hésitez pas à me demander ce dont vous avez besoin !"
+          );
+        } else {
+          // Pour les autres types de questions, on montre l'erreur
+          addMessage(
+            data.reponse ||
+              "Désolé, une erreur est survenue lors du traitement de votre demande. Veuillez réessayer."
+          );
+        }
+      } else {
+        // Ajouter la réponse au chat si tout va bien
+        addMessage(data.reponse);
+      }
 
       // Ajouter des suggestions si disponibles
       if (data.suggestions && data.suggestions.length > 0) {
         setTimeout(() => {
           addSuggestions(data.suggestions);
+        }, CONFIG.typingIndicatorDelay);
+      } else if (isCapabilityQuestion) {
+        // Suggestions par défaut pour les questions sur les capacités
+        setTimeout(() => {
+          addSuggestions([
+            "Quelle est la météo à Paris ?",
+            "Raconte-moi une blague",
+            "Quelle heure est-il ?",
+            "Qui a inventé Internet ?",
+          ]);
         }, CONFIG.typingIndicatorDelay);
       }
     } catch (error) {
@@ -363,10 +442,37 @@ const ChatApp = (() => {
       // Supprimer l'indicateur de frappe
       removeTypingIndicator();
 
-      // Afficher un message d'erreur
-      addMessage(
-        "Désolé, une erreur est survenue lors du traitement de votre demande. Veuillez réessayer."
-      );
+      // Réponses de secours en cas d'erreur
+      const trimmedQuestion = question.trim().toLowerCase();
+
+      if (
+        /^(bonjour|salut|coucou|hello|hey|hi|bonsoir|yo)$/i.test(
+          trimmedQuestion
+        )
+      ) {
+        addMessage("Bonjour ! Comment puis-je vous aider aujourd'hui ?");
+      } else if (
+        /(qui es[- ]tu|tu es qui|t'es qui|quel est ton nom|comment t'appelles[- ]tu|présente[- ]toi)/.test(
+          trimmedQuestion
+        )
+      ) {
+        addMessage(
+          "Je suis Cindy, votre assistant IA personnel. Je suis là pour répondre à vos questions et vous aider dans vos tâches quotidiennes."
+        );
+      } else if (
+        /(que sais[- ]tu faire|quelles sont tes capacités|que peux[- ]tu faire|capacités|fonctionnalités|aide[- ]moi)/.test(
+          trimmedQuestion
+        )
+      ) {
+        addMessage(
+          "Je peux répondre à vos questions, vous donner des informations sur divers sujets, vous aider à trouver des informations, et bien plus encore. N'hésitez pas à me demander ce dont vous avez besoin !"
+        );
+      } else {
+        // Message d'erreur générique pour les autres questions
+        addMessage(
+          "Désolé, une erreur est survenue lors du traitement de votre demande. Veuillez réessayer avec une formulation différente."
+        );
+      }
     } finally {
       // Réinitialiser l'état
       state.isWaitingForResponse = false;
