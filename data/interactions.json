@@ -754,5 +754,65 @@
             "ville": "Bordeaux"
         },
         "timestamp": "2025-03-05 15:00:51"
+    },
+    {
+        "question": "Quelle heure est-il?",
+        "reponse": "Il est actuellement 15:26.",
+        "intention": "heure",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-05 15:26:20"
+    },
+    {
+        "question": "Comment va-tu aujourd'hui?",
+        "reponse": "Nous sommes le 06/03/2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-06 13:03:21"
+    },
+    {
+        "question": "Comment va-tu aujourd'hui?",
+        "reponse": "Aujourd'hui, nous sommes le Thursday 06 March 2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-06 13:03:37"
+    },
+    {
+        "question": "Quelle heure est-il?",
+        "reponse": "Il est actuellement 13:04.",
+        "intention": "heure",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-06 13:04:05"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Que fait une fraise sur un cheval ? Elle galope !",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 13:04:50"
+    },
+    {
+        "question": "Demandez-moi la météo à Paris",
+        "reponse": "Laissez-moi vérifier la météo à Paris.",
+        "intention": "meteo",
+        "score": 15,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-06 13:05:29"
     }
 ]

@@ -272,4 +272,45 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(() => {
     questionInput.focus();
   }, 500);
+
+  // Fonction pour initialiser le basculement du thème
+  function initThemeToggle() {
+    // Vérifier si l'utilisateur a déjà une préférence
+    const prefersDarkMode = localStorage.getItem("darkMode") === "true";
+
+    // Appliquer le mode préféré
+    if (prefersDarkMode) {
+      document.documentElement.classList.add("dark-mode");
+    }
+
+    // Ajouter le bouton de basculement du thème
+    const header =
+      document.querySelector(".header") || document.querySelector("header");
+
+    if (header) {
+      const themeToggle = document.createElement("button");
+      themeToggle.className = "theme-toggle";
+      themeToggle.innerHTML = `
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+        `;
+
+      // Ajouter le bouton à l'en-tête
+      header.appendChild(themeToggle);
+
+      // Ajouter l'écouteur d'événement pour basculer le thème
+      themeToggle.addEventListener("click", toggleDarkMode);
+    }
+  }
+
+  // Fonction pour basculer entre le mode clair et le mode sombre
+  function toggleDarkMode() {
+    const isDarkMode = document.documentElement.classList.toggle("dark-mode");
+
+    // Sauvegarder la préférence de l'utilisateur
+    localStorage.setItem("darkMode", isDarkMode);
+  }
+
+  // Initialiser le basculement du thème au chargement de la page
+  initThemeToggle();
 });

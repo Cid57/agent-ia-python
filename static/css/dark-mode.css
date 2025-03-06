@@ -1,0 +1,157 @@
+/* Mode sombre pour Cindy Assistant IA */
+:root.dark-mode {
+  /* Palette de couleurs mode sombre */
+  --primary-color: #3d5ac8;
+  --primary-dark: #2a3f9e;
+  --primary-light: #627fea;
+  --secondary-color: #5c3dbd;
+  --secondary-dark: #422a8c;
+  --accent-color: #0fa884;
+
+  /* Couleurs de texte et fond */
+  --text-color: #e2e8f0;
+  --text-color-lighter: #a0aec0;
+  --bg-color: #1a202c;
+  --bg-color-lighter: #2d3748;
+  --bg-color-darker: #171923;
+
+  /* Couleurs des éléments d'interface */
+  --card-bg: #2d3748;
+  --input-bg: #283141;
+  --border-color: #4a5568;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+
+  /* Couleurs des messages */
+  --user-message-bg: #4a5568;
+  --agent-message-bg: #3b4a69;
+  --suggestion-bg: #2c3e50;
+  --suggestion-hover: #3c4e60;
+}
+
+/* Application du thème sombre */
+.dark-mode body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.dark-mode .header,
+.dark-mode .footer {
+  background-color: var(--bg-color-darker);
+  border-color: var(--border-color);
+}
+
+.dark-mode .chat-container {
+  background-color: var(--bg-color);
+}
+
+.dark-mode .message-input {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.dark-mode .message-input:focus {
+  border-color: var(--primary-color);
+}
+
+.dark-mode .send-button {
+  background-color: var(--primary-color);
+}
+
+.dark-mode .send-button:hover {
+  background-color: var(--primary-dark);
+}
+
+.dark-mode .user-message {
+  background-color: var(--user-message-bg);
+  color: var(--text-color);
+}
+
+.dark-mode .agent-message {
+  background-color: var(--agent-message-bg);
+  color: var(--text-color);
+}
+
+.dark-mode .suggestion {
+  background-color: var(--suggestion-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.dark-mode .suggestion:hover {
+  background-color: var(--suggestion-hover);
+}
+
+.dark-mode .nav-item a {
+  color: var(--text-color);
+}
+
+.dark-mode .nav-item a:hover {
+  color: var(--accent-color);
+}
+
+/* Bouton de basculement du thème */
+.theme-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle i {
+  font-size: 1.5rem;
+}
+
+.dark-mode .theme-toggle {
+  color: var(--text-color);
+}
+
+.theme-toggle .moon-icon,
+.dark-mode .theme-toggle .sun-icon {
+  display: none;
+}
+
+.theme-toggle .sun-icon,
+.dark-mode .theme-toggle .moon-icon {
+  display: inline-block;
+}
+
+.message-content p {
+  color: black;
+}
+
+.suggestion-chip {
+  color: black;
+}
+
+#question-input {
+  color: black;
+}
+
+#question-input::placeholder {
+  color: black;
+}
+
+.user .message-content {
+  color: black;
+}
+
+.bot .message-content {
+  color: black;
+}
+
+.suggestion-title {
+  color: black;
+}
