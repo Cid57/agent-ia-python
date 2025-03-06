@@ -852,5 +852,95 @@
         "score": 1.0,
         "entites": {},
         "timestamp": "2025-03-06 14:24:19"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Quel est le comble pour un électricien ? De ne pas être au courant.",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 15:41:09"
+    },
+    {
+        "question": "Quelle est la météo à Marseille aujourd'hui ?",
+        "reponse": "Laissez-moi vérifier la météo à Marseille.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Marseille"
+        },
+        "timestamp": "2025-03-06 15:43:44"
+    },
+    {
+        "question": "Comment vas-tu aujourd'hui?",
+        "reponse": "Tout va bien de mon côté. Comment puis-je vous aider aujourd'hui ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-06 15:44:42"
+    },
+    {
+        "question": "Quelle est la météo à Lyon aujourd'hui ?",
+        "reponse": "Laissez-moi vérifier la météo à Lyon.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Lyon"
+        },
+        "timestamp": "2025-03-06 15:45:01"
+    },
+    {
+        "question": "Comment vas-tu ?",
+        "reponse": "Je vais très bien, merci ! Et vous, comment allez-vous ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-06 15:47:31"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Pourquoi les abeilles ont-elles du miel ? Parce qu'elles se sucrent les doigts.",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 15:47:40"
+    },
+    {
+        "question": "Quelle heure est-il?",
+        "reponse": "Il est actuellement 15:50.",
+        "intention": "heure",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-06 15:50:39"
+    },
+    {
+        "question": "Quelle est la date aujourd'hui ?",
+        "reponse": "La date d'aujourd'hui est le 06 March 2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-06 15:50:45"
+    },
+    {
+        "question": "Quel temps fait-il à Paris aujourd'hui ?",
+        "reponse": "Je recherche les informations météo pour Paris.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-06 15:50:48"
     }
 ]

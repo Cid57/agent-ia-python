@@ -1,157 +1,199 @@
-/* Mode sombre pour Cindy Assistant IA */
-:root.dark-mode {
-  /* Palette de couleurs mode sombre */
-  --primary-color: #3d5ac8;
-  --primary-dark: #2a3f9e;
-  --primary-light: #627fea;
-  --secondary-color: #5c3dbd;
-  --secondary-dark: #422a8c;
-  --accent-color: #0fa884;
+/**
+ * Thème sombre pour l'application Agent IA
+ * Version modernisée avec palette de couleurs harmonieuse
+ */
 
-  /* Couleurs de texte et fond */
-  --text-color: #e2e8f0;
-  --text-color-lighter: #a0aec0;
-  --bg-color: #1a202c;
-  --bg-color-lighter: #2d3748;
-  --bg-color-darker: #171923;
+.dark-mode {
+  /* Palette de couleurs pour le mode sombre */
+  --neutral-50: #121212;
+  --neutral-100: #1e1e1e;
+  --neutral-200: #2a2a2a;
+  --neutral-300: #3a3a3a;
+  --neutral-400: #5a5a5a;
+  --neutral-500: #7a7a7a;
+  --neutral-600: #9a9a9a;
+  --neutral-700: #bdbdbd;
+  --neutral-800: #e0e0e0;
+  --neutral-900: #f5f5f5;
 
-  /* Couleurs des éléments d'interface */
-  --card-bg: #2d3748;
-  --input-bg: #283141;
-  --border-color: #4a5568;
-  --shadow-color: rgba(0, 0, 0, 0.4);
+  /* Couleurs primaires et secondaires ajustées */
+  --primary-color: #60a5fa;
+  --primary-light: #3b82f6;
+  --primary-dark: #93c5fd;
+  --secondary-color: #a78bfa;
+  --accent-color: #34d399;
 
   /* Couleurs des messages */
-  --user-message-bg: #4a5568;
-  --agent-message-bg: #3b4a69;
-  --suggestion-bg: #2c3e50;
-  --suggestion-hover: #3c4e60;
+  --message-bot-bg: rgba(40, 42, 54, 0.8);
+  --message-user-bg: rgba(30, 58, 138, 0.4);
+  --message-bot-text: var(--neutral-800);
+  --message-user-text: var(--neutral-800);
+
+  /* Couleurs fonctionnelles */
+  --success-color: #10b981;
+  --warning-color: #fbbf24;
+  --error-color: #f87171;
+  --info-color: #60a5fa;
+
+  /* Fond de page */
+  background-color: var(--neutral-50);
+  background-image: radial-gradient(
+      circle at 100% 100%,
+      rgba(59, 130, 246, 0.15) 0%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(59, 130, 246, 0.15) 0%,
+      transparent 25%
+    );
+  color: var(--neutral-800);
 }
 
-/* Application du thème sombre */
-.dark-mode body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-.dark-mode .header,
-.dark-mode .footer {
-  background-color: var(--bg-color-darker);
-  border-color: var(--border-color);
-}
-
+/* Carte de chat */
 .dark-mode .chat-container {
-  background-color: var(--bg-color);
+  background-color: rgba(26, 26, 26, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--neutral-300);
 }
 
-.dark-mode .message-input {
-  background-color: var(--input-bg);
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
+/* En-tête */
+.dark-mode header {
+  border-bottom-color: var(--neutral-300);
 }
 
-.dark-mode .message-input:focus {
-  border-color: var(--primary-color);
+.dark-mode header h1 {
+  color: var(--primary-light);
 }
 
-.dark-mode .send-button {
+.dark-mode header h1::before {
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.5);
+}
+
+.dark-mode header nav a {
+  color: var(--neutral-600);
+}
+
+.dark-mode header nav a:hover {
+  color: var(--primary-light);
+}
+
+/* Zone de saisie */
+.dark-mode .chat-input {
+  background-color: var(--neutral-100);
+  border-top: 1px solid var(--neutral-300);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode #question-input {
+  background-color: var(--neutral-200);
+  color: var(--neutral-800);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode #question-input:focus {
+  background-color: var(--neutral-300);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2),
+    0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+.dark-mode #question-input::placeholder {
+  color: var(--neutral-500);
+}
+
+/* Boutons */
+.dark-mode .secondary-button {
+  background-color: var(--neutral-200);
+  color: var(--neutral-600);
+  border-color: var(--neutral-300);
+}
+
+.dark-mode .secondary-button:hover {
+  background-color: var(--neutral-300);
+  color: var(--neutral-800);
+}
+
+.dark-mode .actions {
+  background-color: var(--neutral-200);
+  border-bottom-color: var(--neutral-300);
+}
+
+.dark-mode #send-button {
   background-color: var(--primary-color);
 }
 
-.dark-mode .send-button:hover {
+.dark-mode #send-button:hover {
+  background-color: var(--primary-light);
+}
+
+/* Messages */
+.dark-mode .message-container:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .user .message-container::before,
+.dark-mode .bot .message-container::before {
+  filter: brightness(0.8);
+}
+
+/* Bienvenue et suggestions */
+.dark-mode .welcome-guide {
+  background-color: var(--neutral-100);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .welcome-guide h2 {
+  color: var(--primary-light);
+}
+
+.dark-mode .welcome-guide p {
+  color: var(--neutral-600);
+}
+
+.dark-mode .suggestion-chip {
+  background-color: var(--neutral-200);
+  color: var(--neutral-600);
+  border-color: var(--neutral-300);
+}
+
+.dark-mode .suggestion-chip:hover {
   background-color: var(--primary-dark);
+  color: var(--neutral-900);
 }
 
-.dark-mode .user-message {
-  background-color: var(--user-message-bg);
-  color: var(--text-color);
+.dark-mode .suggestion-chip.selected {
+  background-color: var(--primary-color);
+  color: var(--neutral-900);
 }
 
-.dark-mode .agent-message {
-  background-color: var(--agent-message-bg);
-  color: var(--text-color);
+/* Animation de frappe */
+.dark-mode .typing-dot {
+  background-color: var(--primary-light);
 }
 
-.dark-mode .suggestion {
-  background-color: var(--suggestion-bg);
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
+/* Pied de page */
+.dark-mode footer {
+  border-top-color: var(--neutral-300);
 }
 
-.dark-mode .suggestion:hover {
-  background-color: var(--suggestion-hover);
+/* Barres de défilement personnalisées */
+.dark-mode #chat-messages::-webkit-scrollbar-thumb {
+  background-color: var(--neutral-400);
 }
 
-.dark-mode .nav-item a {
-  color: var(--text-color);
+.dark-mode #chat-messages::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.dark-mode .nav-item a:hover {
-  color: var(--accent-color);
-}
-
-/* Bouton de basculement du thème */
-.theme-toggle {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  border: none;
-  color: var(--text-color);
-  font-size: 1.2rem;
-  margin-left: 1rem;
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.theme-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.theme-toggle i {
-  font-size: 1.5rem;
-}
-
-.dark-mode .theme-toggle {
-  color: var(--text-color);
-}
-
-.theme-toggle .moon-icon,
-.dark-mode .theme-toggle .sun-icon {
-  display: none;
-}
-
-.theme-toggle .sun-icon,
-.dark-mode .theme-toggle .moon-icon {
-  display: inline-block;
-}
-
-.message-content p {
-  color: black;
-}
-
-.suggestion-chip {
-  color: black;
-}
-
-#question-input {
-  color: black;
-}
-
-#question-input::placeholder {
-  color: black;
-}
-
-.user .message-content {
-  color: black;
-}
-
-.bot .message-content {
-  color: black;
-}
-
-.suggestion-title {
-  color: black;
+/* Transitions fluides entre les modes */
+.dark-mode .container,
+.dark-mode .chat-container,
+.dark-mode .message-container,
+.dark-mode .message-content,
+.dark-mode #question-input,
+.dark-mode .secondary-button,
+.dark-mode #send-button {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease;
 }

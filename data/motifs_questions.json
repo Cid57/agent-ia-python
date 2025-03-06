@@ -7,9 +7,9 @@
         "fait il",
         "est la météo",
         "météo à",
+        "aujourd hui",
         "la météo à",
-        "à paris",
-        "aujourd hui"
+        "à paris"
     ],
     "inconnu": [
         "qui es",
@@ -33,7 +33,7 @@
         "quelle est",
         "quelle est la",
         "est la",
-        "comment va"
+        "est la date"
     ],
     "blague": [
         "raconte moi",
@@ -41,5 +41,13 @@
         "moi une",
         "moi une blague",
         "une blague"
+    ],
+    "bien_etre": [
+        "tu aujourd",
+        "tu aujourd hui",
+        "aujourd hui",
+        "comment vas",
+        "comment vas tu",
+        "vas tu"
     ]
 }

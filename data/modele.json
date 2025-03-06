@@ -32,15 +32,15 @@
             "york": 0,
             "nancy": 0,
             "marseille": 5,
-            "bordeaux": 4,
+            "bordeaux": 5,
             "parius": 0,
             "strasbourg": 0,
-            "nice": 2,
+            "nice": 3,
             "bali": 0,
-            "heure": 4,
-            "pleut": 2,
-            "pleuvoir": 1,
-            "demandez": 1
+            "heure": 5,
+            "pleut": 3,
+            "pleuvoir": 2,
+            "demandez": 2
         },
         "expressions": {
             "quelle est": 8,
@@ -57,7 +57,9 @@
             "quelle temps fait": 8,
             "météo aujourd": 8,
             "météo aujourd hui": 8,
-            "quelle heure": 8
+            "quelle heure": 8,
+            "marseille aujourd": 3,
+            "marseille aujourd hui": 3
         }
     },
     "heure": {
@@ -82,14 +84,14 @@
             "nous": 5,
             "aujourd": 5,
             "hui": 5,
-            "quelle": 3,
-            "est": 3,
-            "date": 3,
-            "temps": 3,
-            "fait": 3,
+            "quelle": 5,
+            "est": 5,
+            "date": 5,
+            "temps": 4,
+            "fait": 4,
             "météo": 0,
             "paris": 0,
-            "comment": 1
+            "comment": 2
         },
         "expressions": {
             "quel jour": 8,
@@ -99,11 +101,11 @@
             "sommes nous": 8,
             "aujourd hui": 8,
             "quelle est": 8,
-            "date aujourd": 6,
-            "date aujourd hui": 6,
-            "quel temps": 6,
-            "quel temps fait": 6,
-            "temps fait": 6
+            "date aujourd": 8,
+            "date aujourd hui": 8,
+            "quel temps": 8,
+            "quel temps fait": 8,
+            "temps fait": 8
         }
     },
     "capacites": {
@@ -150,10 +152,14 @@
     },
     "bien_etre": {
         "mots_cles": {
-            "comment": 0,
-            "aujourd": 0,
-            "hui": 0
+            "comment": 2,
+            "aujourd": 1,
+            "hui": 1,
+            "vas": 1
         },
-        "expressions": {}
+        "expressions": {
+            "aujourd hui": 2,
+            "comment vas": 2
+        }
     }
 }

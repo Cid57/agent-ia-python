@@ -1,67 +1,182 @@
-// Attendre que le DOM soit chargé
-document.addEventListener("DOMContentLoaded", function () {
+/**
+ * Application principale - Interface de chat avec l'agent IA
+ * Version modernisée avec architecture modulaire et pratiques ES6+
+ */
+
+// Configuration de l'application
+const CONFIG = {
+  animationDuration: 300,
+  typingIndicatorDelay: 500,
+  messageScrollDelay: 100,
+  maxSuggestions: 5,
+};
+
+// Attendre que le DOM soit complètement chargé avant d'initialiser
+document.addEventListener("DOMContentLoaded", () => {
+  // Initialisation de l'application
+  ChatApp.init();
+});
+
+/**
+ * Application principale structurée avec une architecture modulaire
+ */
+const ChatApp = (() => {
+  // État de l'application
+  const state = {
+    isWaitingForResponse: false,
+    darkModeEnabled: localStorage.getItem("darkMode") === "true",
+    messageCount: 0,
+  };
+
   // Éléments du DOM
-  const chatMessages = document.getElementById("chat-messages");
-  const questionInput = document.getElementById("question-input");
-  const sendButton = document.getElementById("send-button");
-  const clearButton = document.getElementById("clear-button");
-  const suggestionChips = document.querySelectorAll(".suggestion-chip");
+  let elements = {};
 
-  // Animation d'entrée pour les éléments de la page
-  setTimeout(() => {
-    document.body.classList.add("loaded");
-  }, 100);
+  /**
+   * Initialise l'application
+   */
+  const init = () => {
+    // Récupération des éléments du DOM
+    elements = {
+      body: document.body,
+      chatMessages: document.getElementById("chat-messages"),
+      questionInput: document.getElementById("question-input"),
+      sendButton: document.getElementById("send-button"),
+      clearButton: document.getElementById("clear-button"),
+      suggestionChips: document.querySelectorAll(".suggestion-chip"),
+      chatContainer: document.querySelector(".chat-container"),
+    };
 
-  // Fonction pour ajouter une classe active aux messages pour les animations
-  function activateMessages() {
+    // Initialisation des événements
+    setupEventListeners();
+
+    // Animation d'entrée pour les éléments de la page
+    setTimeout(() => {
+      elements.body.classList.add("loaded");
+    }, 100);
+
+    // Activer les messages existants
+    activateMessages();
+
+    // Initialiser le mode sombre si nécessaire
+    initThemeToggle();
+
+    // Focus sur le champ de saisie
+    elements.questionInput?.focus();
+  };
+
+  /**
+   * Configure les écouteurs d'événements
+   */
+  const setupEventListeners = () => {
+    // Gérer l'envoi du message
+    elements.sendButton?.addEventListener("click", handleSendMessage);
+
+    // Envoyer le message avec la touche Entrée
+    elements.questionInput?.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        handleSendMessage();
+      }
+    });
+
+    // Gérer le clic sur le bouton d'effacement
+    elements.clearButton?.addEventListener("click", clearChat);
+
+    // Gérer les suggestions cliquables
+    elements.suggestionChips.forEach((chip) => {
+      chip.addEventListener("click", handleSuggestionClick);
+    });
+  };
+
+  /**
+   * Gère le clic sur une suggestion
+   * @param {Event} event - L'événement de clic
+   */
+  const handleSuggestionClick = function () {
+    const question = this.getAttribute("data-question");
+
+    if (!question) return;
+
+    // Mettre à jour le champ de saisie
+    elements.questionInput.value = question;
+
+    // Animation de sélection
+    this.classList.add("selected");
+
+    // Envoyer la question après un court délai
+    setTimeout(() => {
+      handleSendMessage();
+    }, CONFIG.animationDuration);
+  };
+
+  /**
+   * Gère l'envoi d'un message
+   */
+  const handleSendMessage = () => {
+    const question = elements.questionInput.value.trim();
+
+    // Ne rien faire si le champ est vide ou si on attend déjà une réponse
+    if (!question || state.isWaitingForResponse) return;
+
+    // Envoyer la question au serveur
+    sendQuestion(question);
+
+    // Vider le champ de saisie
+    elements.questionInput.value = "";
+  };
+
+  /**
+   * Active l'animation des messages existants
+   */
+  const activateMessages = () => {
     const messages = document.querySelectorAll(".message");
+
     messages.forEach((message, index) => {
       setTimeout(() => {
         message.classList.add("active");
       }, index * 150);
     });
-  }
-  activateMessages();
+  };
 
-  // Gestion des suggestions cliquables
-  suggestionChips.forEach((chip) => {
-    chip.addEventListener("click", function () {
-      const question = this.getAttribute("data-question");
-      questionInput.value = question;
-
-      // Animation de sélection
-      this.classList.add("selected");
-      setTimeout(() => {
-        sendQuestion();
-      }, 300);
-    });
-  });
-
-  // Fonction pour ajouter un message au chat
-  function addMessage(content, isUser = false) {
-    // Créer une div pour le message
+  /**
+   * Ajoute un message au chat
+   * @param {string} content - Le contenu du message
+   * @param {boolean} isUser - Indique si le message vient de l'utilisateur
+   * @returns {HTMLElement} - L'élément du message créé
+   */
+  const addMessage = (content, isUser = false) => {
+    // Créer la structure du message
     const messageDiv = document.createElement("div");
     messageDiv.className = `message ${isUser ? "user" : "bot"}`;
 
-    // Créer le conteneur de message
     const containerDiv = document.createElement("div");
     containerDiv.className = "message-container";
 
-    // Créer le contenu du message
     const contentDiv = document.createElement("div");
     contentDiv.className = "message-content";
 
-    // Gérer le HTML dans le contenu (pour la météo formatée)
+    // Gérer le HTML dans le contenu (pour le contenu formaté)
     if (content.includes("<") && content.includes(">")) {
       contentDiv.innerHTML = content;
     } else {
-      contentDiv.textContent = content;
+      // Convertir les sauts de ligne en paragraphes
+      const paragraphs = content.split("\n").filter((p) => p.trim() !== "");
+
+      if (paragraphs.length > 1) {
+        paragraphs.forEach((paragraph) => {
+          const p = document.createElement("p");
+          p.textContent = paragraph;
+          contentDiv.appendChild(p);
+        });
+      } else {
+        contentDiv.textContent = content;
+      }
     }
 
     // Assembler la structure
     containerDiv.appendChild(contentDiv);
     messageDiv.appendChild(containerDiv);
-    chatMessages.appendChild(messageDiv);
+    elements.chatMessages.appendChild(messageDiv);
 
     // Appliquer l'animation
     setTimeout(() => {
@@ -69,13 +184,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 10);
 
     // Faire défiler vers le bas
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+    scrollToBottom();
+
+    // Incrémenter le compteur de messages
+    state.messageCount++;
 
     return messageDiv;
-  }
+  };
 
-  // Fonction pour afficher l'indicateur de frappe
-  function showTypingIndicator() {
+  /**
+   * Fait défiler la fenêtre de chat vers le bas
+   */
+  const scrollToBottom = () => {
+    setTimeout(() => {
+      elements.chatMessages.scrollTop = elements.chatMessages.scrollHeight;
+    }, CONFIG.messageScrollDelay);
+  };
+
+  /**
+   * Affiche l'indicateur de frappe
+   * @returns {HTMLElement} - L'élément d'indication de frappe
+   */
+  const showTypingIndicator = () => {
     const typingDiv = document.createElement("div");
     typingDiv.className = "message bot typing";
 
@@ -88,49 +218,65 @@ document.addEventListener("DOMContentLoaded", function () {
     const dotsDiv = document.createElement("div");
     dotsDiv.className = "typing-dots";
 
+    // Créer les points d'animation
     for (let i = 0; i < 3; i++) {
       const dot = document.createElement("span");
       dot.className = "typing-dot";
       dotsDiv.appendChild(dot);
     }
 
+    // Assembler la structure
     contentDiv.appendChild(dotsDiv);
     containerDiv.appendChild(contentDiv);
     typingDiv.appendChild(containerDiv);
-    chatMessages.appendChild(typingDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+    elements.chatMessages.appendChild(typingDiv);
+
+    // Faire défiler vers le bas
+    scrollToBottom();
 
     return typingDiv;
-  }
+  };
 
-  // Fonction pour supprimer l'indicateur de frappe
-  function removeTypingIndicator() {
-    const typing = document.querySelector(".typing");
-    if (typing) {
-      typing.remove();
+  /**
+   * Supprime l'indicateur de frappe
+   */
+  const removeTypingIndicator = () => {
+    const typingIndicator = document.querySelector(".typing");
+    if (typingIndicator) {
+      typingIndicator.remove();
     }
-  }
+  };
 
-  // Fonction pour ajouter des suggestions de questions
-  function addSuggestions(suggestions) {
-    if (!suggestions || suggestions.length === 0) return;
+  /**
+   * Ajoute des suggestions de questions
+   * @param {Array} suggestions - Liste des suggestions à afficher
+   */
+  const addSuggestions = (suggestions) => {
+    if (!suggestions || !suggestions.length) return;
+
+    // Limiter le nombre de suggestions
+    const limitedSuggestions = suggestions.slice(0, CONFIG.maxSuggestions);
 
     // Créer le conteneur de suggestions
     const suggestionsDiv = document.createElement("div");
-    suggestionsDiv.className = "suggestions-container";
+    suggestionsDiv.className = "message bot suggestions-message";
 
-    // Titre des suggestions
-    const titleElement = document.createElement("p");
-    titleElement.className = "suggestion-title";
-    titleElement.textContent = "Suggestions:";
-    suggestionsDiv.appendChild(titleElement);
+    const containerDiv = document.createElement("div");
+    containerDiv.className = "message-container";
 
-    // Conteneur des puces de suggestions
-    const chipsContainer = document.createElement("div");
-    chipsContainer.className = "suggestions";
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "message-content";
 
-    // Créer chaque puce de suggestion
-    suggestions.forEach((suggestion) => {
+    const suggestionsContainer = document.createElement("div");
+    suggestionsContainer.className = "suggestions";
+
+    // Ajouter le titre
+    const titleP = document.createElement("p");
+    titleP.textContent = "Vous pourriez aussi demander :";
+    contentDiv.appendChild(titleP);
+
+    // Créer les puces de suggestions
+    limitedSuggestions.forEach((suggestion) => {
       const chip = document.createElement("div");
       chip.className = "suggestion-chip";
       chip.textContent = suggestion;
@@ -138,56 +284,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Ajouter l'événement de clic
       chip.addEventListener("click", function () {
-        questionInput.value = this.getAttribute("data-question");
+        elements.questionInput.value = this.getAttribute("data-question");
         this.classList.add("selected");
+
         setTimeout(() => {
-          sendQuestion();
-        }, 300);
+          handleSendMessage();
+        }, CONFIG.animationDuration);
       });
 
-      chipsContainer.appendChild(chip);
+      suggestionsContainer.appendChild(chip);
     });
 
-    suggestionsDiv.appendChild(chipsContainer);
-    chatMessages.appendChild(suggestionsDiv);
+    // Assembler la structure
+    contentDiv.appendChild(suggestionsContainer);
+    containerDiv.appendChild(contentDiv);
+    suggestionsDiv.appendChild(containerDiv);
+    elements.chatMessages.appendChild(suggestionsDiv);
+
+    // Appliquer l'animation
+    setTimeout(() => {
+      suggestionsDiv.classList.add("active");
+    }, 10);
 
     // Faire défiler vers le bas
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
+    scrollToBottom();
+  };
 
-  // Envoyer une question
-  async function sendQuestion() {
-    const question = questionInput.value.trim();
-    if (question === "") return;
+  /**
+   * Envoie une question au serveur
+   * @param {string} question - La question à envoyer
+   */
+  const sendQuestion = async (question) => {
+    if (!question || state.isWaitingForResponse) return;
 
-    // Cacher le guide de bienvenue
-    const welcomeGuide = document.querySelector(".welcome-guide");
-    if (welcomeGuide) {
-      welcomeGuide.style.animation = "fadeOut 0.5s forwards";
-      setTimeout(() => {
-        welcomeGuide.remove();
-      }, 500);
-    }
+    // Mettre à jour l'état
+    state.isWaitingForResponse = true;
 
-    // Ajouter le message utilisateur
+    // Ajouter le message de l'utilisateur
     addMessage(question, true);
 
     // Afficher l'indicateur de frappe
     const typingIndicator = showTypingIndicator();
 
     try {
-      // Envoyer au serveur
-      const response = await fetch("/question", {
+      // Préparation de la requête
+      const requestOptions = {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: question }),
-      });
+      };
 
-      // Vérifier la réponse
+      // Envoi de la requête au serveur
+      const response = await fetch("/question", requestOptions);
+
+      // Vérifier si la réponse est OK
       if (!response.ok) {
-        throw new Error("Erreur serveur");
+        throw new Error(`Erreur réseau: ${response.status}`);
       }
 
       // Traiter la réponse
@@ -196,121 +348,120 @@ document.addEventListener("DOMContentLoaded", function () {
       // Supprimer l'indicateur de frappe
       removeTypingIndicator();
 
-      // Ajouter la réponse du bot
+      // Ajouter la réponse au chat
       addMessage(data.reponse);
 
-      // Ajouter les suggestions si disponibles
+      // Ajouter des suggestions si disponibles
       if (data.suggestions && data.suggestions.length > 0) {
-        addSuggestions(data.suggestions);
+        setTimeout(() => {
+          addSuggestions(data.suggestions);
+        }, CONFIG.typingIndicatorDelay);
       }
     } catch (error) {
-      console.error("Erreur:", error);
+      console.error("Erreur lors de l'envoi de la question:", error);
+
+      // Supprimer l'indicateur de frappe
       removeTypingIndicator();
+
+      // Afficher un message d'erreur
       addMessage(
-        "Désolé, une erreur est survenue lors du traitement de votre demande."
+        "Désolé, une erreur est survenue lors du traitement de votre demande. Veuillez réessayer."
       );
+    } finally {
+      // Réinitialiser l'état
+      state.isWaitingForResponse = false;
     }
+  };
 
-    // Réinitialiser l'input
-    questionInput.value = "";
-    questionInput.focus();
-  }
+  /**
+   * Efface l'historique du chat
+   */
+  const clearChat = () => {
+    // Animation de sortie pour les messages
+    const messages = document.querySelectorAll(".message");
 
-  // Gestionnaire pour le bouton d'envoi
-  sendButton.addEventListener("click", sendQuestion);
-
-  // Gestionnaire pour la touche Entrée
-  questionInput.addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-      sendQuestion();
-    }
-  });
-
-  // Effet de focus sur l'input
-  questionInput.addEventListener("focus", function () {
-    document.querySelector(".chat-input").classList.add("focused");
-  });
-
-  questionInput.addEventListener("blur", function () {
-    document.querySelector(".chat-input").classList.remove("focused");
-  });
-
-  // Gestionnaire pour le bouton d'effacement
-  if (clearButton) {
-    clearButton.addEventListener("click", function () {
-      // Animation de suppression
-      const messages = document.querySelectorAll(
-        ".message, .suggestions-container"
-      );
-      messages.forEach((message, index) => {
-        setTimeout(() => {
-          message.style.animation = "fadeOut 0.3s forwards";
-        }, index * 50);
-      });
-
-      // Effacer après animation
+    messages.forEach((message, index) => {
       setTimeout(() => {
-        // Vider la zone de chat
-        chatMessages.innerHTML = "";
-
-        // Ajouter un message de bienvenue
-        addMessage(
-          "👋 Bonjour! Je suis Cindy, votre assistant IA personnelle. Comment puis-je vous aider aujourd'hui?"
-        );
-
-        // Ajouter des suggestions par défaut
-        addSuggestions([
-          "Quelle est la météo à Paris aujourd'hui?",
-          "Quelle heure est-il?",
-          "Comment vas-tu?",
-        ]);
-      }, messages.length * 50 + 300);
+        message.style.opacity = "0";
+        message.style.transform = "translateY(10px)";
+      }, index * 50);
     });
-  }
 
-  // Focus sur l'input au chargement
-  setTimeout(() => {
-    questionInput.focus();
-  }, 500);
+    // Supprimer les messages après l'animation
+    setTimeout(() => {
+      elements.chatMessages.innerHTML = "";
 
-  // Fonction pour initialiser le basculement du thème
-  function initThemeToggle() {
-    // Vérifier si l'utilisateur a déjà une préférence
-    const prefersDarkMode = localStorage.getItem("darkMode") === "true";
+      // Ajouter un nouveau message de bienvenue
+      const welcomeMessage =
+        "Bonjour! Je suis Cindy, votre assistant IA. Comment puis-je vous aider aujourd'hui?";
+      addMessage(welcomeMessage);
 
-    // Appliquer le mode préféré
-    if (prefersDarkMode) {
-      document.documentElement.classList.add("dark-mode");
+      // Réinitialiser le compteur de messages
+      state.messageCount = 1;
+    }, messages.length * 50 + 300);
+  };
+
+  /**
+   * Initialise le basculement de thème (clair/sombre)
+   */
+  const initThemeToggle = () => {
+    // Appliquer le thème sombre si nécessaire
+    if (state.darkModeEnabled) {
+      document.body.classList.add("dark-mode");
     }
 
-    // Ajouter le bouton de basculement du thème
-    const header =
-      document.querySelector(".header") || document.querySelector("header");
-
-    if (header) {
+    // Créer le bouton de basculement si nécessaire
+    if (!document.getElementById("theme-toggle")) {
       const themeToggle = document.createElement("button");
-      themeToggle.className = "theme-toggle";
-      themeToggle.innerHTML = `
-            <span class="sun-icon">☀️</span>
-            <span class="moon-icon">🌙</span>
-        `;
-
-      // Ajouter le bouton à l'en-tête
-      header.appendChild(themeToggle);
-
-      // Ajouter l'écouteur d'événement pour basculer le thème
+      themeToggle.id = "theme-toggle";
+      themeToggle.className = "secondary-button";
+      themeToggle.textContent = state.darkModeEnabled
+        ? "☀️ Mode clair"
+        : "🌙 Mode sombre";
       themeToggle.addEventListener("click", toggleDarkMode);
+
+      // Ajouter le bouton au conteneur d'actions
+      const actionsContainer = document.querySelector(".actions");
+      if (actionsContainer) {
+        actionsContainer.insertBefore(themeToggle, actionsContainer.firstChild);
+      }
     }
-  }
+  };
 
-  // Fonction pour basculer entre le mode clair et le mode sombre
-  function toggleDarkMode() {
-    const isDarkMode = document.documentElement.classList.toggle("dark-mode");
+  /**
+   * Bascule entre les modes clair et sombre
+   */
+  const toggleDarkMode = () => {
+    // Mettre à jour l'état
+    state.darkModeEnabled = !state.darkModeEnabled;
 
-    // Sauvegarder la préférence de l'utilisateur
-    localStorage.setItem("darkMode", isDarkMode);
-  }
+    // Enregistrer la préférence
+    localStorage.setItem("darkMode", state.darkModeEnabled);
 
-  // Initialiser le basculement du thème au chargement de la page
-  initThemeToggle();
-});
+    // Appliquer ou supprimer la classe de mode sombre
+    document.body.classList.toggle("dark-mode");
+
+    // Mettre à jour le texte du bouton
+    const themeToggle = document.getElementById("theme-toggle");
+    if (themeToggle) {
+      themeToggle.textContent = state.darkModeEnabled
+        ? "☀️ Mode clair"
+        : "🌙 Mode sombre";
+    }
+
+    // Animation de transition
+    elements.chatContainer.style.transition =
+      "background-color 0.5s ease, box-shadow 0.5s ease";
+    setTimeout(() => {
+      elements.chatContainer.style.transition = "";
+    }, 500);
+  };
+
+  // API publique du module
+  return {
+    init,
+    addMessage,
+    clearChat,
+    toggleDarkMode,
+  };
+})();
