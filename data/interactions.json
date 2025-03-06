@@ -1020,5 +1020,73 @@
             "ville": "Raconte"
         },
         "timestamp": "2025-03-06 16:30:32"
+    },
+    {
+        "question": "donne moi lheure",
+        "reponse": "Il est 16:38.",
+        "intention": "heure",
+        "score": 1.0,
+        "entites": {},
+        "timestamp": "2025-03-06 16:38:52"
+    },
+    {
+        "question": "Comment fonctionnes-tu ?",
+        "reponse": "Aujourd'hui, nous sommes le Thursday 06 March 2025.",
+        "intention": "date",
+        "score": 2,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-06 16:51:38"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Que fait une fraise sur un cheval ? Elle galope !",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:08:00"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Que fait une fraise sur un cheval ? Elle galope !",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:18:51"
+    },
+    {
+        "question": "Raconte-moi une autre blague",
+        "reponse": "Quel est le comble pour un électricien ? De ne pas être au courant.",
+        "intention": "blague",
+        "score": 44,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:18:56"
+    },
+    {
+        "question": "Raconte-moi une autre blague",
+        "reponse": "Que fait une fraise sur un cheval ? Elle galope !",
+        "intention": "blague",
+        "score": 44,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:19:01"
+    },
+    {
+        "question": "Raconte-moi une autre blague",
+        "reponse": "Comment appelle-t-on un chat tombé dans un pot de peinture le jour de Noël ? Un chat-peint de Noël.",
+        "intention": "blague",
+        "score": 44,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:19:04"
     }
 ]

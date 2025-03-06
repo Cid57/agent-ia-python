@@ -155,6 +155,10 @@ class Agent:
                 "À bientôt ! J'ai été ravie de pouvoir vous aider.",
                 "Au plaisir de vous revoir bientôt !"
             ],
+            "entreprise": [
+            "Digital Factory est une entreprise innovante spécialisée dans le développement d'agents conversationnels.",
+            "Nous sommes ouverts du lundi au vendredi de 9h à 18h."
+            ],
             "humeur": [
                 "Je vais très bien, merci de vous en soucier ! Et vous, comment allez-vous ?",
                 "Tout va parfaitement bien de mon côté ! Comment se passe votre journée ?",
@@ -181,7 +185,27 @@ class Agent:
                 "Qu'est-ce qu'un crocodile qui surveille la pharmacie ? Un Lacoste Garde.",
                 "Pourquoi les informaticiens confondent-ils Halloween et Noël ? Parce qu'Oct 31 = Dec 25.",
                 "Que dit un informaticien quand il s'ennuie ? Je bit ma vie !",
-                "Un DRH demande à un informaticien : 'Quelle est la différence entre toi et moi ?' L'informaticien répond : 'Moi, on me demande de résoudre des problèmes qu'on ne comprend pas, alors que toi tu crées des problèmes qu'on ne peut pas résoudre.'"
+                "Un DRH demande à un informaticien : 'Quelle est la différence entre toi et moi ?' L'informaticien répond : 'Moi, on me demande de résoudre des problèmes qu'on ne comprend pas, alors que toi tu crées des problèmes qu'on ne peut pas résoudre.'",
+                "Pourquoi les développeurs n'aiment pas la nature ? Parce qu'elle a trop de bugs.",
+                "Qu'est-ce qu'un Geek dit quand vous lui demandez s'il veut une bière ? Alt Tab on revient au bar.",
+                "Comment un informaticien ouvre-t-il une bouteille ? Il la débogue.",
+                "J'ai une blague sur les algorithmes de tri mais elle n'est pas encore ordonnée.",
+                "Qu'est-ce qui est jaune et qui attend ? Jonathan.",
+                "Pourquoi les abeilles produisent-elles du miel ? Parce qu'elles n'ont pas lu les conditions d'utilisation.",
+                "Quel est l'animal le plus connecté ? Le porc USB.",
+                "Deux gouttes d'eau se rencontrent. L'une dit : 'Tiens, tu es là ! Ça fait une éternité qu'on ne s'est pas vues !' Et l'autre répond : 'Normal, on s'est évaporées !'",
+                "Qu'est-ce qui est petit, carré et jaune ? Un petit carré jaune.",
+                "Qu'est-ce qu'un canif ? Un petit fien.",
+                "Pourquoi les girafes ont-elles un long cou ? Parce qu'elles ont les pieds qui sentent mauvais.",
+                "Comment appelle-t-on un chat tombé dans un pot de peinture le jour de Noël ? Un chat-peint de Noël.",
+                "Quand un crocodile voit une femelle, que dit-il ? Oh, c'est crocmignon !",
+                "Pourquoi les oiseaux volent-ils vers le sud en hiver ? Parce que c'est trop loin d'y aller à pied.",
+                "Un œuf attend devant un passage piéton. Un autre œuf lui demande : 'Tu traverses pas ?' Et le premier répond : 'Non, j'ai pas envie d'être brouillé avec le conducteur !'",
+                "Qu'est-ce qu'un yaourt dans la forêt ? Un yaourt nature.",
+                "Qu'est-ce qui est vert et qui monte et qui descend ? Un petit pois dans un ascenseur.",
+                "Comment appelle-t-on un boomerang qui ne revient pas ? Un bâton.",
+                "Comment appelle-t-on un chat tout-terrain ? Un cat-cat.",
+                "Pourquoi les moutons aiment-ils compter les humains avant de s'endormir ? Pour rêver."
             ],
             "capacités": [
                 f"En tant qu'assistante IA, je peux : vous donner l'heure actuelle, vous informer sur la météo dans différentes villes, raconter des blagues, discuter simplement et répondre à des questions basiques. Essayez par exemple 'Quelle heure est-il ?', 'Quel temps fait-il à Paris ?' ou 'Raconte-moi une blague'.",

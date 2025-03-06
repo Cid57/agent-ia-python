@@ -35,12 +35,12 @@
             "bordeaux": 5,
             "parius": 0,
             "strasbourg": 0,
-            "nice": 3,
+            "nice": 4,
             "bali": 0,
             "heure": 5,
-            "pleut": 3,
-            "pleuvoir": 2,
-            "demandez": 2
+            "pleut": 4,
+            "pleuvoir": 3,
+            "demandez": 3
         },
         "expressions": {
             "quelle est": 8,
@@ -58,8 +58,9 @@
             "météo aujourd": 8,
             "météo aujourd hui": 8,
             "quelle heure": 8,
-            "marseille aujourd": 3,
-            "marseille aujourd hui": 3
+            "marseille aujourd": 6,
+            "marseille aujourd hui": 6,
+            "demandez moi": 3
         }
     },
     "heure": {
@@ -68,7 +69,9 @@
             "heure": 5,
             "est": 5,
             "demandez": 0,
-            "moi": 0
+            "moi": 1,
+            "donne": 0,
+            "lheure": 0
         },
         "expressions": {
             "quelle heure": 8,
@@ -87,11 +90,12 @@
             "quelle": 5,
             "est": 5,
             "date": 5,
-            "temps": 4,
-            "fait": 4,
+            "temps": 5,
+            "fait": 5,
             "météo": 0,
             "paris": 0,
-            "comment": 2
+            "comment": 4,
+            "fonctionnes": 0
         },
         "expressions": {
             "quel jour": 8,
@@ -152,14 +156,14 @@
     },
     "bien_etre": {
         "mots_cles": {
-            "comment": 2,
-            "aujourd": 1,
-            "hui": 1,
-            "vas": 1
+            "comment": 5,
+            "aujourd": 4,
+            "hui": 4,
+            "vas": 4
         },
         "expressions": {
-            "aujourd hui": 2,
-            "comment vas": 2
+            "aujourd hui": 8,
+            "comment vas": 8
         }
     }
 }

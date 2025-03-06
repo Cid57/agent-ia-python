@@ -60,15 +60,68 @@ def poser_question(question):
         identity_patterns = ["qui es tu", "qui estu", "tu es qui", "t es qui", "es tu qui", "qui tu es", 
                             "c est qui tu", "c qui tu es", "qui est tu", "qui est toi"]
         
+        # Nouveaux patterns pour les questions sur le créateur/programmeur
+        creator_patterns = ["qui t a programme", "qui t a cree", "qui t a concu", "qui t a développé", 
+                          "qui t a developpe", "qui t a fait", "qui ta programme", "qui ta cree", 
+                          "qui ta développé", "qui ta developpe", "qui ta concu", "qui ta fait",
+                          "ton createur", "ton programmeur", "ton developpeur", "ta ete cree par qui", 
+                          "qui est ton createur", "qui est ton programmeur", "qui est ton developpeur"]
+        
+        # Patterns pour les questions sur le fonctionnement
+        functioning_patterns = ["comment fonctionnes tu", "comment marches tu", "comment tu marches", 
+                              "comment tu fonctionnes", "comment ca marche", "comment ça marche", 
+                              "comment tu fais", "explique ton fonctionnement", "comment est tu fait",
+                              "comment es tu programmé", "comment es tu programmee", "comment tu operes"]
+        
         is_identity_question = False
         for pattern in identity_patterns:
             if pattern in question_lower:
                 is_identity_question = True
                 break
                 
-        if is_identity_question:
+        # Vérifier si c'est une question sur le créateur
+        is_creator_question = False
+        for pattern in creator_patterns:
+            if pattern in question_lower:
+                is_creator_question = True
+                break
+        
+        # Vérifier si c'est une question sur le fonctionnement
+        is_functioning_question = False
+        for pattern in functioning_patterns:
+            if pattern in question_lower:
+                is_functioning_question = True
+                break
+                
+        if is_creator_question:
+            logger.info("Question sur le créateur détectée: " + question)
+            reponse = "J'ai été conçue et programmée par Cindy Singer, une passionnée de Digital Factory. Elle a mis tout son savoir-faire pour me doter de mes capacités et de ma personnalité. Je suis en constante évolution pour mieux vous accompagner."
+            suggestions = [
+                "Quelles sont tes capacités ?",
+                "Que peux-tu faire ?",
+                "Qui es-tu exactement ?",
+                "Comment fonctionnes-tu ?"
+            ]
+            return {
+                "reponse": reponse,
+                "suggestions": suggestions
+            }
+        elif is_functioning_question:
+            logger.info("Question sur le fonctionnement détectée: " + question)
+            reponse = "Je fonctionne grâce à un système de traitement du langage naturel qui me permet de comprendre vos questions. J'analyse les mots-clés, détecte vos intentions et accède à différentes sources d'information pour vous fournir les réponses les plus pertinentes. Je peux consulter la météo, donner l'heure, et répondre à diverses questions grâce à ma base de connaissances. Je m'améliore également au fil de nos échanges."
+            suggestions = [
+                "Quelles sont tes capacités ?",
+                "Qui t'a programmé ?",
+                "Raconte-moi une blague",
+                "Quelle est la météo aujourd'hui ?"
+            ]
+            return {
+                "reponse": reponse,
+                "suggestions": suggestions
+            }
+        elif is_identity_question:
             logger.info("Question spéciale d'identité détectée: " + question)
-            reponse = "Je suis Cindy, votre assistant IA personnel. Je suis là pour vous aider avec diverses questions et tâches comme la météo, l'heure, des blagues et bien plus encore."
+            reponse = "Je suis Cid, votre assistante IA personnel. Je suis là pour vous aider avec diverses questions et tâches comme la météo, l'heure, des blagues et bien plus encore."
             suggestions = [
                 "Quelles sont tes capacités ?",
                 "Raconte-moi une blague",

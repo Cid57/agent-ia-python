@@ -1907,3 +1907,238 @@ AttributeError: 'list' object has no attribute 'items'
 2025-03-06 16:30:32,393 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
 2025-03-06 16:30:32,393 - agent - INFO - Intention blague détectée, réponse avec une blague
 2025-03-06 16:30:32,394 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:30:32] "POST /question HTTP/1.1" 200 -
+2025-03-06 16:34:03,878 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_processor.py', reloading
+2025-03-06 16:34:03,933 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:34:04,613 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:34:04,614 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:34:04,617 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:34:04,631 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:34:04,642 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:34:42,862 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\agent_nlp.py', reloading
+2025-03-06 16:34:42,927 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:34:43,575 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:34:43,575 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:34:43,578 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:34:43,590 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:34:43,599 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:35:05,720 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app_nlp_test.py', reloading
+2025-03-06 16:35:05,769 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:35:06,462 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:35:06,463 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:35:06,466 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:35:06,480 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:35:06,487 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:38:52,574 - agent - INFO - Question reçue: donne moi lheure
+2025-03-06 16:38:52,576 - nlp_engine - INFO - Début d'analyse de la question: 'donne moi lheure'
+2025-03-06 16:38:52,608 - nlp_engine - INFO - Génération de réponse pour l'intention: heure
+2025-03-06 16:38:52,609 - nlp_engine - INFO - Réponse générée: Il est 16:38.
+2025-03-06 16:38:52,610 - nlp_engine - INFO - Génération de suggestions pour l'intention: heure
+2025-03-06 16:38:52,656 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 16:38:52,657 - agent - INFO - Intention détectée: heure avec score 1.0
+2025-03-06 16:38:52,659 - agent - INFO - Entités extraites: {}
+2025-03-06 16:38:52,660 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:38:52] "POST /question HTTP/1.1" 200 -
+2025-03-06 16:39:13,649 - agent - INFO - Question spéciale d'identité détectée: J'aimerais bien savoir qui tu es?
+2025-03-06 16:39:13,651 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:39:13] "POST /question HTTP/1.1" 200 -
+2025-03-06 16:39:23,385 - agent - INFO - Question reçue: qui ta programmer??
+2025-03-06 16:39:23,386 - nlp_engine - INFO - Début d'analyse de la question: 'qui ta programmer??'
+2025-03-06 16:39:23,388 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:39:23,392 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-06 16:39:23,393 - nlp_engine - ERROR - Détail de l'erreur: Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 453, in analyser_et_repondre
+    intention, score, entites = determiner_intention(question)
+                                ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 325, in determiner_intention
+    score = calculer_score_intention(question, keywords)
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 231, in calculer_score_intention
+    for mot, poids in mots_cles.items():
+                      ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+
+2025-03-06 16:39:23,394 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-06 16:39:23,394 - agent - INFO - Entités extraites: {}
+2025-03-06 16:39:23,396 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:39:23] "POST /question HTTP/1.1" 200 -
+2025-03-06 16:43:04,274 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 16:43:04,340 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:43:05,086 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:43:05,087 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:43:05,089 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:43:05,105 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:43:05,111 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:43:56,500 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 16:43:56,548 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:43:57,259 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:43:57,261 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:43:57,266 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:43:57,286 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:43:57,291 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:45:45,121 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 16:45:45,174 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:45:45,997 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:45:45,998 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:45:46,002 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:45:46,020 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:45:46,029 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:46:10,246 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 16:46:10,305 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:46:11,164 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:46:11,165 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:46:11,169 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:46:11,184 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:46:11,189 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:48:34,691 - agent - INFO - Affichage de la page d'aide - TEST SIMPLIFIÉ
+2025-03-06 16:48:34,697 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:48:34] "GET /aide HTTP/1.1" 200 -
+2025-03-06 16:48:34,834 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:48:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-06 16:48:54,280 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:48:54] "GET / HTTP/1.1" 200 -
+2025-03-06 16:48:54,468 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:48:54] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 16:48:54,474 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:48:54] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:48:54,476 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:48:54] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 16:48:54,552 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:48:54] "[33mGET /static/images/favicon.ico HTTP/1.1[0m" 404 -
+2025-03-06 16:48:56,692 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:48:56] "GET / HTTP/1.1" 200 -
+2025-03-06 16:48:56,731 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:48:56] "GET /static/css/dark-mode.css HTTP/1.1" 200 -
+2025-03-06 16:48:56,732 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:48:56] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 16:48:56,734 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:48:56] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-06 16:48:56,932 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:48:56] "[33mGET /static/images/favicon.ico HTTP/1.1[0m" 404 -
+2025-03-06 16:49:06,704 - agent - INFO - Question sur le créateur détectée: Qui ta cree?
+2025-03-06 16:49:06,706 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:49:06] "POST /question HTTP/1.1" 200 -
+2025-03-06 16:51:38,399 - agent - INFO - Question reçue: Comment fonctionnes-tu ?
+2025-03-06 16:51:38,402 - nlp_engine - INFO - Début d'analyse de la question: 'Comment fonctionnes-tu ?'
+2025-03-06 16:51:38,406 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:51:38,407 - nlp_engine - INFO - Intention prédite par le modèle amélioré: date avec score 2
+2025-03-06 16:51:38,434 - nlp_engine - INFO - Génération de réponse pour l'intention: date
+2025-03-06 16:51:38,435 - nlp_engine - INFO - Réponse générée: Aujourd'hui, nous sommes le Thursday 06 March 2025.
+2025-03-06 16:51:38,436 - nlp_engine - INFO - Génération de suggestions pour l'intention: date
+2025-03-06 16:51:38,479 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 16:51:38,483 - apprentissage - INFO - Statistiques mises à jour: 110 interactions analysées
+2025-03-06 16:51:38,487 - apprentissage - INFO - Modèle amélioré pour 9 intentions
+2025-03-06 16:51:38,488 - agent - INFO - Intention détectée: date avec score 2
+2025-03-06 16:51:38,489 - agent - INFO - Entités extraites: {'ville': 'Comment'}
+2025-03-06 16:51:38,490 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:51:38] "POST /question HTTP/1.1" 200 -
+2025-03-06 16:53:20,916 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 16:53:21,020 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:53:21,929 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:53:21,929 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:53:21,932 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:53:21,946 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:53:21,952 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 17:06:07,560 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:06:07] "GET / HTTP/1.1" 200 -
+2025-03-06 17:06:07,691 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:06:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 17:06:07,692 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:06:07] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 17:06:07,694 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:06:07] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 17:06:36,739 - agent - INFO - Question spéciale d'identité détectée: Mais qui es tu?
+2025-03-06 17:06:36,741 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:06:36] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:06:54,075 - agent - INFO - Question sur le créateur détectée: et qui ta fait?
+2025-03-06 17:06:54,077 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:06:54] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:07:22,240 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:07:22] "GET / HTTP/1.1" 200 -
+2025-03-06 17:07:22,277 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:07:22] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 17:07:22,279 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:07:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 17:07:22,281 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:07:22] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 17:07:45,266 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:07:45] "GET / HTTP/1.1" 200 -
+2025-03-06 17:07:45,297 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:07:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 17:07:45,297 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:07:45] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 17:07:45,300 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:07:45] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 17:08:00,184 - agent - INFO - Question reçue: Raconte-moi une blague
+2025-03-06 17:08:00,185 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une blague'
+2025-03-06 17:08:00,189 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:08:00,191 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 60
+2025-03-06 17:08:00,220 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:08:00,221 - nlp_engine - INFO - Réponse générée: Que fait une fraise sur un cheval ? Elle galope !
+2025-03-06 17:08:00,224 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:08:00,265 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:08:00,266 - agent - INFO - Intention détectée: blague avec score 60
+2025-03-06 17:08:00,267 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:08:00,268 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:08:00,270 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:08:00] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:09:58,916 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\agent.py', reloading
+2025-03-06 17:09:58,949 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 17:09:59,354 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:09:59,354 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 17:09:59,356 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 17:09:59,366 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 17:09:59,369 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 17:17:51,180 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\agent.py', reloading
+2025-03-06 17:17:51,209 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 17:17:51,619 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:17:51,619 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 17:17:51,621 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 17:17:51,630 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 17:17:51,633 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 17:18:08,696 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 17:18:08,727 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 17:18:09,134 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:18:09,134 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 17:18:09,136 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 17:18:09,144 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 17:18:09,147 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 17:18:48,847 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:18:48] "GET / HTTP/1.1" 200 -
+2025-03-06 17:18:48,942 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:18:48] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 17:18:48,943 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:18:48] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 17:18:48,943 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:18:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 17:18:51,947 - agent - INFO - Question reçue: Raconte-moi une blague
+2025-03-06 17:18:51,948 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une blague'
+2025-03-06 17:18:51,950 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:18:51,950 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 60
+2025-03-06 17:18:51,957 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:18:51,958 - nlp_engine - INFO - Réponse générée: Que fait une fraise sur un cheval ? Elle galope !
+2025-03-06 17:18:51,958 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:18:51,983 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:18:51,984 - agent - INFO - Intention détectée: blague avec score 60
+2025-03-06 17:18:51,985 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:18:51,985 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:18:51,986 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:18:51] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:18:56,779 - agent - INFO - Question reçue: Raconte-moi une autre blague
+2025-03-06 17:18:56,780 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une autre blague'
+2025-03-06 17:18:56,781 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:18:56,781 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 44
+2025-03-06 17:18:56,788 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:18:56,789 - nlp_engine - INFO - Réponse générée: Quel est le comble pour un électricien ? De ne pas être au courant.
+2025-03-06 17:18:56,790 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:18:56,809 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:18:56,810 - agent - INFO - Intention détectée: blague avec score 44
+2025-03-06 17:18:56,810 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:18:56,810 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:18:56,811 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:18:56] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:19:01,196 - agent - INFO - Question reçue: Raconte-moi une autre blague
+2025-03-06 17:19:01,197 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une autre blague'
+2025-03-06 17:19:01,198 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:19:01,199 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 44
+2025-03-06 17:19:01,206 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:19:01,207 - nlp_engine - INFO - Réponse générée: Que fait une fraise sur un cheval ? Elle galope !
+2025-03-06 17:19:01,208 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:19:01,232 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:19:01,233 - agent - INFO - Intention détectée: blague avec score 44
+2025-03-06 17:19:01,234 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:19:01,234 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:19:01,234 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:19:01] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:19:04,875 - agent - INFO - Question reçue: Raconte-moi une autre blague
+2025-03-06 17:19:04,875 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une autre blague'
+2025-03-06 17:19:04,876 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:19:04,876 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 44
+2025-03-06 17:19:04,882 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:19:04,882 - nlp_engine - INFO - Réponse générée: Comment appelle-t-on un chat tombé dans un pot de peinture le jour de Noël ? Un chat-peint de Noël.
+2025-03-06 17:19:04,883 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:19:04,902 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:19:04,902 - agent - INFO - Intention détectée: blague avec score 44
+2025-03-06 17:19:04,902 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:19:04,903 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:19:04,903 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:19:04] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:20:59,774 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\agent.py', reloading
+2025-03-06 17:20:59,807 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 17:21:00,199 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:21:00,200 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 17:21:00,203 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 17:21:00,212 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 17:21:00,215 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 17:21:03,235 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\agent.py', reloading
+2025-03-06 17:21:03,264 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 17:21:03,658 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:21:03,659 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 17:21:03,662 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 17:21:03,672 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 17:21:03,675 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 17:21:18,737 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\agent.py', reloading
+2025-03-06 17:21:18,770 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 17:21:19,182 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:21:19,183 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 17:21:19,184 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 17:21:19,193 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 17:21:19,196 - werkzeug - INFO -  * Debugger PIN: 648-377-270
