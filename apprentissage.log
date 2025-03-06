@@ -1236,3 +1236,4 @@ AttributeError: 'list' object has no attribute 'items'
 2025-03-06 14:24:19,546 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
 2025-03-06 14:24:19,547 - agent - INFO - Intention détectée: bien_etre avec score 1.0
 2025-03-06 14:24:19,548 - agent - INFO - Entités extraites: {}
+2025-03-06 14:24:19,549 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:24:19] "POST /question HTTP/1.1" 200 -
