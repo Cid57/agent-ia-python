@@ -1134,3 +1134,105 @@ AttributeError: 'list' object has no attribute 'items'
 2025-03-06 13:05:29,810 - agent - INFO - Entités extraites: {'ville': 'Paris'}
 2025-03-06 13:05:29,811 - agent - INFO - Demande météo pour la question: Demandez-moi la météo à Paris
 2025-03-06 13:05:29,955 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 13:05:29] "POST /question HTTP/1.1" 200 -
+2025-03-06 14:17:47,740 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-06 14:17:47,741 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 14:17:47,746 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 14:17:47,784 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-06 14:17:47,785 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-06 14:17:47,793 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 14:17:48,459 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-06 14:17:48,460 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 14:17:48,463 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 14:17:48,480 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 14:17:48,488 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 14:17:50,487 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:17:50] "GET / HTTP/1.1" 200 -
+2025-03-06 14:17:50,635 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:17:50] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 14:17:50,642 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:17:50] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-06 14:17:50,643 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:17:50] "GET /static/css/dark-mode.css HTTP/1.1" 200 -
+2025-03-06 14:17:50,652 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:17:50] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-06 14:18:01,383 - agent - INFO - Question reçue: Comment va-tu aujourd'hui?
+2025-03-06 14:18:01,384 - nlp_engine - INFO - Début d'analyse de la question: 'Comment va-tu aujourd'hui?'
+2025-03-06 14:18:01,403 - nlp_engine - INFO - Génération de réponse pour l'intention: date
+2025-03-06 14:18:01,405 - nlp_engine - INFO - Réponse générée: Nous sommes le 06/03/2025.
+2025-03-06 14:18:01,408 - nlp_engine - INFO - Génération de suggestions pour l'intention: date
+2025-03-06 14:18:01,436 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-06 14:18:01,437 - agent - INFO - Intention détectée: date avec score 1.0
+2025-03-06 14:18:01,437 - agent - INFO - Entités extraites: {'ville': 'Comment'}
+2025-03-06 14:18:01,438 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:18:01] "POST /question HTTP/1.1" 200 -
+2025-03-06 14:19:08,531 - agent - INFO - Question reçue: Quel temps fait-il à Paris aujourd'hui ?
+2025-03-06 14:19:08,532 - nlp_engine - INFO - Début d'analyse de la question: 'Quel temps fait-il à Paris aujourd'hui ?'
+2025-03-06 14:19:08,533 - nlp_engine - INFO - Question contient à la fois des mots de météo et de date, priorité à la météo
+2025-03-06 14:19:08,544 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-06 14:19:08,545 - nlp_engine - INFO - Réponse générée: Je vais consulter la météo pour vous à Paris.
+2025-03-06 14:19:08,545 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-06 14:19:08,573 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-06 14:19:08,575 - agent - INFO - Intention détectée: meteo avec score 1.0
+2025-03-06 14:19:08,576 - agent - INFO - Entités extraites: {'ville': 'Paris'}
+2025-03-06 14:19:08,577 - agent - INFO - Demande météo pour la question: Quel temps fait-il à Paris aujourd'hui ?
+2025-03-06 14:19:08,703 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:19:08] "POST /question HTTP/1.1" 200 -
+2025-03-06 14:20:10,291 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:20:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 14:20:10,294 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:20:10] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 14:22:14,104 - agent - INFO - Question reçue: comment tu vas?
+2025-03-06 14:22:14,105 - nlp_engine - INFO - Début d'analyse de la question: 'comment tu vas?'
+2025-03-06 14:22:14,107 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-06 14:22:14,109 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-06 14:22:14,110 - nlp_engine - ERROR - Détail de l'erreur: Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 444, in analyser_et_repondre
+    intention, score, entites = determiner_intention(question)
+                                ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 316, in determiner_intention
+    score = calculer_score_intention(question, keywords)
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 231, in calculer_score_intention
+    for mot, poids in mots_cles.items():
+                      ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+
+2025-03-06 14:22:14,111 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-06 14:22:14,111 - agent - INFO - Entités extraites: {}
+2025-03-06 14:22:14,112 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:22:14] "POST /question HTTP/1.1" 200 -
+2025-03-06 14:22:15,104 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-06 14:22:15,191 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 14:22:15,918 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-06 14:22:15,918 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 14:22:15,921 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 14:22:15,937 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 14:22:15,946 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 14:23:58,000 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-06 14:23:58,000 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 14:23:58,004 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 14:23:58,024 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-06 14:23:58,024 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-06 14:23:58,031 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 14:23:58,743 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-06 14:23:58,744 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 14:23:58,748 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 14:23:58,758 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 14:23:58,763 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 14:24:05,775 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:24:05] "GET / HTTP/1.1" 200 -
+2025-03-06 14:24:05,904 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:24:05] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 14:24:05,905 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:24:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 14:24:05,906 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:24:05] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 14:24:05,918 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:24:05] "[36mGET /static/images/screenshot.jpg HTTP/1.1[0m" 304 -
+2025-03-06 14:24:09,459 - agent - INFO - Question reçue: Comment va-tu aujourd'hui?
+2025-03-06 14:24:09,460 - nlp_engine - INFO - Début d'analyse de la question: 'Comment va-tu aujourd'hui?'
+2025-03-06 14:24:09,462 - nlp_engine - INFO - Question concernant le bien-être détectée
+2025-03-06 14:24:09,473 - nlp_engine - INFO - Génération de réponse pour l'intention: bien_etre
+2025-03-06 14:24:09,473 - nlp_engine - INFO - Réponse générée: Je suis opérationnelle et prête à vous aider. Comment allez-vous ?
+2025-03-06 14:24:09,474 - nlp_engine - INFO - Génération de suggestions pour l'intention: bien_etre
+2025-03-06 14:24:09,499 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-06 14:24:09,501 - apprentissage - INFO - Statistiques mises à jour: 90 interactions analysées
+2025-03-06 14:24:09,504 - apprentissage - INFO - Modèle amélioré pour 9 intentions
+2025-03-06 14:24:09,505 - agent - INFO - Intention détectée: bien_etre avec score 1.0
+2025-03-06 14:24:09,505 - agent - INFO - Entités extraites: {'ville': 'Comment'}
+2025-03-06 14:24:09,506 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 14:24:09] "POST /question HTTP/1.1" 200 -
+2025-03-06 14:24:19,495 - agent - INFO - Question reçue: comment tu vas?
+2025-03-06 14:24:19,497 - nlp_engine - INFO - Début d'analyse de la question: 'comment tu vas?'
+2025-03-06 14:24:19,498 - nlp_engine - INFO - Question concernant le bien-être détectée
+2025-03-06 14:24:19,507 - nlp_engine - INFO - Génération de réponse pour l'intention: bien_etre
+2025-03-06 14:24:19,508 - nlp_engine - INFO - Réponse générée: Je vais très bien, merci ! Et vous, comment allez-vous ?
+2025-03-06 14:24:19,509 - nlp_engine - INFO - Génération de suggestions pour l'intention: bien_etre
+2025-03-06 14:24:19,546 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-06 14:24:19,547 - agent - INFO - Intention détectée: bien_etre avec score 1.0
+2025-03-06 14:24:19,548 - agent - INFO - Entités extraites: {}

@@ -265,9 +265,18 @@ def determiner_intention(question):
     mots_heure = ["heure", "quelle heure", "horloge", "quelle heure est-il", "il est quelle heure"]
     est_heure = any(mot in question_lower for mot in mots_heure)
     
+    # Vérifier les mots-clés bien_etre en priorité
+    mots_bien_etre = ["comment vas", "comment va", "comment tu vas", "comment ça va", "ça va"]
+    est_bien_etre = any(mot in question_lower for mot in mots_bien_etre)
+    
     # Vérifier si la question contient des mots-clés pour la date
     mots_date = ["date", "jour", "aujourd'hui", "quel jour", "quelle date"]
     est_date = any(mot in question_lower for mot in mots_date)
+    
+    # Vérification prioritaire pour le bien-être
+    if est_bien_etre:
+        logger.info("Question concernant le bien-être détectée")
+        return "bien_etre", 1.0, entites
     
     # Priorité à la météo si les deux sont présents
     if est_meteo and est_date:

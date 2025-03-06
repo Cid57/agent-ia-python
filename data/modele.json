@@ -32,13 +32,15 @@
             "york": 0,
             "nancy": 0,
             "marseille": 5,
-            "bordeaux": 3,
+            "bordeaux": 4,
             "parius": 0,
             "strasbourg": 0,
-            "nice": 1,
+            "nice": 2,
             "bali": 0,
-            "heure": 3,
-            "pleut": 1
+            "heure": 4,
+            "pleut": 2,
+            "pleuvoir": 1,
+            "demandez": 1
         },
         "expressions": {
             "quelle est": 8,
@@ -55,14 +57,14 @@
             "quelle temps fait": 8,
             "météo aujourd": 8,
             "météo aujourd hui": 8,
-            "quelle heure": 6
+            "quelle heure": 8
         }
     },
     "heure": {
         "mots_cles": {
-            "quelle": 3,
+            "quelle": 5,
             "heure": 5,
-            "est": 3,
+            "est": 5,
             "demandez": 0,
             "moi": 0
         },
@@ -80,13 +82,14 @@
             "nous": 5,
             "aujourd": 5,
             "hui": 5,
-            "quelle": 2,
-            "est": 2,
-            "date": 2,
-            "temps": 2,
-            "fait": 2,
+            "quelle": 3,
+            "est": 3,
+            "date": 3,
+            "temps": 3,
+            "fait": 3,
             "météo": 0,
-            "paris": 0
+            "paris": 0,
+            "comment": 1
         },
         "expressions": {
             "quel jour": 8,
@@ -95,12 +98,12 @@
             "jour sommes nous": 8,
             "sommes nous": 8,
             "aujourd hui": 8,
-            "quelle est": 6,
-            "date aujourd": 4,
-            "date aujourd hui": 4,
-            "quel temps": 4,
-            "quel temps fait": 4,
-            "temps fait": 4
+            "quelle est": 8,
+            "date aujourd": 6,
+            "date aujourd hui": 6,
+            "quel temps": 6,
+            "quel temps fait": 6,
+            "temps fait": 6
         }
     },
     "capacites": {
@@ -142,6 +145,14 @@
     "identite": {
         "mots_cles": {
             "qui": 0
+        },
+        "expressions": {}
+    },
+    "bien_etre": {
+        "mots_cles": {
+            "comment": 0,
+            "aujourd": 0,
+            "hui": 0
         },
         "expressions": {}
     }

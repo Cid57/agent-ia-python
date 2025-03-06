@@ -814,5 +814,43 @@
             "ville": "Paris"
         },
         "timestamp": "2025-03-06 13:05:29"
+    },
+    {
+        "question": "Comment va-tu aujourd'hui?",
+        "reponse": "Nous sommes le 06/03/2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-06 14:18:01"
+    },
+    {
+        "question": "Quel temps fait-il à Paris aujourd'hui ?",
+        "reponse": "Je vais consulter la météo pour vous à Paris.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-06 14:19:08"
+    },
+    {
+        "question": "Comment va-tu aujourd'hui?",
+        "reponse": "Je suis opérationnelle et prête à vous aider. Comment allez-vous ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-06 14:24:09"
+    },
+    {
+        "question": "comment tu vas?",
+        "reponse": "Je vais très bien, merci ! Et vous, comment allez-vous ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {},
+        "timestamp": "2025-03-06 14:24:19"
     }
 ]
