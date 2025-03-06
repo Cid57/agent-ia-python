@@ -4,19 +4,209 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aide - Cindy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
     />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/dark-mode.css') }}"
-    />
-    <link
-      rel="icon"
-      href="{{ url_for('static', filename='images/favicon.ico') }}"
-      type="image/x-icon"
-    />
+    <!-- Styles intégrés modernes -->
+    <style>
+      /* Variables de couleurs */
+      :root {
+        --primary: #3b82f6;
+        --primary-dark: #1d4ed8;
+        --primary-light: #93c5fd;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --error: #ef4444;
+      }
+
+      /* Styles de base */
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background-color: var(--gray-100);
+        margin: 0;
+        padding: 0;
+        color: var(--gray-800);
+        line-height: 1.5;
+      }
+
+      /* Conteneur principal */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
+
+      /* En-tête */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      header h1::before {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background-color: var(--primary);
+        border-radius: 50%;
+        margin-right: 0.75rem;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        color: var(--gray-600);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.875rem;
+        padding: 0.5rem 0;
+        position: relative;
+        transition: color 0.15s ease;
+      }
+
+      nav a:hover {
+        color: var(--primary);
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      /* Carte principale */
+      .card {
+        background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin: 0 0 1.5rem 0;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      /* Sections d'aide */
+      .aide-section {
+        padding: 1.25rem;
+        background-color: var(--gray-50);
+        border-radius: 0.375rem;
+        margin-bottom: 1.5rem;
+        border-left: 3px solid var(--primary);
+      }
+
+      .aide-section h3 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 1rem;
+        color: var(--primary-dark);
+        font-weight: 600;
+      }
+
+      .aide-section p {
+        margin: 0 0 1rem 0;
+      }
+
+      .aide-section ul {
+        margin: 0.5rem 0;
+        padding-left: 1.25rem;
+      }
+
+      .aide-section li {
+        margin-bottom: 0.5rem;
+      }
+
+      .aide-section strong {
+        color: var(--gray-700);
+      }
+
+      /* Alertes et notifications */
+      .alert {
+        padding: 1rem;
+        border-radius: 0.375rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .alert-success {
+        background-color: rgba(16, 185, 129, 0.1);
+        border-left: 3px solid var(--success);
+        color: #065f46;
+      }
+
+      .alert-info {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-left: 3px solid var(--primary);
+        color: #1e40af;
+      }
+
+      /* Pied de page */
+      footer {
+        text-align: center;
+        padding: 1.5rem 0;
+        margin-top: 2rem;
+        color: var(--gray-500);
+        font-size: 0.875rem;
+        border-top: 1px solid var(--gray-200);
+      }
+
+      /* Responsive */
+      @media (max-width: 640px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav {
+          margin-top: 1rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -24,52 +214,50 @@
         <h1>Aide</h1>
         <nav>
           <a href="/">Accueil</a>
-          <a href="/historique">Historique</a>
         </nav>
       </header>
 
       <main>
-        <div class="aide-container">
-          <h2>Comment utiliser Cindy</h2>
+        <div class="alert alert-info">
+          Bienvenue dans la section d'aide. Découvrez ci-dessous les capacités
+          de Cindy et comment l'utiliser.
+        </div>
 
-          <div class="capacite-section">
+        <div class="card">
+          <h2 class="card-title">Comment utiliser Cindy</h2>
+
+          <div class="aide-section">
             <h3>Capacités de l'assistant</h3>
             <p>
               Cindy est un assistant IA intelligent qui peut répondre à
               différents types de questions :
             </p>
-            <div class="exemples">
-              <ul>
-                <li>
-                  <strong>Météo :</strong> Informations météorologiques en temps
-                  réel pour n'importe quelle ville
-                </li>
-                <li>
-                  <strong>Date et Heure :</strong> Heure actuelle et
-                  informations sur la date
-                </li>
-                <li>
-                  <strong>Conversation :</strong> Questions générales,
-                  salutations, blagues
-                </li>
-                <li>
-                  <strong>Identité :</strong> Informations sur Cindy et ses
-                  capacités
-                </li>
-                <li>
-                  <strong>Apprentissage :</strong> Cindy apprend de vos
-                  interactions pour s'améliorer avec le temps
-                </li>
-              </ul>
-            </div>
+            <ul>
+              <li>
+                <strong>Météo :</strong> Informations météorologiques en temps
+                réel pour n'importe quelle ville
+              </li>
+              <li>
+                <strong>Date et Heure :</strong> Heure actuelle et informations
+                sur la date
+              </li>
+              <li>
+                <strong>Conversation :</strong> Questions générales,
+                salutations, blagues
+              </li>
+              <li>
+                <strong>Identité :</strong> Informations sur Cindy et ses
+                capacités
+              </li>
+            </ul>
           </div>
 
-          <h3>Exemples de questions</h3>
-          <div class="exemples">
+          <div class="aide-section">
+            <h3>Exemples de questions</h3>
             <ul>
               <li>
                 <strong>Météo :</strong> "Quelle est la météo à Paris ?",
-                "Va-t-il pleuvoir à Bordeaux demain ?", "Fait-il chaud à Lyon ?"
+                "Va-t-il pleuvoir à Bordeaux demain ?"
               </li>
               <li>
                 <strong>Date/Heure :</strong> "Quelle heure est-il ?", "Quel
@@ -77,11 +265,7 @@
               </li>
               <li>
                 <strong>Conversation :</strong> "Bonjour, comment vas-tu ?",
-                "Merci pour ton aide"
-              </li>
-              <li>
-                <strong>Blagues :</strong> "Raconte-moi une blague", "Fais-moi
-                rire"
+                "Raconte-moi une blague"
               </li>
               <li>
                 <strong>Identité :</strong> "Qui es-tu ?", "Comment
@@ -90,50 +274,23 @@
             </ul>
           </div>
 
-          <h3>Fonctionnalités spéciales</h3>
-          <div class="exemples">
-            <ul>
-              <li>
-                <strong>Suggestions :</strong> Cindy propose des suggestions de
-                questions que vous pouvez poser
-              </li>
-              <li>
-                <strong>Historique :</strong> Toutes vos conversations sont
-                enregistrées et accessibles dans la section Historique
-              </li>
-              <li>
-                <strong>Apprentissage continu :</strong> Plus vous interagissez
-                avec Cindy, plus elle s'améliore pour répondre à vos besoins
-              </li>
-              <li>
-                <strong>Détection intelligente :</strong> Cindy peut comprendre
-                vos questions même si elles contiennent des fautes d'orthographe
-              </li>
-            </ul>
-          </div>
-
-          <h3>Astuces</h3>
-          <div class="exemples">
+          <div class="aide-section">
+            <h3>Astuces d'utilisation</h3>
             <ul>
               <li>
                 Posez des questions claires et concises pour de meilleures
                 réponses
               </li>
               <li>
-                Utilisez les suggestions pour découvrir toutes les capacités de
-                Cindy
-              </li>
-              <li>
                 Pour les questions météo, mentionnez clairement le nom de la
                 ville
               </li>
               <li>
-                Vous pouvez consulter l'historique de vos conversations dans la
-                section "Historique"
+                Utilisez les suggestions qui apparaissent après chaque réponse
               </li>
               <li>
-                Pour effacer la conversation, utilisez le bouton "Effacer la
-                conversation" en bas de l'écran
+                Vous pouvez effacer la conversation en utilisant le bouton
+                "Effacer"
               </li>
             </ul>
           </div>
@@ -141,7 +298,7 @@
       </main>
 
       <footer>
-        <p>Agent IA Cindy - Version 2.0 - Développé avec Python et Flask</p>
+        <p>Agent IA Cindy - Version 1.3 - Développé avec Python et Flask</p>
       </footer>
     </div>
   </body>

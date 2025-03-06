@@ -149,6 +149,8 @@ def index():
 @app.route('/aide')
 def aide():
     """Page d'aide de l'application"""
+    logger.info("Affichage de la page d'aide - TEST SIMPLIFIÉ")
+    print("===> ROUTE AIDE APPELÉE - Tentative de rendu de aide.html")
     return render_template('aide.html')
 
 @app.route('/question', methods=['POST'])

@@ -1588,3 +1588,322 @@ AttributeError: 'list' object has no attribute 'items'
 2025-03-06 15:57:08,468 - agent - INFO - Entités extraites: {'ville': 'Paris'}
 2025-03-06 15:57:08,468 - agent - INFO - Demande météo pour la question: Demandez-moi la météo à Paris
 2025-03-06 15:57:08,566 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 15:57:08] "POST /question HTTP/1.1" 200 -
+2025-03-06 16:01:49,880 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:01:49] "GET /aide HTTP/1.1" 200 -
+2025-03-06 16:01:49,936 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:01:49] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:01:49,940 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:01:49] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:03:31,397 - agent - INFO - Question reçue: jaimerais apprendre un nouveau langage
+2025-03-06 16:03:31,399 - nlp_engine - INFO - Début d'analyse de la question: 'jaimerais apprendre un nouveau langage'
+2025-03-06 16:03:31,403 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:03:31,406 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-06 16:03:31,407 - nlp_engine - ERROR - Détail de l'erreur: Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 453, in analyser_et_repondre
+    intention, score, entites = determiner_intention(question)
+                                ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 325, in determiner_intention
+    score = calculer_score_intention(question, keywords)
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 231, in calculer_score_intention
+    for mot, poids in mots_cles.items():
+                      ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+
+2025-03-06 16:03:31,408 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-06 16:03:31,409 - agent - INFO - Entités extraites: {}
+2025-03-06 16:03:31,411 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:03:31] "POST /question HTTP/1.1" 200 -
+2025-03-06 16:03:49,715 - agent - INFO - Question reçue: ¨quel jour sommes nous
+2025-03-06 16:03:49,717 - nlp_engine - INFO - Début d'analyse de la question: '¨quel jour sommes nous'
+2025-03-06 16:03:49,729 - nlp_engine - INFO - Génération de réponse pour l'intention: date
+2025-03-06 16:03:49,733 - nlp_engine - INFO - Réponse générée: La date d'aujourd'hui est le 06 March 2025.
+2025-03-06 16:03:49,733 - nlp_engine - INFO - Génération de suggestions pour l'intention: date
+2025-03-06 16:03:49,760 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 16:03:49,762 - agent - INFO - Intention détectée: date avec score 1.0
+2025-03-06 16:03:49,763 - agent - INFO - Entités extraites: {}
+2025-03-06 16:03:49,764 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:03:49] "POST /question HTTP/1.1" 200 -
+2025-03-06 16:07:48,333 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 16:07:48,398 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:07:49,045 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:07:49,046 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:07:49,048 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:07:49,061 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:07:49,067 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:08:07,413 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:07] "GET / HTTP/1.1" 200 -
+2025-03-06 16:08:07,537 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:08:07,542 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:07] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:08:07,543 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:07] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 16:08:09,375 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:09] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:08:09,431 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:08:09,434 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:09] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:08:12,778 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:12] "GET /aide HTTP/1.1" 200 -
+2025-03-06 16:08:12,880 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:08:12,897 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:12] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:08:28,349 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:08:28,352 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:08:28,356 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:08:28,387 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-06 16:08:28,388 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-06 16:08:28,394 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:08:29,102 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:08:29,102 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:08:29,108 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:08:29,124 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:08:29,130 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:08:32,914 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:32] "GET / HTTP/1.1" 200 -
+2025-03-06 16:08:33,059 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:33] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 16:08:33,059 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:08:33,063 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:33] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:08:36,284 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:36] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:08:36,352 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:08:36,356 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:36] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:08:40,070 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:40] "GET /aide HTTP/1.1" 200 -
+2025-03-06 16:08:40,121 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:08:40,135 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:08:40] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:09:47,691 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 16:09:47,747 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:09:48,417 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:09:48,417 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:09:48,420 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:09:48,432 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:09:48,437 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:13:04,031 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:13:04,032 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:13:04,035 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:13:04,068 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-06 16:13:04,069 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-06 16:13:04,076 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:13:04,705 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:13:04,706 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:13:04,708 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:13:04,727 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:13:04,734 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:13:07,454 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:13:07] "GET / HTTP/1.1" 200 -
+2025-03-06 16:13:07,653 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:13:07] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 16:13:07,659 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:13:07] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:13:07,660 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:13:07] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 16:13:10,285 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:13:10] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:13:10,335 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:13:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:13:10,335 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:13:10] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:13:26,651 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:13:26] "GET /aide HTTP/1.1" 200 -
+2025-03-06 16:13:26,716 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:13:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:13:26,720 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:13:26] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:15:51,981 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 16:15:52,055 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:15:52,806 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:15:52,807 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:15:52,811 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:15:52,829 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:15:52,839 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:16:12,481 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:16:12,482 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:16:12,485 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:16:12,519 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-06 16:16:12,519 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-06 16:16:12,524 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:16:13,311 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:16:13,312 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:16:13,316 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:16:13,340 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:16:13,347 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:16:17,198 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:17] "GET / HTTP/1.1" 200 -
+2025-03-06 16:16:17,369 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:17] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:16:17,371 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:17] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 16:16:17,372 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:17] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 16:16:20,697 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:20] "GET / HTTP/1.1" 200 -
+2025-03-06 16:16:20,736 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:20] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 16:16:20,736 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:20] "GET /static/css/dark-mode.css HTTP/1.1" 200 -
+2025-03-06 16:16:20,738 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:20] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-06 16:16:20,904 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:20] "[33mGET /static/images/favicon.ico HTTP/1.1[0m" 404 -
+2025-03-06 16:16:22,456 - agent - INFO - Affichage de la page d'historique
+2025-03-06 16:16:22,462 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:22] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:16:22,512 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:16:22,518 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:22] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:16:52,025 - agent - INFO - Question spéciale d'identité détectée: Qui es-tu?
+2025-03-06 16:16:52,028 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:52] "POST /question HTTP/1.1" 200 -
+2025-03-06 16:16:55,116 - agent - INFO - Affichage de la page d'historique
+2025-03-06 16:16:55,120 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:55] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:16:55,178 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:16:55,180 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:16:55] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:17:34,097 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:17:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:17:34,098 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:17:34] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:17:55,085 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 16:17:55,145 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:17:55,893 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:17:55,894 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:17:55,898 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:17:55,911 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:17:55,918 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:18:12,991 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:18:12] "GET / HTTP/1.1" 200 -
+2025-03-06 16:18:13,159 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:18:13] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 16:18:13,165 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:18:13] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-06 16:18:13,166 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:18:13] "GET /static/css/dark-mode.css HTTP/1.1" 200 -
+2025-03-06 16:18:14,775 - agent - INFO - Affichage de la page d'aide - TEST SIMPLIFIÉ
+2025-03-06 16:18:14,779 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:18:14] "GET /aide HTTP/1.1" 200 -
+2025-03-06 16:18:14,974 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:18:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-06 16:18:59,248 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:18:59] "GET / HTTP/1.1" 200 -
+2025-03-06 16:18:59,317 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:18:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:18:59,319 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:18:59] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:18:59,320 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:18:59] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 16:19:01,132 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:19:01,136 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:19:01] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:19:43,209 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:19:43] "GET / HTTP/1.1" 200 -
+2025-03-06 16:19:43,301 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:19:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:19:43,315 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:19:43] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:19:43,317 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:19:43] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 16:20:35,611 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:20:35,612 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:20:35,615 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:20:35,643 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-06 16:20:35,644 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-06 16:20:35,649 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:20:36,388 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:20:36,389 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:20:36,392 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:20:36,408 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:20:36,417 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:20:39,368 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:20:39] "GET / HTTP/1.1" 200 -
+2025-03-06 16:20:39,552 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:20:39] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:20:39,557 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:20:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:20:39,557 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:20:39] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 16:20:44,143 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:20:44] "GET / HTTP/1.1" 200 -
+2025-03-06 16:20:44,189 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:20:44] "GET /static/css/dark-mode.css HTTP/1.1" 200 -
+2025-03-06 16:20:44,190 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:20:44] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 16:20:44,192 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:20:44] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-06 16:20:44,362 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:20:44] "[33mGET /static/images/favicon.ico HTTP/1.1[0m" 404 -
+2025-03-06 16:20:46,424 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:20:46,432 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:20:46] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:20:46,514 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:20:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-06 16:21:07,462 - agent - INFO - Affichage de la page d'aide - TEST SIMPLIFIÉ
+2025-03-06 16:21:07,468 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:21:07] "GET /aide HTTP/1.1" 200 -
+2025-03-06 16:24:30,458 - agent - INFO - Affichage de la page d'aide - TEST SIMPLIFIÉ
+2025-03-06 16:24:30,465 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:24:30] "GET /aide HTTP/1.1" 200 -
+2025-03-06 16:24:34,997 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:24:35,006 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:24:35] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:24:42,096 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:24:42] "GET / HTTP/1.1" 200 -
+2025-03-06 16:24:42,168 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:24:42] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 16:24:42,171 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:24:42] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:24:42,175 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:24:42] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 16:24:44,821 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:24:44,824 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:24:44] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:24:48,361 - agent - INFO - Affichage de la page d'aide - TEST SIMPLIFIÉ
+2025-03-06 16:24:48,364 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:24:48] "GET /aide HTTP/1.1" 200 -
+2025-03-06 16:24:56,218 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:24:56,221 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:24:56] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:25:45,197 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:25:45,203 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:25:45] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:25:52,729 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:25:52] "GET / HTTP/1.1" 200 -
+2025-03-06 16:25:52,797 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:25:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:25:52,802 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:25:52] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:25:52,802 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:25:52] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 16:25:55,877 - agent - INFO - Question spéciale d'identité détectée: Qui es-tu?
+2025-03-06 16:25:55,879 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:25:55] "POST /question HTTP/1.1" 200 -
+2025-03-06 16:25:57,498 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:25:57,501 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:25:57] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:25:59,854 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:25:59,858 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:25:59] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:26:02,366 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:26:02,368 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:02] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:26:02,967 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:26:02,971 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:02] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:26:03,164 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:26:03,166 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:03] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:26:03,330 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:26:03,332 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:03] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:26:03,502 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:26:03,504 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:03] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:26:05,455 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:05] "GET / HTTP/1.1" 200 -
+2025-03-06 16:26:05,519 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:26:05,525 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:05] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:26:05,527 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:05] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 16:26:08,844 - agent - INFO - Question reçue: Comment vas-tu aujourd'hui?
+2025-03-06 16:26:08,845 - nlp_engine - INFO - Début d'analyse de la question: 'Comment vas-tu aujourd'hui?'
+2025-03-06 16:26:08,847 - nlp_engine - INFO - Question concernant le bien-être détectée
+2025-03-06 16:26:08,867 - nlp_engine - INFO - Génération de réponse pour l'intention: bien_etre
+2025-03-06 16:26:08,868 - nlp_engine - INFO - Réponse générée: Je suis opérationnelle et prête à vous aider. Comment allez-vous ?
+2025-03-06 16:26:08,868 - nlp_engine - INFO - Génération de suggestions pour l'intention: bien_etre
+2025-03-06 16:26:08,901 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 16:26:08,902 - agent - INFO - Intention détectée: bien_etre avec score 1.0
+2025-03-06 16:26:08,904 - agent - INFO - Entités extraites: {'ville': 'Comment'}
+2025-03-06 16:26:08,905 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:08] "POST /question HTTP/1.1" 200 -
+2025-03-06 16:26:13,337 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:26:13,339 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:13] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:26:15,679 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:26:15,681 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:15] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:26:16,445 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:26:16,448 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:16] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:26:16,635 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:26:16,638 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:16] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:26:16,837 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:26:16,838 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:16] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:26:17,001 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:26:17,003 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:26:17] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:27:30,475 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:27:30,478 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:27:30] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:27:32,924 - agent - INFO - Affichage de la page d'historique - TEST SIMPLIFIÉ
+2025-03-06 16:27:32,927 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:27:32] "GET /historique HTTP/1.1" 200 -
+2025-03-06 16:27:33,083 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:27:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-06 16:27:34,290 - agent - INFO - Affichage de la page d'aide - TEST SIMPLIFIÉ
+2025-03-06 16:27:34,297 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:27:34] "GET /aide HTTP/1.1" 200 -
+2025-03-06 16:28:05,838 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 16:28:05,893 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:28:06,585 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:28:06,586 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:28:06,591 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:28:06,606 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:28:06,614 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:28:29,770 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 16:28:29,834 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:28:30,474 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:28:30,475 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:28:30,477 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:28:30,493 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:28:30,498 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:28:31,517 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\app.py', reloading
+2025-03-06 16:28:31,583 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:28:32,337 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:28:32,338 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:28:32,340 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:28:32,353 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:28:32,359 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:28:46,746 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:28:46,747 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:28:46,750 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:28:46,772 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-06 16:28:46,773 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-06 16:28:46,779 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 16:28:47,424 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:28:47,425 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 16:28:47,430 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 16:28:47,448 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 16:28:47,453 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 16:28:51,756 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:28:51] "GET / HTTP/1.1" 200 -
+2025-03-06 16:28:51,901 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:28:51] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 16:28:51,906 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:28:51] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:28:51,906 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:28:51] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-06 16:28:52,098 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:28:52] "[33mGET /static/images/favicon.ico HTTP/1.1[0m" 404 -
+2025-03-06 16:28:54,488 - agent - INFO - Affichage de la page d'aide - TEST SIMPLIFIÉ
+2025-03-06 16:28:54,493 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:28:54] "GET /aide HTTP/1.1" 200 -
+2025-03-06 16:28:56,341 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:28:56] "GET / HTTP/1.1" 200 -
+2025-03-06 16:28:56,417 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:28:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:28:56,418 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:28:56] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:28:56,419 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:28:56] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 16:29:06,620 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:29:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 16:29:06,621 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:29:06] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 16:30:23,465 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:30:23] "GET / HTTP/1.1" 200 -
+2025-03-06 16:30:23,501 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:30:23] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-06 16:30:23,507 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:30:23] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-06 16:30:23,509 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:30:23] "GET /static/css/dark-mode.css HTTP/1.1" 200 -
+2025-03-06 16:30:32,325 - agent - INFO - Question reçue: Raconte-moi une blague
+2025-03-06 16:30:32,326 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une blague'
+2025-03-06 16:30:32,328 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 16:30:32,329 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 60
+2025-03-06 16:30:32,354 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 16:30:32,356 - nlp_engine - INFO - Réponse générée: Qu'est-ce qui est jaune et qui attend ? Jonathan.
+2025-03-06 16:30:32,356 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 16:30:32,392 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 16:30:32,392 - agent - INFO - Intention détectée: blague avec score 60
+2025-03-06 16:30:32,393 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 16:30:32,393 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 16:30:32,394 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 16:30:32] "POST /question HTTP/1.1" 200 -

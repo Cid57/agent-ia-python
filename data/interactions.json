@@ -992,5 +992,33 @@
             "ville": "Paris"
         },
         "timestamp": "2025-03-06 15:57:08"
+    },
+    {
+        "question": "¨quel jour sommes nous",
+        "reponse": "La date d'aujourd'hui est le 06 March 2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {},
+        "timestamp": "2025-03-06 16:03:49"
+    },
+    {
+        "question": "Comment vas-tu aujourd'hui?",
+        "reponse": "Je suis opérationnelle et prête à vous aider. Comment allez-vous ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-06 16:26:08"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Qu'est-ce qui est jaune et qui attend ? Jonathan.",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 16:30:32"
     }
 ]
