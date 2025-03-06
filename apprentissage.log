@@ -1107,3 +1107,30 @@ AttributeError: 'list' object has no attribute 'items'
 2025-03-06 13:05:04,189 - agent - INFO - Question reçue: comment tu vas?
 2025-03-06 13:05:04,190 - nlp_engine - INFO - Début d'analyse de la question: 'comment tu vas?'
 2025-03-06 13:05:04,192 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-06 13:05:04,196 - nlp_engine - ERROR - Erreur lors de l'analyse de la question: 'list' object has no attribute 'items'
+2025-03-06 13:05:04,198 - nlp_engine - ERROR - Détail de l'erreur: Traceback (most recent call last):
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 444, in analyser_et_repondre
+    intention, score, entites = determiner_intention(question)
+                                ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 316, in determiner_intention
+    score = calculer_score_intention(question, keywords)
+  File "C:\Users\cindy\OneDrive - Digital Factory Sàrl-s\Bureau\Agent Python\nlp_engine.py", line 231, in calculer_score_intention
+    for mot, poids in mots_cles.items():
+                      ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+
+2025-03-06 13:05:04,198 - agent - INFO - Intention détectée: erreur avec score 0
+2025-03-06 13:05:04,199 - agent - INFO - Entités extraites: {}
+2025-03-06 13:05:04,200 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 13:05:04] "POST /question HTTP/1.1" 200 -
+2025-03-06 13:05:29,756 - agent - INFO - Question reçue: Demandez-moi la météo à Paris
+2025-03-06 13:05:29,757 - nlp_engine - INFO - Début d'analyse de la question: 'Demandez-moi la météo à Paris'
+2025-03-06 13:05:29,758 - apprentissage - INFO - Modèle amélioré chargé avec 8 intentions
+2025-03-06 13:05:29,759 - nlp_engine - INFO - Intention prédite par le modèle amélioré: meteo avec score 15
+2025-03-06 13:05:29,771 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-06 13:05:29,771 - nlp_engine - INFO - Réponse générée: Laissez-moi vérifier la météo à Paris.
+2025-03-06 13:05:29,772 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-06 13:05:29,808 - apprentissage - INFO - Motifs de questions extraits pour 5 intentions
+2025-03-06 13:05:29,810 - agent - INFO - Intention détectée: meteo avec score 15
+2025-03-06 13:05:29,810 - agent - INFO - Entités extraites: {'ville': 'Paris'}
+2025-03-06 13:05:29,811 - agent - INFO - Demande météo pour la question: Demandez-moi la météo à Paris
+2025-03-06 13:05:29,955 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 13:05:29] "POST /question HTTP/1.1" 200 -
