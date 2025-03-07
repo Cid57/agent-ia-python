@@ -1,15 +1,15 @@
 {
     "meteo": [
         "la météo",
+        "météo à",
         "quelle est",
         "quelle est la",
         "est la",
-        "météo à",
-        "est la météo",
         "la météo à",
+        "est la météo",
         "aujourd hui",
-        "fait il",
-        "à paris"
+        "à paris",
+        "fait il"
     ],
     "inconnu": [
         "qui es",
@@ -21,7 +21,10 @@
         "quelle heure est",
         "heure est",
         "heure est il",
-        "est il"
+        "est il",
+        "donne moi",
+        "donne moi lheure",
+        "moi lheure"
     ],
     "date": [
         "aujourd hui",
@@ -54,6 +57,9 @@
         "tu aujourd",
         "tu aujourd hui",
         "aujourd hui",
-        "vas tu aujourd"
+        "vas tu aujourd",
+        "comment tu",
+        "comment tu vas",
+        "tu vas"
     ]
 }

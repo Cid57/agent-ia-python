@@ -1262,5 +1262,287 @@
             "ville": "Maizières"
         },
         "timestamp": "2025-03-07 08:27:16"
+    },
+    {
+        "question": "Quelle heure est-il?",
+        "reponse": "Je n'ai pas pu obtenir l'heure actuelle.",
+        "intention": "heure",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-07 08:42:03"
+    },
+    {
+        "question": "Quelle est la météo à Paris aujourd'hui ?",
+        "reponse": "Je n'ai pas pu obtenir les informations météo.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-07 08:42:12"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Qu'est-ce qu'un Geek dit quand vous lui demandez s'il veut une bière ? Alt Tab on revient au bar.",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-07 08:42:26"
+    },
+    {
+        "question": "Comment vas-tu ?",
+        "reponse": "Je ne comprends pas votre question. Pouvez-vous reformuler ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-07 08:42:34"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Qu'est-ce qu'un Geek dit quand vous lui demandez s'il veut une bière ? Alt Tab on revient au bar.",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-07 08:46:18"
+    },
+    {
+        "question": "Comment vas-tu ?",
+        "reponse": "Je vais très bien, merci ! Et vous, comment allez-vous ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-07 08:46:21"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Comment un informaticien ouvre-t-il une bouteille ? Il la débogue.",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-07 08:46:25"
+    },
+    {
+        "question": "Comment vas-tu ?",
+        "reponse": "Je vais très bien, merci ! Et vous, comment allez-vous ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-07 08:46:31"
+    },
+    {
+        "question": "comment tu vas",
+        "reponse": "Je vais très bien, merci ! Et vous, comment allez-vous ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {},
+        "timestamp": "2025-03-07 08:46:40"
+    },
+    {
+        "question": "Demandez-moi la météo à Paris",
+        "reponse": "Je n'ai pas pu obtenir les informations météo.",
+        "intention": "meteo",
+        "score": 28,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-07 08:46:57"
+    },
+    {
+        "question": "Météo à Strasbourg aujourd'hui",
+        "reponse": "Je n'ai pas pu obtenir les informations météo.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Strasbourg"
+        },
+        "timestamp": "2025-03-07 08:47:00"
+    },
+    {
+        "question": "donne moi lheure",
+        "reponse": "Il est actuellement 08:47.",
+        "intention": "heure",
+        "score": 1.0,
+        "entites": {},
+        "timestamp": "2025-03-07 08:47:06"
+    },
+    {
+        "question": "qule jour",
+        "reponse": "Je n'ai pas pu obtenir la date actuelle.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {},
+        "timestamp": "2025-03-07 08:47:10"
+    },
+    {
+        "question": "qu'elle jour?",
+        "reponse": "Je n'ai pas pu obtenir la date actuelle.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {},
+        "timestamp": "2025-03-07 08:47:19"
+    },
+    {
+        "question": "Quelle heure est-il?",
+        "reponse": "Il est actuellement 08:52.",
+        "intention": "heure",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-07 08:52:58"
+    },
+    {
+        "question": "Comment vas-tu ?",
+        "reponse": "Je vais très bien, merci ! Et vous, comment allez-vous ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-07 08:53:04"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "J'ai une blague sur les algorithmes de tri mais elle n'est pas encore ordonnée.",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-07 08:53:09"
+    },
+    {
+        "question": "Demandez-moi la météo à Paris",
+        "reponse": "Je n'ai pas pu obtenir les informations météo.",
+        "intention": "meteo",
+        "score": 28,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-07 08:53:22"
+    },
+    {
+        "question": "Va-t-il pleuvoir à Bordeaux demain ?",
+        "reponse": "Je n'ai pas pu obtenir les informations météo.",
+        "intention": "meteo",
+        "score": 15,
+        "entites": {
+            "ville": "Bordeaux"
+        },
+        "timestamp": "2025-03-07 08:53:26"
+    },
+    {
+        "question": "Quelle est la météo à Paris aujourd'hui ?",
+        "reponse": "Je n'ai pas pu obtenir les informations météo.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Paris"
+        },
+        "timestamp": "2025-03-07 08:57:38"
+    },
+    {
+        "question": "Fait-il chaud à Nice ?",
+        "reponse": "Je n'ai pas pu obtenir les informations météo.",
+        "intention": "meteo",
+        "score": 15,
+        "entites": {
+            "ville": "Fait"
+        },
+        "timestamp": "2025-03-07 08:57:42"
+    },
+    {
+        "question": "Va-t-il pleuvoir à Bordeaux demain ?",
+        "reponse": "Je n'ai pas pu obtenir les informations météo.",
+        "intention": "meteo",
+        "score": 15,
+        "entites": {
+            "ville": "Bordeaux"
+        },
+        "timestamp": "2025-03-07 08:57:46"
+    },
+    {
+        "question": "Quelle heure est-il?",
+        "reponse": "Il est actuellement 09:00.",
+        "intention": "heure",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-07 09:00:44"
+    },
+    {
+        "question": "Comment vas-tu ?",
+        "reponse": "Je vais très bien, merci ! Et vous, comment allez-vous ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-07 09:00:48"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-07 09:00:52"
+    },
+    {
+        "question": "Quel jour sommes-nous ?",
+        "reponse": "Nous sommes le vendredi 7 mars 2025.",
+        "intention": "date",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quel"
+        },
+        "timestamp": "2025-03-07 09:01:00"
+    },
+    {
+        "question": "Comment vas-tu ?",
+        "reponse": "Je vais très bien, merci ! Et vous, comment allez-vous ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-07 09:01:12"
+    },
+    {
+        "question": "Quelle est la météo aujourd'hui ?",
+        "reponse": "Je n'ai pas pu obtenir les informations météo.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Quelle"
+        },
+        "timestamp": "2025-03-07 09:01:17"
+    },
+    {
+        "question": "météo a metz",
+        "reponse": "Je n'ai pas pu obtenir les informations météo.",
+        "intention": "meteo",
+        "score": 10,
+        "entites": {
+            "ville": "Metz"
+        },
+        "timestamp": "2025-03-07 09:01:27"
     }
 ]

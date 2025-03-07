@@ -34,7 +34,7 @@
             "marseille": 5,
             "bordeaux": 5,
             "parius": 0,
-            "strasbourg": 0,
+            "strasbourg": 2,
             "nice": 5,
             "bali": 0,
             "heure": 5,
@@ -60,7 +60,8 @@
             "quelle heure": 8,
             "marseille aujourd": 8,
             "marseille aujourd hui": 8,
-            "demandez moi": 8
+            "demandez moi": 8,
+            "bordeaux demain": 4
         }
     },
     "heure": {
@@ -69,14 +70,17 @@
             "heure": 5,
             "est": 5,
             "demandez": 0,
-            "moi": 3,
-            "donne": 0,
-            "lheure": 0
+            "moi": 5,
+            "donne": 2,
+            "lheure": 2
         },
         "expressions": {
             "quelle heure": 8,
             "quelle heure est": 8,
-            "heure est": 8
+            "heure est": 8,
+            "donne moi": 4,
+            "donne moi lheure": 4,
+            "moi lheure": 4
         }
     },
     "date": {
@@ -95,7 +99,9 @@
             "météo": 0,
             "paris": 0,
             "comment": 5,
-            "fonctionnes": 0
+            "fonctionnes": 0,
+            "qule": 0,
+            "elle": 0
         },
         "expressions": {
             "quel jour": 8,
@@ -140,7 +146,7 @@
             "question": 0,
             "simple": 0,
             "autre": 5,
-            "encore": 1
+            "encore": 4
         },
         "expressions": {
             "raconte moi": 8,
@@ -152,7 +158,7 @@
             "une autre": 8,
             "une autre blague": 8,
             "autre blague": 8,
-            "encore blague": 2
+            "encore blague": 8
         }
     },
     "identite": {

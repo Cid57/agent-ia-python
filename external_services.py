@@ -265,6 +265,121 @@ class MeteoService:
             # En cas d'exception, retourner un message d'erreur générique
             return "Désolé, une erreur s'est produite lors de la récupération des informations météo. Veuillez réessayer plus tard."
     
+    def obtenir_meteo_ville(self, ville):
+        """
+        Obtient les informations météo pour une ville spécifiée.
+        Retourne un dictionnaire avec les informations météo formatées de manière attrayante.
+        
+        Args:
+            ville (str): Nom de la ville dont on veut la météo
+            
+        Returns:
+            dict: Dictionnaire avec informations météo complètes
+        """
+        try:
+            logger.info(f"Obtention de la météo pour la ville: {ville}")
+            
+            # Trouver les coordonnées de la ville
+            ville_info = None
+            
+            # Vérifier si la ville est dans notre cache
+            ville_lower = ville.lower()
+            villes_courantes = {
+                "paris": {"nom": "Paris", "pays": "France", "latitude": 48.8566, "longitude": 2.3522},
+                "marseille": {"nom": "Marseille", "pays": "France", "latitude": 43.2965, "longitude": 5.3698},
+                "lyon": {"nom": "Lyon", "pays": "France", "latitude": 45.7578, "longitude": 4.8320},
+                "toulouse": {"nom": "Toulouse", "pays": "France", "latitude": 43.6047, "longitude": 1.4442},
+                "nice": {"nom": "Nice", "pays": "France", "latitude": 43.7102, "longitude": 7.2620},
+                "nantes": {"nom": "Nantes", "pays": "France", "latitude": 47.2184, "longitude": -1.5536},
+                "strasbourg": {"nom": "Strasbourg", "pays": "France", "latitude": 48.5734, "longitude": 7.7521},
+                "montpellier": {"nom": "Montpellier", "pays": "France", "latitude": 43.6119, "longitude": 3.8772},
+                "bordeaux": {"nom": "Bordeaux", "pays": "France", "latitude": 44.8378, "longitude": -0.5792},
+                "lille": {"nom": "Lille", "pays": "France", "latitude": 50.6292, "longitude": 3.0573}
+            }
+            
+            if ville_lower in villes_courantes:
+                ville_info = villes_courantes[ville_lower]
+            else:
+                # Essayer via l'API de géocodage
+                ville_info = self.rechercher_ville_api(ville)
+                
+                # Si toujours pas trouvé, utiliser Paris par défaut
+                if not ville_info:
+                    logger.warning(f"Ville non trouvée, utilisation de Paris par défaut")
+                    ville_info = villes_courantes["paris"]
+            
+            # Récupérer les coordonnées
+            lat = ville_info["latitude"]
+            lon = ville_info["longitude"]
+            
+            # Construire l'URL pour l'API Open-Meteo avec toutes les informations
+            # Version sécurisée qui fonctionne avec l'API actuelle
+            url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m,weather_code,relative_humidity_2m,apparent_temperature,wind_speed_10m&timezone=auto"
+            
+            # Faire la requête HTTP
+            response = requests.get(url)
+            logger.info(f"Statut de la réponse API météo: {response.status_code}")
+            
+            # Vérifier si la requête a réussi
+            if response.status_code == 200:
+                # Parser les données JSON
+                data = response.json()
+                logger.info(f"Données API météo reçues: {data.keys()}")
+                
+                # Extraire les informations actuelles
+                current = data.get("current", {})
+                
+                if current:
+                    # Créer un dictionnaire avec les informations formatées
+                    meteo_info = {
+                        "status": "success",
+                        "ville": ville_info.get("nom", ville),
+                        "pays": ville_info.get("pays", ""),
+                        "temperature": round(current.get("temperature_2m", 0)),
+                        "temperature_ressentie": round(current.get("apparent_temperature", 0)) if "apparent_temperature" in current else None,
+                        "humidite": current.get("relative_humidity_2m", 0) if "relative_humidity_2m" in current else None,
+                        "unite_humidite": "%",
+                        "vent": round(current.get("wind_speed_10m", 0)) if "wind_speed_10m" in current else None,
+                        "unite_vent": "km/h",
+                        "code": current.get("weather_code", 0),
+                        "est_jour": 1,  # Supposer qu'il fait jour par défaut
+                        "timestamp": datetime.now().strftime("%d %B %Y, %H:%M")
+                    }
+                    
+                    # Interpréter le code météo
+                    meteo_info["description"] = self.interpreter_code_meteo(meteo_info["code"])
+                    meteo_info["condition"] = meteo_info["description"]  # Pour compatibilité
+                    
+                    # Obtenir l'icône correspondante
+                    meteo_info["icone"] = self.obtenir_icone_meteo(meteo_info["code"])
+                    
+                    return meteo_info
+                else:
+                    logger.error(f"Données current non trouvées dans: {data}")
+                    return {
+                        "status": "error",
+                        "ville": ville,
+                        "temperature": 0,
+                        "condition": "Données météo indisponibles"
+                    }
+            else:
+                logger.error(f"Erreur HTTP lors de la requête météo: {response.status_code} - {response.text}")
+                return {
+                    "status": "error",
+                    "ville": ville,
+                    "temperature": 0,
+                    "condition": "Service météo temporairement indisponible"
+                }
+                
+        except Exception as e:
+            logger.error(f"Erreur lors de l'obtention de la météo pour {ville}: {str(e)}")
+            return {
+                "status": "error",
+                "ville": ville,
+                "temperature": 0,
+                "condition": "Erreur du service météo"
+            }
+    
     def interpreter_code_meteo(self, code):
         """
         Interprète le code météo de Open Meteo.

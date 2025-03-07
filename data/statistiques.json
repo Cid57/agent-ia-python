@@ -1,24 +1,24 @@
 {
-    "nombre_interactions": 130,
+    "nombre_interactions": 160,
     "distribution_intentions": {
         "salutation": 2,
-        "meteo": 56,
+        "meteo": 65,
         "inconnu": 7,
-        "heure": 8,
-        "date": 16,
+        "heure": 12,
+        "date": 19,
         "capacites": 1,
         "aide": 1,
-        "blague": 29,
+        "blague": 36,
         "identite": 1,
-        "bien_etre": 9
+        "bien_etre": 16
     },
     "entites_frequentes": {
         "meteo": {
-            "Paris": 13,
+            "Paris": 17,
             "Marseille": 9,
-            "Fait": 5,
-            "Lyon": 5,
-            "Quelle": 4
+            "Fait": 6,
+            "Bordeaux": 5,
+            "Lyon": 5
         },
         "inconnu": {
             "Qui": 2,
@@ -27,11 +27,11 @@
             "Va": 1
         },
         "heure": {
-            "Quelle": 6,
+            "Quelle": 9,
             "Demandez": 1
         },
         "date": {
-            "Quel": 6,
+            "Quel": 7,
             "Comment": 4,
             "Quelle": 3,
             "Paris": 1
@@ -43,68 +43,68 @@
             "Comment": 1
         },
         "blague": {
-            "Raconte": 24,
+            "Raconte": 31,
             "Essayez": 1
         },
         "identite": {
             "Qui": 1
         },
         "bien_etre": {
-            "Comment": 8
+            "Comment": 14
         }
     },
     "scores_moyens": {
         "salutation": 3.0,
-        "meteo": 8.428571428571429,
+        "meteo": 9.292307692307693,
         "inconnu": 0.0,
-        "heure": 1.5,
-        "date": 1.3125,
+        "heure": 1.3333333333333333,
+        "date": 1.263157894736842,
         "capacites": 4.0,
         "aide": 7.0,
-        "blague": 45.172413793103445,
+        "blague": 48.638888888888886,
         "identite": 10.0,
         "bien_etre": 1.0
     },
     "questions_frequentes": [
         [
             "raconte-moi une blague",
-            14
+            20
         ],
         [
             "raconte-moi une autre blague",
-            11
+            12
         ],
         [
             "quelle heure est-il?",
-            7
+            10
+        ],
+        [
+            "comment vas-tu ?",
+            8
+        ],
+        [
+            "quel jour sommes-nous ?",
+            5
+        ],
+        [
+            "va-t-il pleuvoir à bordeaux demain ?",
+            5
         ],
         [
             "comment vas-tu aujourd'hui?",
             5
         ],
         [
-            "quel jour sommes-nous ?",
+            "quelle est la météo à paris aujourd'hui?",
             4
         ],
         [
-            "quelle est la météo à paris aujourd'hui?",
+            "quelle est la météo à paris aujourd'hui ?",
             4
         ],
         [
             "quelle est la météo à marseille aujourd'hui ?",
             4
-        ],
-        [
-            "comment va-tu aujourd'hui?",
-            4
-        ],
-        [
-            "fait-il chaud à lyon ?",
-            3
-        ],
-        [
-            "quel temps fait-il à paris ?",
-            3
         ]
     ],
     "intentions_par_jour": {
@@ -121,7 +121,14 @@
             "blague": 22,
             "meteo": 8,
             "bien_etre": 9
+        },
+        "2025-03-07": {
+            "blague": 7,
+            "meteo": 9,
+            "heure": 4,
+            "bien_etre": 7,
+            "date": 3
         }
     },
-    "derniere_mise_a_jour": "2025-03-06 17:24:25"
+    "derniere_mise_a_jour": "2025-03-07 09:01:12"
 }

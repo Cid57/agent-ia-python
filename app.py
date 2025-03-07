@@ -1,234 +1,85 @@
 """
-Application Agent Personnel avec compréhension améliorée du langage naturel
+Application Flask pour l'assistant intelligent Cindy
+Ce module est le point d'entrée de l'application web.
 """
 
-import time
+import os
 import logging
-from datetime import datetime
 from flask import Flask, render_template, request, jsonify
-from external_services import MeteoService
-from nlp_engine import analyser_et_repondre
+from agent import Agent
 
 # Configuration du logger
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("agent.log"),
+        logging.FileHandler("assistant.log"),
         logging.StreamHandler()
     ]
 )
-logger = logging.getLogger("agent")
+logger = logging.getLogger('assistant_ia.app')
 
-# Initialiser l'application Flask
+# Initialisation de l'application Flask
 app = Flask(__name__)
 
-# Créer une instance du service météo
-meteo_service = MeteoService()
-
-# Liste des suggestions par défaut
-SUGGESTIONS_DEFAUT = [
-    "Quelle est la météo à Paris ?",
-    "Quelle heure est-il ?",
-    "Comment vas-tu ?"
-]
-
-def poser_question(question):
-    """
-    Fonction principale qui analyse la question de l'utilisateur et génère une réponse.
-    Utilise le moteur NLP amélioré et le service météo.
-    
-    Args:
-        question (str): La question posée par l'utilisateur
-        
-    Returns:
-        dict: Réponse formatée avec suggestions
-    """
-    try:
-        # Vérifier si la question est valide
-        if not question or not isinstance(question, str) or question.strip() == "":
-            return {
-                "reponse": "Je n'ai pas bien compris votre question. Pourriez-vous reformuler ?",
-                "suggestions": SUGGESTIONS_DEFAUT
-            }
-        
-        # Nettoyer la question (supprimer les espaces en trop)
-        question = question.strip()
-        
-        # Traitement spécial pour la question "Qui es-tu?"
-        question_lower = question.lower().replace('?', '').replace('-', ' ').replace("'", ' ').strip()
-        identity_patterns = ["qui es tu", "qui estu", "tu es qui", "t es qui", "es tu qui", "qui tu es", 
-                            "c est qui tu", "c qui tu es", "qui est tu", "qui est toi"]
-        
-        # Nouveaux patterns pour les questions sur le créateur/programmeur
-        creator_patterns = ["qui t a programme", "qui t a cree", "qui t a concu", "qui t a développé", 
-                          "qui t a developpe", "qui t a fait", "qui ta programme", "qui ta cree", 
-                          "qui ta développé", "qui ta developpe", "qui ta concu", "qui ta fait",
-                          "ton createur", "ton programmeur", "ton developpeur", "ta ete cree par qui", 
-                          "qui est ton createur", "qui est ton programmeur", "qui est ton developpeur"]
-        
-        # Patterns pour les questions sur le fonctionnement
-        functioning_patterns = ["comment fonctionnes tu", "comment marches tu", "comment tu marches", 
-                              "comment tu fonctionnes", "comment ca marche", "comment ça marche", 
-                              "comment tu fais", "explique ton fonctionnement", "comment est tu fait",
-                              "comment es tu programmé", "comment es tu programmee", "comment tu operes"]
-        
-        is_identity_question = False
-        for pattern in identity_patterns:
-            if pattern in question_lower:
-                is_identity_question = True
-                break
-                
-        # Vérifier si c'est une question sur le créateur
-        is_creator_question = False
-        for pattern in creator_patterns:
-            if pattern in question_lower:
-                is_creator_question = True
-                break
-        
-        # Vérifier si c'est une question sur le fonctionnement
-        is_functioning_question = False
-        for pattern in functioning_patterns:
-            if pattern in question_lower:
-                is_functioning_question = True
-                break
-                
-        if is_creator_question:
-            logger.info("Question sur le créateur détectée: " + question)
-            reponse = "J'ai été conçue et programmée par Cindy Singer, une passionnée de Digital Factory. Elle a mis tout son savoir-faire pour me doter de mes capacités et de ma personnalité. Je suis en constante évolution pour mieux vous accompagner."
-            suggestions = [
-                "Quelles sont tes capacités ?",
-                "Que peux-tu faire ?",
-                "Qui es-tu exactement ?",
-                "Comment fonctionnes-tu ?"
-            ]
-            return {
-                "reponse": reponse,
-                "suggestions": suggestions
-            }
-        elif is_functioning_question:
-            logger.info("Question sur le fonctionnement détectée: " + question)
-            reponse = "Je fonctionne grâce à un système de traitement du langage naturel qui me permet de comprendre vos questions. J'analyse les mots-clés, détecte vos intentions et accède à différentes sources d'information pour vous fournir les réponses les plus pertinentes. Je peux consulter la météo, donner l'heure, et répondre à diverses questions grâce à ma base de connaissances. Je m'améliore également au fil de nos échanges."
-            suggestions = [
-                "Quelles sont tes capacités ?",
-                "Qui t'a programmé ?",
-                "Raconte-moi une blague",
-                "Quelle est la météo aujourd'hui ?"
-            ]
-            return {
-                "reponse": reponse,
-                "suggestions": suggestions
-            }
-        elif is_identity_question:
-            logger.info("Question spéciale d'identité détectée: " + question)
-            reponse = "Je suis Cid, votre assistante IA personnel. Je suis là pour vous aider avec diverses questions et tâches comme la météo, l'heure, des blagues et bien plus encore."
-            suggestions = [
-                "Quelles sont tes capacités ?",
-                "Raconte-moi une blague",
-                "Quelle est la météo à Paris aujourd'hui ?",
-                "Comment vas-tu ?"
-            ]
-            return {
-                "reponse": reponse,
-                "suggestions": suggestions
-            }
-        
-        # Utiliser notre moteur NLP pour analyser la question
-        logger.info(f"Question reçue: {question}")
-        resultat = analyser_et_repondre(question)
-        
-        # Enregistrer l'intention détectée pour le débogage
-        logger.info(f"Intention détectée: {resultat['intention']} avec score {resultat['score']}")
-        logger.info(f"Entités extraites: {resultat['entites']}")
-        
-        # Si l'intention est liée à la météo, utiliser l'API
-        if resultat["intention"] == "meteo":
-            try:
-                # On passe la question complète à obtenir_meteo pour permettre l'extraction des villes
-                # Le service météo s'occupera d'extraire la ville de la question
-                logger.info(f"Demande météo pour la question: {question}")
-                
-                # Obtenir les données météo via l'API
-                # La méthode retourne directement un message texte formaté
-                reponse = meteo_service.obtenir_meteo(question)
-                
-                # Si le message est trop court, c'est probablement une erreur
-                if len(reponse) < 30:
-                    reponse = "Désolé, je n'ai pas pu obtenir les informations météo actuelles. Veuillez réessayer plus tard."
-                
-            except Exception as e:
-                logger.error(f"Erreur lors de la récupération de la météo: {str(e)}")
-                reponse = "Désolé, je n'ai pas pu obtenir les informations météo actuelles. Veuillez réessayer plus tard."
-                
-            return {
-                "reponse": reponse,
-                "suggestions": resultat["suggestions"]
-            }
-        
-        # Si l'intention est liée à l'heure ou à la date, utiliser l'heure système
-        elif resultat["intention"] == "heure" or resultat["intention"] == "date":
-            return {
-                "reponse": resultat["reponse"],
-                "suggestions": resultat["suggestions"]
-            }
-            
-        # Si l'intention est liée aux blagues
-        elif resultat["intention"] == "blague":
-            logger.info("Intention blague détectée, réponse avec une blague")
-            return {
-                "reponse": resultat["reponse"],
-                "suggestions": resultat["suggestions"]
-            }
-        
-        # Pour toutes les autres intentions, utiliser la réponse générée par le moteur NLP
-        else:
-            return {
-                "reponse": resultat["reponse"],
-                "suggestions": resultat["suggestions"]
-            }
-    
-    except Exception as e:
-        logger.error(f"Erreur lors du traitement de la question: {str(e)}")
-        return {
-            "reponse": "Je suis désolé, une erreur s'est produite lors du traitement de votre question.",
-            "suggestions": SUGGESTIONS_DEFAUT
-        }
+# Création de l'agent
+agent = Agent(nom="Cindy")
 
 @app.route('/')
-def index():
-    """Page d'accueil de l'application"""
+def accueil():
+    """Route principale qui affiche l'interface de chat"""
     return render_template('index.html')
+
+@app.route('/historique')
+def historique():
+    """Route qui affiche l'historique des conversations"""
+    historique_recents = agent.obtenir_historique(limite=20)
+    stats = agent.obtenir_statistiques()
+    return render_template('historique.html', historique=historique_recents, stats=stats)
 
 @app.route('/aide')
 def aide():
-    """Page d'aide de l'application"""
-    logger.info("Affichage de la page d'aide - TEST SIMPLIFIÉ")
-    print("===> ROUTE AIDE APPELÉE - Tentative de rendu de aide.html")
+    """Route qui affiche la page d'aide"""
     return render_template('aide.html')
 
 @app.route('/question', methods=['POST'])
 def question():
-    """Endpoint pour traiter les questions de l'utilisateur"""
+    """
+    API pour poser une question à l'agent
+    Reçoit la question dans le corps de la requête et retourne la réponse
+    """
     try:
-        # Récupérer la question depuis la requête POST
-        data = request.get_json()
-        question_utilisateur = data.get('question', '')
+        # Récupérer la question depuis la requête
+        donnees = request.get_json()
+        question = donnees.get('question', '')
         
-        # Simuler un court délai pour donner l'impression de réflexion
-        time.sleep(0.5)
+        if not question:
+            return jsonify({"erreur": "Aucune question fournie"}), 400
         
-        # Traiter la question et générer une réponse
-        reponse = poser_question(question_utilisateur)
+        logger.info(f"Question reçue: {question}")
         
+        # Utiliser l'agent pour générer une réponse
+        resultat = agent.generer_reponse(question)
+        
+        # Construire la réponse JSON avec la réponse et les suggestions
+        reponse = {
+            "reponse": resultat["reponse"],
+            "suggestions": resultat.get("suggestions", [])
+        }
+        
+        logger.info(f"Réponse envoyée: {resultat['reponse']}")
         return jsonify(reponse)
-    
+        
     except Exception as e:
-        logger.error(f"Erreur dans la route /question: {str(e)}")
-        return jsonify({
-            "reponse": "Une erreur s'est produite lors du traitement de votre demande.",
-            "suggestions": SUGGESTIONS_DEFAUT
-        })
+        logger.error(f"Erreur lors du traitement de la question: {str(e)}", exc_info=True)
+        return jsonify({"erreur": "Une erreur est survenue lors du traitement de votre question."}), 500
+
+# Pour la compatibilité, garder aussi l'ancienne route
+@app.route('/api/question', methods=['POST'])
+def poser_question():
+    """Redirection vers la route principale question()"""
+    return question()
 
 if __name__ == '__main__':
-    logger.info("Démarrage de l'application Agent Personnel")
-    app.run(debug=True) 
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=True) 
