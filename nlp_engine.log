@@ -3840,3 +3840,17 @@ AttributeError: 'list' object has no attribute 'items'
 2025-03-07 14:52:45,211 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Ma créatrice est Cindy Singer, une experte en intelligence artificielle travaillant chez Digital Factory. Elle s'est spécialisée dans le développement d'assistantes IA comme moi pour rendre la technologie plus accessible et utile au quotidien.", 'intention': 'createur', 'score': 1.0, 'entites': {}, 'suggestions': ['Parle-moi de Digital Factory', 'Raconte-moi une blague', 'Quelle heure est-il ?']}
 2025-03-07 14:52:45,213 - assistant_ia.app - INFO - Réponse envoyée: Ma créatrice est Cindy Singer, une experte en intelligence artificielle travaillant chez Digital Factory. Elle s'est spécialisée dans le développement d'assistantes IA comme moi pour rendre la technologie plus accessible et utile au quotidien.
 2025-03-07 14:52:45,215 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:52:45] "POST /question HTTP/1.1" 200 -
+2025-03-07 14:52:59,413 - assistant_ia.app - INFO - Question reçue: est ce qu'il pleut a Bali?
+2025-03-07 14:52:59,414 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il pleut a Bali?
+2025-03-07 14:52:59,415 - nlp_engine - INFO - Analyse de la question: est ce qu'il pleut a Bali?
+2025-03-07 14:52:59,416 - nlp_engine - INFO - Ville extraite: Bali
+2025-03-07 14:52:59,417 - nlp_engine - INFO - Question météo détectée: est ce qu'il pleut a Bali?
+2025-03-07 14:52:59,418 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Bali'}
+2025-03-07 14:52:59,419 - nlp_engine - INFO - Demande météo pour la ville: Bali
+2025-03-07 14:52:59,419 - nlp_engine - INFO - Question spécifique sur la pluie détectée
+2025-03-07 14:52:59,420 - assistant_ia.external_services - INFO - Obtention de la météo pour la ville: Bali
+2025-03-07 14:52:59,688 - assistant_ia.external_services - INFO - Statut de la réponse API météo: 200
+2025-03-07 14:52:59,689 - assistant_ia.external_services - INFO - Données API météo reçues: dict_keys(['latitude', 'longitude', 'generationtime_ms', 'utc_offset_seconds', 'timezone', 'timezone_abbreviation', 'elevation', 'current_units', 'current'])
+2025-03-07 14:52:59,722 - assistant_ia.agent - ERROR - Erreur dans Agent.generer_reponse: 'str' object has no attribute 'get'
+2025-03-07 14:52:59,723 - assistant_ia.app - INFO - Réponse envoyée: Désolé, une erreur est survenue dans l'agent. Veuillez réessayer.
+2025-03-07 14:52:59,724 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:52:59] "POST /question HTTP/1.1" 200 -
