@@ -1088,5 +1088,179 @@
             "ville": "Raconte"
         },
         "timestamp": "2025-03-06 17:19:04"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:23:08"
+    },
+    {
+        "question": "Comment vas-tu ?",
+        "reponse": "Je vais très bien, merci ! Et vous, comment allez-vous ?",
+        "intention": "bien_etre",
+        "score": 1.0,
+        "entites": {
+            "ville": "Comment"
+        },
+        "timestamp": "2025-03-06 17:23:17"
+    },
+    {
+        "question": "Quelle est la météo à Lyon aujourd'hui ?",
+        "reponse": "Je recherche les informations météo pour Lyon.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Lyon"
+        },
+        "timestamp": "2025-03-06 17:23:20"
+    },
+    {
+        "question": "une blague",
+        "reponse": "Que fait une fraise sur un cheval ? Elle galope !",
+        "intention": "blague",
+        "score": 18,
+        "entites": {},
+        "timestamp": "2025-03-06 17:23:25"
+    },
+    {
+        "question": "encore blague",
+        "reponse": "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !",
+        "intention": "blague",
+        "score": 5,
+        "entites": {},
+        "timestamp": "2025-03-06 17:23:32"
+    },
+    {
+        "question": "encore blague",
+        "reponse": "Pourquoi les abeilles ont-elles du miel ? Parce qu'elles se sucrent les doigts.",
+        "intention": "blague",
+        "score": 5,
+        "entites": {},
+        "timestamp": "2025-03-06 17:23:37"
+    },
+    {
+        "question": "Raconte-moi une autre blague",
+        "reponse": "Qu'est-ce qu'un crocodile qui surveille la pharmacie ? Un Lacoste garde.",
+        "intention": "blague",
+        "score": 57,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:23:43"
+    },
+    {
+        "question": "Raconte-moi une autre blague",
+        "reponse": "Que fait une fraise sur un cheval ? Elle galope !",
+        "intention": "blague",
+        "score": 57,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:23:54"
+    },
+    {
+        "question": "Raconte-moi une autre blague",
+        "reponse": "Que dit un escargot qui rencontre une limace ? 'Tiens, tu as oublié ta carapace !'",
+        "intention": "blague",
+        "score": 57,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:23:57"
+    },
+    {
+        "question": "Quelle est la météo à Marseille aujourd'hui ?",
+        "reponse": "Je vais consulter la météo pour vous à Marseille.",
+        "intention": "meteo",
+        "score": 1.0,
+        "entites": {
+            "ville": "Marseille"
+        },
+        "timestamp": "2025-03-06 17:24:02"
+    },
+    {
+        "question": "Raconte-moi une autre blague",
+        "reponse": "Qu'est-ce qu'un crocodile qui surveille la pharmacie ? Un Lacoste garde.",
+        "intention": "blague",
+        "score": 57,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:24:06"
+    },
+    {
+        "question": "Raconte-moi une autre blague",
+        "reponse": "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !",
+        "intention": "blague",
+        "score": 57,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:24:14"
+    },
+    {
+        "question": "Raconte-moi une autre blague",
+        "reponse": "Qu'est-ce qu'un crocodile qui surveille la pharmacie ? Un Lacoste garde.",
+        "intention": "blague",
+        "score": 57,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:24:18"
+    },
+    {
+        "question": "Raconte-moi une autre blague",
+        "reponse": "Pourquoi les abeilles ont-elles du miel ? Parce qu'elles se sucrent les doigts.",
+        "intention": "blague",
+        "score": 57,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:24:21"
+    },
+    {
+        "question": "Raconte-moi une autre blague",
+        "reponse": "Pourquoi les abeilles ont-elles du miel ? Parce qu'elles se sucrent les doigts.",
+        "intention": "blague",
+        "score": 57,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-06 17:24:25"
+    },
+    {
+        "question": "Raconte-moi une blague",
+        "reponse": "Pourquoi les informaticiens confondent-ils Halloween et Noël ? Parce qu'Oct 31 = Dec 25.",
+        "intention": "blague",
+        "score": 60,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-07 08:19:39"
+    },
+    {
+        "question": "Raconte-moi une autre blague",
+        "reponse": "Qu'est-ce qu'un crocodile qui surveille la pharmacie ? Un Lacoste Garde.",
+        "intention": "blague",
+        "score": 81,
+        "entites": {
+            "ville": "Raconte"
+        },
+        "timestamp": "2025-03-07 08:19:51"
+    },
+    {
+        "question": "donne moi la météo de Maizières les Metz",
+        "reponse": "Laissez-moi vérifier la météo à Maizières.",
+        "intention": "meteo",
+        "score": 28,
+        "entites": {
+            "ville": "Maizières"
+        },
+        "timestamp": "2025-03-07 08:27:16"
     }
 ]

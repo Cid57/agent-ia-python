@@ -35,12 +35,12 @@
             "bordeaux": 5,
             "parius": 0,
             "strasbourg": 0,
-            "nice": 4,
+            "nice": 5,
             "bali": 0,
             "heure": 5,
-            "pleut": 4,
-            "pleuvoir": 3,
-            "demandez": 3
+            "pleut": 5,
+            "pleuvoir": 5,
+            "demandez": 5
         },
         "expressions": {
             "quelle est": 8,
@@ -58,9 +58,9 @@
             "météo aujourd": 8,
             "météo aujourd hui": 8,
             "quelle heure": 8,
-            "marseille aujourd": 6,
-            "marseille aujourd hui": 6,
-            "demandez moi": 3
+            "marseille aujourd": 8,
+            "marseille aujourd hui": 8,
+            "demandez moi": 8
         }
     },
     "heure": {
@@ -69,7 +69,7 @@
             "heure": 5,
             "est": 5,
             "demandez": 0,
-            "moi": 1,
+            "moi": 3,
             "donne": 0,
             "lheure": 0
         },
@@ -94,7 +94,7 @@
             "fait": 5,
             "météo": 0,
             "paris": 0,
-            "comment": 4,
+            "comment": 5,
             "fonctionnes": 0
         },
         "expressions": {
@@ -138,14 +138,21 @@
             "essayez": 0,
             "poser": 0,
             "question": 0,
-            "simple": 0
+            "simple": 0,
+            "autre": 5,
+            "encore": 1
         },
         "expressions": {
             "raconte moi": 8,
             "raconte moi une": 8,
             "moi une": 8,
             "moi une blague": 8,
-            "une blague": 8
+            "une blague": 8,
+            "moi une autre": 8,
+            "une autre": 8,
+            "une autre blague": 8,
+            "autre blague": 8,
+            "encore blague": 2
         }
     },
     "identite": {
@@ -157,9 +164,9 @@
     "bien_etre": {
         "mots_cles": {
             "comment": 5,
-            "aujourd": 4,
-            "hui": 4,
-            "vas": 4
+            "aujourd": 5,
+            "hui": 5,
+            "vas": 5
         },
         "expressions": {
             "aujourd hui": 8,

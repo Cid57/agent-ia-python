@@ -2142,3 +2142,213 @@ AttributeError: 'list' object has no attribute 'items'
 2025-03-06 17:21:19,184 - agent - INFO - Démarrage de l'application Agent Personnel
 2025-03-06 17:21:19,193 - werkzeug - WARNING -  * Debugger is active!
 2025-03-06 17:21:19,196 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 17:23:02,154 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:23:02,155 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 17:23:02,157 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 17:23:02,174 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-06 17:23:02,175 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-06 17:23:02,178 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 17:23:02,588 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:23:02,589 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 17:23:02,590 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 17:23:02,598 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 17:23:02,602 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 17:23:05,337 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:05] "GET / HTTP/1.1" 200 -
+2025-03-06 17:23:05,431 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-06 17:23:05,432 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:05] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-06 17:23:05,440 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:05] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-06 17:23:08,701 - agent - INFO - Question reçue: Raconte-moi une blague
+2025-03-06 17:23:08,701 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une blague'
+2025-03-06 17:23:08,703 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:23:08,703 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 60
+2025-03-06 17:23:08,711 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:23:08,711 - nlp_engine - INFO - Réponse générée: Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !
+2025-03-06 17:23:08,711 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:23:08,733 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:23:08,734 - agent - INFO - Intention détectée: blague avec score 60
+2025-03-06 17:23:08,734 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:23:08,734 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:23:08,734 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:08] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:23:14,866 - agent - INFO - Question spéciale d'identité détectée: Qui es-tu ?
+2025-03-06 17:23:14,867 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:14] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:23:17,257 - agent - INFO - Question reçue: Comment vas-tu ?
+2025-03-06 17:23:17,257 - nlp_engine - INFO - Début d'analyse de la question: 'Comment vas-tu ?'
+2025-03-06 17:23:17,258 - nlp_engine - INFO - Question concernant le bien-être détectée
+2025-03-06 17:23:17,265 - nlp_engine - INFO - Génération de réponse pour l'intention: bien_etre
+2025-03-06 17:23:17,265 - nlp_engine - INFO - Réponse générée: Je vais très bien, merci ! Et vous, comment allez-vous ?
+2025-03-06 17:23:17,266 - nlp_engine - INFO - Génération de suggestions pour l'intention: bien_etre
+2025-03-06 17:23:17,297 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:23:17,297 - agent - INFO - Intention détectée: bien_etre avec score 1.0
+2025-03-06 17:23:17,297 - agent - INFO - Entités extraites: {'ville': 'Comment'}
+2025-03-06 17:23:17,298 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:17] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:23:20,331 - agent - INFO - Question reçue: Quelle est la météo à Lyon aujourd'hui ?
+2025-03-06 17:23:20,331 - nlp_engine - INFO - Début d'analyse de la question: 'Quelle est la météo à Lyon aujourd'hui ?'
+2025-03-06 17:23:20,331 - nlp_engine - INFO - Question contient à la fois des mots de météo et de date, priorité à la météo
+2025-03-06 17:23:20,337 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-06 17:23:20,338 - nlp_engine - INFO - Réponse générée: Je recherche les informations météo pour Lyon.
+2025-03-06 17:23:20,338 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-06 17:23:20,364 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:23:20,365 - agent - INFO - Intention détectée: meteo avec score 1.0
+2025-03-06 17:23:20,365 - agent - INFO - Entités extraites: {'ville': 'Lyon'}
+2025-03-06 17:23:20,366 - agent - INFO - Demande météo pour la question: Quelle est la météo à Lyon aujourd'hui ?
+2025-03-06 17:23:20,484 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:20] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:23:25,442 - agent - INFO - Question reçue: une blague
+2025-03-06 17:23:25,442 - nlp_engine - INFO - Début d'analyse de la question: 'une blague'
+2025-03-06 17:23:25,444 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:23:25,444 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 18
+2025-03-06 17:23:25,451 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:23:25,452 - nlp_engine - INFO - Réponse générée: Que fait une fraise sur un cheval ? Elle galope !
+2025-03-06 17:23:25,452 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:23:25,475 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:23:25,476 - agent - INFO - Intention détectée: blague avec score 18
+2025-03-06 17:23:25,477 - agent - INFO - Entités extraites: {}
+2025-03-06 17:23:25,477 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:23:25,478 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:25] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:23:32,584 - agent - INFO - Question reçue: encore blague
+2025-03-06 17:23:32,585 - nlp_engine - INFO - Début d'analyse de la question: 'encore blague'
+2025-03-06 17:23:32,586 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:23:32,587 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 5
+2025-03-06 17:23:32,594 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:23:32,594 - nlp_engine - INFO - Réponse générée: Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !
+2025-03-06 17:23:32,595 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:23:32,614 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:23:32,618 - apprentissage - INFO - Statistiques mises à jour: 120 interactions analysées
+2025-03-06 17:23:32,620 - apprentissage - INFO - Modèle amélioré pour 9 intentions
+2025-03-06 17:23:32,620 - agent - INFO - Intention détectée: blague avec score 5
+2025-03-06 17:23:32,621 - agent - INFO - Entités extraites: {}
+2025-03-06 17:23:32,621 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:23:32,622 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:32] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:23:37,534 - agent - INFO - Question reçue: encore blague
+2025-03-06 17:23:37,535 - nlp_engine - INFO - Début d'analyse de la question: 'encore blague'
+2025-03-06 17:23:37,536 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:23:37,537 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 5
+2025-03-06 17:23:37,542 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:23:37,543 - nlp_engine - INFO - Réponse générée: Pourquoi les abeilles ont-elles du miel ? Parce qu'elles se sucrent les doigts.
+2025-03-06 17:23:37,543 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:23:37,565 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:23:37,565 - agent - INFO - Intention détectée: blague avec score 5
+2025-03-06 17:23:37,566 - agent - INFO - Entités extraites: {}
+2025-03-06 17:23:37,566 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:23:37,567 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:37] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:23:43,391 - agent - INFO - Question reçue: Raconte-moi une autre blague
+2025-03-06 17:23:43,392 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une autre blague'
+2025-03-06 17:23:43,393 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:23:43,393 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 57
+2025-03-06 17:23:43,400 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:23:43,400 - nlp_engine - INFO - Réponse générée: Qu'est-ce qu'un crocodile qui surveille la pharmacie ? Un Lacoste garde.
+2025-03-06 17:23:43,400 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:23:43,423 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:23:43,424 - agent - INFO - Intention détectée: blague avec score 57
+2025-03-06 17:23:43,424 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:23:43,424 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:23:43,425 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:43] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:23:54,870 - agent - INFO - Question reçue: Raconte-moi une autre blague
+2025-03-06 17:23:54,870 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une autre blague'
+2025-03-06 17:23:54,871 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:23:54,872 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 57
+2025-03-06 17:23:54,878 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:23:54,879 - nlp_engine - INFO - Réponse générée: Que fait une fraise sur un cheval ? Elle galope !
+2025-03-06 17:23:54,879 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:23:54,899 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:23:54,900 - agent - INFO - Intention détectée: blague avec score 57
+2025-03-06 17:23:54,901 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:23:54,901 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:23:54,902 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:54] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:23:57,245 - agent - INFO - Question reçue: Raconte-moi une autre blague
+2025-03-06 17:23:57,245 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une autre blague'
+2025-03-06 17:23:57,246 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:23:57,246 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 57
+2025-03-06 17:23:57,257 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:23:57,258 - nlp_engine - INFO - Réponse générée: Que dit un escargot qui rencontre une limace ? 'Tiens, tu as oublié ta carapace !'
+2025-03-06 17:23:57,258 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:23:57,283 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:23:57,284 - agent - INFO - Intention détectée: blague avec score 57
+2025-03-06 17:23:57,285 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:23:57,285 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:23:57,286 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:23:57] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:24:02,227 - agent - INFO - Question reçue: Quelle est la météo à Marseille aujourd'hui ?
+2025-03-06 17:24:02,228 - nlp_engine - INFO - Début d'analyse de la question: 'Quelle est la météo à Marseille aujourd'hui ?'
+2025-03-06 17:24:02,228 - nlp_engine - INFO - Question contient à la fois des mots de météo et de date, priorité à la météo
+2025-03-06 17:24:02,236 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-06 17:24:02,237 - nlp_engine - INFO - Réponse générée: Je vais consulter la météo pour vous à Marseille.
+2025-03-06 17:24:02,238 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-06 17:24:02,260 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:24:02,261 - agent - INFO - Intention détectée: meteo avec score 1.0
+2025-03-06 17:24:02,261 - agent - INFO - Entités extraites: {'ville': 'Marseille'}
+2025-03-06 17:24:02,261 - agent - INFO - Demande météo pour la question: Quelle est la météo à Marseille aujourd'hui ?
+2025-03-06 17:24:02,354 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:24:02] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:24:06,675 - agent - INFO - Question reçue: Raconte-moi une autre blague
+2025-03-06 17:24:06,676 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une autre blague'
+2025-03-06 17:24:06,677 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:24:06,678 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 57
+2025-03-06 17:24:06,684 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:24:06,685 - nlp_engine - INFO - Réponse générée: Qu'est-ce qu'un crocodile qui surveille la pharmacie ? Un Lacoste garde.
+2025-03-06 17:24:06,685 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:24:06,710 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:24:06,711 - agent - INFO - Intention détectée: blague avec score 57
+2025-03-06 17:24:06,711 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:24:06,711 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:24:06,712 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:24:06] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:24:14,024 - agent - INFO - Question reçue: Raconte-moi une autre blague
+2025-03-06 17:24:14,025 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une autre blague'
+2025-03-06 17:24:14,026 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:24:14,026 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 57
+2025-03-06 17:24:14,033 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:24:14,033 - nlp_engine - INFO - Réponse générée: Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !
+2025-03-06 17:24:14,034 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:24:14,060 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:24:14,061 - agent - INFO - Intention détectée: blague avec score 57
+2025-03-06 17:24:14,061 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:24:14,061 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:24:14,062 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:24:14] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:24:18,490 - agent - INFO - Question reçue: Raconte-moi une autre blague
+2025-03-06 17:24:18,491 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une autre blague'
+2025-03-06 17:24:18,492 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:24:18,492 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 57
+2025-03-06 17:24:18,495 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:24:18,495 - nlp_engine - INFO - Réponse générée: Qu'est-ce qu'un crocodile qui surveille la pharmacie ? Un Lacoste garde.
+2025-03-06 17:24:18,495 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:24:18,514 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:24:18,515 - agent - INFO - Intention détectée: blague avec score 57
+2025-03-06 17:24:18,515 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:24:18,515 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:24:18,516 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:24:18] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:24:21,889 - agent - INFO - Question reçue: Raconte-moi une autre blague
+2025-03-06 17:24:21,890 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une autre blague'
+2025-03-06 17:24:21,891 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:24:21,892 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 57
+2025-03-06 17:24:21,898 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:24:21,898 - nlp_engine - INFO - Réponse générée: Pourquoi les abeilles ont-elles du miel ? Parce qu'elles se sucrent les doigts.
+2025-03-06 17:24:21,899 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:24:21,918 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:24:21,919 - agent - INFO - Intention détectée: blague avec score 57
+2025-03-06 17:24:21,919 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:24:21,920 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:24:21,921 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:24:21] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:24:25,389 - agent - INFO - Question reçue: Raconte-moi une autre blague
+2025-03-06 17:24:25,389 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une autre blague'
+2025-03-06 17:24:25,390 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:24:25,391 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 57
+2025-03-06 17:24:25,397 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-06 17:24:25,398 - nlp_engine - INFO - Réponse générée: Pourquoi les abeilles ont-elles du miel ? Parce qu'elles se sucrent les doigts.
+2025-03-06 17:24:25,398 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-06 17:24:25,421 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-06 17:24:25,424 - apprentissage - INFO - Statistiques mises à jour: 130 interactions analysées
+2025-03-06 17:24:25,428 - apprentissage - INFO - Modèle amélioré pour 9 intentions
+2025-03-06 17:24:25,428 - agent - INFO - Intention détectée: blague avec score 57
+2025-03-06 17:24:25,428 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-06 17:24:25,429 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-06 17:24:25,429 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:24:25] "POST /question HTTP/1.1" 200 -
+2025-03-06 17:28:20,445 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-06 17:28:20,517 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 17:28:21,271 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-06 17:28:21,272 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-06 17:28:21,276 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-06 17:28:21,294 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 17:28:21,302 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-06 17:28:35,414 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-06 17:28:35,478 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 17:28:36,265 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-06 17:28:36,266 - assistant_ia.agent - INFO - Agent AssistantIA initialisé
+2025-03-06 17:28:36,267 - assistant_ia.memory - INFO - Mémoire chargée depuis memoire_agent.json

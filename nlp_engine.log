@@ -380,3 +380,126 @@
 2025-03-05 14:10:30,628 - werkzeug - INFO -  * Debugger PIN: 648-377-270
 2025-03-05 14:11:42,280 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\apprentissage.py', reloading
 2025-03-05 14:11:42,341 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 08:19:24,973 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-07 08:19:24,973 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-07 08:19:25,081 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 08:19:25,083 - assistant_ia.agent - INFO - Agent AssistantIA initialisé
+2025-03-07 08:19:25,084 - assistant_ia.memory - INFO - Mémoire chargée depuis memoire_agent.json
+2025-03-07 08:19:25,085 - nlp_engine - INFO - Importation réussie de 26 blagues depuis l'agent
+2025-03-07 08:19:25,089 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-07 08:19:25,132 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-07 08:19:25,133 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 08:19:25,141 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 08:19:25,820 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-07 08:19:25,821 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-07 08:19:25,912 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 08:19:25,913 - assistant_ia.agent - INFO - Agent AssistantIA initialisé
+2025-03-07 08:19:25,914 - assistant_ia.memory - INFO - Mémoire chargée depuis memoire_agent.json
+2025-03-07 08:19:25,915 - nlp_engine - INFO - Importation réussie de 26 blagues depuis l'agent
+2025-03-07 08:19:25,917 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-07 08:19:25,935 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 08:19:25,944 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 08:19:30,593 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:19:30] "GET / HTTP/1.1" 200 -
+2025-03-07 08:19:30,792 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:19:30] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-07 08:19:30,793 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:19:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-07 08:19:30,794 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:19:30] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-07 08:19:39,225 - agent - INFO - Question reçue: Raconte-moi une blague
+2025-03-07 08:19:39,227 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une blague'
+2025-03-07 08:19:39,231 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-07 08:19:39,234 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 60
+2025-03-07 08:19:39,278 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-07 08:19:39,280 - nlp_engine - INFO - Utilisation d'une blague parmi les 26 importées de l'agent
+2025-03-07 08:19:39,281 - nlp_engine - INFO - Réponse générée: Pourquoi les informaticiens confondent-ils Halloween et Noël ? Parce qu'Oct 31 = Dec 25.
+2025-03-07 08:19:39,282 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-07 08:19:39,326 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-07 08:19:39,327 - agent - INFO - Intention détectée: blague avec score 60
+2025-03-07 08:19:39,328 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-07 08:19:39,329 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-07 08:19:39,331 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:19:39] "POST /question HTTP/1.1" 200 -
+2025-03-07 08:19:51,198 - agent - INFO - Question reçue: Raconte-moi une autre blague
+2025-03-07 08:19:51,200 - nlp_engine - INFO - Début d'analyse de la question: 'Raconte-moi une autre blague'
+2025-03-07 08:19:51,202 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-07 08:19:51,203 - nlp_engine - INFO - Intention prédite par le modèle amélioré: blague avec score 81
+2025-03-07 08:19:51,223 - nlp_engine - INFO - Génération de réponse pour l'intention: blague
+2025-03-07 08:19:51,224 - nlp_engine - INFO - Utilisation d'une blague parmi les 26 importées de l'agent
+2025-03-07 08:19:51,226 - nlp_engine - INFO - Réponse générée: Qu'est-ce qu'un crocodile qui surveille la pharmacie ? Un Lacoste Garde.
+2025-03-07 08:19:51,226 - nlp_engine - INFO - Génération de suggestions pour l'intention: blague
+2025-03-07 08:19:51,271 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-07 08:19:51,273 - agent - INFO - Intention détectée: blague avec score 81
+2025-03-07 08:19:51,273 - agent - INFO - Entités extraites: {'ville': 'Raconte'}
+2025-03-07 08:19:51,274 - agent - INFO - Intention blague détectée, réponse avec une blague
+2025-03-07 08:19:51,275 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:19:51] "POST /question HTTP/1.1" 200 -
+2025-03-07 08:22:53,813 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-07 08:22:53,897 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 08:22:54,599 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-07 08:22:54,599 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-07 08:22:54,681 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 08:22:54,682 - assistant_ia.agent - INFO - Agent AssistantIA initialisé
+2025-03-07 08:22:54,683 - assistant_ia.memory - INFO - Mémoire chargée depuis memoire_agent.json
+2025-03-07 08:22:54,684 - nlp_engine - INFO - Importation réussie de 26 blagues depuis l'agent
+2025-03-07 08:22:54,689 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-07 08:22:54,705 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 08:22:54,710 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 08:23:04,790 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-07 08:23:04,861 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 08:23:05,699 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-07 08:23:05,699 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-07 08:23:05,783 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 08:23:05,784 - assistant_ia.agent - INFO - Agent AssistantIA initialisé
+2025-03-07 08:23:05,785 - assistant_ia.memory - INFO - Mémoire chargée depuis memoire_agent.json
+2025-03-07 08:23:05,786 - nlp_engine - INFO - Importation réussie de 26 blagues depuis l'agent
+2025-03-07 08:23:05,789 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-07 08:23:05,807 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 08:23:05,812 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 08:25:19,918 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-07 08:25:19,991 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 08:25:20,743 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-07 08:25:20,744 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-07 08:25:20,844 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 08:25:20,845 - assistant_ia.agent - INFO - Agent AssistantIA initialisé
+2025-03-07 08:25:20,846 - assistant_ia.memory - INFO - Mémoire chargée depuis memoire_agent.json
+2025-03-07 08:25:20,847 - nlp_engine - INFO - Importation réussie de 26 blagues depuis l'agent
+2025-03-07 08:25:20,850 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-07 08:25:20,867 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 08:25:20,874 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 08:26:13,097 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-07 08:26:13,098 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-07 08:26:13,191 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 08:26:13,192 - assistant_ia.agent - INFO - Agent AssistantIA initialisé
+2025-03-07 08:26:13,193 - assistant_ia.memory - INFO - Mémoire chargée depuis memoire_agent.json
+2025-03-07 08:26:13,194 - nlp_engine - INFO - Importation réussie de 26 blagues depuis l'agent
+2025-03-07 08:26:13,197 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-07 08:26:13,225 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-07 08:26:13,226 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 08:26:13,232 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 08:26:13,807 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-07 08:26:13,808 - nlp_engine - INFO - Modèle amélioré chargé avec succès
+2025-03-07 08:26:13,891 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 08:26:13,892 - assistant_ia.agent - INFO - Agent AssistantIA initialisé
+2025-03-07 08:26:13,893 - assistant_ia.memory - INFO - Mémoire chargée depuis memoire_agent.json
+2025-03-07 08:26:13,894 - nlp_engine - INFO - Importation réussie de 26 blagues depuis l'agent
+2025-03-07 08:26:13,898 - agent - INFO - Démarrage de l'application Agent Personnel
+2025-03-07 08:26:13,915 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 08:26:13,924 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 08:26:17,822 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:26:17] "GET / HTTP/1.1" 200 -
+2025-03-07 08:26:17,946 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:26:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-07 08:26:17,952 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:26:17] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-07 08:26:17,953 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:26:17] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-07 08:26:25,823 - agent - INFO - Question spéciale d'identité détectée: Qui es-tu?
+2025-03-07 08:26:25,825 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:26:25] "POST /question HTTP/1.1" 200 -
+2025-03-07 08:26:33,716 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:26:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-07 08:26:33,719 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:26:33] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-07 08:27:15,996 - agent - INFO - Question reçue: donne moi la météo de Maizières les Metz
+2025-03-07 08:27:15,998 - nlp_engine - INFO - Début d'analyse de la question: 'donne moi la météo de Maizières les Metz'
+2025-03-07 08:27:16,002 - apprentissage - INFO - Modèle amélioré chargé avec 9 intentions
+2025-03-07 08:27:16,003 - nlp_engine - INFO - Intention prédite par le modèle amélioré: meteo avec score 28
+2025-03-07 08:27:16,034 - nlp_engine - INFO - Génération de réponse pour l'intention: meteo
+2025-03-07 08:27:16,035 - nlp_engine - INFO - Réponse générée: Laissez-moi vérifier la météo à Maizières.
+2025-03-07 08:27:16,036 - nlp_engine - INFO - Génération de suggestions pour l'intention: meteo
+2025-03-07 08:27:16,079 - apprentissage - INFO - Motifs de questions extraits pour 6 intentions
+2025-03-07 08:27:16,081 - agent - INFO - Intention détectée: meteo avec score 28
+2025-03-07 08:27:16,081 - agent - INFO - Entités extraites: {'ville': 'Maizières'}
+2025-03-07 08:27:16,083 - agent - INFO - Demande météo pour la question: donne moi la météo de Maizières les Metz
+2025-03-07 08:27:16,336 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 08:27:16] "POST /question HTTP/1.1" 200 -

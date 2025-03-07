@@ -9,10 +9,7 @@ import json
 import logging
 from datetime import datetime
 
-# Importer notre nouveau module d'apprentissage
-from apprentissage import sauvegarder_interaction, charger_modele_ameliore, predire_intention
-
-# Configuration du logger
+# Configuration du logger d'abord
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -22,6 +19,27 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger("nlp_engine")
+
+# Importer notre nouveau module d'apprentissage
+from apprentissage import sauvegarder_interaction, charger_modele_ameliore, predire_intention
+
+# Variables globales pour les blagues de l'agent
+has_agent = False
+BLAGUES_AGENT = []
+
+# Fonction pour éviter l'import circulaire et charger les blagues de l'agent plus tard
+def charger_blagues_agent():
+    global has_agent, BLAGUES_AGENT
+    try:
+        from agent import Agent
+        temp_agent = Agent()
+        BLAGUES_AGENT = temp_agent.reponses.get("blague", [])
+        has_agent = True
+        logger.info(f"Importation réussie de {len(BLAGUES_AGENT)} blagues depuis l'agent")
+        return True
+    except Exception as e:
+        logger.warning(f"Impossible d'importer les blagues depuis l'agent: {str(e)}")
+        return False
 
 # Dictionnaire des intentions possibles avec leurs mots-clés et poids
 INTENTIONS = {
@@ -355,12 +373,27 @@ def generer_reponse_simple(intention, entites=None):
     """
     entites = entites or {}
     
+    # Cas spécial pour les blagues - essayer de charger les blagues de l'agent si non encore fait
+    if intention == "blague" and not has_agent:
+        charger_blagues_agent()
+    
+    # Utiliser les blagues de l'agent si disponibles, sinon utiliser nos propres blagues    
+    if intention == "blague" and has_agent and BLAGUES_AGENT:
+        logger.info(f"Utilisation d'une blague parmi les {len(BLAGUES_AGENT)} importées de l'agent")
+        return random.choice(BLAGUES_AGENT)
+    
     reponses = {
         "salutation": [
-            "Bonjour ! Comment puis-je vous aider aujourd'hui ?",
-            "Salut ! Je suis Cindy, votre assistant. Que puis-je faire pour vous ?",
-            "Bonjour ! Que puis-je faire pour vous ?"
+        "Bonjour ! Comment puis-je t’aider aujourd’hui ?",
+        "Salut ! Prêt(e) pour une nouvelle journée ? Dis-moi tout !",
+        "Coucou ! Besoin d’un coup de main ? Je suis là pour ça !",
+        "Hello ! Comment ça va ? En quoi puis-je t’aider ?",
+        "Yo ! Qu’est-ce que je peux faire pour toi aujourd’hui ?",
+        "Bonjour ! Dis-moi ce dont tu as besoin, je suis là pour toi.",
+        "Salut à toi ! Une question, un besoin ? Je suis tout ouïe !",
+        "Hey ! Toujours dispo pour toi. Par quoi on commence ?"
         ],
+
         "meteo": [
             f"Je vais consulter la météo pour vous{' à ' + entites.get('ville') if entites.get('ville') else ''}.",
             f"Laissez-moi vérifier la météo{' à ' + entites.get('ville') if entites.get('ville') else ''}.",
@@ -382,10 +415,16 @@ def generer_reponse_simple(intention, entites=None):
             "Avec plaisir ! N'hésitez pas si vous avez d'autres questions."
         ],
         "bien_etre": [
-            "Je vais très bien, merci ! Et vous, comment allez-vous ?",
-            "Tout va bien de mon côté. Comment puis-je vous aider aujourd'hui ?",
-            "Je suis opérationnelle et prête à vous aider. Comment allez-vous ?"
+            "Je vais très bien, merci ! Et toi, comment ça va ?",
+            "Tout roule de mon côté ! Comment puis-je t’aider aujourd’hui ?",
+            "Je suis au top et prête à te filer un coup de main. Et toi, ça va ?",
+            "Je fonctionne à 100 %, pas de bug en vue ! Comment te sens-tu ?",
+            "Je suis d’humeur optimisée aujourd’hui ! Besoin d’un coup de pouce ?",
+            "Tout va bien dans mon petit monde digital ! Et toi, quoi de neuf ?",
+            "Toujours prêt(e) à discuter et à aider ! Comment se passe ta journée ?",
+            "Je suis là, motivé(e) et dispo. Dis-moi tout, comment ça va ?"
         ],
+
         "aide": [
             "Je peux vous aider avec la météo, l'heure, la date et répondre à diverses questions. Que souhaitez-vous savoir ?",
             "Vous pouvez me demander la météo, l'heure, ou simplement discuter. Comment puis-je vous aider ?",
@@ -401,18 +440,27 @@ def generer_reponse_simple(intention, entites=None):
             "Je m'appelle Cindy, une intelligence artificielle conçue pour répondre à vos questions et vous assister au quotidien.",
             "Je suis Cindy, un assistant virtuel développé pour vous aider. Je peux répondre à vos questions sur la météo, l'heure et bien plus encore."
         ],
+
         "blague": [
-            "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !",
-            "Qu'est-ce qu'un crocodile qui surveille la pharmacie ? Un Lacoste garde.",
-            "Que fait une fraise sur un cheval ? Elle galope !",
-            "Qu'est-ce qui est jaune et qui attend ? Jonathan.",
-            "Pourquoi les canards sont-ils toujours à l'heure ? Parce qu'ils sont dans l'étang !",
-            "Comment appelle-t-on un chat tombé dans un pot de peinture le jour de Noël ? Un chat-peint de Noël.",
-            "Quel est le comble pour un électricien ? De ne pas être au courant.",
-            "Que dit un escargot qui rencontre une limace ? 'Tiens, tu as oublié ta carapace !'",
-            "C'est l'histoire d'un papier qui tombe à l'eau. Il crie : 'Au secours ! Je ne sais pas nager !' Heureusement, une feuille morte passait par là.",
-            "Pourquoi les abeilles ont-elles du miel ? Parce qu'elles se sucrent les doigts."
+            "Pourquoi les plongeurs plongent-ils toujours en arrière ? Parce que s'ils plongent en avant, ils tombent dans le bateau !",
+            "Pourquoi les chats n’aiment pas l’eau ? Parce que dans l’eau, Minet coule.",
+            "Que dit un zéro à un huit ? Sympa ta ceinture !",
+            "Pourquoi les maths sont tristes ? Parce qu’elles ont trop de problèmes.",
+            "Quel est le comble pour un électricien ? Ne pas être au courant.",
+            "Pourquoi le football c’est rigolo ? Parce que Thierry en rit !",
+            "Pourquoi les canards sont toujours à l’heure ? Parce qu’ils sont dans l’étang.",
+            "C'est quoi un steak qui n’en fait qu’à sa tête ? Un entrecôte.",
+            "Pourquoi les sushis ne parlent-ils jamais ? Parce qu’ils ont du riz dans la bouche.",
+            "Pourquoi les dauphins nagent en groupe ? Parce que seuls, ils feraient des flops.",
+            "Quel est le comble pour un espion ? Ne pas être au courant.",
+            "Pourquoi Napoléon n’a jamais déménagé ? Parce qu’il avait un Bonaparte.",
+            "Pourquoi les poissons n’aiment pas les ordinateurs ? À cause des phishings.",
+            "Pourquoi le téléphone portable a-t-il cassé avec sa copine ? Il capte plus rien.",
+            "Qu’est-ce qu’un ordinateur dit quand il est en colère ? ‘Ça me RAM de ouf !’",
+            "Pourquoi les informaticiens ne bronzent-ils jamais ? Parce qu’ils travaillent en mode sombre.",
+            "Comment appelle-t-on une intelligence artificielle qui raconte des blagues nulles ? ChatGPT… mais en version bêta !"
         ],
+
         "inconnu": [
             "Je ne suis pas sûre de comprendre votre demande. Pouvez-vous reformuler ?",
             "Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?",
@@ -581,6 +629,12 @@ def generer_suggestions(intention):
             return random.sample(suggestions[intention], max_suggestions)
     else:
         return random.sample(suggestions["inconnu"], 3)
+
+# Initialisation - essayer de charger les blagues de l'agent au démarrage du module
+try:
+    charger_blagues_agent()
+except Exception as e:
+    logger.warning(f"Échec du chargement initial des blagues: {str(e)}")
 
 # Tests unitaires simples si le script est exécuté directement
 if __name__ == "__main__":

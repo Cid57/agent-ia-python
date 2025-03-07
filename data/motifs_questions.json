@@ -5,10 +5,10 @@
         "quelle est la",
         "est la",
         "météo à",
-        "fait il",
         "est la météo",
         "la météo à",
         "aujourd hui",
+        "fait il",
         "à paris"
     ],
     "inconnu": [
@@ -39,20 +39,21 @@
         "raconte moi",
         "raconte moi une",
         "moi une",
-        "moi une blague",
         "une blague",
+        "moi une blague",
         "moi une autre",
         "une autre",
         "une autre blague",
-        "autre blague"
+        "autre blague",
+        "encore blague"
     ],
     "bien_etre": [
-        "tu aujourd",
-        "tu aujourd hui",
-        "aujourd hui",
         "comment vas",
         "comment vas tu",
         "vas tu",
+        "tu aujourd",
+        "tu aujourd hui",
+        "aujourd hui",
         "vas tu aujourd"
     ]
 }
