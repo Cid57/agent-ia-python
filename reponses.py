@@ -168,7 +168,6 @@ def obtenir_suggestions(intention="inconnu"):
             "Quelle est la météo à Lyon ?",
             "Quelle est la météo à Marseille ?",
             "Quelle est la météo à Bordeaux ?",
-            "Comment sera la météo demain ?",
             "Qui es-tu ?",
             "Parle-moi de Digital Factory"
         ],
@@ -180,8 +179,7 @@ def obtenir_suggestions(intention="inconnu"):
             "Comment vas-tu ?",
             "Quelle est la météo à Nice ?",
             "Comment fonctionnes-tu ?",
-            "Parle-moi de Digital Factory",
-            "Que sais-tu faire ?"
+            "Parle-moi de Digital Factory"
         ],
         "date": [
             "Quelle heure est-il ?",

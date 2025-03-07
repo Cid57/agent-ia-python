@@ -518,7 +518,9 @@ class MeteoService:
             elif temperature >= 25:
                 message += " C'est l'heure de sortir le maillot de bain ! 🏊‍♀️"
             elif temperature < 5:
-                message += " Il fait assez froid, n'oubliez pas de vous couvrir ! Sortez le maillot de bain pour les beaux jours. 🧥"
+                message += " Il fait assez froid, n'oubliez pas de vous couvrir ! Le maillot de bain devra attendre des températures plus clémentes. 🧥"
+            elif temperature >= 20:
+                message += " La température est agréable, mais peut-être pas encore idéale pour le maillot de bain ! 🌞"
             else:
                 message += " Il ne fait pas encore assez chaud pour sortir le maillot de bain ! 🧥"
                 

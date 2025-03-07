@@ -453,7 +453,33 @@ def generer_reponse_simple(intention, entites=None):
         
         # Si la liste est vide, utiliser une réponse par défaut
         if not reponses_possibles:
-            return "Je ne suis pas sûre de comprendre votre question."
+            if intention == "bien_etre":
+                # Réponses de secours pour le bien-être
+                reponses_bien_etre = [
+                    "Je vais super bien aujourd'hui, merci de demander ! Et toi, comment ça va ?",
+                    "Tout va bien, merci ! C'est gentil de t'inquiéter pour moi. Et de ton côté ?",
+                    "Je me sens en pleine forme ! J'espère que ta journée se passe bien aussi ?",
+                    "Ça va très bien, merci ! Et toi, comment se passe ta journée ?",
+                    "Plutôt bien ! C'est toujours un plaisir de discuter avec toi. Comment vas-tu ?",
+                    "Je me porte à merveille, merci ! J'espère que toi aussi ?"
+                ]
+                logger.warning(f"Utilisation de la réponse de secours pour l'intention: {intention}")
+                return random.choice(reponses_bien_etre)
+            elif intention == "reponse_bien_etre":
+                # Réponses de secours pour les réponses aux questions de bien-être
+                reponses_reponse_bien_etre = [
+                    "Je suis contente de l'apprendre ! Comment puis-je t'aider aujourd'hui ?",
+                    "C'est super ! Que puis-je faire pour toi ?",
+                    "Excellent ! Je suis là si tu as besoin de quoi que ce soit.",
+                    "Tant mieux ! Y a-t-il quelque chose dont tu voudrais discuter ?",
+                    "Merci de partager ça avec moi ! En quoi puis-je t'être utile ?",
+                    "C'est bien de le savoir ! N'hésite pas à me demander de l'aide si tu en as besoin.",
+                    "Parfait ! Que veux-tu savoir ou faire maintenant ?"
+                ]
+                logger.warning(f"Utilisation de la réponse de secours pour l'intention: {intention}")
+                return random.choice(reponses_reponse_bien_etre)
+            else:
+                return "Je ne suis pas sûre de comprendre votre question."
             
         # Choisir une réponse aléatoire
         reponse = random.choice(reponses_possibles)
@@ -537,7 +563,7 @@ def analyser_et_repondre(question):
                     # Déterminer si la question concerne un type spécifique de météo
                     concerne_pluie = any(mot in question_lower for mot in ["pleut", "pluie", "pleuvoir"])
                     concerne_neige = any(mot in question_lower for mot in ["neige", "neiger"])
-                    concerne_beau_temps = any(mot in question_lower for mot in ["beau temps", "ensoleillé", "soleil", "ciel bleu"])
+                    concerne_beau_temps = any(mot in question_lower for mot in ["soleil", "ensoleillé", "soleil", "ciel bleu", "beau"])
                     
                     # Appel direct à la fonction obtenir_meteo - méthode simple et robuste
                     reponse = meteo_service.obtenir_meteo(f"météo à {ville}")
@@ -546,21 +572,21 @@ def analyser_et_repondre(question):
                     if isinstance(reponse, str):
                         if concerne_pluie and "il fait actuellement" in reponse:
                             if "pluie" in reponse.lower() or "averse" in reponse.lower():
-                                reponse = reponse.replace("il fait actuellement", f"oui, il pleut actuellement à {ville}. Il fait")
+                                reponse = reponse.replace("il fait actuellement", f"oui, il pleut actuellement. Il fait")
                             else:
-                                reponse = reponse.replace("il fait actuellement", f"non, il ne pleut pas actuellement à {ville}. Il fait")
+                                reponse = reponse.replace("il fait actuellement", f"non, il ne pleut pas actuellement. Il fait")
                                 
                         elif concerne_neige and "il fait actuellement" in reponse:
                             if "neige" in reponse.lower():
-                                reponse = reponse.replace("il fait actuellement", f"oui, il neige actuellement à {ville}. Il fait")
+                                reponse = reponse.replace("il fait actuellement", f"oui, il neige actuellement. Il fait")
                             else:
-                                reponse = reponse.replace("il fait actuellement", f"non, il ne neige pas actuellement à {ville}. Il fait")
+                                reponse = reponse.replace("il fait actuellement", f"non, il ne neige pas actuellement. Il fait")
                                 
                         elif concerne_beau_temps and "il fait actuellement" in reponse:
-                            if any(mot in reponse.lower() for mot in ["ensoleillé", "clair", "dégagé"]):
-                                reponse = reponse.replace("il fait actuellement", f"oui, il fait beau à {ville}. Il fait actuellement")
+                            if any(mot in reponse.lower() for mot in ["ensoleillé", "clair", "dégagé", "soleil", "ciel bleu", "beau"]):
+                                reponse = reponse.replace("il fait actuellement", f"oui, il fait beau. Il fait actuellement")
                             else:
-                                reponse = reponse.replace("il fait actuellement", f"non, il ne fait pas particulièrement beau à {ville}. Il fait actuellement")
+                                reponse = reponse.replace("il fait actuellement", f"non, il ne fait pas particulièrement beau. Il fait actuellement")
                     
                     # S'assurer que la réponse est une chaîne de caractères
                     if not isinstance(reponse, str):

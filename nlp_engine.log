@@ -4200,3 +4200,565 @@ AttributeError: 'list' object has no attribute 'items'
 2025-03-07 15:10:48,204 - nlp_engine - INFO - Suggestions générées: ['Comment vas-tu ?', 'Parle-moi de Digital Factory', 'Quelle est la météo à Bordeaux ?', 'Qui es-tu ?']
 2025-03-07 15:10:48,221 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Tokyo
 2025-03-07 15:10:48,235 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:10:48] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:24:39,064 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:24:39,159 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:24:39,164 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:24:39,204 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.13:5000
+2025-03-07 15:24:39,205 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 15:24:39,209 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:24:39,820 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:24:39,917 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:24:39,919 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:24:39,932 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:24:39,936 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:24:42,929 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:24:42] "GET / HTTP/1.1" 200 -
+2025-03-07 15:24:43,057 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:24:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-07 15:24:43,060 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:24:43] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-07 15:24:43,061 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:24:43] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-07 15:24:48,515 - assistant_ia.app - INFO - Question reçue: Comment vas-tu aujourd'hui?
+2025-03-07 15:24:48,517 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Comment vas-tu aujourd'hui?
+2025-03-07 15:24:48,517 - nlp_engine - INFO - Analyse de la question: Comment vas-tu aujourd'hui?
+2025-03-07 15:24:48,524 - nlp_engine - INFO - Question sur le bien-être détectée: Comment vas-tu aujourd'hui?
+2025-03-07 15:24:48,525 - nlp_engine - INFO - Intention détectée: bien_etre (score: 1.0), entités: {}
+2025-03-07 15:24:48,526 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:24:48,527 - nlp_engine - INFO - Réponse générée: Je vais super bien aujourd'hui, merci de demander ! Et toi, comment ça va ?
+2025-03-07 15:24:48,528 - nlp_engine - ERROR - Erreur lors de l'obtention des suggestions centralisées: cannot access local variable 'random' where it is not associated with a value
+2025-03-07 15:24:48,528 - nlp_engine - INFO - Suggestions générées: ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]
+2025-03-07 15:24:48,529 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Je vais super bien aujourd'hui, merci de demander ! Et toi, comment ça va ?", 'intention': 'bien_etre', 'score': 1.0, 'entites': {}, 'suggestions': ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]}
+2025-03-07 15:24:48,530 - assistant_ia.app - INFO - Réponse envoyée: Je vais super bien aujourd'hui, merci de demander ! Et toi, comment ça va ?
+2025-03-07 15:24:48,531 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:24:48] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:24:54,330 - assistant_ia.app - INFO - Question reçue: ca va merci
+2025-03-07 15:24:54,332 - assistant_ia.agent - INFO - Agent Cindy analyse la question: ca va merci
+2025-03-07 15:24:54,333 - nlp_engine - INFO - Analyse de la question: ca va merci
+2025-03-07 15:24:54,335 - nlp_engine - INFO - Réponse à une question de bien-être détectée: ca va merci
+2025-03-07 15:24:54,336 - nlp_engine - INFO - Intention détectée: reponse_bien_etre (score: 1.0), entités: {}
+2025-03-07 15:24:54,337 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:24:54,338 - nlp_engine - INFO - Réponse générée: Compris ! Je suis prête à t'aider pour la suite.
+2025-03-07 15:24:54,339 - nlp_engine - ERROR - Erreur lors de l'obtention des suggestions centralisées: cannot access local variable 'random' where it is not associated with a value
+2025-03-07 15:24:54,340 - nlp_engine - INFO - Suggestions générées: ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]
+2025-03-07 15:24:54,341 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Compris ! Je suis prête à t'aider pour la suite.", 'intention': 'reponse_bien_etre', 'score': 1.0, 'entites': {}, 'suggestions': ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]}
+2025-03-07 15:24:54,343 - assistant_ia.app - INFO - Réponse envoyée: Compris ! Je suis prête à t'aider pour la suite.
+2025-03-07 15:24:54,344 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:24:54] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:25:04,910 - assistant_ia.app - INFO - Question reçue: Comment vas-tu ?
+2025-03-07 15:25:04,913 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Comment vas-tu ?
+2025-03-07 15:25:04,914 - nlp_engine - INFO - Analyse de la question: Comment vas-tu ?
+2025-03-07 15:25:04,916 - nlp_engine - INFO - Question sur le bien-être détectée: Comment vas-tu ?
+2025-03-07 15:25:04,918 - nlp_engine - INFO - Intention détectée: bien_etre (score: 1.0), entités: {}
+2025-03-07 15:25:04,921 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:25:04,922 - nlp_engine - INFO - Réponse générée: Je me porte à merveille, merci ! J'espère que toi aussi ?
+2025-03-07 15:25:04,923 - nlp_engine - ERROR - Erreur lors de l'obtention des suggestions centralisées: cannot access local variable 'random' where it is not associated with a value
+2025-03-07 15:25:04,924 - nlp_engine - INFO - Suggestions générées: ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]
+2025-03-07 15:25:04,926 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Je me porte à merveille, merci ! J'espère que toi aussi ?", 'intention': 'bien_etre', 'score': 1.0, 'entites': {}, 'suggestions': ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]}
+2025-03-07 15:25:04,928 - assistant_ia.app - INFO - Réponse envoyée: Je me porte à merveille, merci ! J'espère que toi aussi ?
+2025-03-07 15:25:04,929 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:25:04] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:25:12,080 - assistant_ia.app - INFO - Question reçue: je vais bien merci
+2025-03-07 15:25:12,082 - assistant_ia.agent - INFO - Agent Cindy analyse la question: je vais bien merci
+2025-03-07 15:25:12,083 - nlp_engine - INFO - Analyse de la question: je vais bien merci
+2025-03-07 15:25:12,085 - nlp_engine - INFO - Réponse à une question de bien-être détectée: je vais bien merci
+2025-03-07 15:25:12,086 - nlp_engine - INFO - Intention détectée: reponse_bien_etre (score: 1.0), entités: {}
+2025-03-07 15:25:12,087 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:25:12,089 - nlp_engine - INFO - Réponse générée: Merci de partager ça avec moi ! En quoi puis-je t'être utile ?
+2025-03-07 15:25:12,090 - nlp_engine - ERROR - Erreur lors de l'obtention des suggestions centralisées: cannot access local variable 'random' where it is not associated with a value
+2025-03-07 15:25:12,091 - nlp_engine - INFO - Suggestions générées: ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]
+2025-03-07 15:25:12,092 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Merci de partager ça avec moi ! En quoi puis-je t'être utile ?", 'intention': 'reponse_bien_etre', 'score': 1.0, 'entites': {}, 'suggestions': ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]}
+2025-03-07 15:25:12,093 - assistant_ia.app - INFO - Réponse envoyée: Merci de partager ça avec moi ! En quoi puis-je t'être utile ? Je peux aussi vous raconter une blague si vous voulez !
+2025-03-07 15:25:12,094 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:25:12] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:28:16,647 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-07 15:28:16,705 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:28:17,407 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:28:17,488 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:28:17,490 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:28:17,506 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:28:17,513 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:28:53,790 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-07 15:28:53,853 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:28:54,598 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:28:54,687 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:28:54,690 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:28:54,710 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:28:54,718 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:29:20,923 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-07 15:29:20,974 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:29:21,723 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:29:21,812 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:29:21,815 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:29:21,830 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:29:21,837 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:29:29,304 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:29:29,382 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:29:29,385 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:29:29,411 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.13:5000
+2025-03-07 15:29:29,412 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 15:29:29,416 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:29:30,044 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:29:30,129 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:29:30,132 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:29:30,147 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:29:30,153 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:29:35,289 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:29:35] "GET / HTTP/1.1" 200 -
+2025-03-07 15:29:35,411 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:29:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-07 15:29:35,418 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:29:35] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-07 15:29:35,426 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:29:35] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-07 15:29:42,834 - assistant_ia.app - INFO - Question reçue: Quelle heure est-il?
+2025-03-07 15:29:42,835 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Quelle heure est-il?
+2025-03-07 15:29:42,836 - nlp_engine - INFO - Analyse de la question: Quelle heure est-il?
+2025-03-07 15:29:42,836 - nlp_engine - INFO - Question sur l'heure détectée: Quelle heure est-il?
+2025-03-07 15:29:42,837 - nlp_engine - INFO - Intention détectée: heure (score: 1.0), entités: {}
+2025-03-07 15:29:42,838 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:29:42,838 - nlp_engine - INFO - Réponse générée: Il est actuellement 15:29:42 ,nous sommes le vendredi 7 mars 2025. Je vous souhaite un bel après-midi !
+2025-03-07 15:29:42,838 - nlp_engine - INFO - Suggestions générées: ['Comment fonctionnes-tu ?', 'Quelle est la météo à Nice ?', 'Parle-moi de Digital Factory', "Quelle est la météo aujourd'hui ?"]
+2025-03-07 15:29:42,839 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': 'Il est actuellement 15:29:42 ,nous sommes le vendredi 7 mars 2025. Je vous souhaite un bel après-midi !', 'intention': 'heure', 'score': 1.0, 'entites': {}, 'suggestions': ['Comment fonctionnes-tu ?', 'Quelle est la météo à Nice ?', 'Parle-moi de Digital Factory', "Quelle est la météo aujourd'hui ?"]}
+2025-03-07 15:29:42,839 - assistant_ia.app - INFO - Réponse envoyée: Il est actuellement 15:29:42 ,nous sommes le vendredi 7 mars 2025. Je vous souhaite un bel après-midi !
+2025-03-07 15:29:42,840 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:29:42] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:29:45,592 - assistant_ia.app - INFO - Question reçue: Parle-moi de Digital Factory
+2025-03-07 15:29:45,593 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Parle-moi de Digital Factory
+2025-03-07 15:29:45,593 - nlp_engine - INFO - Analyse de la question: Parle-moi de Digital Factory
+2025-03-07 15:29:45,601 - nlp_engine - INFO - Question sur Digital Factory détectée: Parle-moi de Digital Factory
+2025-03-07 15:29:45,601 - nlp_engine - INFO - Intention détectée: digital_factory (score: 1.0), entités: {}
+2025-03-07 15:29:45,601 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:29:45,602 - nlp_engine - INFO - Réponse générée: Digital Factory, entreprise technologique basée au Luxembourg, conçoit des solutions numériques avancées pour aider les entreprises à innover. Spécialisée dans les agents conversationnels intelligents, les solutions SaaS et l'automatisation, elle accompagne les organisations dans leur transformation digitale, notamment dans les secteurs de la construction et de l'industrie.
+2025-03-07 15:29:45,602 - nlp_engine - INFO - Suggestions générées: ['Quelle heure est-il ?', 'Comment fonctionnes-tu ?', 'Comment vas-tu ?']
+2025-03-07 15:29:45,603 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Digital Factory, entreprise technologique basée au Luxembourg, conçoit des solutions numériques avancées pour aider les entreprises à innover. Spécialisée dans les agents conversationnels intelligents, les solutions SaaS et l'automatisation, elle accompagne les organisations dans leur transformation digitale, notamment dans les secteurs de la construction et de l'industrie.", 'intention': 'digital_factory', 'score': 1.0, 'entites': {}, 'suggestions': ['Quelle heure est-il ?', 'Comment fonctionnes-tu ?', 'Comment vas-tu ?']}
+2025-03-07 15:29:45,603 - assistant_ia.app - INFO - Réponse envoyée: Digital Factory, entreprise technologique basée au Luxembourg, conçoit des solutions numériques avancées pour aider les entreprises à innover. Spécialisée dans les agents conversationnels intelligents, les solutions SaaS et l'automatisation, elle accompagne les organisations dans leur transformation digitale, notamment dans les secteurs de la construction et de l'industrie.
+2025-03-07 15:29:45,604 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:29:45] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:29:51,625 - assistant_ia.app - INFO - Question reçue: Comment vas-tu ?
+2025-03-07 15:29:51,628 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Comment vas-tu ?
+2025-03-07 15:29:51,629 - nlp_engine - INFO - Analyse de la question: Comment vas-tu ?
+2025-03-07 15:29:51,629 - nlp_engine - INFO - Question sur le bien-être détectée: Comment vas-tu ?
+2025-03-07 15:29:51,630 - nlp_engine - INFO - Intention détectée: bien_etre (score: 1.0), entités: {}
+2025-03-07 15:29:51,633 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:29:51,634 - nlp_engine - INFO - Réponse générée: Je me sens en pleine forme ! J'espère que ta journée se passe bien aussi ?
+2025-03-07 15:29:51,635 - nlp_engine - ERROR - Erreur lors de l'obtention des suggestions centralisées: cannot access local variable 'random' where it is not associated with a value
+2025-03-07 15:29:51,635 - nlp_engine - INFO - Suggestions générées: ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]
+2025-03-07 15:29:51,636 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Je me sens en pleine forme ! J'espère que ta journée se passe bien aussi ?", 'intention': 'bien_etre', 'score': 1.0, 'entites': {}, 'suggestions': ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]}
+2025-03-07 15:29:51,637 - assistant_ia.app - INFO - Réponse envoyée: Je me sens en pleine forme ! J'espère que ta journée se passe bien aussi ? Au fait, souhaitez-vous connaître la météo à Paris ?
+2025-03-07 15:29:51,638 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:29:51] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:30:03,126 - assistant_ia.app - INFO - Question reçue: je vais bien merci
+2025-03-07 15:30:03,131 - assistant_ia.agent - INFO - Agent Cindy analyse la question: je vais bien merci
+2025-03-07 15:30:03,132 - nlp_engine - INFO - Analyse de la question: je vais bien merci
+2025-03-07 15:30:03,133 - nlp_engine - INFO - Réponse à une question de bien-être détectée: je vais bien merci
+2025-03-07 15:30:03,135 - nlp_engine - INFO - Intention détectée: reponse_bien_etre (score: 1.0), entités: {}
+2025-03-07 15:30:03,136 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:30:03,138 - nlp_engine - INFO - Réponse générée: Merci de partager ça avec moi ! En quoi puis-je t'être utile ?
+2025-03-07 15:30:03,139 - nlp_engine - ERROR - Erreur lors de l'obtention des suggestions centralisées: cannot access local variable 'random' where it is not associated with a value
+2025-03-07 15:30:03,141 - nlp_engine - INFO - Suggestions générées: ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]
+2025-03-07 15:30:03,142 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Merci de partager ça avec moi ! En quoi puis-je t'être utile ?", 'intention': 'reponse_bien_etre', 'score': 1.0, 'entites': {}, 'suggestions': ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]}
+2025-03-07 15:30:03,144 - assistant_ia.app - INFO - Réponse envoyée: Merci de partager ça avec moi ! En quoi puis-je t'être utile ? Avez-vous d'autres questions ?
+2025-03-07 15:30:03,146 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:30:03] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:30:30,783 - assistant_ia.app - INFO - Question reçue: je vais bien merci. Donne moi le temps a Metz
+2025-03-07 15:30:30,785 - assistant_ia.agent - INFO - Agent Cindy analyse la question: je vais bien merci. Donne moi le temps a Metz
+2025-03-07 15:30:30,786 - nlp_engine - INFO - Analyse de la question: je vais bien merci. Donne moi le temps a Metz
+2025-03-07 15:30:30,787 - nlp_engine - INFO - Ville extraite: Metz
+2025-03-07 15:30:30,788 - nlp_engine - INFO - Question météo détectée: je vais bien merci. Donne moi le temps a Metz
+2025-03-07 15:30:30,789 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Metz'}
+2025-03-07 15:30:30,790 - nlp_engine - INFO - Demande météo pour la ville: Metz
+2025-03-07 15:30:31,039 - nlp_engine - INFO - Suggestions générées: ['Parle-moi de Digital Factory', 'Quelle est la météo à Bordeaux ?', 'Quelle est la météo à Marseille ?', 'Raconte-moi une blague']
+2025-03-07 15:30:31,060 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Metz
+2025-03-07 15:30:31,081 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:30:31] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:30:37,638 - assistant_ia.app - INFO - Question reçue: Quelle est la météo à Bordeaux ?
+2025-03-07 15:30:37,638 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Quelle est la météo à Bordeaux ?
+2025-03-07 15:30:37,639 - nlp_engine - INFO - Analyse de la question: Quelle est la météo à Bordeaux ?
+2025-03-07 15:30:37,640 - nlp_engine - INFO - Ville extraite: Bordeaux
+2025-03-07 15:30:37,641 - nlp_engine - INFO - Question météo détectée: Quelle est la météo à Bordeaux ?
+2025-03-07 15:30:37,641 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Bordeaux'}
+2025-03-07 15:30:37,642 - nlp_engine - INFO - Demande météo pour la ville: Bordeaux
+2025-03-07 15:30:37,830 - nlp_engine - INFO - Suggestions générées: ['Quelle heure est-il ?', 'Qui es-tu ?', 'Parle-moi de Digital Factory', 'Quelle est la météo à Bordeaux ?']
+2025-03-07 15:30:37,845 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Bordeaux
+2025-03-07 15:30:37,860 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:30:37] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:31:01,724 - assistant_ia.app - INFO - Question reçue: est ce qu'il fait beau a Metz?
+2025-03-07 15:31:01,729 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il fait beau a Metz?
+2025-03-07 15:31:01,730 - nlp_engine - INFO - Analyse de la question: est ce qu'il fait beau a Metz?
+2025-03-07 15:31:01,732 - nlp_engine - INFO - Ville extraite: Metz
+2025-03-07 15:31:01,733 - nlp_engine - INFO - Question météo détectée: est ce qu'il fait beau a Metz?
+2025-03-07 15:31:01,734 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Metz'}
+2025-03-07 15:31:01,736 - nlp_engine - INFO - Demande météo pour la ville: Metz
+2025-03-07 15:31:01,938 - nlp_engine - INFO - Suggestions générées: ['Quelle est la météo à Paris ?', 'Comment sera la météo demain ?', 'Parle-moi de Digital Factory', 'Quelle est la météo à Lyon ?']
+2025-03-07 15:31:01,976 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:31:01] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:31:11,542 - assistant_ia.app - INFO - Question reçue: est ce qu'il pleut a Metz
+2025-03-07 15:31:11,544 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il pleut a Metz
+2025-03-07 15:31:11,546 - nlp_engine - INFO - Analyse de la question: est ce qu'il pleut a Metz
+2025-03-07 15:31:11,547 - nlp_engine - INFO - Ville extraite: Metz
+2025-03-07 15:31:11,549 - nlp_engine - INFO - Question météo détectée: est ce qu'il pleut a Metz
+2025-03-07 15:31:11,550 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Metz'}
+2025-03-07 15:31:11,551 - nlp_engine - INFO - Demande météo pour la ville: Metz
+2025-03-07 15:31:11,757 - nlp_engine - INFO - Suggestions générées: ['Comment sera la météo demain ?', 'Parle-moi de Digital Factory', 'Comment vas-tu ?', 'Quelle est la météo à Lyon ?']
+2025-03-07 15:31:11,797 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:31:11] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:31:24,526 - assistant_ia.app - INFO - Question reçue: Comment sera la météo demain ?
+2025-03-07 15:31:24,527 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Comment sera la météo demain ?
+2025-03-07 15:31:24,528 - nlp_engine - INFO - Analyse de la question: Comment sera la météo demain ?
+2025-03-07 15:31:24,530 - nlp_engine - INFO - Question météo détectée: Comment sera la météo demain ?
+2025-03-07 15:31:24,531 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {}
+2025-03-07 15:31:24,532 - nlp_engine - INFO - Demande météo pour la ville: Paris
+2025-03-07 15:31:24,729 - nlp_engine - INFO - Suggestions générées: ['Quelle est la météo à Bordeaux ?', 'Comment sera la météo demain ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?']
+2025-03-07 15:31:24,764 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:31:24] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:32:01,601 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\reponses.py', reloading
+2025-03-07 15:32:01,684 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:32:02,465 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:32:02,549 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:32:02,551 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:32:02,568 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:32:02,572 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:32:29,890 - assistant_ia.app - INFO - Question reçue: est ce qu'il a du soleil a Paris
+2025-03-07 15:32:29,894 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il a du soleil a Paris
+2025-03-07 15:32:29,895 - nlp_engine - INFO - Analyse de la question: est ce qu'il a du soleil a Paris
+2025-03-07 15:32:29,914 - nlp_engine - INFO - Aucune intention spécifique détectée pour: est ce qu'il a du soleil a Paris
+2025-03-07 15:32:29,915 - nlp_engine - INFO - Intention détectée: inconnu (score: 0.3), entités: {}
+2025-03-07 15:32:29,916 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:32:29,918 - nlp_engine - INFO - Réponse générée: Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?
+2025-03-07 15:32:29,920 - nlp_engine - INFO - Suggestions générées: ['Parle-moi de Digital Factory', "C'est quoi Digital Factory ?", 'Que sais-tu faire ?']
+2025-03-07 15:32:29,921 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?", 'intention': 'inconnu', 'score': 0.3, 'entites': {}, 'suggestions': ['Parle-moi de Digital Factory', "C'est quoi Digital Factory ?", 'Que sais-tu faire ?']}
+2025-03-07 15:32:29,922 - assistant_ia.app - INFO - Réponse envoyée: Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?
+2025-03-07 15:32:29,924 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:32:29] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:33:57,480 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-07 15:33:57,557 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:33:58,267 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:33:58,354 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:33:58,357 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:33:58,374 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:33:58,380 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:34:47,745 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-07 15:34:47,826 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:34:48,591 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:34:48,672 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:34:48,675 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:34:48,692 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:34:48,699 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:35:45,499 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:35:45,608 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:35:45,611 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:35:45,640 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.13:5000
+2025-03-07 15:35:45,640 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 15:35:45,646 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:35:46,307 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:35:46,378 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:35:46,382 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:35:46,396 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:35:46,403 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:35:48,773 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:35:48] "GET / HTTP/1.1" 200 -
+2025-03-07 15:35:48,865 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:35:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-07 15:35:48,886 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:35:48] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-07 15:35:48,891 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:35:48] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-07 15:36:03,642 - assistant_ia.app - INFO - Question reçue: est ce qu'il fait beau a metz?
+2025-03-07 15:36:03,647 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il fait beau a metz?
+2025-03-07 15:36:03,648 - nlp_engine - INFO - Analyse de la question: est ce qu'il fait beau a metz?
+2025-03-07 15:36:03,655 - nlp_engine - INFO - Ville extraite: Metz
+2025-03-07 15:36:03,656 - nlp_engine - INFO - Question météo détectée: est ce qu'il fait beau a metz?
+2025-03-07 15:36:03,657 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Metz'}
+2025-03-07 15:36:03,659 - nlp_engine - INFO - Demande météo pour la ville: Metz
+2025-03-07 15:36:03,908 - nlp_engine - INFO - Suggestions générées: ['Comment vas-tu ?', 'Quelle est la météo à Lyon ?', 'Raconte-moi une blague']
+2025-03-07 15:36:03,930 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Metz
+2025-03-07 15:36:03,954 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:36:03] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:36:23,452 - assistant_ia.app - INFO - Question reçue: est ce qu'il pleut a Moscow
+2025-03-07 15:36:23,455 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il pleut a Moscow
+2025-03-07 15:36:23,456 - nlp_engine - INFO - Analyse de la question: est ce qu'il pleut a Moscow
+2025-03-07 15:36:23,457 - nlp_engine - INFO - Ville extraite: Moscow
+2025-03-07 15:36:23,459 - nlp_engine - INFO - Question météo détectée: est ce qu'il pleut a Moscow
+2025-03-07 15:36:23,460 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Moscow'}
+2025-03-07 15:36:23,461 - nlp_engine - INFO - Demande météo pour la ville: Moscow
+2025-03-07 15:36:23,762 - nlp_engine - INFO - Suggestions générées: ['Qui es-tu ?', 'Quelle est la météo à Paris ?', 'Quelle est la météo à Lyon ?']
+2025-03-07 15:36:23,778 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Moscow
+2025-03-07 15:36:23,795 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:36:23] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:37:50,434 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-07 15:37:50,501 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:37:51,322 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:37:51,418 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:37:51,420 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:37:51,435 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:37:51,441 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:38:01,057 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:38:01,151 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:38:01,153 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:38:01,189 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.13:5000
+2025-03-07 15:38:01,190 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 15:38:01,197 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:38:01,923 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:38:02,034 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:38:02,036 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:38:02,050 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:38:02,055 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:38:05,745 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:38:05] "GET / HTTP/1.1" 200 -
+2025-03-07 15:38:05,865 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:38:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-03-07 15:38:05,877 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:38:05] "[36mGET /static/css/dark-mode.css HTTP/1.1[0m" 304 -
+2025-03-07 15:38:05,879 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:38:05] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-07 15:38:09,230 - assistant_ia.app - INFO - Question reçue: Quelle est la météo à Paris aujourd'hui?
+2025-03-07 15:38:09,232 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Quelle est la météo à Paris aujourd'hui?
+2025-03-07 15:38:09,233 - nlp_engine - INFO - Analyse de la question: Quelle est la météo à Paris aujourd'hui?
+2025-03-07 15:38:09,236 - nlp_engine - INFO - Ville extraite: Paris Aujourd
+2025-03-07 15:38:09,237 - nlp_engine - INFO - Question météo détectée: Quelle est la météo à Paris aujourd'hui?
+2025-03-07 15:38:09,237 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Paris Aujourd'}
+2025-03-07 15:38:09,238 - nlp_engine - INFO - Demande météo pour la ville: Paris Aujourd
+2025-03-07 15:38:09,451 - nlp_engine - INFO - Suggestions générées: ['Quelle est la météo à Lyon ?', 'Quelle est la météo à Paris ?', 'Parle-moi de Digital Factory']
+2025-03-07 15:38:09,465 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Paris Aujourd
+2025-03-07 15:38:09,482 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:38:09] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:38:20,336 - assistant_ia.app - INFO - Question reçue: est ce qu'il fait beau a Bali?
+2025-03-07 15:38:20,338 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il fait beau a Bali?
+2025-03-07 15:38:20,339 - nlp_engine - INFO - Analyse de la question: est ce qu'il fait beau a Bali?
+2025-03-07 15:38:20,344 - nlp_engine - INFO - Ville extraite: Bali
+2025-03-07 15:38:20,345 - nlp_engine - INFO - Question météo détectée: est ce qu'il fait beau a Bali?
+2025-03-07 15:38:20,346 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Bali'}
+2025-03-07 15:38:20,347 - nlp_engine - INFO - Demande météo pour la ville: Bali
+2025-03-07 15:38:20,539 - nlp_engine - INFO - Suggestions générées: ['Quelle est la météo à Lyon ?', 'Comment vas-tu ?', 'Quelle est la météo à Marseille ?']
+2025-03-07 15:38:20,555 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Bali
+2025-03-07 15:38:20,570 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:38:20] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:39:03,570 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\nlp_engine.py', reloading
+2025-03-07 15:39:03,633 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:39:04,336 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:39:04,436 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:39:04,439 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:39:04,457 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:39:04,464 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:39:08,139 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:39:08] "GET / HTTP/1.1" 200 -
+2025-03-07 15:39:08,235 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:39:08] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-07 15:39:08,236 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:39:08] "GET /static/css/dark-mode.css HTTP/1.1" 200 -
+2025-03-07 15:39:08,237 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:39:08] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-07 15:39:08,319 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:39:08] "[33mGET /static/images/favicon.ico HTTP/1.1[0m" 404 -
+2025-03-07 15:39:19,924 - assistant_ia.app - INFO - Question reçue: est ce qu'il pleut a Marseille?
+2025-03-07 15:39:19,929 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il pleut a Marseille?
+2025-03-07 15:39:19,930 - nlp_engine - INFO - Analyse de la question: est ce qu'il pleut a Marseille?
+2025-03-07 15:39:19,935 - nlp_engine - INFO - Ville extraite: Marseille
+2025-03-07 15:39:19,936 - nlp_engine - INFO - Question météo détectée: est ce qu'il pleut a Marseille?
+2025-03-07 15:39:19,938 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Marseille'}
+2025-03-07 15:39:19,939 - nlp_engine - INFO - Demande météo pour la ville: Marseille
+2025-03-07 15:39:20,201 - nlp_engine - INFO - Suggestions générées: ['Parle-moi de Digital Factory', 'Quelle est la météo à Bordeaux ?', 'Quelle est la météo à Paris ?', 'Quelle est la météo à Marseille ?']
+2025-03-07 15:39:20,244 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:39:20] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:39:37,139 - assistant_ia.app - INFO - Question reçue: est ce qu'il neige a Tokyo?
+2025-03-07 15:39:37,141 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il neige a Tokyo?
+2025-03-07 15:39:37,143 - nlp_engine - INFO - Analyse de la question: est ce qu'il neige a Tokyo?
+2025-03-07 15:39:37,146 - nlp_engine - INFO - Ville extraite: Tokyo
+2025-03-07 15:39:37,148 - nlp_engine - INFO - Question météo détectée: est ce qu'il neige a Tokyo?
+2025-03-07 15:39:37,149 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Tokyo'}
+2025-03-07 15:39:37,150 - nlp_engine - INFO - Demande météo pour la ville: Tokyo
+2025-03-07 15:39:37,340 - nlp_engine - INFO - Suggestions générées: ['Quelle est la météo à Marseille ?', 'Quelle est la météo à Bordeaux ?', 'Quelle est la météo à Lyon ?']
+2025-03-07 15:39:37,355 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Tokyo
+2025-03-07 15:39:37,371 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:39:37] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:40:01,899 - assistant_ia.app - INFO - Question reçue: est ce quil fait beau aû Seychelles
+2025-03-07 15:40:01,904 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce quil fait beau aû Seychelles
+2025-03-07 15:40:01,905 - nlp_engine - INFO - Analyse de la question: est ce quil fait beau aû Seychelles
+2025-03-07 15:40:01,922 - nlp_engine - INFO - Aucune intention spécifique détectée pour: est ce quil fait beau aû Seychelles
+2025-03-07 15:40:01,925 - nlp_engine - INFO - Intention détectée: inconnu (score: 0.3), entités: {}
+2025-03-07 15:40:01,926 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:40:01,926 - nlp_engine - INFO - Réponse générée: Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?
+2025-03-07 15:40:01,927 - nlp_engine - INFO - Suggestions générées: ['Raconte-moi une blague', "Qui t'a créé ?", "C'est quoi Digital Factory ?", 'Quelle heure est-il ?']
+2025-03-07 15:40:01,928 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?", 'intention': 'inconnu', 'score': 0.3, 'entites': {}, 'suggestions': ['Raconte-moi une blague', "Qui t'a créé ?", "C'est quoi Digital Factory ?", 'Quelle heure est-il ?']}
+2025-03-07 15:40:01,928 - assistant_ia.app - INFO - Réponse envoyée: Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?
+2025-03-07 15:40:01,930 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:40:01] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:40:18,453 - assistant_ia.app - INFO - Question reçue: est ce quil fait beau au Maroc
+2025-03-07 15:40:18,454 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce quil fait beau au Maroc
+2025-03-07 15:40:18,455 - nlp_engine - INFO - Analyse de la question: est ce quil fait beau au Maroc
+2025-03-07 15:40:18,456 - nlp_engine - INFO - Aucune intention spécifique détectée pour: est ce quil fait beau au Maroc
+2025-03-07 15:40:18,456 - nlp_engine - INFO - Intention détectée: inconnu (score: 0.3), entités: {}
+2025-03-07 15:40:18,457 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:40:18,458 - nlp_engine - INFO - Réponse générée: Je ne comprends pas complètement. Essayez de poser votre question différemment.
+2025-03-07 15:40:18,459 - nlp_engine - INFO - Suggestions générées: ['Quelle est la météo à Paris ?', "C'est quoi Digital Factory ?", 'Quelle heure est-il ?', 'Raconte-moi une blague']
+2025-03-07 15:40:18,460 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': 'Je ne comprends pas complètement. Essayez de poser votre question différemment.', 'intention': 'inconnu', 'score': 0.3, 'entites': {}, 'suggestions': ['Quelle est la météo à Paris ?', "C'est quoi Digital Factory ?", 'Quelle heure est-il ?', 'Raconte-moi une blague']}
+2025-03-07 15:40:18,461 - assistant_ia.app - INFO - Réponse envoyée: Je ne comprends pas complètement. Essayez de poser votre question différemment.
+2025-03-07 15:40:18,462 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:40:18] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:40:31,481 - assistant_ia.app - INFO - Question reçue: est ce quil fait beau a Marrakech
+2025-03-07 15:40:31,482 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce quil fait beau a Marrakech
+2025-03-07 15:40:31,483 - nlp_engine - INFO - Analyse de la question: est ce quil fait beau a Marrakech
+2025-03-07 15:40:31,484 - nlp_engine - INFO - Aucune intention spécifique détectée pour: est ce quil fait beau a Marrakech
+2025-03-07 15:40:31,485 - nlp_engine - INFO - Intention détectée: inconnu (score: 0.3), entités: {}
+2025-03-07 15:40:31,486 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:40:31,487 - nlp_engine - INFO - Réponse générée: Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?
+2025-03-07 15:40:31,488 - nlp_engine - INFO - Suggestions générées: ['Comment fonctionnes-tu ?', 'Quelle est la météo à Paris ?', "C'est quoi Digital Factory ?"]
+2025-03-07 15:40:31,489 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?", 'intention': 'inconnu', 'score': 0.3, 'entites': {}, 'suggestions': ['Comment fonctionnes-tu ?', 'Quelle est la météo à Paris ?', "C'est quoi Digital Factory ?"]}
+2025-03-07 15:40:31,490 - assistant_ia.app - INFO - Réponse envoyée: Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?
+2025-03-07 15:40:31,491 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:40:31] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:40:46,082 - assistant_ia.app - INFO - Question reçue: est ce quil fait beau a shangai
+2025-03-07 15:40:46,083 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce quil fait beau a shangai
+2025-03-07 15:40:46,084 - nlp_engine - INFO - Analyse de la question: est ce quil fait beau a shangai
+2025-03-07 15:40:46,086 - nlp_engine - INFO - Aucune intention spécifique détectée pour: est ce quil fait beau a shangai
+2025-03-07 15:40:46,087 - nlp_engine - INFO - Intention détectée: inconnu (score: 0.3), entités: {}
+2025-03-07 15:40:46,088 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:40:46,089 - nlp_engine - INFO - Réponse générée: Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?
+2025-03-07 15:40:46,089 - nlp_engine - INFO - Suggestions générées: ['Comment fonctionnes-tu ?', 'Quelle est la météo à Paris ?', 'Que sais-tu faire ?', "C'est quoi Digital Factory ?"]
+2025-03-07 15:40:46,090 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?", 'intention': 'inconnu', 'score': 0.3, 'entites': {}, 'suggestions': ['Comment fonctionnes-tu ?', 'Quelle est la météo à Paris ?', 'Que sais-tu faire ?', "C'est quoi Digital Factory ?"]}
+2025-03-07 15:40:46,091 - assistant_ia.app - INFO - Réponse envoyée: Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?
+2025-03-07 15:40:46,092 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:40:46] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:41:08,220 - assistant_ia.app - INFO - Question reçue: est ce qu'il fait beau a Cannes
+2025-03-07 15:41:08,224 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il fait beau a Cannes
+2025-03-07 15:41:08,226 - nlp_engine - INFO - Analyse de la question: est ce qu'il fait beau a Cannes
+2025-03-07 15:41:08,227 - nlp_engine - INFO - Ville extraite: Cannes
+2025-03-07 15:41:08,228 - nlp_engine - INFO - Question météo détectée: est ce qu'il fait beau a Cannes
+2025-03-07 15:41:08,230 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Cannes'}
+2025-03-07 15:41:08,231 - nlp_engine - INFO - Demande météo pour la ville: Cannes
+2025-03-07 15:41:08,474 - nlp_engine - INFO - Suggestions générées: ['Quelle est la météo à Marseille ?', 'Parle-moi de Digital Factory', 'Raconte-moi une blague', 'Comment vas-tu ?']
+2025-03-07 15:41:08,491 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Cannes
+2025-03-07 15:41:08,504 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:41:08] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:41:19,918 - assistant_ia.app - INFO - Question reçue: est ce qu'il fait beau a Nice
+2025-03-07 15:41:19,920 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il fait beau a Nice
+2025-03-07 15:41:19,922 - nlp_engine - INFO - Analyse de la question: est ce qu'il fait beau a Nice
+2025-03-07 15:41:19,923 - nlp_engine - INFO - Ville extraite: Nice
+2025-03-07 15:41:19,924 - nlp_engine - INFO - Question météo détectée: est ce qu'il fait beau a Nice
+2025-03-07 15:41:19,926 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Nice'}
+2025-03-07 15:41:19,927 - nlp_engine - INFO - Demande météo pour la ville: Nice
+2025-03-07 15:41:20,125 - nlp_engine - INFO - Suggestions générées: ['Quelle est la météo à Marseille ?', 'Raconte-moi une blague', 'Quelle heure est-il ?', 'Comment vas-tu ?']
+2025-03-07 15:41:20,145 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Nice
+2025-03-07 15:41:20,161 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:41:20] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:41:32,433 - assistant_ia.app - INFO - Question reçue: est ce qu'il fait beau a New York
+2025-03-07 15:41:32,435 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il fait beau a New York
+2025-03-07 15:41:32,436 - nlp_engine - INFO - Analyse de la question: est ce qu'il fait beau a New York
+2025-03-07 15:41:32,437 - nlp_engine - INFO - Ville extraite: New York
+2025-03-07 15:41:32,438 - nlp_engine - INFO - Question météo détectée: est ce qu'il fait beau a New York
+2025-03-07 15:41:32,439 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'New York'}
+2025-03-07 15:41:32,439 - nlp_engine - INFO - Demande météo pour la ville: New York
+2025-03-07 15:41:32,635 - nlp_engine - INFO - Suggestions générées: ['Quelle est la météo à Paris ?', 'Qui es-tu ?', 'Quelle est la météo à Lyon ?']
+2025-03-07 15:41:32,655 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: New York
+2025-03-07 15:41:32,675 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:41:32] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:43:12,836 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-07 15:43:12,915 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:43:13,647 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:43:13,730 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:43:13,733 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:43:13,748 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:43:13,752 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:43:24,835 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\external_services.py', reloading
+2025-03-07 15:43:24,905 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:43:25,685 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:43:25,762 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:43:25,764 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:43:25,776 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:43:25,781 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:43:37,192 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:43:37] "GET / HTTP/1.1" 200 -
+2025-03-07 15:43:37,469 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:43:37] "GET /static/css/dark-mode.css HTTP/1.1" 200 -
+2025-03-07 15:43:37,475 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:43:37] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-03-07 15:43:37,478 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:43:37] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-03-07 15:43:37,584 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:43:37] "[33mGET /static/images/favicon.ico HTTP/1.1[0m" 404 -
+2025-03-07 15:43:50,071 - assistant_ia.app - INFO - Question reçue: est ce qu'il fait beau a New York
+2025-03-07 15:43:50,073 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il fait beau a New York
+2025-03-07 15:43:50,074 - nlp_engine - INFO - Analyse de la question: est ce qu'il fait beau a New York
+2025-03-07 15:43:50,080 - nlp_engine - INFO - Ville extraite: New York
+2025-03-07 15:43:50,081 - nlp_engine - INFO - Question météo détectée: est ce qu'il fait beau a New York
+2025-03-07 15:43:50,082 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'New York'}
+2025-03-07 15:43:50,084 - nlp_engine - INFO - Demande météo pour la ville: New York
+2025-03-07 15:43:50,329 - nlp_engine - INFO - Suggestions générées: ['Quelle est la météo à Bordeaux ?', 'Quelle est la météo à Lyon ?', 'Raconte-moi une blague', 'Quelle est la météo à Marseille ?']
+2025-03-07 15:43:50,346 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: New York
+2025-03-07 15:43:50,362 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:43:50] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:44:12,951 - assistant_ia.app - INFO - Question reçue: est ce qu'il fait beau a Lille$
+2025-03-07 15:44:12,955 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il fait beau a Lille$
+2025-03-07 15:44:12,956 - nlp_engine - INFO - Analyse de la question: est ce qu'il fait beau a Lille$
+2025-03-07 15:44:12,957 - nlp_engine - INFO - Ville extraite: Lille
+2025-03-07 15:44:12,957 - nlp_engine - INFO - Question météo détectée: est ce qu'il fait beau a Lille$
+2025-03-07 15:44:12,958 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Lille'}
+2025-03-07 15:44:12,959 - nlp_engine - INFO - Demande météo pour la ville: Lille
+2025-03-07 15:44:13,141 - nlp_engine - INFO - Suggestions générées: ['Parle-moi de Digital Factory', 'Quelle est la météo à Marseille ?', 'Comment vas-tu ?']
+2025-03-07 15:44:13,155 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Lille
+2025-03-07 15:44:13,166 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:44:13] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:44:24,001 - assistant_ia.app - INFO - Question reçue: Est ce qu'il fait beau a Moscow
+2025-03-07 15:44:24,003 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Est ce qu'il fait beau a Moscow
+2025-03-07 15:44:24,004 - nlp_engine - INFO - Analyse de la question: Est ce qu'il fait beau a Moscow
+2025-03-07 15:44:24,005 - nlp_engine - INFO - Ville extraite: Moscow
+2025-03-07 15:44:24,005 - nlp_engine - INFO - Question météo détectée: Est ce qu'il fait beau a Moscow
+2025-03-07 15:44:24,006 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Moscow'}
+2025-03-07 15:44:24,007 - nlp_engine - INFO - Demande météo pour la ville: Moscow
+2025-03-07 15:44:24,332 - nlp_engine - INFO - Suggestions générées: ['Quelle est la météo à Bordeaux ?', 'Quelle heure est-il ?', 'Comment vas-tu ?', 'Quelle est la météo à Marseille ?']
+2025-03-07 15:44:24,346 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Moscow
+2025-03-07 15:44:24,359 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:44:24] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:46:17,859 - assistant_ia.app - INFO - Question reçue: est ce qu'il fait beau a Cambridge Bay
+2025-03-07 15:46:17,862 - assistant_ia.agent - INFO - Agent Cindy analyse la question: est ce qu'il fait beau a Cambridge Bay
+2025-03-07 15:46:17,863 - nlp_engine - INFO - Analyse de la question: est ce qu'il fait beau a Cambridge Bay
+2025-03-07 15:46:17,864 - nlp_engine - INFO - Ville extraite: Cambridge Bay
+2025-03-07 15:46:17,865 - nlp_engine - INFO - Question météo détectée: est ce qu'il fait beau a Cambridge Bay
+2025-03-07 15:46:17,866 - nlp_engine - INFO - Intention détectée: meteo (score: 1.0), entités: {'ville': 'Cambridge Bay'}
+2025-03-07 15:46:17,867 - nlp_engine - INFO - Demande météo pour la ville: Cambridge Bay
+2025-03-07 15:46:18,103 - nlp_engine - INFO - Suggestions générées: ['Raconte-moi une blague', 'Quelle est la météo à Lyon ?', 'Quelle est la météo à Paris ?', 'Parle-moi de Digital Factory']
+2025-03-07 15:46:18,117 - assistant_ia.agent - INFO - Ville ajoutée aux favoris: Cambridge Bay
+2025-03-07 15:46:18,132 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:46:18] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:46:32,768 - assistant_ia.app - INFO - Question reçue: Raconte-moi une blague
+2025-03-07 15:46:32,770 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Raconte-moi une blague
+2025-03-07 15:46:32,771 - nlp_engine - INFO - Analyse de la question: Raconte-moi une blague
+2025-03-07 15:46:32,778 - nlp_engine - INFO - Demande de blague détectée: Raconte-moi une blague
+2025-03-07 15:46:32,780 - nlp_engine - INFO - Intention détectée: blague (score: 1.0), entités: {}
+2025-03-07 15:46:32,781 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:46:32,782 - nlp_engine - INFO - Réponse générée: Qu'est-ce qu'un Geek dit quand vous lui demandez s'il veut une bière ? Alt Tab on revient au bar.
+2025-03-07 15:46:32,783 - nlp_engine - INFO - Suggestions générées: ['Comment vas-tu ?', 'Parle-moi de Digital Factory', "Quelle est la météo aujourd'hui ?"]
+2025-03-07 15:46:32,784 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Qu'est-ce qu'un Geek dit quand vous lui demandez s'il veut une bière ? Alt Tab on revient au bar.", 'intention': 'blague', 'score': 1.0, 'entites': {}, 'suggestions': ['Comment vas-tu ?', 'Parle-moi de Digital Factory', "Quelle est la météo aujourd'hui ?"]}
+2025-03-07 15:46:32,785 - assistant_ia.app - INFO - Réponse envoyée: Qu'est-ce qu'un Geek dit quand vous lui demandez s'il veut une bière ? Alt Tab on revient au bar. Puis-je vous aider avec autre chose ?
+2025-03-07 15:46:32,786 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:46:32] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:46:50,079 - assistant_ia.app - INFO - Question reçue: Parle-moi de Digital Factory
+2025-03-07 15:46:50,080 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Parle-moi de Digital Factory
+2025-03-07 15:46:50,081 - nlp_engine - INFO - Analyse de la question: Parle-moi de Digital Factory
+2025-03-07 15:46:50,084 - nlp_engine - INFO - Question sur Digital Factory détectée: Parle-moi de Digital Factory
+2025-03-07 15:46:50,084 - nlp_engine - INFO - Intention détectée: digital_factory (score: 1.0), entités: {}
+2025-03-07 15:46:50,085 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:46:50,087 - nlp_engine - INFO - Réponse générée: Digital Factory, entreprise technologique basée au Luxembourg, conçoit des solutions numériques avancées pour aider les entreprises à innover. Spécialisée dans les agents conversationnels intelligents, les solutions SaaS et l'automatisation, elle accompagne les organisations dans leur transformation digitale, notamment dans les secteurs de la construction et de l'industrie.
+2025-03-07 15:46:50,089 - nlp_engine - INFO - Suggestions générées: ['Quelle heure est-il ?', 'Que sais-tu faire ?', 'Quels services propose Digital Factory ?', "Quelle est la météo aujourd'hui ?"]
+2025-03-07 15:46:50,089 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Digital Factory, entreprise technologique basée au Luxembourg, conçoit des solutions numériques avancées pour aider les entreprises à innover. Spécialisée dans les agents conversationnels intelligents, les solutions SaaS et l'automatisation, elle accompagne les organisations dans leur transformation digitale, notamment dans les secteurs de la construction et de l'industrie.", 'intention': 'digital_factory', 'score': 1.0, 'entites': {}, 'suggestions': ['Quelle heure est-il ?', 'Que sais-tu faire ?', 'Quels services propose Digital Factory ?', "Quelle est la météo aujourd'hui ?"]}
+2025-03-07 15:46:50,090 - assistant_ia.app - INFO - Réponse envoyée: Digital Factory, entreprise technologique basée au Luxembourg, conçoit des solutions numériques avancées pour aider les entreprises à innover. Spécialisée dans les agents conversationnels intelligents, les solutions SaaS et l'automatisation, elle accompagne les organisations dans leur transformation digitale, notamment dans les secteurs de la construction et de l'industrie.
+2025-03-07 15:46:50,091 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:46:50] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:46:56,478 - assistant_ia.app - INFO - Question reçue: Quels services propose Digital Factory ?
+2025-03-07 15:46:56,478 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Quels services propose Digital Factory ?
+2025-03-07 15:46:56,479 - nlp_engine - INFO - Analyse de la question: Quels services propose Digital Factory ?
+2025-03-07 15:46:56,480 - nlp_engine - INFO - Question sur Digital Factory détectée: Quels services propose Digital Factory ?
+2025-03-07 15:46:56,481 - nlp_engine - INFO - Intention détectée: digital_factory (score: 1.0), entités: {}
+2025-03-07 15:46:56,481 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:46:56,482 - nlp_engine - INFO - Réponse générée: Digital Factory, entreprise technologique basée au Luxembourg, conçoit des solutions numériques avancées pour aider les entreprises à innover. Spécialisée dans les agents conversationnels intelligents, les solutions SaaS et l'automatisation, elle accompagne les organisations dans leur transformation digitale, notamment dans les secteurs de la construction et de l'industrie.
+2025-03-07 15:46:56,483 - nlp_engine - INFO - Suggestions générées: ["Quelle est la météo aujourd'hui ?", 'Comment vas-tu ?', 'Que sais-tu faire ?', 'Quelle heure est-il ?']
+2025-03-07 15:46:56,484 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Digital Factory, entreprise technologique basée au Luxembourg, conçoit des solutions numériques avancées pour aider les entreprises à innover. Spécialisée dans les agents conversationnels intelligents, les solutions SaaS et l'automatisation, elle accompagne les organisations dans leur transformation digitale, notamment dans les secteurs de la construction et de l'industrie.", 'intention': 'digital_factory', 'score': 1.0, 'entites': {}, 'suggestions': ["Quelle est la météo aujourd'hui ?", 'Comment vas-tu ?', 'Que sais-tu faire ?', 'Quelle heure est-il ?']}
+2025-03-07 15:46:56,485 - assistant_ia.app - INFO - Réponse envoyée: Digital Factory, entreprise technologique basée au Luxembourg, conçoit des solutions numériques avancées pour aider les entreprises à innover. Spécialisée dans les agents conversationnels intelligents, les solutions SaaS et l'automatisation, elle accompagne les organisations dans leur transformation digitale, notamment dans les secteurs de la construction et de l'industrie.
+2025-03-07 15:46:56,487 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:46:56] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:47:21,637 - assistant_ia.app - INFO - Question reçue: Que sais-tu faire ?
+2025-03-07 15:47:21,640 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Que sais-tu faire ?
+2025-03-07 15:47:21,641 - nlp_engine - INFO - Analyse de la question: Que sais-tu faire ?
+2025-03-07 15:47:21,642 - nlp_engine - INFO - Aucune intention spécifique détectée pour: Que sais-tu faire ?
+2025-03-07 15:47:21,643 - nlp_engine - INFO - Intention détectée: inconnu (score: 0.3), entités: {}
+2025-03-07 15:47:21,644 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:47:21,645 - nlp_engine - INFO - Réponse générée: Je ne suis pas sûre de comprendre votre demande. Pouvez-vous reformuler ?
+2025-03-07 15:47:21,646 - nlp_engine - INFO - Suggestions générées: ["Qui t'a créé ?", 'Que sais-tu faire ?', 'Raconte-moi une blague', 'Quelle est la météo à Paris ?']
+2025-03-07 15:47:21,647 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': 'Je ne suis pas sûre de comprendre votre demande. Pouvez-vous reformuler ?', 'intention': 'inconnu', 'score': 0.3, 'entites': {}, 'suggestions': ["Qui t'a créé ?", 'Que sais-tu faire ?', 'Raconte-moi une blague', 'Quelle est la météo à Paris ?']}
+2025-03-07 15:47:21,647 - assistant_ia.app - INFO - Réponse envoyée: Je ne suis pas sûre de comprendre votre demande. Pouvez-vous reformuler ?
+2025-03-07 15:47:21,649 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:47:21] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:47:46,793 - werkzeug - INFO -  * Detected change in 'C:\\Users\\cindy\\OneDrive - Digital Factory Sàrl-s\\Bureau\\Agent Python\\reponses.py', reloading
+2025-03-07 15:47:46,867 - werkzeug - INFO -  * Restarting with stat
+2025-03-07 15:47:47,640 - nlp_engine - INFO - Module de réponses centralisées importé avec succès
+2025-03-07 15:47:47,738 - assistant_ia.agent - INFO - Locale configurée avec succès: fr_FR
+2025-03-07 15:47:47,741 - assistant_ia.agent - INFO - Agent Cindy initialisé
+2025-03-07 15:47:47,765 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 15:47:47,776 - werkzeug - INFO -  * Debugger PIN: 648-377-270
+2025-03-07 15:47:50,760 - assistant_ia.app - INFO - Question reçue: Qui t'a créé ?
+2025-03-07 15:47:50,761 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Qui t'a créé ?
+2025-03-07 15:47:50,762 - nlp_engine - INFO - Analyse de la question: Qui t'a créé ?
+2025-03-07 15:47:50,768 - nlp_engine - INFO - Question sur le créateur détectée: Qui t'a créé ?
+2025-03-07 15:47:50,769 - nlp_engine - INFO - Intention détectée: createur (score: 1.0), entités: {}
+2025-03-07 15:47:50,770 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:47:50,770 - nlp_engine - INFO - Réponse générée: Ma créatrice est Cindy Singer, une experte en intelligence artificielle travaillant chez Digital Factory. Elle s'est spécialisée dans le développement d'assistantes IA comme moi pour rendre la technologie plus accessible et utile au quotidien.
+2025-03-07 15:47:50,771 - nlp_engine - INFO - Suggestions générées: ['Comment vas-tu ?', 'Parle-moi de Digital Factory', 'Raconte-moi une blague']
+2025-03-07 15:47:50,771 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "Ma créatrice est Cindy Singer, une experte en intelligence artificielle travaillant chez Digital Factory. Elle s'est spécialisée dans le développement d'assistantes IA comme moi pour rendre la technologie plus accessible et utile au quotidien.", 'intention': 'createur', 'score': 1.0, 'entites': {}, 'suggestions': ['Comment vas-tu ?', 'Parle-moi de Digital Factory', 'Raconte-moi une blague']}
+2025-03-07 15:47:50,772 - assistant_ia.app - INFO - Réponse envoyée: Ma créatrice est Cindy Singer, une experte en intelligence artificielle travaillant chez Digital Factory. Elle s'est spécialisée dans le développement d'assistantes IA comme moi pour rendre la technologie plus accessible et utile au quotidien.
+2025-03-07 15:47:50,773 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:47:50] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:47:54,608 - assistant_ia.app - INFO - Question reçue: Comment vas-tu ?
+2025-03-07 15:47:54,611 - assistant_ia.agent - INFO - Agent Cindy analyse la question: Comment vas-tu ?
+2025-03-07 15:47:54,613 - nlp_engine - INFO - Analyse de la question: Comment vas-tu ?
+2025-03-07 15:47:54,614 - nlp_engine - INFO - Question sur le bien-être détectée: Comment vas-tu ?
+2025-03-07 15:47:54,615 - nlp_engine - INFO - Intention détectée: bien_etre (score: 1.0), entités: {}
+2025-03-07 15:47:54,616 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:47:54,617 - nlp_engine - INFO - Réponse générée: Ça va très bien, merci ! Et toi, comment se passe ta journée ?
+2025-03-07 15:47:54,618 - nlp_engine - ERROR - Erreur lors de l'obtention des suggestions centralisées: cannot access local variable 'random' where it is not associated with a value
+2025-03-07 15:47:54,620 - nlp_engine - INFO - Suggestions générées: ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]
+2025-03-07 15:47:54,622 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': 'Ça va très bien, merci ! Et toi, comment se passe ta journée ?', 'intention': 'bien_etre', 'score': 1.0, 'entites': {}, 'suggestions': ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]}
+2025-03-07 15:47:54,624 - assistant_ia.app - INFO - Réponse envoyée: Ça va très bien, merci ! Et toi, comment se passe ta journée ?
+2025-03-07 15:47:54,625 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:47:54] "POST /question HTTP/1.1" 200 -
+2025-03-07 15:48:02,057 - assistant_ia.app - INFO - Question reçue: tres bien merci
+2025-03-07 15:48:02,059 - assistant_ia.agent - INFO - Agent Cindy analyse la question: tres bien merci
+2025-03-07 15:48:02,060 - nlp_engine - INFO - Analyse de la question: tres bien merci
+2025-03-07 15:48:02,062 - nlp_engine - INFO - Réponse à une question de bien-être détectée: tres bien merci
+2025-03-07 15:48:02,063 - nlp_engine - INFO - Intention détectée: reponse_bien_etre (score: 1.0), entités: {}
+2025-03-07 15:48:02,065 - nlp_engine - INFO - Réponses obtenues depuis le module centralisé: 17 catégories
+2025-03-07 15:48:02,066 - nlp_engine - INFO - Réponse générée: C'est bien de le savoir ! N'hésite pas à me demander de l'aide si tu en as besoin.
+2025-03-07 15:48:02,067 - nlp_engine - ERROR - Erreur lors de l'obtention des suggestions centralisées: cannot access local variable 'random' where it is not associated with a value
+2025-03-07 15:48:02,068 - nlp_engine - INFO - Suggestions générées: ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]
+2025-03-07 15:48:02,069 - assistant_ia.agent - INFO - Résultat obtenu de analyser_et_repondre: {'reponse': "C'est bien de le savoir ! N'hésite pas à me demander de l'aide si tu en as besoin.", 'intention': 'reponse_bien_etre', 'score': 1.0, 'entites': {}, 'suggestions': ['Quelle heure est-il ?', 'Quelle est la météo à Paris ?', 'Comment vas-tu ?', "Qui t'a créé ?"]}
+2025-03-07 15:48:02,070 - assistant_ia.app - INFO - Réponse envoyée: C'est bien de le savoir ! N'hésite pas à me demander de l'aide si tu en as besoin.
+2025-03-07 15:48:02,071 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 15:48:02] "POST /question HTTP/1.1" 200 -
