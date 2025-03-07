@@ -7,6 +7,7 @@ import logging
 import platform
 import locale
 import datetime
+import random
 from nlp_engine import analyser_et_repondre, determiner_intention
 
 # Configurer le logger
@@ -74,6 +75,17 @@ class Agent:
             'villes_favorites': ['Paris', 'Lyon', 'Marseille']
         }
         
+        # Contexte de conversation pour rendre l'agent plus naturel
+        self.contexte_conversation = {
+            'dernier_sujet': None,
+            'dernier_sentiment': None,
+            'questions_posees': [],
+            'sujets_abordes': set(),
+            'derniere_ville_meteo': None,
+            'derniere_entite_mentionnee': None,
+            'attente_reponse': False,  # L'agent attend-il une réponse à sa propre question?
+        }
+        
         print(f"Agent {self.nom} initialisé et prêt à l'emploi!")
     
     def generer_reponse(self, question):
@@ -96,8 +108,20 @@ class Agent:
             
             # Utiliser le moteur NLP pour analyser et répondre
             logger.info(f"Agent {self.nom} analyse la question: {question}")
+            
+            # Vérifier si cette question est une réponse à une question que l'agent a posée
+            relance = self._generer_relance() if self.contexte_conversation['attente_reponse'] else None
+            self.contexte_conversation['attente_reponse'] = False  # Réinitialiser
+            
+            # Analyser la question et obtenir une réponse
             resultat = analyser_et_repondre(question)
             logger.info(f"Résultat obtenu de analyser_et_repondre: {resultat}")
+            
+            # Mettre à jour le contexte de conversation
+            self._mettre_a_jour_contexte(question, resultat)
+            
+            # Ajouter une relance ou un suivi si approprié
+            resultat = self._enrichir_reponse(resultat, relance)
             
             # Ajouter la réponse à l'historique
             self.historique.append({"type": "reponse", "contenu": resultat["reponse"], "timestamp": datetime.datetime.now()})
@@ -108,6 +132,7 @@ class Agent:
                 if ville and ville not in self.preferences_utilisateur['villes_favorites']:
                     self.preferences_utilisateur['villes_favorites'].append(ville)
                     logger.info(f"Ville ajoutée aux favoris: {ville}")
+                self.contexte_conversation['derniere_ville_meteo'] = ville
             
             return resultat
         except Exception as e:
@@ -117,6 +142,84 @@ class Agent:
                 "intention": "erreur",
                 "suggestions": ["Qui es-tu?", "Quelle heure est-il?", "Bonjour"]
             }
+    
+    def _mettre_a_jour_contexte(self, question, resultat):
+        """
+        Met à jour le contexte de conversation en fonction de la question et de la réponse.
+        
+        Args:
+            question (str): La question posée par l'utilisateur
+            resultat (dict): Le résultat de l'analyse
+        """
+        # Sauvegarder le sujet actuel
+        self.contexte_conversation['dernier_sujet'] = resultat.get('intention', 'inconnu')
+        
+        # Ajouter à la liste des sujets abordés
+        self.contexte_conversation['sujets_abordes'].add(resultat.get('intention', 'inconnu'))
+        
+        # Sauvegarder les entités mentionnées
+        if 'entites' in resultat and resultat['entites']:
+            for entite, valeur in resultat['entites'].items():
+                self.contexte_conversation['derniere_entite_mentionnee'] = (entite, valeur)
+    
+    def _enrichir_reponse(self, resultat, relance=None):
+        """
+        Enrichit la réponse avec des éléments conversationnels.
+        
+        Args:
+            resultat (dict): Le résultat original
+            relance (str): Une éventuelle relance à ajouter
+            
+        Returns:
+            dict: Le résultat enrichi
+        """
+        reponse_originale = resultat["reponse"]
+        
+        # Si on a une relance spécifique, l'utiliser
+        if relance:
+            resultat["reponse"] = f"{reponse_originale} {relance}"
+            return resultat
+        
+        # Si l'utilisateur demande la météo, proposer d'autres villes
+        if resultat["intention"] == "meteo" and random.random() < 0.5:
+            favorites = self.preferences_utilisateur['villes_favorites']
+            if len(favorites) > 1 and self.contexte_conversation.get('derniere_ville_meteo'):
+                autre_ville = random.choice([v for v in favorites if v != self.contexte_conversation['derniere_ville_meteo']])
+                resultat["reponse"] = f"{reponse_originale} Souhaitez-vous aussi connaître la météo à {autre_ville} ?"
+                self.contexte_conversation['attente_reponse'] = True
+                
+        # Si l'utilisateur n'a jamais posé de question sur un sujet intéressant, suggérer
+        sujets_manquants = set(['meteo', 'heure', 'blague', 'identite']) - self.contexte_conversation['sujets_abordes']
+        if sujets_manquants and self.nb_interactions > 2 and random.random() < 0.3:
+            sujet_suggere = random.choice(list(sujets_manquants))
+            if sujet_suggere == 'meteo':
+                ville = random.choice(self.preferences_utilisateur['villes_favorites'])
+                resultat["reponse"] = f"{reponse_originale} Au fait, souhaitez-vous connaître la météo à {ville} ?"
+            elif sujet_suggere == 'blague':
+                resultat["reponse"] = f"{reponse_originale} Je peux aussi vous raconter une blague si vous voulez !"
+            elif sujet_suggere == 'heure':
+                resultat["reponse"] = f"{reponse_originale} Avez-vous besoin de connaître l'heure ou la date ?"
+            self.contexte_conversation['attente_reponse'] = True
+            return resultat
+            
+        # Par défaut, retourner le résultat inchangé
+        return resultat
+        
+    def _generer_relance(self):
+        """
+        Génère une relance basée sur le contexte précédent.
+        
+        Returns:
+            str: Une phrase de relance
+        """
+        relances_generiques = [
+            "Puis-je vous aider avec autre chose ?",
+            "Avez-vous d'autres questions ?",
+            "Est-ce que cela répond à votre question ?",
+            "Y a-t-il autre chose que vous aimeriez savoir ?"
+        ]
+        
+        return random.choice(relances_generiques)
     
     def obtenir_historique(self, limite=10):
         """

@@ -51,7 +51,8 @@ class MeteoService:
         # Supprimer les mots qui ne sont pas des villes pour éviter les faux positifs
         mots_a_supprimer = ["quelle", "quel", "quelles", "quels", "meteo", "météo", 
                            "temps", "température", "temperature", "climat", "est", "fait",
-                           "fait-il", "pleut", "pleuvoir", "va-t-il"]
+                           "fait-il", "pleut", "pleuvoir", "va-t-il", "humidité", "taux", 
+                           "actuellement", "connaitre", "connaître", "j'aimerais", "aujourd'hui"]
         
         for mot in mots_a_supprimer:
             texte = texte.replace(f"{mot} ", " ")
@@ -73,6 +74,12 @@ class MeteoService:
         patterns = [
             # Format: "météo à Paris"
             r'(?:à|a|au|en|de|pour|sur)\s+([a-zÀ-ÿ\s\-]+)(?:\s|$|\?|\.)',
+            
+            # Format pour capturer une ville à la fin d'une phrase
+            r'(?:à|a|au|en|de|pour|sur)\s+([a-zÀ-ÿ\s\-]+)$',
+            
+            # Format pour questions sur l'humidité, la pluie, etc.
+            r'(?:humidit[ée]|pleut|pleuvoir|température|degr[ée]s).*?(?:à|a|au|en|de|pour|sur)\s+([a-zÀ-ÿ\s\-]+)(?:\s|$|\?|\.)',
             
             # Format simple pour capturer un mot qui pourrait être une ville
             r'\b([a-zÀ-ÿ\-]{3,})\b'

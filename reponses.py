@@ -68,14 +68,14 @@ def obtenir_reponses(nom_agent="Cindy"):
             "Compris ! Je suis prête à t'aider pour la suite."
         ],
         "aide": [
-            f"Je suis {nom_agent}, votre assistant IA. Je peux répondre à des questions, vous donner l'heure, la météo, raconter des blagues et discuter avec vous. Essayez de me demander 'Quelle heure est-il ?', 'Quel temps fait-il à Paris ?' ou 'Raconte-moi une blague'.",
+            f"Je suis {nom_agent}, votre assistante IA. Je peux répondre à des questions, vous donner l'heure, la météo, raconter des blagues et discuter avec vous. Essayez de me demander 'Quelle heure est-il ?', 'Quel temps fait-il à Paris ?' ou 'Raconte-moi une blague'.",
             "Je peux vous aider sur plusieurs sujets : l'heure actuelle, la météo dans différentes villes, des blagues, des informations sur moi-même. Essayez de me poser ces questions !",
             "Comment puis-je vous aider aujourd'hui ? Je peux vous donner l'heure, la météo, vous raconter une blague, ou simplement discuter avec vous. N'hésitez pas à demander !"
         ],
         "capacites": [
-            "Je peux vous donner la météo, l'heure, la date, et répondre à vos questions générales.",
-            f"Mes capacités incluent : informations météo, heure et date, assistance générale et conversation simple.",
-            "Je suis capable de vous informer sur la météo, vous donner l'heure et la date, et répondre à diverses questions."
+            "Je peux te donner la météo, l'heure, la date, et répondre à tes questions générales. Je peux aussi te raconter des blagues !",
+            "Mes capacités incluent : informations météo, heure et date, blagues, et conversations simples. Comment puis-je t'aider aujourd'hui ?",
+            "Je suis capable de t'informer sur la météo, te donner l'heure et la date, te raconter des blagues et répondre à diverses questions. N'hésite pas à me demander !"
         ],
         "identite": [
             f"Je suis {nom_agent}, votre assistante IA personnelle. Je suis là pour vous aider avec diverses questions et tâches.",
@@ -83,13 +83,11 @@ def obtenir_reponses(nom_agent="Cindy"):
             f"Je suis {nom_agent}, une assistante virtuelle développée pour vous aider. Je peux répondre à vos questions sur la météo, l'heure et bien plus encore."
         ],
         "entreprise": [
-            "Digital Factory est une entreprise innovante spécialisée dans le développement d'agents conversationnels et d'intelligences artificielles. Elle a été fondée par des experts en IA et en développement web pour créer des solutions d'assistants virtuels personnalisés comme moi.",
-            "Digital Factory est une start-up technologique qui développe des assistants IA comme moi. L'entreprise se spécialise dans la création d'agents conversationnels intelligents et personnalisables pour différents secteurs d'activité.",
-            "Digital Factory est l'entreprise qui m'a créée. C'est une société spécialisée dans le développement d'agents conversationnels innovants et d'intelligences artificielles destinées à assister les utilisateurs dans leurs tâches quotidiennes."
+            "Digital Factory , basée au Luxembourg, est une entreprise technologique visionnaire spécialisée dans les solutions SaaS destinée à faciliter la gestion administrative et la conformité dans les secteurs de la construction et de l'industrie. En misant sur l'innovation et la performance, Digital Factory accompagne les entreprises dans leur transformation digitale."
         ],
         "createur": [
             f"J'ai été conçue et programmée par Cindy Singer, une passionnée de Digital Factory. Elle a mis tout son savoir-faire pour me doter de mes capacités et de ma personnalité. Je suis en constante évolution pour mieux vous accompagner.",
-            f"Mon créateur est Cindy Singer, une experte en intelligence artificielle travaillant chez Digital Factory. Elle s'est spécialisée dans le développement d'assistantes IA comme moi pour rendre la technologie plus accessible et utile au quotidien.",
+            f"Ma créatrice est Cindy Singer, une experte en intelligence artificielle travaillant chez Digital Factory. Elle s'est spécialisée dans le développement d'assistantes IA comme moi pour rendre la technologie plus accessible et utile au quotidien.",
             f"C'est Cindy Singer qui m'a créée. Elle travaille pour Digital Factory et se passionne pour le développement d'intelligences artificielles conversationnelles. Grâce à elle, je peux répondre à vos questions et vous aider dans vos tâches."
         ],
         "fonctionnement": [
@@ -126,9 +124,13 @@ def obtenir_reponses(nom_agent="Cindy"):
             "Pourquoi les moutons aiment-ils compter les humains avant de s'endormir ? Pour rêver."
         ],
         "inconnu": [
-            "Je ne suis pas sûr(e) de comprendre votre demande. Pouvez-vous reformuler ?",
-            "Désolé(e), je n'ai pas bien saisi. Pouvez-vous préciser votre question ?",
+            "Je ne suis pas sûre de comprendre votre demande. Pouvez-vous reformuler ?",
+            "Désolée, je n'ai pas bien saisi. Pouvez-vous préciser votre question ?",
             "Je ne comprends pas complètement. Essayez de poser votre question différemment."
+        ],
+        "digital_factory": [
+           
+            "Digital Factory, entreprise technologique basée au Luxembourg, conçoit des solutions numériques avancées pour aider les entreprises à innover. Spécialisée dans les agents conversationnels intelligents, les solutions SaaS et l'automatisation, elle accompagne les organisations dans leur transformation digitale, notamment dans les secteurs de la construction et de l'industrie."
         ]
     }
 
@@ -148,100 +150,128 @@ def obtenir_suggestions(intention="inconnu"):
             "Quelle est la météo aujourd'hui ?",
             "Quelle heure est-il ?",
             "Raconte-moi une blague",
-            "Quel jour sommes-nous ?"
+            "Quel jour sommes-nous ?",
+            "Comment vas-tu ?",
+            "Qui t'a créé ?",
+            "Que sais-tu faire ?",
+            "C'est quoi Digital Factory ?",
+            "Parle-moi de Digital Factory",
+            "Comment fonctionnes-tu ?",
+            "Quelle est la météo à Nice ?",
+            "Dis-moi une blague drôle"
         ],
         "meteo": [
             "Quelle heure est-il ?",
             "Raconte-moi une blague",
+            "Comment vas-tu ?",
+            "Quelle est la météo à Paris ?",
+            "Quelle est la météo à Lyon ?",
+            "Quelle est la météo à Marseille ?",
+            "Quelle est la météo à Bordeaux ?",
+            "Comment sera la météo demain ?",
             "Qui es-tu ?",
-            "Quel jour sommes-nous ?",
-            "Comment vas-tu ?"
+            "Parle-moi de Digital Factory"
         ],
         "heure": [
-            "Quelle est la date aujourd'hui ?",
-            "Quel temps fait-il à Paris ?",
+            "Quelle est la météo aujourd'hui ?",
+            "Quel jour sommes-nous ?",
             "Raconte-moi une blague",
-            "Comment vas-tu ?"
+            "Qui t'a créé ?",
+            "Comment vas-tu ?",
+            "Quelle est la météo à Nice ?",
+            "Comment fonctionnes-tu ?",
+            "Parle-moi de Digital Factory",
+            "Que sais-tu faire ?"
         ],
         "date": [
             "Quelle heure est-il ?",
-            "Raconte-moi une blague",
-            "Qui es-tu ?",
-            "Comment vas-tu ?"
-        ],
-        "remerciement": [
-            "Puis-je te poser une autre question ?",
-            "J'aurais besoin d'autre chose",
-            "Quelle heure est-il ?",
-            "Raconte-moi une blague"
-        ],
-        "bien_etre": [
             "Quelle est la météo aujourd'hui ?",
-            "Quelle heure est-il ?",
             "Raconte-moi une blague",
-            "Quel jour sommes-nous ?"
-        ],
-        "aide": [
-            "Quelle est la météo à Paris ?",
-            "Quelle heure est-il ?",
-            "Raconte-moi une blague",
-            "Comment vas-tu ?"
-        ],
-        "capacites": [
-            "Donne-moi la météo pour Paris",
-            "Quelle heure est-il ?",
-            "Raconte-moi une blague",
-            "Quel jour sommes-nous ?"
+            "Comment vas-tu ?",
+            "Qui t'a créé ?",
+            "Parle-moi de Digital Factory",
+            "Comment fonctionnes-tu ?",
+            "Que sais-tu faire ?"
         ],
         "identite": [
-            "Quelles sont tes capacités ?",
-            "Quelle est la météo aujourd'hui ?",
-            "Raconte-moi une blague",
-            "Quelle heure est-il ?"
-        ],
-        "entreprise": [
-            "Qui t'a créée ?",
-            "Quelles sont tes capacités ?",
+            "Qui t'a créé ?",
             "Comment fonctionnes-tu ?",
-            "Raconte-moi une blague"
+            "Quel jour sommes-nous ?",
+            "Quelle heure est-il ?",
+            "Quelle est la météo aujourd'hui ?",
+            "Parle-moi de Digital Factory",
+            "Raconte-moi une blague",
+            "Que sais-tu faire ?"
         ],
         "createur": [
-            "C'est quoi Digital Factory ?",
-            "Quelles sont tes capacités ?",
             "Comment fonctionnes-tu ?",
-            "Raconte-moi une blague"
+            "Quelle heure est-il ?",
+            "Raconte-moi une blague",
+            "Quelle est la météo aujourd'hui ?",
+            "Comment vas-tu ?",
+            "Parle-moi de Digital Factory",
+            "Que sais-tu faire ?"
+        ],
+        "capacites": [
+            "Raconte-moi une blague",
+            "Quelle est la météo aujourd'hui ?",
+            "Quelle heure est-il ?",
+            "Qui t'a créé ?",
+            "Comment fonctionnes-tu ?",
+            "Parle-moi de Digital Factory",
+            "Comment vas-tu ?"
         ],
         "fonctionnement": [
-            "Comment fonctionnes-tu ?",
-            "Quelles sont tes capacités ?",
-            "Raconte-moi une blague"
-        ],
-        "reponse_bien_etre": [
+            "Qui t'a créé ?",
+            "Quelle est la météo aujourd'hui ?",
             "Quelle heure est-il ?",
-            "Quel temps fait-il à Paris ?",
             "Raconte-moi une blague",
-            "Qui t'a créé ?"
+            "Parle-moi de Digital Factory",
+            "Comment vas-tu ?",
+            "Que sais-tu faire ?"
         ],
         "blague": [
+            "Qui t'a créé ?",
+            "Comment fonctionnes-tu ?",
             "Raconte-moi une autre blague",
-            "Quelle heure est-il ?",
             "Quelle est la météo aujourd'hui ?",
-            "Comment vas-tu ?"
+            "Quelle heure est-il ?",
+            "Comment vas-tu ?",
+            "Parle-moi de Digital Factory",
+            "Que sais-tu faire ?"
         ],
         "inconnu": [
             "Quelle est la météo à Paris ?",
             "Quelle heure est-il ?",
             "Raconte-moi une blague",
-            "Comment vas-tu ?"
+            "Comment vas-tu ?",
+            "Qui t'a créé ?",
+            "Comment fonctionnes-tu ?",
+            "C'est quoi Digital Factory ?",
+            "Parle-moi de Digital Factory",
+            "Que sais-tu faire ?"
+        ],
+        "digital_factory": [
+            "Qui t'a créé ?",
+            "Comment fonctionnes-tu ?",
+            "Quels services propose Digital Factory ?",
+            "Raconte-moi une blague",
+            "Quelle est la météo aujourd'hui ?",
+            "Quelle heure est-il ?",
+            "Comment vas-tu ?",
+            "Que sais-tu faire ?"
         ]
     }
     
-    # Si l'intention est connue, retourner les suggestions correspondantes
+    # Si l'intention est connue, retourner un échantillon aléatoire de suggestions
     if intention in suggestions:
-        return suggestions[intention]
+        # Prendre 3-4 suggestions aléatoires parmi celles disponibles
+        import random
+        nombre_suggestions = random.randint(3, 4)
+        return random.sample(suggestions[intention], min(nombre_suggestions, len(suggestions[intention])))
     
-    # Sinon, retourner les suggestions par défaut
-    return suggestions["inconnu"]
+    # Sinon, retourner les suggestions par défaut (également avec un échantillon aléatoire)
+    return random.sample(suggestions["inconnu"], min(4, len(suggestions["inconnu"])))
 
 # Pour les tests
 if __name__ == "__main__":
