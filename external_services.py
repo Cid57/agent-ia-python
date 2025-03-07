@@ -475,7 +475,7 @@ class MeteoService:
     
     def formater_message_meteo(self, meteo_info):
         """
-        Formate les informations météo en un message texte élégant et moderne.
+        Formate les informations météo en un message texte simple et robuste.
         
         Args:
             meteo_info (dict): Informations météo
@@ -484,26 +484,45 @@ class MeteoService:
             str: Message formaté
         """
         if meteo_info["status"] != "success":
-            return meteo_info["message"]
+            return f"Désolé, je n'ai pas pu obtenir les informations météo pour {meteo_info.get('ville', 'cette ville')}."
         
-        # Date actuelle en français
-        aujourdhui = datetime.now().strftime("%A %d %B %Y").capitalize()
-        aujourdhui = self.traduire_date(aujourdhui)
+        # Version simple et robuste
+        icone = meteo_info.get('icone', '')
+        ville = meteo_info.get('ville', 'cette ville')
+        temperature = meteo_info.get('temperature', 'N/A')
+        description = meteo_info.get('description', 'conditions inconnues')
         
-        # Format moderne et minimaliste, inspiré des applications professionnelles
-        message = f"""
-📆  {aujourdhui}
-
-📍  {meteo_info['ville']}  {meteo_info['icone']}  {meteo_info['temperature']}°C
-    {meteo_info['description']}
-
-🌡️  Ressentie: {meteo_info['temperature_ressentie']}°C
-💦  Humidité: {meteo_info['humidite']}{meteo_info['unite_humidite']}
-💨  Vent: {meteo_info['vent']} {meteo_info['unite_vent']}
-
-⏳  Mise à jour: {meteo_info['timestamp']}
-"""
-        return message.strip()
+        # Message de base
+        message = f"{icone} À {ville}, il fait actuellement {temperature}°C ({description})."
+        
+        # Ajouter des détails si disponibles
+        if 'temperature_ressentie' in meteo_info and meteo_info['temperature_ressentie'] is not None:
+            message += f" La température ressentie est de {meteo_info['temperature_ressentie']}°C,"
+        
+        if 'humidite' in meteo_info and meteo_info['humidite'] is not None:
+            message += f" avec une humidité de {meteo_info['humidite']}%"
+        
+        if 'vent' in meteo_info and meteo_info['vent'] is not None:
+            message += f" et un vent de {meteo_info['vent']} km/h."
+        else:
+            message += "."
+            
+        # Ajouter un conseil sur le maillot de bain selon la température
+        if temperature and isinstance(temperature, (int, float)):
+            if "pluie" in description.lower() or "averse" in description.lower():
+                message += " N'oubliez pas votre parapluie si vous sortez ! Pas de maillot de bain aujourd'hui. 🌧️"
+            elif "neige" in description.lower():
+                message += " Couvrez-vous bien si vous devez sortir ! Le maillot de bain devra attendre. ❄️"
+            elif temperature > 30:
+                message += " Il fait très chaud, pensez à bien vous hydrater ! C'est le moment parfait pour le maillot de bain ! 🏊‍♀️"
+            elif temperature >= 25:
+                message += " C'est l'heure de sortir le maillot de bain ! 🏊‍♀️"
+            elif temperature < 5:
+                message += " Il fait assez froid, n'oubliez pas de vous couvrir ! Sortez le maillot de bain pour les beaux jours. 🧥"
+            else:
+                message += " Il ne fait pas encore assez chaud pour sortir le maillot de bain ! 🧥"
+                
+        return message
     
     def traduire_date(self, date_en):
         """

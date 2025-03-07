@@ -144,28 +144,50 @@ def determiner_intention(question):
         r"\bdonne[- ]moi\s+le\s+temps\b",
         r"\bdonne[- ]moi\s+la\s+m[ée]t[ée]o\b",
         r"\bhumidit[ée]\b",
-        r"\btaux\s+d['']humidit[ée]\b",
+        r"\btaux\s+d[\"']humidit[ée]\b",
         r"\bpleut\b",
         r"\bpleuvoir\b",
-        r"\best[\s-]ce\s+qu['']il\s+pleut\b",
+        r"\best[\s-]ce\s+qu[\"']il\s+pleut\b",
         r"\bcombien\s+de\s+degr[ée]s\b",
-        r"\bc[o']nna[iî]tre\s+(?:la|le)\s+(?:m[ée]t[ée]o|temps|temp[ée]rature|climat|humidit[ée])\b",
-        r"\bj['']aimerais\s+(?:conna[iî]tre|savoir)\s+(?:la|le)\s+(?:m[ée]t[ée]o|temps|temp[ée]rature|climat|humidit[ée])\b",
-        r"\bquel(?:le)?\s+est\s+(?:la|le)\s+(?:m[ée]t[ée]o|temps|temp[ée]rature|climat|humidit[ée])\b"
+        r"\bc[o\"]nna[iî]tre\s+(?:la|le)\s+(?:m[ée]t[ée]o|temps|temp[ée]rature|climat|humidit[ée])\b",
+        r"\bj[\"']aimerais\s+(?:conna[iî]tre|savoir)\s+(?:la|le)\s+(?:m[ée]t[ée]o|temps|temp[ée]rature|climat|humidit[ée])\b",
+        r"\bquel(?:le)?\s+est\s+(?:la|le)\s+(?:m[ée]t[ée]o|temps|temp[ée]rature|climat|humidit[ée])\b",
+        r"\best[\s-]ce\s+qu[\"']il\s+(fait\s+beau|pleut|neige)\b",
+        r"\by[\s-]a[\s-]t[\s-]il\s+(du\s+soleil|de\s+la\s+pluie|de\s+la\s+neige)\b",
+        r"\bfait[\s-]il\s+(beau|chaud|froid)\b",
+        r"\ba[\s-]t[\s-]il\s+(plu|neigé)\b",
+        r"\bva[\s-]t[\s-]il\s+(pleuvoir|neiger)\b"
     ]
     
     for pattern in patterns_meteo:
         if re.search(pattern, question_lower):
             # Recherche de villes
-            villes_pattern = r"\b(à|a|pour|dans|sur|en|de)\s+([A-Za-zÀ-ÿ]+(?:[-\s][A-Za-zÀ-ÿ]+)*)\b"
-            match_ville = re.search(villes_pattern, question)
+            villes_patterns = [
+                r"\b(à|a|pour|dans|sur|en|de|au)\s+([A-Za-zÀ-ÿ]+(?:[-\s][A-Za-zÀ-ÿ]+)*)\b",
+                r"\bà\s+([A-Za-zÀ-ÿ]+(?:[-\s][A-Za-zÀ-ÿ]+)*)\s*\?", # Capture "à Paris ?"
+                r"\bpleut.*?\b(à|a|en|au|aux)\s+([A-Za-zÀ-ÿ]+(?:[-\s][A-Za-zÀ-ÿ]+)*)\b", # "pleut-il à Paris"
+                r"\bfait-il\s+(?:beau|chaud|froid).*?\b(à|a|en|au|aux)\s+([A-Za-zÀ-ÿ]+(?:[-\s][A-Za-zÀ-ÿ]+)*)\b", # "fait-il beau à Paris"
+                # Nouvelle ligne pour capturer plus généralement les villes
+                r"(?:pleut|neige|beau).*?(?:à|a|en|au|dans|de)\s+([A-Za-zÀ-ÿ]+(?:[-\s][A-Za-zÀ-ÿ]+)*)"
+            ]
             
-            if match_ville:
-                ville = match_ville.group(2)
-                # Capitaliser la première lettre
-                ville = ville.strip().title()
-                entites["ville"] = ville
-                logger.info(f"Ville extraite: {ville}")
+            # Essayer tous les patterns
+            ville_trouvee = False
+            for ville_pattern in villes_patterns:
+                match_ville = re.search(ville_pattern, question)
+                if match_ville:
+                    # Si le pattern a deux groupes, prendre le deuxième (la ville)
+                    if len(match_ville.groups()) > 1:
+                        ville = match_ville.group(2)
+                    else:
+                        ville = match_ville.group(1)
+                    
+                    # Capitaliser la première lettre
+                    ville = ville.strip().title()
+                    entites["ville"] = ville
+                    logger.info(f"Ville extraite: {ville}")
+                    ville_trouvee = True
+                    break
             
             logger.info(f"Question météo détectée: {question}")
             return "meteo", 1.0, entites
@@ -496,6 +518,9 @@ def analyser_et_repondre(question):
     try:
         logger.info(f"Analyse de la question: {question}")
         
+        # Convertir la question en minuscules pour faciliter la détection
+        question_lower = question.lower()
+        
         # Déterminer l'intention de la question
         intention, score, entites = determiner_intention(question)
         logger.info(f"Intention détectée: {intention} (score: {score}), entités: {entites}")
@@ -503,89 +528,50 @@ def analyser_et_repondre(question):
         # Cas spécial pour la météo
         if intention == "meteo":
             try:
-                ville = entites.get("ville", "Paris")  # Paris par défaut
+                # Obtenir la ville (ou utiliser Paris par défaut)
+                ville = entites.get("ville", "Paris")
                 logger.info(f"Demande météo pour la ville: {ville}")
-                
-                # Détecter si la question concerne spécifiquement l'humidité ou la pluie
-                concerne_humidite = False
-                concerne_pluie = False
-                
-                if re.search(r"\b(humidit[ée]|taux\s+d[\"']humidit[ée])\b", question.lower()):
-                    concerne_humidite = True
-                    logger.info("Question spécifique sur l'humidité détectée")
-                
-                if re.search(r"\b(pleut|pleuvoir|pluie)\b", question.lower()):
-                    concerne_pluie = True
-                    logger.info("Question spécifique sur la pluie détectée")
-                
-                # Obtenir les données météo
-                meteo_data = meteo_service.obtenir_meteo_ville(ville)
-                logger.info(f"Données météo reçues: {meteo_data}")
-                
-                if meteo_data and isinstance(meteo_data, dict) and meteo_data.get("status") == "success":
-                    # Extraire les données
-                    ville_nom = meteo_data.get("ville", ville)
-                    temperature = meteo_data.get("temperature")
-                    temperature_ressentie = meteo_data.get("temperature_ressentie")
-                    humidite = meteo_data.get("humidite")
-                    vent = meteo_data.get("vent")
-                    description = meteo_data.get("description", "")
-                    icone = meteo_data.get("icone", "")
+
+                # Tentative simple d'obtention des données météo
+                try:
+                    # Déterminer si la question concerne un type spécifique de météo
+                    concerne_pluie = any(mot in question_lower for mot in ["pleut", "pluie", "pleuvoir"])
+                    concerne_neige = any(mot in question_lower for mot in ["neige", "neiger"])
+                    concerne_beau_temps = any(mot in question_lower for mot in ["beau temps", "ensoleillé", "soleil", "ciel bleu"])
                     
-                    # Réponse pour une question sur l'humidité
-                    if concerne_humidite and humidite is not None:
-                        reponse = f"{icone} À {ville_nom}, le taux d'humidité est actuellement de {humidite}%. "
-                        if temperature is not None:
-                            reponse += f"La température est de {temperature}°C."
-                        return reponse
+                    # Appel direct à la fonction obtenir_meteo - méthode simple et robuste
+                    reponse = meteo_service.obtenir_meteo(f"météo à {ville}")
                     
-                    # Réponse pour une question sur la pluie
-                    if concerne_pluie:
-                        if description and ("pluie" in description.lower() or "averse" in description.lower()):
-                            reponse = f"{icone} Oui, il pleut actuellement à {ville_nom}. {description} avec une température de {temperature}°C."
-                        else:
-                            reponse = f"{icone} Non, il ne pleut pas actuellement à {ville_nom}. {description} avec une température de {temperature}°C."
-                        return reponse
+                    # Pour les questions spécifiques, ajouter une précision
+                    if isinstance(reponse, str):
+                        if concerne_pluie and "il fait actuellement" in reponse:
+                            if "pluie" in reponse.lower() or "averse" in reponse.lower():
+                                reponse = reponse.replace("il fait actuellement", f"oui, il pleut actuellement à {ville}. Il fait")
+                            else:
+                                reponse = reponse.replace("il fait actuellement", f"non, il ne pleut pas actuellement à {ville}. Il fait")
+                                
+                        elif concerne_neige and "il fait actuellement" in reponse:
+                            if "neige" in reponse.lower():
+                                reponse = reponse.replace("il fait actuellement", f"oui, il neige actuellement à {ville}. Il fait")
+                            else:
+                                reponse = reponse.replace("il fait actuellement", f"non, il ne neige pas actuellement à {ville}. Il fait")
+                                
+                        elif concerne_beau_temps and "il fait actuellement" in reponse:
+                            if any(mot in reponse.lower() for mot in ["ensoleillé", "clair", "dégagé"]):
+                                reponse = reponse.replace("il fait actuellement", f"oui, il fait beau à {ville}. Il fait actuellement")
+                            else:
+                                reponse = reponse.replace("il fait actuellement", f"non, il ne fait pas particulièrement beau à {ville}. Il fait actuellement")
                     
-                    # Réponse complète pour les autres cas
-                    reponse = f"{icone} À {ville_nom}, il fait actuellement {temperature}°C ({description}). "
-                    if temperature_ressentie is not None:
-                        reponse += f"La température ressentie est de {temperature_ressentie}°C, "
-                    if humidite is not None:
-                        reponse += f"avec une humidité de {humidite}% "
-                    if vent is not None:
-                        reponse += f"et un vent de {vent} km/h."
-                    
-                    # Ajouter un conseil météo
-                    if description:
-                        if "pluie" in description.lower() or "averse" in description.lower():
-                            reponse += " N'oubliez pas votre parapluie si vous sortez !"
-                        elif "neige" in description.lower():
-                            reponse += " Couvrez-vous bien si vous devez sortir !"
-                        elif isinstance(temperature, (int, float)):
-                            if temperature > 30:
-                                reponse += " Il fait très chaud, pensez à bien vous hydrater !"
-                            elif temperature < 5:
-                                reponse += " Il fait assez froid, n'oubliez pas de vous couvrir !"
-                elif meteo_data and isinstance(meteo_data, dict):
-                    # Format de secours simplifié
-                    temperature = meteo_data.get("temperature")
-                    condition = meteo_data.get("condition", meteo_data.get("description", "conditions inconnues"))
-                    reponse = f"À {ville}, il fait actuellement {temperature}°C avec {condition}."
-                else:
-                    # Fallback ultime
-                    try:
-                        texte_meteo = meteo_service.obtenir_meteo(f"météo à {ville}")
-                        if texte_meteo and isinstance(texte_meteo, str):
-                            reponse = texte_meteo
-                        else:
-                            reponse = f"Je n'ai pas pu obtenir les informations météo pour {ville}."
-                    except Exception as e:
-                        logger.error(f"Erreur dans le fallback météo: {str(e)}")
-                        reponse = f"Je n'ai pas pu obtenir les informations météo pour {ville}."
+                    # S'assurer que la réponse est une chaîne de caractères
+                    if not isinstance(reponse, str):
+                        reponse = f"À {ville}, les informations météo ne sont pas disponibles actuellement."
+                        logger.error(f"La réponse météo n'est pas au format attendu: {reponse}")
+                except Exception as e:
+                    logger.error(f"Erreur lors de l'obtention de la météo via obtenir_meteo: {str(e)}")
+                    reponse = f"Désolé, je n'ai pas pu obtenir les informations météo pour {ville} en ce moment. Veuillez réessayer plus tard."
             except Exception as e:
-                logger.error(f"Erreur lors de la récupération de la météo: {str(e)}")
-                reponse = f"Je n'ai pas pu obtenir les informations météo. Veuillez réessayer plus tard."
+                logger.error(f"Erreur générale dans le traitement météo: {str(e)}")
+                reponse = "Une erreur est survenue lors du traitement de votre demande météo. Veuillez réessayer plus tard."
         else:
             # Générer une réponse pour les autres intentions
             reponse = generer_reponse_simple(intention, entites)
